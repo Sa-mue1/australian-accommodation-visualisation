@@ -20,3 +20,9 @@ vegaEmbed(
   "international_state_recovery.vg.json",
   embedOptions
 ).catch(console.error);
+
+vegaEmbed(
+  "#short-term-rental-map",
+  "short_term_rental_symbols.vg.json",
+  embedOptions
+).catch(console.error);

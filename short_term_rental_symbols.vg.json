@@ -1,0 +1,314 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Short-term rentals concentrate in inner Sydney and Melbourne",
+    "subtitle": "Circle area represents listing count; colour represents median nightly price",
+    "anchor": "start",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#555"
+  },
+  "hconcat": [
+    {
+      "title": {
+        "text": "Sydney region",
+        "fontSize": 14
+      },
+      "width": 330,
+      "height": 400,
+      "projection": {
+        "type": "mercator",
+        "center": [150.99, -33.75],
+        "scale": 18000,
+        "translate": [165, 200]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "data/geo/australian_states.topojson",
+            "format": {
+              "type": "topojson",
+              "feature": "STE_2021_AUST_GDA2020"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.properties.STE_NAME21 == 'New South Wales'"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "fill": "#f2f0ea",
+            "stroke": "#777777",
+            "strokeWidth": 0.8,
+            "clip": true
+          }
+        },
+        {
+          "data": {
+            "url": "data/short_term_rental_listings.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "latitude": "number",
+                "longitude": "number",
+                "price_aud": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.city == 'Sydney'"
+            },
+            {
+              "aggregate": [
+                {
+                  "op": "count",
+                  "as": "listing_count"
+                },
+                {
+                  "op": "mean",
+                  "field": "latitude",
+                  "as": "mean_latitude"
+                },
+                {
+                  "op": "mean",
+                  "field": "longitude",
+                  "as": "mean_longitude"
+                },
+                {
+                  "op": "median",
+                  "field": "price_aud",
+                  "as": "median_price"
+                }
+              ],
+              "groupby": [
+                "city",
+                "neighbourhood"
+              ]
+            }
+          ],
+          "mark": {
+            "type": "circle",
+            "opacity": 0.78,
+            "stroke": "white",
+            "strokeWidth": 0.8
+          },
+          "encoding": {
+            "longitude": {
+              "field": "mean_longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "mean_latitude",
+              "type": "quantitative"
+            },
+            "size": {
+              "field": "listing_count",
+              "type": "quantitative",
+              "title": "Number of listings",
+              "scale": {
+                "type": "sqrt",
+                "domain": [0, 8500],
+                "range": [20, 1800]
+              }
+            },
+            "color": {
+              "field": "median_price",
+              "type": "quantitative",
+              "title": "Median nightly price (AUD)",
+              "scale": {
+                "scheme": "blues",
+                "domain": [100, 650],
+                "clamp": true
+              }
+            },
+            "tooltip": [
+              {
+                "field": "city",
+                "type": "nominal",
+                "title": "City"
+              },
+              {
+                "field": "neighbourhood",
+                "type": "nominal",
+                "title": "Neighbourhood"
+              },
+              {
+                "field": "listing_count",
+                "type": "quantitative",
+                "title": "Listings",
+                "format": ","
+              },
+              {
+                "field": "median_price",
+                "type": "quantitative",
+                "title": "Median nightly price",
+                "format": "$,.0f"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "text": "Melbourne region",
+        "fontSize": 14
+      },
+      "width": 330,
+      "height": 400,
+      "projection": {
+        "type": "mercator",
+        "center": [145.16, -37.86],
+        "scale": 9000,
+        "translate": [165, 200]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "data/geo/australian_states.topojson",
+            "format": {
+              "type": "topojson",
+              "feature": "STE_2021_AUST_GDA2020"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.properties.STE_NAME21 == 'Victoria'"
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "fill": "#f2f0ea",
+            "stroke": "#777777",
+            "strokeWidth": 0.8,
+            "clip": true
+          }
+        },
+        {
+          "data": {
+            "url": "data/short_term_rental_listings.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "latitude": "number",
+                "longitude": "number",
+                "price_aud": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.city == 'Melbourne'"
+            },
+            {
+              "aggregate": [
+                {
+                  "op": "count",
+                  "as": "listing_count"
+                },
+                {
+                  "op": "mean",
+                  "field": "latitude",
+                  "as": "mean_latitude"
+                },
+                {
+                  "op": "mean",
+                  "field": "longitude",
+                  "as": "mean_longitude"
+                },
+                {
+                  "op": "median",
+                  "field": "price_aud",
+                  "as": "median_price"
+                }
+              ],
+              "groupby": [
+                "city",
+                "neighbourhood"
+              ]
+            }
+          ],
+          "mark": {
+            "type": "circle",
+            "opacity": 0.78,
+            "stroke": "white",
+            "strokeWidth": 0.8
+          },
+          "encoding": {
+            "longitude": {
+              "field": "mean_longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "mean_latitude",
+              "type": "quantitative"
+            },
+            "size": {
+              "field": "listing_count",
+              "type": "quantitative",
+              "title": "Number of listings",
+              "scale": {
+                "type": "sqrt",
+                "domain": [0, 8500],
+                "range": [20, 1800]
+              }
+            },
+            "color": {
+              "field": "median_price",
+              "type": "quantitative",
+              "title": "Median nightly price (AUD)",
+              "scale": {
+                "scheme": "blues",
+                "domain": [100, 650],
+                "clamp": true
+              }
+            },
+            "tooltip": [
+              {
+                "field": "city",
+                "type": "nominal",
+                "title": "City"
+              },
+              {
+                "field": "neighbourhood",
+                "type": "nominal",
+                "title": "Neighbourhood"
+              },
+              {
+                "field": "listing_count",
+                "type": "quantitative",
+                "title": "Listings",
+                "format": ","
+              },
+              {
+                "field": "median_price",
+                "type": "quantitative",
+                "title": "Median nightly price",
+                "format": "$,.0f"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "size": "shared",
+      "color": "shared"
+    }
+  },
+  "config": {
+    "background": "white",
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "orient": "bottom"
+    }
+  }
+}
