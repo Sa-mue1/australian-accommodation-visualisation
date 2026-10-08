@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Australian Accommodation and Tourism</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <script src="vega_lite_vis.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Australian accommodation, 2019–2026</p>
+      <h1>How evenly has accommodation demand recovered?</h1>
+      <p class="introduction">
+        Australia’s accommodation recovery differed by accommodation type,
+        location and season.
+      </p>
+    </header>
+
+    <section class="chart-card">
+      <div id="domestic-recovery" class="chart"></div>
+
+      <p class="chart-note">
+        The index compares each accommodation type with its own 2019 level.
+        A value of 100 means visitor nights have returned to the 2019 level.
+      </p>
+    </section>
+
+    <aside class="method-note">
+      <strong>Series break:</strong> the National Visitor Survey ended in
+      December 2024. Domestic Tourism Statistics began in 2025 using a new
+      collection method, so the two series should not be connected directly.
+    </aside>
+
+    <section class="chart-card">
+      <div id="domestic-quarters" class="chart"></div>
+
+      <p class="chart-note">
+        Darker cells represent more visitor nights. Values are displayed
+        directly so the chart does not depend only on colour.
+      </p>
+    </section>
+  </main>
+</body>
+
+</html>

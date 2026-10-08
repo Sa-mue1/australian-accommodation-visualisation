@@ -1,0 +1,156 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Domestic travel peaks differ across states",
+    "subtitle": [
+      "Quarterly domestic visitor nights ('000)",
+      "Domestic Tourism Statistics, June 2025–June 2026"
+    ],
+    "anchor": "start",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "offset": 16
+  },
+  "data": {
+    "url": "data/domestic_state_quarters.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "value": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.metric === 'visitor_nights_thousand'"
+    },
+    {
+      "filter": "datum.state_code !== 'AUS'"
+    }
+  ],
+  "width": {
+    "step": 135
+  },
+  "height": {
+    "step": 42
+  },
+  "encoding": {
+    "x": {
+      "field": "period",
+      "type": "nominal",
+      "sort": [
+        "June quarter 2025",
+        "September quarter 2025",
+        "December quarter 2025",
+        "March quarter 2026",
+        "June quarter 2026"
+      ],
+      "axis": {
+        "title": null,
+        "labelAngle": 0,
+        "labelLimit": 135
+      }
+    },
+    "y": {
+      "field": "state_or_territory",
+      "type": "nominal",
+      "sort": [
+        "New South Wales",
+        "Victoria",
+        "Queensland",
+        "Western Australia",
+        "South Australia",
+        "Tasmania",
+        "Northern Territory",
+        "Australian Capital Territory"
+      ],
+      "axis": {
+        "title": null,
+        "labelLimit": 190
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "cornerRadius": 3,
+        "stroke": "white",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "Nights ('000)",
+          "scale": {
+            "type": "sqrt",
+            "range": [
+              "#EDF8F5",
+              "#B2E2E2",
+              "#66C2A4",
+              "#2CA25F",
+              "#006D2C"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state_or_territory",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "period",
+            "type": "nominal",
+            "title": "Quarter"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Visitor nights ('000)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "value",
+          "type": "quantitative",
+          "format": ",.0f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.value >= 18000",
+            "value": "white"
+          },
+          "value": "#263238"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Arial",
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "domain": false,
+      "ticks": false
+    },
+    "legend": {
+      "titleFontSize": 12,
+      "labelFontSize": 11,
+      "gradientLength": 180
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

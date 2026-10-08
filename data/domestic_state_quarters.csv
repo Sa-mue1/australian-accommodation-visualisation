@@ -1,0 +1,136 @@
+state_code,state_or_territory,period,period_end,metric,value,unit,data_status
+NSW,New South Wales,June quarter 2025,30/6/2025,overnight_trips_thousand,9483.469,thousand trips,published
+NSW,New South Wales,September quarter 2025,30/9/2025,overnight_trips_thousand,9156.015,thousand trips,published
+NSW,New South Wales,December quarter 2025,31/12/2025,overnight_trips_thousand,10569.738,thousand trips,published
+NSW,New South Wales,March quarter 2026,31/3/2026,overnight_trips_thousand,10112.189,thousand trips,published
+NSW,New South Wales,June quarter 2026,30/6/2026,overnight_trips_thousand,9362.28,thousand trips,published
+VIC,Victoria,June quarter 2025,30/6/2025,overnight_trips_thousand,7497.05,thousand trips,published
+VIC,Victoria,September quarter 2025,30/9/2025,overnight_trips_thousand,7191.996,thousand trips,published
+VIC,Victoria,December quarter 2025,31/12/2025,overnight_trips_thousand,8043.486,thousand trips,published
+VIC,Victoria,March quarter 2026,31/3/2026,overnight_trips_thousand,8457.535,thousand trips,published
+VIC,Victoria,June quarter 2026,30/6/2026,overnight_trips_thousand,7301.035,thousand trips,published
+QLD,Queensland,June quarter 2025,30/6/2025,overnight_trips_thousand,6474.587,thousand trips,published
+QLD,Queensland,September quarter 2025,30/9/2025,overnight_trips_thousand,6738.266,thousand trips,published
+QLD,Queensland,December quarter 2025,31/12/2025,overnight_trips_thousand,6772.215,thousand trips,published
+QLD,Queensland,March quarter 2026,31/3/2026,overnight_trips_thousand,6142.903,thousand trips,published
+QLD,Queensland,June quarter 2026,30/6/2026,overnight_trips_thousand,6358.56,thousand trips,published
+SA,South Australia,June quarter 2025,30/6/2025,overnight_trips_thousand,1911.341,thousand trips,published
+SA,South Australia,September quarter 2025,30/9/2025,overnight_trips_thousand,1750.964,thousand trips,published
+SA,South Australia,December quarter 2025,31/12/2025,overnight_trips_thousand,2049.879,thousand trips,published
+SA,South Australia,March quarter 2026,31/3/2026,overnight_trips_thousand,2079.114,thousand trips,published
+SA,South Australia,June quarter 2026,30/6/2026,overnight_trips_thousand,1828.237,thousand trips,published
+WA,Western Australia,June quarter 2025,30/6/2025,overnight_trips_thousand,2464.542,thousand trips,published
+WA,Western Australia,September quarter 2025,30/9/2025,overnight_trips_thousand,2420.925,thousand trips,published
+WA,Western Australia,December quarter 2025,31/12/2025,overnight_trips_thousand,2563.032,thousand trips,published
+WA,Western Australia,March quarter 2026,31/3/2026,overnight_trips_thousand,2538.311,thousand trips,published
+WA,Western Australia,June quarter 2026,30/6/2026,overnight_trips_thousand,2410.636,thousand trips,published
+TAS,Tasmania,June quarter 2025,30/6/2025,overnight_trips_thousand,698.91,thousand trips,published
+TAS,Tasmania,September quarter 2025,30/9/2025,overnight_trips_thousand,643.022,thousand trips,published
+TAS,Tasmania,December quarter 2025,31/12/2025,overnight_trips_thousand,757.187,thousand trips,published
+TAS,Tasmania,March quarter 2026,31/3/2026,overnight_trips_thousand,865.391,thousand trips,published
+TAS,Tasmania,June quarter 2026,30/6/2026,overnight_trips_thousand,677.688,thousand trips,published
+NT,Northern Territory,June quarter 2025,30/6/2025,overnight_trips_thousand,275.587,thousand trips,published
+NT,Northern Territory,September quarter 2025,30/9/2025,overnight_trips_thousand,327.549,thousand trips,published
+NT,Northern Territory,December quarter 2025,31/12/2025,overnight_trips_thousand,214.038,thousand trips,published
+NT,Northern Territory,March quarter 2026,31/3/2026,overnight_trips_thousand,167.712,thousand trips,published
+NT,Northern Territory,June quarter 2026,30/6/2026,overnight_trips_thousand,276.477,thousand trips,published
+ACT,Australian Capital Territory,June quarter 2025,30/6/2025,overnight_trips_thousand,531.266,thousand trips,published
+ACT,Australian Capital Territory,September quarter 2025,30/9/2025,overnight_trips_thousand,588.204,thousand trips,published
+ACT,Australian Capital Territory,December quarter 2025,31/12/2025,overnight_trips_thousand,585.714,thousand trips,published
+ACT,Australian Capital Territory,March quarter 2026,31/3/2026,overnight_trips_thousand,542.046,thousand trips,published
+ACT,Australian Capital Territory,June quarter 2026,30/6/2026,overnight_trips_thousand,504.917,thousand trips,published
+AUS,Australia,June quarter 2025,30/6/2025,overnight_trips_thousand,27641.983,thousand trips,published
+AUS,Australia,September quarter 2025,30/9/2025,overnight_trips_thousand,27013.474,thousand trips,published
+AUS,Australia,December quarter 2025,31/12/2025,overnight_trips_thousand,29537.54,thousand trips,published
+AUS,Australia,March quarter 2026,31/3/2026,overnight_trips_thousand,28867.674,thousand trips,published
+AUS,Australia,June quarter 2026,30/6/2026,overnight_trips_thousand,27081.04,thousand trips,published
+NSW,New South Wales,June quarter 2025,30/6/2025,visitor_nights_thousand,27613.92,thousand nights,published
+NSW,New South Wales,September quarter 2025,30/9/2025,visitor_nights_thousand,26456.679,thousand nights,published
+NSW,New South Wales,December quarter 2025,31/12/2025,visitor_nights_thousand,31126.402,thousand nights,published
+NSW,New South Wales,March quarter 2026,31/3/2026,visitor_nights_thousand,33853.726,thousand nights,published
+NSW,New South Wales,June quarter 2026,30/6/2026,visitor_nights_thousand,27718.278,thousand nights,published
+VIC,Victoria,June quarter 2025,30/6/2025,visitor_nights_thousand,20486.979,thousand nights,published
+VIC,Victoria,September quarter 2025,30/9/2025,visitor_nights_thousand,18961.228,thousand nights,published
+VIC,Victoria,December quarter 2025,31/12/2025,visitor_nights_thousand,21450.006,thousand nights,published
+VIC,Victoria,March quarter 2026,31/3/2026,visitor_nights_thousand,25946.169,thousand nights,published
+VIC,Victoria,June quarter 2026,30/6/2026,visitor_nights_thousand,20134.449,thousand nights,published
+QLD,Queensland,June quarter 2025,30/6/2025,visitor_nights_thousand,21782.211,thousand nights,published
+QLD,Queensland,September quarter 2025,30/9/2025,visitor_nights_thousand,24305.39,thousand nights,published
+QLD,Queensland,December quarter 2025,31/12/2025,visitor_nights_thousand,23303.229,thousand nights,published
+QLD,Queensland,March quarter 2026,31/3/2026,visitor_nights_thousand,22781.939,thousand nights,published
+QLD,Queensland,June quarter 2026,30/6/2026,visitor_nights_thousand,21612.992,thousand nights,published
+SA,South Australia,June quarter 2025,30/6/2025,visitor_nights_thousand,6216.249,thousand nights,published
+SA,South Australia,September quarter 2025,30/9/2025,visitor_nights_thousand,5428.122,thousand nights,published
+SA,South Australia,December quarter 2025,31/12/2025,visitor_nights_thousand,6426.621,thousand nights,published
+SA,South Australia,March quarter 2026,31/3/2026,visitor_nights_thousand,7437.546,thousand nights,published
+SA,South Australia,June quarter 2026,30/6/2026,visitor_nights_thousand,5909.64,thousand nights,published
+WA,Western Australia,June quarter 2025,30/6/2025,visitor_nights_thousand,8586.518,thousand nights,published
+WA,Western Australia,September quarter 2025,30/9/2025,visitor_nights_thousand,8562.143,thousand nights,published
+WA,Western Australia,December quarter 2025,31/12/2025,visitor_nights_thousand,8805.121,thousand nights,published
+WA,Western Australia,March quarter 2026,31/3/2026,visitor_nights_thousand,9620.765,thousand nights,published
+WA,Western Australia,June quarter 2026,30/6/2026,visitor_nights_thousand,8543.673,thousand nights,published
+TAS,Tasmania,June quarter 2025,30/6/2025,visitor_nights_thousand,2502.018,thousand nights,published
+TAS,Tasmania,September quarter 2025,30/9/2025,visitor_nights_thousand,2127.16,thousand nights,published
+TAS,Tasmania,December quarter 2025,31/12/2025,visitor_nights_thousand,2613.117,thousand nights,published
+TAS,Tasmania,March quarter 2026,31/3/2026,visitor_nights_thousand,3491.25,thousand nights,published
+TAS,Tasmania,June quarter 2026,30/6/2026,visitor_nights_thousand,2448.583,thousand nights,published
+NT,Northern Territory,June quarter 2025,30/6/2025,visitor_nights_thousand,1097.506,thousand nights,published
+NT,Northern Territory,September quarter 2025,30/9/2025,visitor_nights_thousand,1580.932,thousand nights,published
+NT,Northern Territory,December quarter 2025,31/12/2025,visitor_nights_thousand,841.555,thousand nights,published
+NT,Northern Territory,March quarter 2026,31/3/2026,visitor_nights_thousand,646.938,thousand nights,published
+NT,Northern Territory,June quarter 2026,30/6/2026,visitor_nights_thousand,1159.907,thousand nights,published
+ACT,Australian Capital Territory,June quarter 2025,30/6/2025,visitor_nights_thousand,1493.256,thousand nights,published
+ACT,Australian Capital Territory,September quarter 2025,30/9/2025,visitor_nights_thousand,1529.473,thousand nights,published
+ACT,Australian Capital Territory,December quarter 2025,31/12/2025,visitor_nights_thousand,1611.436,thousand nights,published
+ACT,Australian Capital Territory,March quarter 2026,31/3/2026,visitor_nights_thousand,1626.181,thousand nights,published
+ACT,Australian Capital Territory,June quarter 2026,30/6/2026,visitor_nights_thousand,1461.428,thousand nights,published
+AUS,Australia,June quarter 2025,30/6/2025,visitor_nights_thousand,90498.16,thousand nights,published
+AUS,Australia,September quarter 2025,30/9/2025,visitor_nights_thousand,89380.101,thousand nights,published
+AUS,Australia,December quarter 2025,31/12/2025,visitor_nights_thousand,96177.487,thousand nights,published
+AUS,Australia,March quarter 2026,31/3/2026,visitor_nights_thousand,105590.167,thousand nights,published
+AUS,Australia,June quarter 2026,30/6/2026,visitor_nights_thousand,89041.71,thousand nights,published
+NSW,New South Wales,June quarter 2025,30/6/2025,regional_expenditure_million_aud,7132.534,AUD million,published
+NSW,New South Wales,September quarter 2025,30/9/2025,regional_expenditure_million_aud,7061.079,AUD million,published
+NSW,New South Wales,December quarter 2025,31/12/2025,regional_expenditure_million_aud,8263.313,AUD million,published
+NSW,New South Wales,March quarter 2026,31/3/2026,regional_expenditure_million_aud,8835.796,AUD million,published
+NSW,New South Wales,June quarter 2026,30/6/2026,regional_expenditure_million_aud,7519.719,AUD million,published
+VIC,Victoria,June quarter 2025,30/6/2025,regional_expenditure_million_aud,5393.804,AUD million,published
+VIC,Victoria,September quarter 2025,30/9/2025,regional_expenditure_million_aud,5108.594,AUD million,published
+VIC,Victoria,December quarter 2025,31/12/2025,regional_expenditure_million_aud,5707.574,AUD million,published
+VIC,Victoria,March quarter 2026,31/3/2026,regional_expenditure_million_aud,7081.746,AUD million,published
+VIC,Victoria,June quarter 2026,30/6/2026,regional_expenditure_million_aud,5597.621,AUD million,published
+QLD,Queensland,June quarter 2025,30/6/2025,regional_expenditure_million_aud,6556.309,AUD million,published
+QLD,Queensland,September quarter 2025,30/9/2025,regional_expenditure_million_aud,7184.747,AUD million,published
+QLD,Queensland,December quarter 2025,31/12/2025,regional_expenditure_million_aud,6957.188,AUD million,published
+QLD,Queensland,March quarter 2026,31/3/2026,regional_expenditure_million_aud,6672.13,AUD million,published
+QLD,Queensland,June quarter 2026,30/6/2026,regional_expenditure_million_aud,6363.364,AUD million,published
+SA,South Australia,June quarter 2025,30/6/2025,regional_expenditure_million_aud,1531.741,AUD million,published
+SA,South Australia,September quarter 2025,30/9/2025,regional_expenditure_million_aud,1439.98,AUD million,published
+SA,South Australia,December quarter 2025,31/12/2025,regional_expenditure_million_aud,1733.669,AUD million,published
+SA,South Australia,March quarter 2026,31/3/2026,regional_expenditure_million_aud,2003.965,AUD million,published
+SA,South Australia,June quarter 2026,30/6/2026,regional_expenditure_million_aud,1799.386,AUD million,published
+WA,Western Australia,June quarter 2025,30/6/2025,regional_expenditure_million_aud,2706.545,AUD million,published
+WA,Western Australia,September quarter 2025,30/9/2025,regional_expenditure_million_aud,2789.384,AUD million,published
+WA,Western Australia,December quarter 2025,31/12/2025,regional_expenditure_million_aud,2867.25,AUD million,published
+WA,Western Australia,March quarter 2026,31/3/2026,regional_expenditure_million_aud,3012.733,AUD million,published
+WA,Western Australia,June quarter 2026,30/6/2026,regional_expenditure_million_aud,2789.042,AUD million,published
+TAS,Tasmania,June quarter 2025,30/6/2025,regional_expenditure_million_aud,712.786,AUD million,published
+TAS,Tasmania,September quarter 2025,30/9/2025,regional_expenditure_million_aud,608.996,AUD million,published
+TAS,Tasmania,December quarter 2025,31/12/2025,regional_expenditure_million_aud,809.602,AUD million,published
+TAS,Tasmania,March quarter 2026,31/3/2026,regional_expenditure_million_aud,1178.493,AUD million,published
+TAS,Tasmania,June quarter 2026,30/6/2026,regional_expenditure_million_aud,710.005,AUD million,published
+NT,Northern Territory,June quarter 2025,30/6/2025,regional_expenditure_million_aud,462.463,AUD million,published
+NT,Northern Territory,September quarter 2025,30/9/2025,regional_expenditure_million_aud,628.984,AUD million,published
+NT,Northern Territory,December quarter 2025,31/12/2025,regional_expenditure_million_aud,386.857,AUD million,published
+NT,Northern Territory,March quarter 2026,31/3/2026,regional_expenditure_million_aud,317.135,AUD million,published
+NT,Northern Territory,June quarter 2026,30/6/2026,regional_expenditure_million_aud,452.726,AUD million,published
+ACT,Australian Capital Territory,June quarter 2025,30/6/2025,regional_expenditure_million_aud,500.417,AUD million,published
+ACT,Australian Capital Territory,September quarter 2025,30/9/2025,regional_expenditure_million_aud,507.129,AUD million,published
+ACT,Australian Capital Territory,December quarter 2025,31/12/2025,regional_expenditure_million_aud,548.783,AUD million,published
+ACT,Australian Capital Territory,March quarter 2026,31/3/2026,regional_expenditure_million_aud,594.928,AUD million,published
+ACT,Australian Capital Territory,June quarter 2026,30/6/2026,regional_expenditure_million_aud,499.687,AUD million,published
+AUS,Australia,June quarter 2025,30/6/2025,regional_expenditure_million_aud,25193.517,AUD million,published
+AUS,Australia,September quarter 2025,30/9/2025,regional_expenditure_million_aud,25414.479,AUD million,published
+AUS,Australia,December quarter 2025,31/12/2025,regional_expenditure_million_aud,27274.237,AUD million,published
+AUS,Australia,March quarter 2026,31/3/2026,regional_expenditure_million_aud,29713.761,AUD million,published
+AUS,Australia,June quarter 2026,30/6/2026,regional_expenditure_million_aud,25733.608,AUD million,published
