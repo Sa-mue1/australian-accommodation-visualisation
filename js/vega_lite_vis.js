@@ -18,5 +18,5 @@ vegaEmbed(
 vegaEmbed(
   "#international-state-map",
   "international_state_recovery.vg.json",
-  { actions: true }
+  embedOptions
 ).catch(console.error);
