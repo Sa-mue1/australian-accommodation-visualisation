@@ -1,0 +1,106 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 480,
+  "title": {
+    "text": "International recovery differs across Australia",
+    "subtitle": [
+      "Change in international visitor nights,",
+      "year ending June 2025–June 2026"
+    ],
+    "anchor": "start"
+  },
+
+  "data": {
+    "url": "data/international_states.csv"
+  },
+
+  "transform": [
+    {
+      "filter": "datum.period === 'Year ending June 2026' && datum.metric === 'nights_thousand'"
+    },
+    {
+      "calculate": "datum.value - datum.change_from_2025",
+      "as": "nights_2025"
+    },
+    {
+      "lookup": "state_or_territory",
+      "from": {
+        "data": {
+          "url": "data/geo/australian_states.topojson",
+          "format": {
+            "type": "topojson",
+            "feature": "STE_2021_AUST_GDA2020"
+          }
+        },
+        "key": "properties.STE_NAME21"
+      },
+      "as": "geo"
+    }
+  ],
+
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [-18, -36],
+    "rotate": [-132, 0, 0]
+  },
+
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 1
+  },
+
+  "encoding": {
+    "shape": {
+      "field": "geo",
+      "type": "geojson"
+    },
+
+    "color": {
+      "field": "percent_change_from_2025",
+      "type": "quantitative",
+      "title": "Change from 2025 (%)",
+      "scale": {
+        "domainMid": 0,
+        "scheme": "redblue"
+      }
+    },
+
+    "tooltip": [
+      {
+        "field": "state_or_territory",
+        "type": "nominal",
+        "title": "State or territory"
+      },
+      {
+        "field": "nights_2025",
+        "type": "quantitative",
+        "title": "2025 nights ('000)",
+        "format": ",.0f"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "2026 nights ('000)",
+        "format": ",.0f"
+      },
+      {
+        "field": "percent_change_from_2025",
+        "type": "quantitative",
+        "title": "Change",
+        "format": ".1f"
+      }
+    ]
+  },
+
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "titleFontSize": 12,
+      "labelFontSize": 11
+    }
+  }
+}

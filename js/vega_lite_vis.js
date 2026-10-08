@@ -14,3 +14,9 @@ vegaEmbed(
   "domestic_state_quarters.vg.json",
   embedOptions
 ).catch(console.error);
+
+vegaEmbed(
+  "#international-state-map",
+  "international_state_recovery.vg.json",
+  { actions: true }
+).catch(console.error);

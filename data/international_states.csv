@@ -1,0 +1,49 @@
+state_code,state_or_territory,period,period_end,metric,value,unit,change_from_2025,percent_change_from_2025
+NSW,New South Wales,Year ending June 2025,30/6/2025,trips_thousand,3901.876,thousand trips,,
+NSW,New South Wales,Year ending June 2026,30/6/2026,trips_thousand,4129.959,thousand trips,228.084,5.85
+NSW,New South Wales,Year ending June 2025,30/6/2025,nights_thousand,101841.592,thousand nights,,
+NSW,New South Wales,Year ending June 2026,30/6/2026,nights_thousand,106575.034,thousand nights,4733.442,4.65
+NSW,New South Wales,Year ending June 2025,30/6/2025,regional_expenditure_million_aud,13149.644,AUD million,,
+NSW,New South Wales,Year ending June 2026,30/6/2026,regional_expenditure_million_aud,15056.342,AUD million,1906.698,14.5
+VIC,Victoria,Year ending June 2025,30/6/2025,trips_thousand,2776.348,thousand trips,,
+VIC,Victoria,Year ending June 2026,30/6/2026,trips_thousand,2837.859,thousand trips,61.511,2.22
+VIC,Victoria,Year ending June 2025,30/6/2025,nights_thousand,81054.142,thousand nights,,
+VIC,Victoria,Year ending June 2026,30/6/2026,nights_thousand,79689.175,thousand nights,-1364.966,-1.68
+VIC,Victoria,Year ending June 2025,30/6/2025,regional_expenditure_million_aud,9297.899,AUD million,,
+VIC,Victoria,Year ending June 2026,30/6/2026,regional_expenditure_million_aud,10501.938,AUD million,1204.039,12.95
+QLD,Queensland,Year ending June 2025,30/6/2025,trips_thousand,2182.517,thousand trips,,
+QLD,Queensland,Year ending June 2026,30/6/2026,trips_thousand,2413.933,thousand trips,231.416,10.6
+QLD,Queensland,Year ending June 2025,30/6/2025,nights_thousand,52074.757,thousand nights,,
+QLD,Queensland,Year ending June 2026,30/6/2026,nights_thousand,62199.456,thousand nights,10124.699,19.44
+QLD,Queensland,Year ending June 2025,30/6/2025,regional_expenditure_million_aud,6334.38,AUD million,,
+QLD,Queensland,Year ending June 2026,30/6/2026,regional_expenditure_million_aud,8130.302,AUD million,1795.923,28.35
+SA,South Australia,Year ending June 2025,30/6/2025,trips_thousand,434.702,thousand trips,,
+SA,South Australia,Year ending June 2026,30/6/2026,trips_thousand,443.488,thousand trips,8.786,2.02
+SA,South Australia,Year ending June 2025,30/6/2025,nights_thousand,15233.056,thousand nights,,
+SA,South Australia,Year ending June 2026,30/6/2026,nights_thousand,13947.36,thousand nights,-1285.697,-8.44
+SA,South Australia,Year ending June 2025,30/6/2025,regional_expenditure_million_aud,1579.493,AUD million,,
+SA,South Australia,Year ending June 2026,30/6/2026,regional_expenditure_million_aud,1679.604,AUD million,100.111,6.34
+WA,Western Australia,Year ending June 2025,30/6/2025,trips_thousand,941.15,thousand trips,,
+WA,Western Australia,Year ending June 2026,30/6/2026,trips_thousand,1075.185,thousand trips,134.035,14.24
+WA,Western Australia,Year ending June 2025,30/6/2025,nights_thousand,35818.952,thousand nights,,
+WA,Western Australia,Year ending June 2026,30/6/2026,nights_thousand,38060.211,thousand nights,2241.259,6.26
+WA,Western Australia,Year ending June 2025,30/6/2025,regional_expenditure_million_aud,3048.334,AUD million,,
+WA,Western Australia,Year ending June 2026,30/6/2026,regional_expenditure_million_aud,3209.718,AUD million,161.383,5.29
+TAS,Tasmania,Year ending June 2025,30/6/2025,trips_thousand,252.369,thousand trips,,
+TAS,Tasmania,Year ending June 2026,30/6/2026,trips_thousand,262.338,thousand trips,9.97,3.95
+TAS,Tasmania,Year ending June 2025,30/6/2025,nights_thousand,4428.212,thousand nights,,
+TAS,Tasmania,Year ending June 2026,30/6/2026,nights_thousand,4504.092,thousand nights,75.88,1.71
+TAS,Tasmania,Year ending June 2025,30/6/2025,regional_expenditure_million_aud,574.386,AUD million,,
+TAS,Tasmania,Year ending June 2026,30/6/2026,regional_expenditure_million_aud,717.238,AUD million,142.852,24.87
+NT,Northern Territory,Year ending June 2025,30/6/2025,trips_thousand,227.247,thousand trips,,
+NT,Northern Territory,Year ending June 2026,30/6/2026,trips_thousand,247.779,thousand trips,20.533,9.04
+NT,Northern Territory,Year ending June 2025,30/6/2025,nights_thousand,4098.745,thousand nights,,
+NT,Northern Territory,Year ending June 2026,30/6/2026,nights_thousand,4714.223,thousand nights,615.477,15.02
+NT,Northern Territory,Year ending June 2025,30/6/2025,regional_expenditure_million_aud,434.287,AUD million,,
+NT,Northern Territory,Year ending June 2026,30/6/2026,regional_expenditure_million_aud,576.661,AUD million,142.374,32.78
+ACT,Australian Capital Territory,Year ending June 2025,30/6/2025,trips_thousand,217.16,thousand trips,,
+ACT,Australian Capital Territory,Year ending June 2026,30/6/2026,trips_thousand,178.543,thousand trips,-38.617,-17.78
+ACT,Australian Capital Territory,Year ending June 2025,30/6/2025,nights_thousand,5764.549,thousand nights,,
+ACT,Australian Capital Territory,Year ending June 2026,30/6/2026,nights_thousand,4764.701,thousand nights,-999.848,-17.34
+ACT,Australian Capital Territory,Year ending June 2025,30/6/2025,regional_expenditure_million_aud,589.291,AUD million,,
+ACT,Australian Capital Territory,Year ending June 2026,30/6/2026,regional_expenditure_million_aud,601.372,AUD million,12.081,2.05
