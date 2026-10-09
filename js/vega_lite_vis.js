@@ -32,3 +32,9 @@ vegaEmbed(
   "international_origin_flow.vg.json",
   embedOptions
 ).catch(console.error);
+
+vegaEmbed(
+  "#international-accommodation-change",
+  "international_accommodation_change.vg.json",
+  embedOptions
+).catch(console.error);

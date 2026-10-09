@@ -1,0 +1,298 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 680,
+  "height": 420,
+  "title": {
+    "text": "Rented accommodation gained while stays with friends fell",
+    "subtitle": [
+      "International visitor nights, year ending June",
+      "Grey = 2025 and blue = 2026. Labels show millions of nights."
+    ],
+    "anchor": "start",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#555555"
+  },
+  "data": {
+    "url": "data/international_accommodation_types.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "nights_thousand": "number",
+        "share_percent": "number",
+        "percent_change_from_2025": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "accommodation_type",
+        "oneOf": [
+          "Rented house/apartment/flat or unit",
+          "Friends or relatives property",
+          "Hotel/resort/motel or motor Inn",
+          "Other Private Accommodation",
+          "Backpacker or hostel",
+          "Other Accommodation",
+          "Own property"
+        ]
+      }
+    },
+    {
+      "calculate": "datum.nights_thousand / 1000",
+      "as": "nights_million"
+    },
+    {
+      "calculate": "datum.period == 'Year ending June 2025' ? '2025' : '2026'",
+      "as": "year_label"
+    },
+    {
+      "calculate": "datum.accommodation_type == 'Rented house/apartment/flat or unit' ? 'Rented house or apartment' : datum.accommodation_type == 'Friends or relatives property' ? 'Friends or relatives' : datum.accommodation_type == 'Hotel/resort/motel or motor Inn' ? 'Hotel, resort or motel' : datum.accommodation_type == 'Other Private Accommodation' ? 'Other private accommodation' : datum.accommodation_type == 'Other Accommodation' ? 'Other accommodation' : datum.accommodation_type",
+      "as": "accommodation_label"
+    },
+    {
+      "calculate": "format(datum.nights_million, '.1f') + 'm'",
+      "as": "value_label"
+    },
+    {
+      "calculate": "datum.period == 'Year ending June 2026' ? format(datum.percent_change_from_2025, '+.1f') + '%' : 'Baseline year'",
+      "as": "change_tooltip"
+    },
+    {
+      "calculate": "datum.period == 'Year ending June 2025' ? datum.nights_million : null",
+      "as": "value_2025"
+    },
+    {
+      "calculate": "datum.period == 'Year ending June 2026' ? datum.nights_million : null",
+      "as": "value_2026"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "value_2025",
+          "as": "type_value_2025"
+        },
+        {
+          "op": "max",
+          "field": "value_2026",
+          "as": "type_value_2026"
+        }
+      ],
+      "groupby": [
+        "accommodation_type"
+      ]
+    },
+    {
+      "calculate": "datum.type_value_2026 >= datum.type_value_2025 ? 'increase' : 'decrease'",
+      "as": "change_direction"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "nights_million",
+      "type": "quantitative",
+      "title": "International visitor nights (millions)",
+      "scale": {
+        "domain": [-5, 170]
+      },
+      "axis": {
+        "values": [0, 20, 40, 60, 80, 100, 120, 140, 160],
+        "grid": true,
+        "gridColor": "#e5e5e5",
+        "format": ".0f",
+        "labelFontSize": 11,
+        "titleFontSize": 12,
+        "titlePadding": 12
+      }
+    },
+    "y": {
+      "field": "accommodation_label",
+      "type": "nominal",
+      "title": "Accommodation type",
+      "sort": [
+        "Rented house or apartment",
+        "Friends or relatives",
+        "Hotel, resort or motel",
+        "Other private accommodation",
+        "Backpacker or hostel",
+        "Other accommodation",
+        "Own property"
+      ],
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 11,
+        "labelLimit": 220,
+        "titleFontSize": 12,
+        "titlePadding": 12
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "stroke": "#b9bec5",
+        "strokeWidth": 4
+      },
+      "encoding": {
+        "detail": {
+          "field": "accommodation_label",
+          "type": "nominal"
+        },
+        "order": {
+          "field": "year_label",
+          "type": "ordinal"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 165,
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "year_label",
+          "type": "ordinal",
+          "title": "Year ending June",
+          "scale": {
+            "domain": ["2025", "2026"],
+            "range": ["#999999", "#0072B2"]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "titleFontSize": 12,
+            "labelFontSize": 11
+          }
+        },
+        "tooltip": [
+          {
+            "field": "accommodation_label",
+            "type": "nominal",
+            "title": "Accommodation type"
+          },
+          {
+            "field": "year_label",
+            "type": "ordinal",
+            "title": "Year ending June"
+          },
+          {
+            "field": "nights_million",
+            "type": "quantitative",
+            "title": "Visitor nights (millions)",
+            "format": ",.1f"
+          },
+          {
+            "field": "share_percent",
+            "type": "quantitative",
+            "title": "Share of visitor nights (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "change_tooltip",
+            "type": "nominal",
+            "title": "Change from 2025"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.period == 'Year ending June 2025' && datum.change_direction == 'increase'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -10,
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "color": "#666666"
+      },
+      "encoding": {
+        "text": {
+          "field": "value_label"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.period == 'Year ending June 2025' && datum.change_direction == 'decrease'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 10,
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "color": "#666666"
+      },
+      "encoding": {
+        "text": {
+          "field": "value_label"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.period == 'Year ending June 2026' && datum.change_direction == 'increase'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 10,
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "color": "#0072B2"
+      },
+      "encoding": {
+        "text": {
+          "field": "value_label"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.period == 'Year ending June 2026' && datum.change_direction == 'decrease'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -10,
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "color": "#0072B2"
+      },
+      "encoding": {
+        "text": {
+          "field": "value_label"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "white",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    }
+  }
+}
