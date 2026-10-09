@@ -38,3 +38,9 @@ vegaEmbed(
   "international_accommodation_change.vg.json",
   embedOptions
 ).catch(console.error);
+
+vegaEmbed(
+  "#hotel-destination-rankings",
+  "hotel_destination_rankings.vg.json",
+  embedOptions
+).catch(console.error);
