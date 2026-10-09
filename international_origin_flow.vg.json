@@ -1,0 +1,241 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 760,
+  "height": 410,
+  "title": {
+    "text": "Australia’s largest international visitor markets",
+    "subtitle": "International trips to Australia, year ending June 2026",
+    "anchor": "start",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#555555"
+  },
+  "projection": {
+    "type": "equalEarth"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@3/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#ece9e2",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "data/international_origin_flows.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "origin_longitude": "number",
+            "origin_latitude": "number",
+            "destination_longitude": "number",
+            "destination_latitude": "number",
+            "trips_2025_thousand": "number",
+            "trips_2026_thousand": "number",
+            "percent_change": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "calculate": "{'type': 'LineString', 'coordinates': [[datum.origin_longitude, datum.origin_latitude], [datum.destination_longitude, datum.destination_latitude]]}",
+          "as": "route"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#2878b5",
+        "strokeOpacity": 0.48
+      },
+      "encoding": {
+        "shape": {
+          "field": "route",
+          "type": "geojson"
+        },
+        "strokeWidth": {
+          "field": "trips_2026_thousand",
+          "type": "quantitative",
+          "title": "Trips in 2026 ('000)",
+          "scale": {
+            "type": "sqrt",
+            "range": [1, 8]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "origin_country",
+            "type": "nominal",
+            "title": "Origin"
+          },
+          {
+            "field": "destination",
+            "type": "nominal",
+            "title": "Destination"
+          },
+          {
+            "field": "trips_2025_thousand",
+            "type": "quantitative",
+            "title": "2025 trips ('000)",
+            "format": ",.0f"
+          },
+          {
+            "field": "trips_2026_thousand",
+            "type": "quantitative",
+            "title": "2026 trips ('000)",
+            "format": ",.0f"
+          },
+          {
+            "field": "percent_change",
+            "type": "quantitative",
+            "title": "Change from 2025",
+            "format": "+.1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/international_origin_flows.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "origin_longitude": "number",
+            "origin_latitude": "number",
+            "trips_2026_thousand": "number",
+            "percent_change": "number"
+          }
+        }
+      },
+      "mark": {
+        "type": "circle",
+        "size": 75,
+        "opacity": 0.9,
+        "stroke": "white",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "longitude": {
+          "field": "origin_longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "origin_latitude",
+          "type": "quantitative"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.percent_change < 0",
+            "value": "#d95f02"
+          },
+          "value": "#2878b5"
+        },
+        "tooltip": [
+          {
+            "field": "origin_country",
+            "type": "nominal",
+            "title": "Origin"
+          },
+          {
+            "field": "trips_2026_thousand",
+            "type": "quantitative",
+            "title": "2026 trips ('000)",
+            "format": ",.0f"
+          },
+          {
+            "field": "percent_change",
+            "type": "quantitative",
+            "title": "Change from 2025",
+            "format": "+.1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "country": "Australia",
+            "longitude": 133.7751,
+            "latitude": -25.2744
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "size": 180,
+        "color": "#f2a900",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "country",
+            "type": "nominal",
+            "title": "Destination"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "label": "Australia",
+            "longitude": 133.7751,
+            "latitude": -25.2744
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": -14,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#333333"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "white",
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "orient": "bottom",
+      "titleFontSize": 12,
+      "labelFontSize": 11
+    }
+  }
+}

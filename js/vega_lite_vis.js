@@ -26,3 +26,9 @@ vegaEmbed(
   "short_term_rental_symbols.vg.json",
   embedOptions
 ).catch(console.error);
+
+vegaEmbed(
+  "#international-origin-flow",
+  "international_origin_flow.vg.json",
+  embedOptions
+).catch(console.error);

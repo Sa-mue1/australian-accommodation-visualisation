@@ -1,0 +1,9 @@
+origin_country,origin_longitude,origin_latitude,destination,destination_longitude,destination_latitude,trips_2025_thousand,trips_2026_thousand,percent_change
+New Zealand,174.886,-40.9006,Australia,133.7751,-25.2744,1258.074,1295.246,2.95
+China,104.1954,35.8617,Australia,133.7751,-25.2744,891.749,1054.968,18.3
+United Kingdom,-3.436,55.3781,Australia,133.7751,-25.2744,633.086,715.207,12.97
+United States of America,-95.7129,37.0902,Australia,133.7751,-25.2744,669.267,709.024,5.94
+India,78.9629,20.5937,Australia,133.7751,-25.2744,429.48,414.611,-3.46
+Japan,138.2529,36.2048,Australia,133.7751,-25.2744,361.222,407.881,12.92
+Singapore,103.8198,1.3521,Australia,133.7751,-25.2744,363.219,391.894,7.89
+South Korea,127.7669,35.9078,Australia,133.7751,-25.2744,341.351,370.662,8.59
