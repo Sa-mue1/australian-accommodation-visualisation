@@ -65,7 +65,7 @@ vegaEmbed(
 ).catch(console.error);
 
 vegaEmbed(
-  "#hotel-nights-waterfall",
-  "hotel_nights_waterfall.vg.json",
+  "#accommodation-occupancy-radial",
+  "accommodation_occupancy_radial.vg.json",
   embedOptions
 ).catch(console.error);
