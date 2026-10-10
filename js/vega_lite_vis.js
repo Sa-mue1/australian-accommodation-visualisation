@@ -63,3 +63,9 @@ vegaEmbed(
   "state_accommodation_mosaic.vg.json",
   embedOptions
 ).catch(console.error);
+
+vegaEmbed(
+  "#hotel-nights-waterfall",
+  "hotel_nights_waterfall.vg.json",
+  embedOptions
+).catch(console.error);

@@ -1,0 +1,757 @@
+date,financial_year,month_number,month_name,state_code,geography,geography_type,room_nights_available,room_nights_occupied,occupancy_rate_pct,national_occupancy_rate_pct,gap_from_national_pp,baseline_2018_19_occupancy_pct,change_from_2018_19_pp,source_file,source_sheet
+2018-07-01,2018-19,7,Jul,ACT,Australian Capital Territory,State/Territory,204259,174509.2,85.44,75.53,9.91,85.44,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-07-01,2018-19,7,Jul,AUS,Australia,National,9037182,6826024.8,75.53,75.53,0,75.53,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-07-01,2018-19,7,Jul,NSW,New South Wales,State/Territory,2734479,2058070.6,75.26,75.53,-0.27,75.26,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-07-01,2018-19,7,Jul,NT,Northern Territory,State/Territory,286967,233160.3,81.25,75.53,5.72,81.25,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-07-01,2018-19,7,Jul,QLD,Queensland,State/Territory,2663365,2047512.5,76.88,75.53,1.35,76.88,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-07-01,2018-19,7,Jul,SA,South Australia,State/Territory,460970,321601.1,69.77,75.53,-5.76,69.77,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-07-01,2018-19,7,Jul,TAS,Tasmania,State/Territory,256959,162088.9,63.08,75.53,-12.45,63.08,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-07-01,2018-19,7,Jul,VIC,Victoria,State/Territory,1624152,1278367.7,78.71,75.53,3.18,78.71,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-07-01,2018-19,7,Jul,WA,Western Australia,State/Territory,806031,533846.1,66.23,75.53,-9.3,66.23,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-08-01,2018-19,8,Aug,ACT,Australian Capital Territory,State/Territory,204259,161959.5,79.29,75.66,3.63,79.29,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-08-01,2018-19,8,Aug,AUS,Australia,National,9054356,6850650.5,75.66,75.66,0,75.66,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-08-01,2018-19,8,Aug,NSW,New South Wales,State/Territory,2744492,2122355.3,77.33,75.66,1.67,77.33,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-08-01,2018-19,8,Aug,NT,Northern Territory,State/Territory,286967,230462.7,80.31,75.66,4.65,80.31,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-08-01,2018-19,8,Aug,QLD,Queensland,State/Territory,2662683,2011957,75.56,75.66,-0.1,75.56,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-08-01,2018-19,8,Aug,SA,South Australia,State/Territory,461466,318166.7,68.95,75.66,-6.71,68.95,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-08-01,2018-19,8,Aug,TAS,Tasmania,State/Territory,256928,151296.2,58.89,75.66,-16.77,58.89,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-08-01,2018-19,8,Aug,VIC,Victoria,State/Territory,1625888,1286916.2,79.15,75.66,3.49,79.15,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-08-01,2018-19,8,Aug,WA,Western Australia,State/Territory,811673,550278.8,67.8,75.66,-7.86,67.8,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-09-01,2018-19,9,Sep,ACT,Australian Capital Territory,State/Territory,199650,161613.4,80.95,74.71,6.24,80.95,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-09-01,2018-19,9,Sep,AUS,Australia,National,8787360,6565086.9,74.71,74.71,0,74.71,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-09-01,2018-19,9,Sep,NSW,New South Wales,State/Territory,2660100,2065792.8,77.66,74.71,2.95,77.66,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-09-01,2018-19,9,Sep,NT,Northern Territory,State/Territory,277710,189052.5,68.08,74.71,-6.63,68.08,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-09-01,2018-19,9,Sep,QLD,Queensland,State/Territory,2589450,1868746.5,72.17,74.71,-2.54,72.17,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-09-01,2018-19,9,Sep,SA,South Australia,State/Territory,451530,326712,72.36,74.71,-2.35,72.36,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-09-01,2018-19,9,Sep,TAS,Tasmania,State/Territory,248640,175721.5,70.67,74.71,-4.04,70.67,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-09-01,2018-19,9,Sep,VIC,Victoria,State/Territory,1574370,1202528,76.38,74.71,1.67,76.38,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-09-01,2018-19,9,Sep,WA,Western Australia,State/Territory,785910,562750.4,71.6,74.71,-3.11,71.6,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-10-01,2018-19,10,Oct,ACT,Australian Capital Territory,State/Territory,206305,177637.4,86.1,77.36,8.74,86.1,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-10-01,2018-19,10,Oct,AUS,Australia,National,9070755,7016703,77.36,77.36,0,77.36,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-10-01,2018-19,10,Oct,NSW,New South Wales,State/Territory,2751188,2197758.2,79.88,77.36,2.52,79.88,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-10-01,2018-19,10,Oct,NT,Northern Territory,State/Territory,287339,173535.1,60.39,77.36,-16.97,60.39,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-10-01,2018-19,10,Oct,QLD,Queensland,State/Territory,2671115,1955958.8,73.23,77.36,-4.13,73.23,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-10-01,2018-19,10,Oct,SA,South Australia,State/Territory,466271,357705.8,76.72,77.36,-0.64,76.72,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-10-01,2018-19,10,Oct,TAS,Tasmania,State/Territory,257145,197158.1,76.67,77.36,-0.69,76.67,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-10-01,2018-19,10,Oct,VIC,Victoria,State/Territory,1619285,1349215.7,83.32,77.36,5.96,83.32,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-10-01,2018-19,10,Oct,WA,Western Australia,State/Territory,812107,587352.3,72.32,77.36,-5.04,72.32,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-11-01,2018-19,11,Nov,ACT,Australian Capital Territory,State/Territory,199650,164906.9,82.6,77.86,4.74,82.6,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-11-01,2018-19,11,Nov,AUS,Australia,National,8832990,6877404.1,77.86,77.86,0,77.86,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-11-01,2018-19,11,Nov,NSW,New South Wales,State/Territory,2665980,2214536.6,83.07,77.86,5.21,83.07,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-11-01,2018-19,11,Nov,NT,Northern Territory,State/Territory,278070,154402.5,55.53,77.86,-22.33,55.53,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-11-01,2018-19,11,Nov,QLD,Queensland,State/Territory,2614740,1840738.6,70.4,77.86,-7.46,70.4,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-11-01,2018-19,11,Nov,SA,South Australia,State/Territory,451950,362823.5,80.28,77.86,2.42,80.28,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-11-01,2018-19,11,Nov,TAS,Tasmania,State/Territory,249630,204167.3,81.79,77.86,3.93,81.79,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-11-01,2018-19,11,Nov,VIC,Victoria,State/Territory,1585110,1313334.4,82.85,77.86,4.99,82.85,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-11-01,2018-19,11,Nov,WA,Western Australia,State/Territory,787860,601999.7,76.41,77.86,-1.45,76.41,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-12-01,2018-19,12,Dec,ACT,Australian Capital Territory,State/Territory,208909,137739,65.93,70.87,-4.94,65.93,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-12-01,2018-19,12,Dec,AUS,Australia,National,9134987,6474186.6,70.87,70.87,0,70.87,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-12-01,2018-19,12,Dec,NSW,New South Wales,State/Territory,2754691,2115223.4,76.79,70.87,5.92,76.79,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-12-01,2018-19,12,Dec,NT,Northern Territory,State/Territory,286843,125452.3,43.74,70.87,-27.13,43.74,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-12-01,2018-19,12,Dec,QLD,Queensland,State/Territory,2699263,1783848.3,66.09,70.87,-4.78,66.09,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-12-01,2018-19,12,Dec,SA,South Australia,State/Territory,467356,338245,72.37,70.87,1.5,72.37,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-12-01,2018-19,12,Dec,TAS,Tasmania,State/Territory,258199,202567.6,78.45,70.87,7.58,78.45,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-12-01,2018-19,12,Dec,VIC,Victoria,State/Territory,1638753,1222648.1,74.61,70.87,3.74,74.61,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2018-12-01,2018-19,12,Dec,WA,Western Australia,State/Territory,820973,538510.1,65.59,70.87,-5.28,65.59,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-01-01,2018-19,1,Jan,ACT,Australian Capital Territory,State/Territory,209033,145731.2,69.72,71.35,-1.63,69.72,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-01-01,2018-19,1,Jan,AUS,Australia,National,9145310,6525554.7,71.35,71.35,0,71.35,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-01-01,2018-19,1,Jan,NSW,New South Wales,State/Territory,2754939,2122002.6,77.03,71.35,5.68,77.03,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-01-01,2018-19,1,Jan,NT,Northern Territory,State/Territory,285820,111728.8,39.09,71.35,-32.26,39.09,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-01-01,2018-19,1,Jan,QLD,Queensland,State/Territory,2697713,1793234,66.47,71.35,-4.88,66.47,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-01-01,2018-19,1,Jan,SA,South Australia,State/Territory,468317,341995.5,73.03,71.35,1.68,73.03,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-01-01,2018-19,1,Jan,TAS,Tasmania,State/Territory,258199,221623.5,85.83,71.35,14.48,85.83,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-01-01,2018-19,1,Jan,VIC,Victoria,State/Territory,1648239,1265491,76.78,71.35,5.43,76.78,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-01-01,2018-19,1,Jan,WA,Western Australia,State/Territory,823050,514311,62.49,71.35,-8.86,62.49,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-02-01,2018-19,2,Feb,ACT,Australian Capital Territory,State/Territory,188804,154249,81.7,76.01,5.69,81.7,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-02-01,2018-19,2,Feb,AUS,Australia,National,8267196,6283766.4,76.01,76.01,0,76.01,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-02-01,2018-19,2,Feb,NSW,New South Wales,State/Territory,2489676,2044890.3,82.13,76.01,6.12,82.13,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-02-01,2018-19,2,Feb,NT,Northern Territory,State/Territory,258160,118125,45.76,76.01,-30.25,45.76,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-02-01,2018-19,2,Feb,QLD,Queensland,State/Territory,2435692,1598087.6,65.61,76.01,-10.4,65.61,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-02-01,2018-19,2,Feb,SA,South Australia,State/Territory,422996,321418.6,75.99,76.01,-0.02,75.99,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-02-01,2018-19,2,Feb,TAS,Tasmania,State/Territory,233520,207101.1,88.69,76.01,12.68,88.69,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-02-01,2018-19,2,Feb,VIC,Victoria,State/Territory,1492428,1278252.7,85.65,76.01,9.64,85.65,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-02-01,2018-19,2,Feb,WA,Western Australia,State/Territory,745920,534253.8,71.62,76.01,-4.39,71.62,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-03-01,2018-19,3,Mar,ACT,Australian Capital Territory,State/Territory,209033,160844.2,76.95,75.07,1.88,76.95,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-03-01,2018-19,3,Mar,AUS,Australia,National,9167320,6882215.2,75.07,75.07,0,75.07,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-03-01,2018-19,3,Mar,NSW,New South Wales,State/Territory,2762255,2231926.8,80.8,75.07,5.73,80.8,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-03-01,2018-19,3,Mar,NT,Northern Territory,State/Territory,285820,142991.9,50.03,75.07,-25.04,50.03,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-03-01,2018-19,3,Mar,QLD,Queensland,State/Territory,2707788,1770677.8,65.39,75.07,-9.68,65.39,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-03-01,2018-19,3,Mar,SA,South Australia,State/Territory,468317,369408.5,78.88,75.07,3.81,78.88,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-03-01,2018-19,3,Mar,TAS,Tasmania,State/Territory,258540,217622.7,84.17,75.07,9.1,84.17,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-03-01,2018-19,3,Mar,VIC,Victoria,State/Territory,1652517,1377669.4,83.37,75.07,8.3,83.37,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-03-01,2018-19,3,Mar,WA,Western Australia,State/Territory,823050,581681.2,70.67,75.07,-4.4,70.67,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-04-01,2018-19,4,Apr,ACT,Australian Capital Territory,State/Territory,202800,165900.9,81.81,72.93,8.88,81.81,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-04-01,2018-19,4,Apr,AUS,Australia,National,8893170,6485743.7,72.93,72.93,0,72.93,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-04-01,2018-19,4,Apr,NSW,New South Wales,State/Territory,2676900,2067424.3,77.23,72.93,4.3,77.23,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-04-01,2018-19,4,Apr,NT,Northern Territory,State/Territory,277050,161117.9,58.15,72.93,-14.78,58.15,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-04-01,2018-19,4,Apr,QLD,Queensland,State/Territory,2630070,1762875.3,67.03,72.93,-5.9,67.03,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-04-01,2018-19,4,Apr,SA,South Australia,State/Territory,455490,350131.4,76.87,72.93,3.94,76.87,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-04-01,2018-19,4,Apr,TAS,Tasmania,State/Territory,250500,198018.1,79.05,72.93,6.12,79.05,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-04-01,2018-19,4,Apr,VIC,Victoria,State/Territory,1601430,1217335.3,76.02,72.93,3.09,76.02,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-04-01,2018-19,4,Apr,WA,Western Australia,State/Territory,798930,540995.8,67.72,72.93,-5.21,67.72,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-05-01,2018-19,5,May,ACT,Australian Capital Territory,State/Territory,209560,145498.4,69.43,70.49,-1.06,69.43,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-05-01,2018-19,5,May,AUS,Australia,National,9202970,6487014.9,70.49,70.49,0,70.49,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-05-01,2018-19,5,May,NSW,New South Wales,State/Territory,2767401,2065330.4,74.63,70.49,4.14,74.63,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-05-01,2018-19,5,May,NT,Northern Territory,State/Territory,286316,196534.2,68.64,70.49,-1.85,68.64,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-05-01,2018-19,5,May,QLD,Queensland,State/Territory,2717584,1754368.2,64.56,70.49,-5.93,64.56,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-05-01,2018-19,5,May,SA,South Australia,State/Territory,470673,330747.9,70.27,70.49,-0.22,70.27,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-05-01,2018-19,5,May,TAS,Tasmania,State/Territory,258850,168785.7,65.21,70.49,-5.28,65.21,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-05-01,2018-19,5,May,VIC,Victoria,State/Territory,1667149,1252350.9,75.12,70.49,4.63,75.12,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-05-01,2018-19,5,May,WA,Western Australia,State/Territory,825437,550572.7,66.7,70.49,-3.79,66.7,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-06-01,2018-19,6,Jun,ACT,Australian Capital Territory,State/Territory,213390,152970.9,71.69,68.2,3.49,71.69,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-06-01,2018-19,6,Jun,AUS,Australia,National,8929650,6090314,68.2,68.2,0,68.2,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-06-01,2018-19,6,Jun,NSW,New South Wales,State/Territory,2678640,1918207.7,71.61,68.2,3.41,71.61,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-06-01,2018-19,6,Jun,NT,Northern Territory,State/Territory,277080,193801.1,69.94,68.2,1.74,69.94,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-06-01,2018-19,6,Jun,QLD,Queensland,State/Territory,2631420,1695732.8,64.44,68.2,-3.76,64.44,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-06-01,2018-19,6,Jun,SA,South Australia,State/Territory,455400,298607.2,65.57,68.2,-2.63,65.57,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-06-01,2018-19,6,Jun,TAS,Tasmania,State/Territory,251310,155079.2,61.71,68.2,-6.49,61.71,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-06-01,2018-19,6,Jun,VIC,Victoria,State/Territory,1621230,1130770.5,69.75,68.2,1.55,69.75,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-06-01,2018-19,6,Jun,WA,Western Australia,State/Territory,801180,530150.2,66.17,68.2,-2.03,66.17,0,Australian-accommodation-monitor-data-files-2018-2019.xlsx,State & Territory Summaries
+2019-07-01,2019-20,7,Jul,ACT,Australian Capital Territory,State/Territory,220503,178824.2,81.1,74.73,6.37,85.44,-4.34,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-07-01,2019-20,7,Jul,AUS,Australia,National,9263079,6922575.4,74.73,74.73,0,75.53,-0.8,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-07-01,2019-20,7,Jul,NSW,New South Wales,State/Territory,2805531,2077582.1,74.05,74.73,-0.68,75.26,-1.21,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-07-01,2019-20,7,Jul,NT,Northern Territory,State/Territory,281945,215103.6,76.29,74.73,1.56,81.25,-4.96,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-07-01,2019-20,7,Jul,QLD,Queensland,State/Territory,2722234,2088405.1,76.72,74.73,1.99,76.88,-0.16,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-07-01,2019-20,7,Jul,SA,South Australia,State/Territory,466457,333200.7,71.43,74.73,-3.3,69.77,1.66,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-07-01,2019-20,7,Jul,TAS,Tasmania,State/Territory,257672,169952.1,65.96,74.73,-8.77,63.08,2.88,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-07-01,2019-20,7,Jul,VIC,Victoria,State/Territory,1675860,1264951,75.48,74.73,0.75,78.71,-3.23,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-07-01,2019-20,7,Jul,WA,Western Australia,State/Territory,832877,586923.9,70.47,74.73,-4.26,66.23,4.24,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-08-01,2019-20,8,Aug,ACT,Australian Capital Territory,State/Territory,220503,171119,77.6,75.25,2.35,79.29,-1.69,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-08-01,2019-20,8,Aug,AUS,Australia,National,9263048,6970831.2,75.25,75.25,0,75.66,-0.41,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-08-01,2019-20,8,Aug,NSW,New South Wales,State/Territory,2806430,2143445,76.38,75.25,1.13,77.33,-0.95,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-08-01,2019-20,8,Aug,NT,Northern Territory,State/Territory,282565,213002.1,75.38,75.25,0.13,80.31,-4.93,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-08-01,2019-20,8,Aug,QLD,Queensland,State/Territory,2722420,2042498.9,75.03,75.25,-0.22,75.56,-0.53,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-08-01,2019-20,8,Aug,SA,South Australia,State/Territory,466488,333539.1,71.5,75.25,-3.75,68.95,2.55,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-08-01,2019-20,8,Aug,TAS,Tasmania,State/Territory,257672,162188.8,62.94,75.25,-12.31,58.89,4.05,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-08-01,2019-20,8,Aug,VIC,Victoria,State/Territory,1674093,1284943.6,76.75,75.25,1.5,79.15,-2.4,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-08-01,2019-20,8,Aug,WA,Western Australia,State/Territory,832877,611215.9,73.39,75.25,-1.86,67.8,5.59,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-09-01,2019-20,9,Sep,ACT,Australian Capital Territory,State/Territory,219360,177856.9,81.08,73.63,7.45,80.95,0.13,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-09-01,2019-20,9,Sep,AUS,Australia,National,8986410,6616640.5,73.63,73.63,0,74.71,-1.08,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-09-01,2019-20,9,Sep,NSW,New South Wales,State/Territory,2720010,2038297.2,74.94,73.63,1.31,77.66,-2.72,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-09-01,2019-20,9,Sep,NT,Northern Territory,State/Territory,273450,180336.3,65.95,73.63,-7.68,68.08,-2.13,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-09-01,2019-20,9,Sep,QLD,Queensland,State/Territory,2633310,1897842.6,72.07,73.63,-1.56,72.17,-0.1,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-09-01,2019-20,9,Sep,SA,South Australia,State/Territory,452610,352998,77.99,73.63,4.36,72.36,5.63,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-09-01,2019-20,9,Sep,TAS,Tasmania,State/Territory,249360,179200.9,71.86,73.63,-1.77,70.67,1.19,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-09-01,2019-20,9,Sep,VIC,Victoria,State/Territory,1624740,1183573.9,72.85,73.63,-0.78,76.38,-3.53,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-09-01,2019-20,9,Sep,WA,Western Australia,State/Territory,813570,598302.8,73.54,73.63,-0.09,71.6,1.94,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-10-01,2019-20,10,Oct,ACT,Australian Capital Territory,State/Territory,226672,185175.6,81.69,78.19,3.5,86.1,-4.41,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-10-01,2019-20,10,Oct,AUS,Australia,National,9294296,7267078.1,78.19,78.19,0,77.36,0.83,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-10-01,2019-20,10,Oct,NSW,New South Wales,State/Territory,2812630,2257650.6,80.27,78.19,2.08,79.88,0.39,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-10-01,2019-20,10,Oct,NT,Northern Territory,State/Territory,282565,169003.1,59.81,78.19,-18.38,60.39,-0.58,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-10-01,2019-20,10,Oct,QLD,Queensland,State/Territory,2722761,2035456.4,74.76,78.19,-3.43,73.23,1.53,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-10-01,2019-20,10,Oct,SA,South Australia,State/Territory,467697,396194.3,84.71,78.19,6.52,76.72,7.99,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-10-01,2019-20,10,Oct,TAS,Tasmania,State/Territory,257672,204144.7,79.23,78.19,1.04,76.67,2.56,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-10-01,2019-20,10,Oct,VIC,Victoria,State/Territory,1674124,1360749.4,81.28,78.19,3.09,83.32,-2.04,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-10-01,2019-20,10,Oct,WA,Western Australia,State/Territory,850175,646768,76.07,78.19,-2.12,72.32,3.75,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-11-01,2019-20,11,Nov,ACT,Australian Capital Territory,State/Territory,219360,173213,78.96,77.91,1.05,82.6,-3.64,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-11-01,2019-20,11,Nov,AUS,Australia,National,9020070,7027726,77.91,77.91,0,77.86,0.05,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-11-01,2019-20,11,Nov,NSW,New South Wales,State/Territory,2725650,2215132.7,81.27,77.91,3.36,83.07,-1.8,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-11-01,2019-20,11,Nov,NT,Northern Territory,State/Territory,266730,136455,51.16,77.91,-26.75,55.53,-4.37,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-11-01,2019-20,11,Nov,QLD,Queensland,State/Territory,2649300,1901953.5,71.79,77.91,-6.12,70.4,1.39,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-11-01,2019-20,11,Nov,SA,South Australia,State/Territory,453000,376129,83.03,77.91,5.12,80.28,2.75,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-11-01,2019-20,11,Nov,TAS,Tasmania,State/Territory,249360,214055.9,85.84,77.91,7.93,81.79,4.05,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-11-01,2019-20,11,Nov,VIC,Victoria,State/Territory,1627920,1353413.4,83.14,77.91,5.23,82.85,0.29,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-11-01,2019-20,11,Nov,WA,Western Australia,State/Territory,828750,643264.2,77.62,77.91,-0.29,76.41,1.21,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-12-01,2019-20,12,Dec,ACT,Australian Capital Territory,State/Territory,226641,141599.6,62.48,70.88,-8.4,65.93,-3.45,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-12-01,2019-20,12,Dec,AUS,Australia,National,9358528,6633042.4,70.88,70.88,0,70.87,0.01,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-12-01,2019-20,12,Dec,NSW,New South Wales,State/Territory,2826301,2104186,74.45,70.88,3.57,76.79,-2.34,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-12-01,2019-20,12,Dec,NT,Northern Territory,State/Territory,275156,107816.7,39.18,70.88,-31.7,43.74,-4.56,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-12-01,2019-20,12,Dec,QLD,Queensland,State/Territory,2740338,1852616.3,67.61,70.88,-3.27,66.09,1.52,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-12-01,2019-20,12,Dec,SA,South Australia,State/Territory,468100,335531.1,71.68,70.88,0.8,72.37,-0.69,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-12-01,2019-20,12,Dec,TAS,Tasmania,State/Territory,257641,209909,81.47,70.88,10.59,78.45,3.02,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-12-01,2019-20,12,Dec,VIC,Victoria,State/Territory,1694646,1279220.6,75.49,70.88,4.61,74.61,0.88,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2019-12-01,2019-20,12,Dec,WA,Western Australia,State/Territory,869705,604883.2,69.55,70.88,-1.33,65.59,3.96,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-01-01,2019-20,1,Jan,ACT,Australian Capital Territory,State/Territory,230392,134762.9,58.49,70.06,-11.57,69.72,-11.23,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-01-01,2019-20,1,Jan,AUS,Australia,National,9360140,6557854.5,70.06,70.06,0,71.35,-1.29,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-01-01,2019-20,1,Jan,NSW,New South Wales,State/Territory,2826735,2078563.2,73.53,70.06,3.47,77.03,-3.5,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-01-01,2019-20,1,Jan,NT,Northern Territory,State/Territory,271560,97511.1,35.91,70.06,-34.15,39.09,-3.18,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-01-01,2019-20,1,Jan,QLD,Queensland,State/Territory,2738354,1880820.8,68.68,70.06,-1.38,66.47,2.21,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-01-01,2019-20,1,Jan,SA,South Australia,State/Territory,468627,347844.2,74.23,70.06,4.17,73.03,1.2,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-01-01,2019-20,1,Jan,TAS,Tasmania,State/Territory,257641,225116.6,87.38,70.06,17.32,85.83,1.55,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-01-01,2019-20,1,Jan,VIC,Victoria,State/Territory,1694615,1259249.2,74.31,70.06,4.25,76.78,-2.47,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-01-01,2019-20,1,Jan,WA,Western Australia,State/Territory,872216,547422.7,62.76,70.06,-7.3,62.49,0.27,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-02-01,2019-20,2,Feb,ACT,Australian Capital Territory,State/Territory,197708,154389.4,78.09,70.86,7.23,81.7,-3.61,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-02-01,2019-20,2,Feb,AUS,Australia,National,8431556,5974371.3,70.86,70.86,0,76.01,-5.15,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-02-01,2019-20,2,Feb,NSW,New South Wales,State/Territory,2554328,1943666.6,76.09,70.86,5.23,82.13,-6.04,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-02-01,2019-20,2,Feb,NT,Northern Territory,State/Territory,245280,110664.5,45.12,70.86,-25.74,45.76,-0.64,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-02-01,2019-20,2,Feb,QLD,Queensland,State/Territory,2472960,1528960.5,61.83,70.86,-9.03,65.61,-3.78,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-02-01,2019-20,2,Feb,SA,South Australia,State/Territory,423248,327211.8,77.31,70.86,6.45,75.99,1.32,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-02-01,2019-20,2,Feb,TAS,Tasmania,State/Territory,232708,197775.9,84.99,70.86,14.13,88.69,-3.7,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-02-01,2019-20,2,Feb,VIC,Victoria,State/Territory,1517544,1154515,76.08,70.86,5.22,85.65,-9.57,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-02-01,2019-20,2,Feb,WA,Western Australia,State/Territory,787780,547439.4,69.49,70.86,-1.37,71.62,-2.13,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-03-01,2019-20,3,Mar,ACT,Australian Capital Territory,State/Territory,218922,107293.3,49.01,45.65,3.36,76.95,-27.94,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-03-01,2019-20,3,Mar,AUS,Australia,National,9334162,4260823.4,45.65,45.65,0,75.07,-29.42,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-03-01,2019-20,3,Mar,NSW,New South Wales,State/Territory,2826983,1342433,47.49,45.65,1.84,80.8,-33.31,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-03-01,2019-20,3,Mar,NT,Northern Territory,State/Territory,271560,97476.9,35.9,45.65,-9.75,50.03,-14.13,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-03-01,2019-20,3,Mar,QLD,Queensland,State/Territory,2737083,1099478.1,40.17,45.65,-5.48,65.39,-25.22,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-03-01,2019-20,3,Mar,SA,South Australia,State/Territory,468348,246123.9,52.55,45.65,6.9,78.88,-26.33,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-03-01,2019-20,3,Mar,TAS,Tasmania,State/Territory,257641,143492.2,55.69,45.65,10.04,84.17,-28.48,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-03-01,2019-20,3,Mar,VIC,Victoria,State/Territory,1681750,797679.9,47.43,45.65,1.78,83.37,-35.94,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-03-01,2019-20,3,Mar,WA,Western Australia,State/Territory,871875,420137.2,48.19,45.65,2.54,70.67,-22.48,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-04-01,2019-20,4,Apr,ACT,Australian Capital Territory,State/Territory,196950,26766.4,13.59,19.78,-6.19,81.81,-68.22,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-04-01,2019-20,4,Apr,AUS,Australia,National,8372400,1656313.6,19.78,19.78,0,72.93,-53.15,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-04-01,2019-20,4,Apr,NSW,New South Wales,State/Territory,2564460,489352,19.08,19.78,-0.7,77.23,-58.15,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-04-01,2019-20,4,Apr,NT,Northern Territory,State/Territory,222600,46723.6,20.99,19.78,1.21,58.15,-37.16,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-04-01,2019-20,4,Apr,QLD,Queensland,State/Territory,2440590,339844,13.92,19.78,-5.86,67.03,-53.11,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-04-01,2019-20,4,Apr,SA,South Australia,State/Territory,401550,70147,17.47,19.78,-2.31,76.87,-59.4,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-04-01,2019-20,4,Apr,TAS,Tasmania,State/Territory,209100,42660.8,20.4,19.78,0.62,79.05,-58.65,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-04-01,2019-20,4,Apr,VIC,Victoria,State/Territory,1519200,399037.8,26.27,19.78,6.49,76.02,-49.75,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-04-01,2019-20,4,Apr,WA,Western Australia,State/Territory,817950,229684,28.08,19.78,8.3,67.72,-39.64,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-05-01,2019-20,5,May,ACT,Australian Capital Territory,State/Territory,208599,40380.2,19.36,23.11,-3.75,69.43,-50.07,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-05-01,2019-20,5,May,AUS,Australia,National,8486591,1961051.4,23.11,23.11,0,70.49,-47.38,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-05-01,2019-20,5,May,NSW,New South Wales,State/Territory,2609332,605454.6,23.2,23.11,0.09,74.63,-51.43,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-05-01,2019-20,5,May,NT,Northern Territory,State/Territory,214117,55026.5,25.7,23.11,2.59,68.64,-42.94,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-05-01,2019-20,5,May,QLD,Queensland,State/Territory,2483069,454248.8,18.29,23.11,-4.82,64.56,-46.27,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-05-01,2019-20,5,May,SA,South Australia,State/Territory,404674,88724.9,21.93,23.11,-1.18,70.27,-48.34,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-05-01,2019-20,5,May,TAS,Tasmania,State/Territory,215171,27291.2,12.68,23.11,-10.43,65.21,-52.53,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-05-01,2019-20,5,May,VIC,Victoria,State/Territory,1529757,423168.9,27.66,23.11,4.55,75.12,-47.46,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-05-01,2019-20,5,May,WA,Western Australia,State/Territory,821872,246396.3,29.98,23.11,6.87,66.7,-36.72,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-06-01,2019-20,6,Jun,ACT,Australian Capital Territory,State/Territory,201810,74466,36.9,32.16,4.74,71.69,-34.79,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-06-01,2019-20,6,Jun,AUS,Australia,National,8482680,2728396.8,32.16,32.16,0,68.2,-36.04,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-06-01,2019-20,6,Jun,NSW,New South Wales,State/Territory,2647500,892672.9,33.72,32.16,1.56,71.61,-37.89,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-06-01,2019-20,6,Jun,NT,Northern Territory,State/Territory,207210,62181.6,30.01,32.16,-2.15,69.94,-39.93,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-06-01,2019-20,6,Jun,QLD,Queensland,State/Territory,2494020,722719.8,28.98,32.16,-3.18,64.44,-35.46,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-06-01,2019-20,6,Jun,SA,South Australia,State/Territory,396600,121425.2,30.62,32.16,-1.54,65.57,-34.95,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-06-01,2019-20,6,Jun,TAS,Tasmania,State/Territory,220830,47123.1,21.34,32.16,-10.82,61.71,-40.37,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-06-01,2019-20,6,Jun,VIC,Victoria,State/Territory,1505820,500824.1,33.26,32.16,1.1,69.75,-36.49,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-06-01,2019-20,6,Jun,WA,Western Australia,State/Territory,808890,292338.9,36.14,32.16,3.98,66.17,-30.03,Australian-accommodation-monitor-data-files-2019-2020.xlsx,State & Territory Summaries
+2020-07-01,2020-21,7,Jul,ACT,Australian Capital Territory,State/Territory,213311,101525.7,47.6,41.62,5.98,85.44,-37.84,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-07-01,2020-21,7,Jul,AUS,Australia,National,8951095,3725794.2,41.62,41.62,0,75.53,-33.91,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-07-01,2020-21,7,Jul,NSW,New South Wales,State/Territory,2767029,1173439.4,42.41,41.62,0.79,75.26,-32.85,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-07-01,2020-21,7,Jul,NT,Northern Territory,State/Territory,225990,86709.1,38.37,41.62,-3.25,81.25,-42.88,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-07-01,2020-21,7,Jul,QLD,Queensland,State/Territory,2654468,1198469.5,45.15,41.62,3.53,76.88,-31.73,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-07-01,2020-21,7,Jul,SA,South Australia,State/Territory,425444,179277.4,42.14,41.62,0.52,69.77,-27.63,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-07-01,2020-21,7,Jul,TAS,Tasmania,State/Territory,260276,93140.7,35.79,41.62,-5.83,63.08,-27.29,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-07-01,2020-21,7,Jul,VIC,Victoria,State/Territory,1557316,482843.7,31,41.62,-10.62,78.71,-47.71,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-07-01,2020-21,7,Jul,WA,Western Australia,State/Territory,847261,426014.7,50.28,41.62,8.66,66.23,-15.95,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-08-01,2020-21,8,Aug,ACT,Australian Capital Territory,State/Territory,213249,71203.7,33.39,39.74,-6.35,79.29,-45.9,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-08-01,2020-21,8,Aug,AUS,Australia,National,8984141,3570253.6,39.74,39.74,0,75.66,-35.92,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-08-01,2020-21,8,Aug,NSW,New South Wales,State/Territory,2770253,943984.7,34.08,39.74,-5.66,77.33,-43.25,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-08-01,2020-21,8,Aug,NT,Northern Territory,State/Territory,245148,119020.1,48.55,39.74,8.81,80.31,-31.76,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-08-01,2020-21,8,Aug,QLD,Queensland,State/Territory,2701433,1223523.6,45.29,39.74,5.55,75.56,-30.27,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-08-01,2020-21,8,Aug,SA,South Australia,State/Territory,440882,180716,40.99,39.74,1.25,68.95,-27.96,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-08-01,2020-21,8,Aug,TAS,Tasmania,State/Territory,260276,98817.9,37.97,39.74,-1.77,58.89,-20.92,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-08-01,2020-21,8,Aug,VIC,Victoria,State/Territory,1506011,519836,34.52,39.74,-5.22,79.15,-44.63,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-08-01,2020-21,8,Aug,WA,Western Australia,State/Territory,846889,431404.6,50.94,39.74,11.2,67.8,-16.86,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-09-01,2020-21,9,Sep,ACT,Australian Capital Territory,State/Territory,211950,80122.9,37.8,43.83,-6.03,80.95,-43.15,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-09-01,2020-21,9,Sep,AUS,Australia,National,8611950,3774767.5,43.83,43.83,0,74.71,-30.88,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-09-01,2020-21,9,Sep,NSW,New South Wales,State/Territory,2668740,1082335.2,40.56,43.83,-3.27,77.66,-37.1,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-09-01,2020-21,9,Sep,NT,Northern Territory,State/Territory,237990,128427.2,53.96,43.83,10.13,68.08,-14.12,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-09-01,2020-21,9,Sep,QLD,Queensland,State/Territory,2631060,1348684.5,51.26,43.83,7.43,72.17,-20.91,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-09-01,2020-21,9,Sep,SA,South Australia,State/Territory,441300,204808.7,46.41,43.83,2.58,72.36,-25.95,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-09-01,2020-21,9,Sep,TAS,Tasmania,State/Territory,254550,92536.7,36.35,43.83,-7.48,70.67,-34.32,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-09-01,2020-21,9,Sep,VIC,Victoria,State/Territory,1338990,400373.7,29.9,43.83,-13.93,76.38,-46.48,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-09-01,2020-21,9,Sep,WA,Western Australia,State/Territory,827370,448060.1,54.15,43.83,10.32,71.6,-17.45,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-10-01,2020-21,10,Oct,ACT,Australian Capital Territory,State/Territory,231663,109035.3,47.07,46.48,0.59,86.1,-39.03,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-10-01,2020-21,10,Oct,AUS,Australia,National,9013839,4189641.6,46.48,46.48,0,77.36,-30.88,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-10-01,2020-21,10,Oct,NSW,New South Wales,State/Territory,2800044,1288767.2,46.03,46.48,-0.45,79.88,-33.85,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-10-01,2020-21,10,Oct,NT,Northern Territory,State/Territory,245923,145503.9,59.17,46.48,12.69,60.39,-1.22,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-10-01,2020-21,10,Oct,QLD,Queensland,State/Territory,2729488,1365872.3,50.04,46.48,3.56,73.23,-23.19,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-10-01,2020-21,10,Oct,SA,South Australia,State/Territory,467666,266724.1,57.03,46.48,10.55,76.72,-19.69,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-10-01,2020-21,10,Oct,TAS,Tasmania,State/Territory,263035,112273.4,42.68,46.48,-3.8,76.67,-33.99,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-10-01,2020-21,10,Oct,VIC,Victoria,State/Territory,1409849,406185.5,28.81,46.48,-17.67,83.32,-54.51,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-10-01,2020-21,10,Oct,WA,Western Australia,State/Territory,866171,487269.1,56.26,46.48,9.78,72.32,-16.06,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-11-01,2020-21,11,Nov,ACT,Australian Capital Territory,State/Territory,224190,108267.5,48.29,46.68,1.61,82.6,-34.31,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-11-01,2020-21,11,Nov,AUS,Australia,National,8899980,4154428.7,46.68,46.68,0,77.86,-31.18,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-11-01,2020-21,11,Nov,NSW,New South Wales,State/Territory,2720580,1316989.4,48.41,46.68,1.73,83.07,-34.66,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-11-01,2020-21,11,Nov,NT,Northern Territory,State/Territory,237990,133621.3,56.15,46.68,9.47,55.53,0.62,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-11-01,2020-21,11,Nov,QLD,Queensland,State/Territory,2656230,1311344.6,49.37,46.68,2.69,70.4,-21.03,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-11-01,2020-21,11,Nov,SA,South Australia,State/Territory,462450,212961.4,46.05,46.68,-0.63,80.28,-34.23,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-11-01,2020-21,11,Nov,TAS,Tasmania,State/Territory,265140,122973.9,46.38,46.68,-0.3,81.79,-35.41,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-11-01,2020-21,11,Nov,VIC,Victoria,State/Territory,1497270,478348.6,31.95,46.68,-14.73,82.85,-50.9,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-11-01,2020-21,11,Nov,WA,Western Australia,State/Territory,836130,482738.8,57.73,46.68,11.05,76.41,-18.68,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-12-01,2020-21,12,Dec,ACT,Australian Capital Territory,State/Territory,230547,117964.8,51.17,52.76,-1.59,65.93,-14.76,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-12-01,2020-21,12,Dec,AUS,Australia,National,9322444,4918269.9,52.76,52.76,0,70.87,-18.11,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-12-01,2020-21,12,Dec,NSW,New South Wales,State/Territory,2828843,1413469.3,49.97,52.76,-2.79,76.79,-26.82,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-12-01,2020-21,12,Dec,NT,Northern Territory,State/Territory,250108,123205.5,49.26,52.76,-3.5,43.74,5.52,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-12-01,2020-21,12,Dec,QLD,Queensland,State/Territory,2752769,1648034.9,59.87,52.76,7.11,66.09,-6.22,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-12-01,2020-21,12,Dec,SA,South Australia,State/Territory,484530,257406.5,53.12,52.76,0.36,72.37,-19.25,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-12-01,2020-21,12,Dec,TAS,Tasmania,State/Territory,274195,169290.1,61.74,52.76,8.98,78.45,-16.71,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-12-01,2020-21,12,Dec,VIC,Victoria,State/Territory,1630352,712973.8,43.73,52.76,-9.03,74.61,-30.88,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2020-12-01,2020-21,12,Dec,WA,Western Australia,State/Territory,871100,501760.7,57.6,52.76,4.84,65.59,-7.99,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-01-01,2020-21,1,Jan,ACT,Australian Capital Territory,State/Territory,234577,79487.8,33.89,47.63,-13.74,69.72,-35.83,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-01-01,2020-21,1,Jan,AUS,Australia,National,9367332,4461833,47.63,47.63,0,71.35,-23.72,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-01-01,2020-21,1,Jan,NSW,New South Wales,State/Territory,2837027,1155527.6,40.73,47.63,-6.9,77.03,-36.3,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-01-01,2020-21,1,Jan,NT,Northern Territory,State/Territory,245861,123777.6,50.34,47.63,2.71,39.09,11.25,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-01-01,2020-21,1,Jan,QLD,Queensland,State/Territory,2745949,1435797,52.29,47.63,4.66,66.47,-14.18,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-01-01,2020-21,1,Jan,SA,South Australia,State/Territory,482329,305234,63.28,47.63,15.65,73.03,-9.75,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-01-01,2020-21,1,Jan,TAS,Tasmania,State/Territory,281015,170523.2,60.68,47.63,13.05,85.83,-25.15,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-01-01,2020-21,1,Jan,VIC,Victoria,State/Territory,1670838,712019,42.61,47.63,-5.02,76.78,-34.17,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-01-01,2020-21,1,Jan,WA,Western Australia,State/Territory,869736,508934.9,58.52,47.63,10.89,62.49,-3.97,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-02-01,2020-21,2,Feb,ACT,Australian Capital Territory,State/Territory,211876,128498.5,60.65,47.49,13.16,81.7,-21.05,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-02-01,2020-21,2,Feb,AUS,Australia,National,8497524,4035601.8,47.49,47.49,0,76.01,-28.52,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-02-01,2020-21,2,Feb,NSW,New South Wales,State/Territory,2565696,1190242.2,46.39,47.49,-1.1,82.13,-35.74,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-02-01,2020-21,2,Feb,NT,Northern Territory,State/Territory,231392,91829.4,39.69,47.49,-7.8,45.76,-6.07,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-02-01,2020-21,2,Feb,QLD,Queensland,State/Territory,2480184,1243406.3,50.13,47.49,2.64,65.61,-15.48,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-02-01,2020-21,2,Feb,SA,South Australia,State/Territory,438200,269119.6,61.41,47.49,13.92,75.99,-14.58,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-02-01,2020-21,2,Feb,TAS,Tasmania,State/Territory,253820,162976.1,64.21,47.49,16.72,88.69,-24.48,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-02-01,2020-21,2,Feb,VIC,Victoria,State/Territory,1522136,578135.9,37.98,47.49,-9.51,85.65,-47.67,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-02-01,2020-21,2,Feb,WA,Western Australia,State/Territory,794220,375119.6,47.23,47.49,-0.26,71.62,-24.39,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-03-01,2020-21,3,Mar,ACT,Australian Capital Territory,State/Territory,233709,155859.8,66.69,55.76,10.93,76.95,-10.26,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-03-01,2020-21,3,Mar,AUS,Australia,National,9446010,5267329.2,55.76,55.76,0,75.07,-19.31,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-03-01,2020-21,3,Mar,NSW,New South Wales,State/Territory,2845831,1540501.7,54.13,55.76,-1.63,80.8,-26.67,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-03-01,2020-21,3,Mar,NT,Northern Territory,State/Territory,256184,130738.2,51.03,55.76,-4.73,50.03,1,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-03-01,2020-21,3,Mar,QLD,Queensland,State/Territory,2739811,1548135.3,56.51,55.76,0.75,65.39,-8.88,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-03-01,2020-21,3,Mar,SA,South Australia,State/Territory,491877,349218.7,71,55.76,15.24,78.88,-7.88,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-03-01,2020-21,3,Mar,TAS,Tasmania,State/Territory,281015,216616.4,77.08,55.76,21.32,84.17,-7.09,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-03-01,2020-21,3,Mar,VIC,Victoria,State/Territory,1712378,803544.1,46.93,55.76,-8.83,83.37,-36.44,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-03-01,2020-21,3,Mar,WA,Western Australia,State/Territory,885205,528044.4,59.65,55.76,3.89,70.67,-11.02,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-04-01,2020-21,4,Apr,ACT,Australian Capital Territory,State/Territory,226170,166699.4,73.71,61.39,12.32,81.81,-8.1,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-04-01,2020-21,4,Apr,AUS,Australia,National,9173370,5631905.6,61.39,61.39,0,72.93,-11.54,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-04-01,2020-21,4,Apr,NSW,New South Wales,State/Territory,2758860,1715755.5,62.19,61.39,0.8,77.23,-15.04,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-04-01,2020-21,4,Apr,NT,Northern Territory,State/Territory,251280,166380.4,66.21,61.39,4.82,58.15,8.06,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-04-01,2020-21,4,Apr,QLD,Queensland,State/Territory,2652870,1569246.8,59.15,61.39,-2.24,67.03,-7.88,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-04-01,2020-21,4,Apr,SA,South Australia,State/Territory,476280,338575.8,71.09,61.39,9.7,76.87,-5.78,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-04-01,2020-21,4,Apr,TAS,Tasmania,State/Territory,272310,209031.8,76.76,61.39,15.37,79.05,-2.29,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-04-01,2020-21,4,Apr,VIC,Victoria,State/Territory,1674480,934987.9,55.84,61.39,-5.55,76.02,-20.18,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-04-01,2020-21,4,Apr,WA,Western Australia,State/Territory,861120,523218.2,60.76,61.39,-0.63,67.72,-6.96,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-05-01,2020-21,5,May,ACT,Australian Capital Territory,State/Territory,233709,159139.9,68.09,58.99,9.1,69.43,-1.34,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-05-01,2020-21,5,May,AUS,Australia,National,9460022,5580883.7,58.99,58.99,0,70.49,-11.5,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-05-01,2020-21,5,May,NSW,New South Wales,State/Territory,2858262,1590197.3,55.64,58.99,-3.35,74.63,-18.99,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-05-01,2020-21,5,May,NT,Northern Territory,State/Territory,263748,196563.3,74.53,58.99,15.54,68.64,5.89,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-05-01,2020-21,5,May,QLD,Queensland,State/Territory,2706517,1746217.5,64.52,58.99,5.53,64.56,-0.04,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-05-01,2020-21,5,May,SA,South Australia,State/Territory,492187,327814.2,66.6,58.99,7.61,70.27,-3.67,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-05-01,2020-21,5,May,TAS,Tasmania,State/Territory,281170,195502.7,69.53,58.99,10.54,65.21,4.32,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-05-01,2020-21,5,May,VIC,Victoria,State/Territory,1734605,839535.6,48.4,58.99,-10.59,75.12,-26.72,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-05-01,2020-21,5,May,WA,Western Australia,State/Territory,889824,539692.2,60.65,58.99,1.66,66.7,-6.05,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-06-01,2020-21,6,Jun,ACT,Australian Capital Territory,State/Territory,225840,139494.7,61.77,50.92,10.85,71.69,-9.92,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-06-01,2020-21,6,Jun,AUS,Australia,National,9142950,4655575.2,50.92,50.92,0,68.2,-17.28,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-06-01,2020-21,6,Jun,NSW,New South Wales,State/Territory,2771340,1313679.1,47.4,50.92,-3.52,71.61,-24.21,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-06-01,2020-21,6,Jun,NT,Northern Territory,State/Territory,255240,175135.1,68.62,50.92,17.7,69.94,-1.32,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-06-01,2020-21,6,Jun,QLD,Queensland,State/Territory,2621190,1592520,60.76,50.92,9.84,64.44,-3.68,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-06-01,2020-21,6,Jun,SA,South Australia,State/Territory,479820,280200.2,58.4,50.92,7.48,65.57,-7.17,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-06-01,2020-21,6,Jun,TAS,Tasmania,State/Territory,271980,161850.5,59.51,50.92,8.59,61.71,-2.2,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-06-01,2020-21,6,Jun,VIC,Victoria,State/Territory,1668450,517964.2,31.04,50.92,-19.88,69.75,-38.71,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-06-01,2020-21,6,Jun,WA,Western Australia,State/Territory,849090,507239.8,59.74,50.92,8.82,66.17,-6.43,Australian-accommodation-monitor-data-files-2020-2021.xlsx,State & Territory Summaries
+2021-07-01,2021-22,7,Jul,ACT,Australian Capital Territory,State/Territory,232810,52395.3,22.51,38.56,-16.05,85.44,-62.93,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-07-01,2021-22,7,Jul,AUS,Australia,National,9522208,3672178,38.56,38.56,0,75.53,-36.97,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-07-01,2021-22,7,Jul,NSW,New South Wales,State/Territory,2875591,672550.6,23.39,38.56,-15.17,75.26,-51.87,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-07-01,2021-22,7,Jul,NT,Northern Territory,State/Territory,269018,138234.1,51.38,38.56,12.82,81.25,-29.87,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-07-01,2021-22,7,Jul,QLD,Queensland,State/Territory,2711167,1397988,51.56,38.56,13,76.88,-25.32,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-07-01,2021-22,7,Jul,SA,South Australia,State/Territory,496744,218911,44.07,38.56,5.51,69.77,-25.7,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-07-01,2021-22,7,Jul,TAS,Tasmania,State/Territory,284363,153876.4,54.11,38.56,15.55,63.08,-8.97,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-07-01,2021-22,7,Jul,VIC,Victoria,State/Territory,1759312,601820.9,34.21,38.56,-4.35,78.71,-44.5,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-07-01,2021-22,7,Jul,WA,Western Australia,State/Territory,889328,469105.3,52.75,38.56,14.19,66.23,-13.48,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-08-01,2021-22,8,Aug,ACT,Australian Capital Territory,State/Territory,232810,28967.8,12.44,31.3,-18.86,79.29,-66.85,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-08-01,2021-22,8,Aug,AUS,Australia,National,9441174,2954863.5,31.3,31.3,0,75.66,-44.36,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-08-01,2021-22,8,Aug,NSW,New South Wales,State/Territory,2796851,584876.2,20.91,31.3,-10.39,77.33,-56.42,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-08-01,2021-22,8,Aug,NT,Northern Territory,State/Territory,268987,156501.6,58.18,31.3,26.88,80.31,-22.13,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-08-01,2021-22,8,Aug,QLD,Queensland,State/Territory,2708377,1004397.1,37.08,31.3,5.78,75.56,-38.48,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-08-01,2021-22,8,Aug,SA,South Australia,State/Territory,497891,207413.4,41.66,31.3,10.36,68.95,-27.29,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-08-01,2021-22,8,Aug,TAS,Tasmania,State/Territory,284549,127399.9,44.77,31.3,13.47,58.89,-14.12,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-08-01,2021-22,8,Aug,VIC,Victoria,State/Territory,1762598,407913.8,23.14,31.3,-8.16,79.15,-56.01,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-08-01,2021-22,8,Aug,WA,Western Australia,State/Territory,889111,468581.2,52.7,31.3,21.4,67.8,-15.1,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-09-01,2021-22,9,Sep,ACT,Australian Capital Territory,State/Territory,218010,18373.1,8.43,37.97,-29.54,80.95,-72.52,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-09-01,2021-22,9,Sep,AUS,Australia,National,8958330,3401224.9,37.97,37.97,0,74.71,-36.74,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-09-01,2021-22,9,Sep,NSW,New South Wales,State/Territory,2654010,607987.7,22.91,37.97,-15.06,77.66,-54.75,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-09-01,2021-22,9,Sep,NT,Northern Territory,State/Territory,262830,145019.4,55.18,37.97,17.21,68.08,-12.9,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-09-01,2021-22,9,Sep,QLD,Queensland,State/Territory,2622960,1336055.7,50.94,37.97,12.97,72.17,-21.23,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-09-01,2021-22,9,Sep,SA,South Australia,State/Territory,480900,227662.7,47.34,37.97,9.37,72.36,-25.02,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-09-01,2021-22,9,Sep,TAS,Tasmania,State/Territory,275370,151768.7,55.11,37.97,17.14,70.67,-15.56,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-09-01,2021-22,9,Sep,VIC,Victoria,State/Territory,1586580,427352.9,26.94,37.97,-11.03,76.38,-49.44,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-09-01,2021-22,9,Sep,WA,Western Australia,State/Territory,857670,524948.8,61.21,37.97,23.24,71.6,-10.39,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-10-01,2021-22,10,Oct,ACT,Australian Capital Territory,State/Territory,229090,26348.1,11.5,38.37,-26.87,86.1,-74.6,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-10-01,2021-22,10,Oct,AUS,Australia,National,9439345,3621835.7,38.37,38.37,0,77.36,-38.99,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-10-01,2021-22,10,Oct,NSW,New South Wales,State/Territory,2858076,763870.2,26.73,38.37,-11.64,79.88,-53.15,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-10-01,2021-22,10,Oct,NT,Northern Territory,State/Territory,271498,145441.2,53.57,38.37,15.2,60.39,-6.82,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-10-01,2021-22,10,Oct,QLD,Queensland,State/Territory,2704657,1306046.9,48.29,38.37,9.92,73.23,-24.94,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-10-01,2021-22,10,Oct,SA,South Australia,State/Territory,497054,276975.5,55.72,38.37,17.35,76.72,-21,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-10-01,2021-22,10,Oct,TAS,Tasmania,State/Territory,284549,156792.2,55.1,38.37,16.73,76.67,-21.57,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-10-01,2021-22,10,Oct,VIC,Victoria,State/Territory,1708162,453468.6,26.55,38.37,-11.82,83.32,-56.77,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-10-01,2021-22,10,Oct,WA,Western Australia,State/Territory,886259,542680.7,61.23,38.37,22.86,72.32,-11.09,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-11-01,2021-22,11,Nov,ACT,Australian Capital Territory,State/Territory,225300,93775.8,41.62,45.86,-4.24,82.6,-40.98,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-11-01,2021-22,11,Nov,AUS,Australia,National,9245610,4240095,45.86,45.86,0,77.86,-32,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-11-01,2021-22,11,Nov,NSW,New South Wales,State/Territory,2786520,1182048.4,42.42,45.86,-3.44,83.07,-40.65,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-11-01,2021-22,11,Nov,NT,Northern Territory,State/Territory,265410,111478.2,42,45.86,-3.86,55.53,-13.53,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-11-01,2021-22,11,Nov,QLD,Queensland,State/Territory,2630370,1250847.4,47.55,45.86,1.69,70.4,-22.85,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-11-01,2021-22,11,Nov,SA,South Australia,State/Territory,488520,281306.1,57.58,45.86,11.72,80.28,-22.7,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-11-01,2021-22,11,Nov,TAS,Tasmania,State/Territory,275430,161821.4,58.75,45.86,12.89,81.79,-23.04,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-11-01,2021-22,11,Nov,VIC,Victoria,State/Territory,1712520,651115.3,38.02,45.86,-7.84,82.85,-44.83,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-11-01,2021-22,11,Nov,WA,Western Australia,State/Territory,861540,533108.8,61.88,45.86,16.02,76.41,-14.53,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-12-01,2021-22,12,Dec,ACT,Australian Capital Territory,State/Territory,233213,130440.9,55.93,53.55,2.38,65.93,-10,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-12-01,2021-22,12,Dec,AUS,Australia,National,9626585,5154753.8,53.55,53.55,0,70.87,-17.32,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-12-01,2021-22,12,Dec,NSW,New South Wales,State/Territory,2881884,1525399.9,52.93,53.55,-0.62,76.79,-23.86,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-12-01,2021-22,12,Dec,NT,Northern Territory,State/Territory,273823,106315.4,38.83,53.55,-14.72,43.74,-4.91,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-12-01,2021-22,12,Dec,QLD,Queensland,State/Territory,2733828,1525974.6,55.82,53.55,2.27,66.09,-10.27,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-12-01,2021-22,12,Dec,SA,South Australia,State/Territory,505734,300046.5,59.33,53.55,5.78,72.37,-13.04,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-12-01,2021-22,12,Dec,TAS,Tasmania,State/Territory,293880,184913.7,62.92,53.55,9.37,78.45,-15.53,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-12-01,2021-22,12,Dec,VIC,Victoria,State/Territory,1813562,855286.1,47.16,53.55,-6.39,74.61,-27.45,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2021-12-01,2021-22,12,Dec,WA,Western Australia,State/Territory,890661,544438.3,61.13,53.55,7.58,65.59,-4.46,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-01-01,2021-22,1,Jan,ACT,Australian Capital Territory,State/Territory,233213,118439.8,50.79,50.74,0.05,69.72,-18.93,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-01-01,2021-22,1,Jan,AUS,Australia,National,9627577,4884705.3,50.74,50.74,0,71.35,-20.61,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-01-01,2021-22,1,Jan,NSW,New South Wales,State/Territory,2889324,1322929.5,45.79,50.74,-4.95,77.03,-31.24,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-01-01,2021-22,1,Jan,NT,Northern Territory,State/Territory,273823,105450.4,38.51,50.74,-12.23,39.09,-0.58,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-01-01,2021-22,1,Jan,QLD,Queensland,State/Territory,2728248,1578306.5,57.85,50.74,7.11,66.47,-8.62,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-01-01,2021-22,1,Jan,SA,South Australia,State/Territory,505703,276008.9,54.58,50.74,3.84,73.03,-18.45,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-01-01,2021-22,1,Jan,TAS,Tasmania,State/Territory,293880,209905.3,71.43,50.74,20.69,85.83,-14.4,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-01-01,2021-22,1,Jan,VIC,Victoria,State/Territory,1804603,824826.5,45.71,50.74,-5.03,76.78,-31.07,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-01-01,2021-22,1,Jan,WA,Western Australia,State/Territory,898783,467674.2,52.03,50.74,1.29,62.49,-10.46,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-02-01,2021-22,2,Feb,ACT,Australian Capital Territory,State/Territory,210644,132628.9,62.96,52.52,10.44,81.7,-18.74,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-02-01,2021-22,2,Feb,AUS,Australia,National,8707552,4573277.1,52.52,52.52,0,76.01,-23.49,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-02-01,2021-22,2,Feb,NSW,New South Wales,State/Territory,2617748,1311239.9,50.09,52.52,-2.43,82.13,-32.04,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-02-01,2021-22,2,Feb,NT,Northern Territory,State/Territory,247744,97628.7,39.41,52.52,-13.11,45.76,-6.35,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-02-01,2021-22,2,Feb,QLD,Queensland,State/Territory,2464672,1372989.2,55.71,52.52,3.19,65.61,-9.9,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-02-01,2021-22,2,Feb,SA,South Australia,State/Territory,449988,261117.7,58.03,52.52,5.51,75.99,-17.96,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-02-01,2021-22,2,Feb,TAS,Tasmania,State/Territory,265440,210854.8,79.44,52.52,26.92,88.69,-9.25,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-02-01,2021-22,2,Feb,VIC,Victoria,State/Territory,1636936,756354.5,46.21,52.52,-6.31,85.65,-39.44,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-02-01,2021-22,2,Feb,WA,Western Australia,State/Territory,814380,440925.7,54.14,52.52,1.62,71.62,-17.48,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-03-01,2021-22,3,Mar,ACT,Australian Capital Territory,State/Territory,233182,162049.9,69.5,61.49,8.01,76.95,-7.45,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-03-01,2021-22,3,Mar,AUS,Australia,National,9640008,5927811.1,61.49,61.49,0,75.07,-13.58,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-03-01,2021-22,3,Mar,NSW,New South Wales,State/Territory,2896392,1729861.2,59.72,61.49,-1.77,80.8,-21.08,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-03-01,2021-22,3,Mar,NT,Northern Territory,State/Territory,274288,145243.3,52.95,61.49,-8.54,50.03,2.92,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-03-01,2021-22,3,Mar,QLD,Queensland,State/Territory,2718762,1692321,62.25,61.49,0.76,65.39,-3.14,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-03-01,2021-22,3,Mar,SA,South Australia,State/Territory,506013,373782.5,73.87,61.49,12.38,78.88,-5.01,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-03-01,2021-22,3,Mar,TAS,Tasmania,State/Territory,293880,247866.9,84.34,61.49,22.85,84.17,0.17,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-03-01,2021-22,3,Mar,VIC,Victoria,State/Territory,1815577,1045231.1,57.57,61.49,-3.92,83.37,-25.8,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-03-01,2021-22,3,Mar,WA,Western Australia,State/Territory,901914,529937.8,58.76,61.49,-2.73,70.67,-11.91,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-04-01,2021-22,4,Apr,ACT,Australian Capital Territory,State/Territory,225660,177049.6,78.46,69.41,9.05,81.81,-3.35,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-04-01,2021-22,4,Apr,AUS,Australia,National,9331590,6476766.8,69.41,69.41,0,72.93,-3.52,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-04-01,2021-22,4,Apr,NSW,New South Wales,State/Territory,2804580,1880986.7,67.07,69.41,-2.34,77.23,-10.16,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-04-01,2021-22,4,Apr,NT,Northern Territory,State/Territory,265890,179302.9,67.43,69.41,-1.98,58.15,9.28,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-04-01,2021-22,4,Apr,QLD,Queensland,State/Territory,2626890,1885251.2,71.77,69.41,2.36,67.03,4.74,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-04-01,2021-22,4,Apr,SA,South Australia,State/Territory,483690,373542.9,77.23,69.41,7.82,76.87,0.36,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-04-01,2021-22,4,Apr,TAS,Tasmania,State/Territory,284400,239188.4,84.1,69.41,14.69,79.05,5.05,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-04-01,2021-22,4,Apr,VIC,Victoria,State/Territory,1770330,1158023.5,65.41,69.41,-4,76.02,-10.61,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-04-01,2021-22,4,Apr,WA,Western Australia,State/Territory,870150,583807.2,67.09,69.41,-2.32,67.72,-0.63,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-05-01,2021-22,5,May,ACT,Australian Capital Territory,State/Territory,233182,154488.5,66.25,65.91,0.34,69.43,-3.18,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-05-01,2021-22,5,May,AUS,Australia,National,9643604,6355987.7,65.91,65.91,0,70.49,-4.58,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-05-01,2021-22,5,May,NSW,New South Wales,State/Territory,2907335,1897166,65.25,65.91,-0.66,74.63,-9.38,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-05-01,2021-22,5,May,NT,Northern Territory,State/Territory,274753,204490.7,74.43,65.91,8.52,68.64,5.79,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-05-01,2021-22,5,May,QLD,Queensland,State/Territory,2720529,1864175.9,68.52,65.91,2.61,64.56,3.96,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-05-01,2021-22,5,May,SA,South Australia,State/Territory,488653,369616.6,75.64,65.91,9.73,70.27,5.37,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-05-01,2021-22,5,May,TAS,Tasmania,State/Territory,293880,212979.3,72.47,65.91,6.56,65.21,7.26,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-05-01,2021-22,5,May,VIC,Victoria,State/Territory,1826117,1076552.2,58.95,65.91,-6.96,75.12,-16.17,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-05-01,2021-22,5,May,WA,Western Australia,State/Territory,899155,587978.3,65.39,65.91,-0.52,66.7,-1.31,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-06-01,2021-22,6,Jun,ACT,Australian Capital Territory,State/Territory,225660,160530.5,71.14,66.55,4.59,71.69,-0.55,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-06-01,2021-22,6,Jun,AUS,Australia,National,9375000,6238625.1,66.55,66.55,0,68.2,-1.65,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-06-01,2021-22,6,Jun,NSW,New South Wales,State/Territory,2817780,1833471.4,65.07,66.55,-1.48,71.61,-6.54,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-06-01,2021-22,6,Jun,NT,Northern Territory,State/Territory,265890,214818.3,80.79,66.55,14.24,69.94,10.85,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-06-01,2021-22,6,Jun,QLD,Queensland,State/Territory,2652480,1871857.5,70.57,66.55,4.02,64.44,6.13,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-06-01,2021-22,6,Jun,SA,South Australia,State/Territory,481680,317636.2,65.94,66.55,-0.61,65.57,0.37,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-06-01,2021-22,6,Jun,TAS,Tasmania,State/Territory,284280,194749.1,68.51,66.55,1.96,61.71,6.8,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-06-01,2021-22,6,Jun,VIC,Victoria,State/Territory,1777080,1060915.7,59.7,66.55,-6.85,69.75,-10.05,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-06-01,2021-22,6,Jun,WA,Western Australia,State/Territory,870150,594781.9,68.35,66.55,1.8,66.17,2.18,Australian-accommodation-monitor-data-files-2021-2022.xlsx,State & Territory Summaries
+2022-07-01,2022-23,7,Jul,ACT,Australian Capital Territory,State/Territory,229896,185425.7,80.66,68.61,12.05,85.44,-4.78,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-07-01,2022-23,7,Jul,AUS,Australia,National,9846282,6755476.2,68.61,68.61,0,75.53,-6.92,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-07-01,2022-23,7,Jul,NSW,New South Wales,State/Territory,2964096,1925646.6,64.97,68.61,-3.64,75.26,-10.29,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-07-01,2022-23,7,Jul,NT,Northern Territory,State/Territory,284921,231513.1,81.26,68.61,12.65,81.25,0.01,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-07-01,2022-23,7,Jul,QLD,Queensland,State/Territory,2790031,2066812.2,74.08,68.61,5.47,76.88,-2.8,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-07-01,2022-23,7,Jul,SA,South Australia,State/Territory,519095,344064.9,66.28,68.61,-2.33,69.77,-3.49,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-07-01,2022-23,7,Jul,TAS,Tasmania,State/Territory,298437,198482.3,66.51,68.61,-2.1,63.08,3.43,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-07-01,2022-23,7,Jul,VIC,Victoria,State/Territory,1845864,1163692.4,63.04,68.61,-5.57,78.71,-15.67,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-07-01,2022-23,7,Jul,WA,Western Australia,State/Territory,911710,641965.3,70.41,68.61,1.8,66.23,4.18,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-08-01,2022-23,8,Aug,ACT,Australian Capital Territory,State/Territory,229896,158754.1,69.05,65.8,3.25,79.29,-10.24,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-08-01,2022-23,8,Aug,AUS,Australia,National,9877964,6499814.9,65.8,65.8,0,75.66,-9.86,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-08-01,2022-23,8,Aug,NSW,New South Wales,State/Territory,2967320,1898473.7,63.98,65.8,-1.82,77.33,-13.35,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-08-01,2022-23,8,Aug,NT,Northern Territory,State/Territory,285169,228999.3,80.3,65.8,14.5,80.31,-0.01,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-08-01,2022-23,8,Aug,QLD,Queensland,State/Territory,2796045,1997302,71.43,65.8,5.63,75.56,-4.13,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-08-01,2022-23,8,Aug,SA,South Australia,State/Territory,525326,346626.7,65.98,65.8,0.18,68.95,-2.97,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-08-01,2022-23,8,Aug,TAS,Tasmania,State/Territory,298654,187844.2,62.9,65.8,-2.9,58.89,4.01,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-08-01,2022-23,8,Aug,VIC,Victoria,State/Territory,1853862,1067033.2,57.56,65.8,-8.24,79.15,-21.59,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-08-01,2022-23,8,Aug,WA,Western Australia,State/Territory,919460,629817.7,68.5,65.8,2.7,67.8,0.7,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-09-01,2022-23,9,Sep,ACT,Australian Capital Territory,State/Territory,224130,175533.3,78.32,71.49,6.83,80.95,-2.63,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-09-01,2022-23,9,Sep,AUS,Australia,National,9574890,6845548.2,71.49,71.49,0,74.71,-3.22,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-09-01,2022-23,9,Sep,NSW,New South Wales,State/Territory,2877270,2063437.7,71.72,71.49,0.23,77.66,-5.94,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-09-01,2022-23,9,Sep,NT,Northern Territory,State/Territory,276060,212616.6,77.02,71.49,5.53,68.08,8.94,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-09-01,2022-23,9,Sep,QLD,Queensland,State/Territory,2706450,2023148.2,74.75,71.49,3.26,72.17,2.58,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-09-01,2022-23,9,Sep,SA,South Australia,State/Territory,508800,362939.6,71.33,71.49,-0.16,72.36,-1.03,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-09-01,2022-23,9,Sep,TAS,Tasmania,State/Territory,289020,218094.4,75.46,71.49,3.97,70.67,4.79,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-09-01,2022-23,9,Sep,VIC,Victoria,State/Territory,1797450,1137273.6,63.27,71.49,-8.22,76.38,-13.11,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-09-01,2022-23,9,Sep,WA,Western Australia,State/Territory,889800,663422.9,74.56,71.49,3.07,71.6,2.96,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-10-01,2022-23,10,Oct,ACT,Australian Capital Territory,State/Territory,231291,181185.3,78.34,72.22,6.12,86.1,-7.76,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-10-01,2022-23,10,Oct,AUS,Australia,National,9907817,7155816.1,72.22,72.22,0,77.36,-5.14,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-10-01,2022-23,10,Oct,NSW,New South Wales,State/Territory,2973706,2141384.8,72.01,72.22,-0.21,79.88,-7.87,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-10-01,2022-23,10,Oct,NT,Northern Territory,State/Territory,285634,187309.8,65.58,72.22,-6.64,60.39,5.19,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-10-01,2022-23,10,Oct,QLD,Queensland,State/Territory,2801470,2069103.4,73.86,72.22,1.64,73.23,0.63,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-10-01,2022-23,10,Oct,SA,South Australia,State/Territory,526659,392389,74.51,72.22,2.29,76.72,-2.21,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-10-01,2022-23,10,Oct,TAS,Tasmania,State/Territory,304451,225185.3,73.96,72.22,1.74,76.67,-2.71,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-10-01,2022-23,10,Oct,VIC,Victoria,State/Territory,1857551,1274634.9,68.62,72.22,-3.6,83.32,-14.7,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-10-01,2022-23,10,Oct,WA,Western Australia,State/Territory,920948,685711,74.46,72.22,2.24,72.32,2.14,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-11-01,2022-23,11,Nov,ACT,Australian Capital Territory,State/Territory,225720,177639.4,78.7,73.64,5.06,82.6,-3.9,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-11-01,2022-23,11,Nov,AUS,Australia,National,9595980,7066123.7,73.64,73.64,0,77.86,-4.22,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-11-01,2022-23,11,Nov,NSW,New South Wales,State/Territory,2878650,2202946.3,76.53,73.64,2.89,83.07,-6.54,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-11-01,2022-23,11,Nov,NT,Northern Territory,State/Territory,276600,149107.7,53.91,73.64,-19.73,55.53,-1.62,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-11-01,2022-23,11,Nov,QLD,Queensland,State/Territory,2714730,1936464.1,71.33,73.64,-2.31,70.4,0.93,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-11-01,2022-23,11,Nov,SA,South Australia,State/Territory,513150,391488,76.29,73.64,2.65,80.28,-3.99,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-11-01,2022-23,11,Nov,TAS,Tasmania,State/Territory,294630,238981.8,81.11,73.64,7.47,81.79,-0.68,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-11-01,2022-23,11,Nov,VIC,Victoria,State/Territory,1795470,1279451.9,71.26,73.64,-2.38,82.85,-11.59,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-11-01,2022-23,11,Nov,WA,Western Australia,State/Territory,891120,692790.6,77.74,73.64,4.1,76.41,1.33,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-12-01,2022-23,12,Dec,ACT,Australian Capital Territory,State/Territory,233244,138560.2,59.41,66.31,-6.9,65.93,-6.52,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-12-01,2022-23,12,Dec,AUS,Australia,National,9919752,6577642.9,66.31,66.31,0,70.87,-4.56,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-12-01,2022-23,12,Dec,NSW,New South Wales,State/Territory,2970048,2065920.5,69.56,66.31,3.25,76.79,-7.23,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-12-01,2022-23,12,Dec,NT,Northern Territory,State/Territory,284797,112287.1,39.43,66.31,-26.88,43.74,-4.31,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-12-01,2022-23,12,Dec,QLD,Queensland,State/Territory,2804911,1824692.7,65.05,66.31,-1.26,66.09,-1.04,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-12-01,2022-23,12,Dec,SA,South Australia,State/Territory,533975,357067.9,66.87,66.31,0.56,72.37,-5.5,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-12-01,2022-23,12,Dec,TAS,Tasmania,State/Territory,304482,214576.6,70.47,66.31,4.16,78.45,-7.98,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-12-01,2022-23,12,Dec,VIC,Victoria,State/Territory,1861178,1243398.2,66.81,66.31,0.5,74.61,-7.8,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2022-12-01,2022-23,12,Dec,WA,Western Australia,State/Territory,921010,631120.2,68.52,66.31,2.21,65.59,2.93,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-01-01,2022-23,1,Jan,ACT,Australian Capital Territory,State/Territory,233182,141428.4,60.65,64.95,-4.3,69.72,-9.07,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-01-01,2022-23,1,Jan,AUS,Australia,National,9939034,6455859.8,64.95,64.95,0,71.35,-6.4,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-01-01,2022-23,1,Jan,NSW,New South Wales,State/Territory,2984711,1975371.1,66.18,64.95,1.23,77.03,-10.85,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-01-01,2022-23,1,Jan,NT,Northern Territory,State/Territory,284797,99939.1,35.09,64.95,-29.86,39.09,-4,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-01-01,2022-23,1,Jan,QLD,Queensland,State/Territory,2806058,1791466.9,63.84,64.95,-1.11,66.47,-2.63,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-01-01,2022-23,1,Jan,SA,South Australia,State/Territory,534254,364725.5,68.27,64.95,3.32,73.03,-4.76,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-01-01,2022-23,1,Jan,TAS,Tasmania,State/Territory,304513,241551.4,79.32,64.95,14.37,85.83,-6.51,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-01-01,2022-23,1,Jan,VIC,Victoria,State/Territory,1863968,1221443.3,65.53,64.95,0.58,76.78,-11.25,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-01-01,2022-23,1,Jan,WA,Western Australia,State/Territory,921444,630092.6,68.38,64.95,3.43,62.49,5.89,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-02-01,2022-23,2,Feb,ACT,Australian Capital Territory,State/Territory,210616,151163.8,71.77,70.3,1.47,81.7,-9.93,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-02-01,2022-23,2,Feb,AUS,Australia,National,8999032,6326031.1,70.3,70.3,0,76.01,-5.71,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-02-01,2022-23,2,Feb,NSW,New South Wales,State/Territory,2700320,2080156.1,77.03,70.3,6.73,82.13,-5.1,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-02-01,2022-23,2,Feb,NT,Northern Territory,State/Territory,255416,111471.7,43.64,70.3,-26.66,45.76,-2.12,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-02-01,2022-23,2,Feb,QLD,Queensland,State/Territory,2535316,1590504.1,62.73,70.3,-7.57,65.61,-2.88,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-02-01,2022-23,2,Feb,SA,South Australia,State/Territory,484372,324245.5,66.94,70.3,-3.36,75.99,-9.05,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-02-01,2022-23,2,Feb,TAS,Tasmania,State/Territory,275044,235750.2,85.71,70.3,15.41,88.69,-2.98,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-02-01,2022-23,2,Feb,VIC,Victoria,State/Territory,1700328,1202689.9,70.73,70.3,0.43,85.65,-14.92,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-02-01,2022-23,2,Feb,WA,Western Australia,State/Territory,832104,632585.3,76.02,70.3,5.72,71.62,4.4,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-03-01,2022-23,3,Mar,ACT,Australian Capital Territory,State/Territory,232903,162287.6,69.68,72.89,-3.21,76.95,-7.27,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-03-01,2022-23,3,Mar,AUS,Australia,National,10003018,7291374.2,72.89,72.89,0,75.07,-2.18,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-03-01,2022-23,3,Mar,NSW,New South Wales,State/Territory,2998134,2301174.4,76.75,72.89,3.86,80.8,-4.05,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-03-01,2022-23,3,Mar,NT,Northern Territory,State/Territory,288486,145447.2,50.42,72.89,-22.47,50.03,0.39,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-03-01,2022-23,3,Mar,QLD,Queensland,State/Territory,2807360,1839231.4,65.51,72.89,-7.38,65.39,0.12,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-03-01,2022-23,3,Mar,SA,South Australia,State/Territory,543802,411084.6,75.59,72.89,2.7,78.88,-3.29,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-03-01,2022-23,3,Mar,TAS,Tasmania,State/Territory,304513,254684.1,83.64,72.89,10.75,84.17,-0.53,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-03-01,2022-23,3,Mar,VIC,Victoria,State/Territory,1899897,1426110.2,75.06,72.89,2.17,83.37,-8.31,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-03-01,2022-23,3,Mar,WA,Western Australia,State/Territory,921816,746541.2,80.99,72.89,8.1,70.67,10.32,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-04-01,2022-23,4,Apr,ACT,Australian Capital Territory,State/Territory,225390,147781.7,65.57,66.18,-0.61,81.81,-16.24,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-04-01,2022-23,4,Apr,AUS,Australia,National,9707760,6424419.2,66.18,66.18,0,72.93,-6.75,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-04-01,2022-23,4,Apr,NSW,New South Wales,State/Territory,2907030,1966631.3,67.65,66.18,1.47,77.23,-9.58,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-04-01,2022-23,4,Apr,NT,Northern Territory,State/Territory,279180,150809.6,54.02,66.18,-12.16,58.15,-4.13,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-04-01,2022-23,4,Apr,QLD,Queensland,State/Territory,2719650,1770682.4,65.11,66.18,-1.07,67.03,-1.92,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-04-01,2022-23,4,Apr,SA,South Australia,State/Territory,526680,359961.1,68.35,66.18,2.17,76.87,-8.52,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-04-01,2022-23,4,Apr,TAS,Tasmania,State/Territory,294690,198350.4,67.31,66.18,1.13,79.05,-11.74,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-04-01,2022-23,4,Apr,VIC,Victoria,State/Territory,1853070,1199973.5,64.76,66.18,-1.42,76.02,-11.26,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-04-01,2022-23,4,Apr,WA,Western Australia,State/Territory,896160,631463.2,70.46,66.18,4.28,67.72,2.74,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-05-01,2022-23,5,May,ACT,Australian Capital Territory,State/Territory,232903,157690,67.71,66.23,1.48,69.43,-1.72,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-05-01,2022-23,5,May,AUS,Australia,National,10050789,6657137.6,66.23,66.23,0,70.49,-4.26,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-05-01,2022-23,5,May,NSW,New South Wales,State/Territory,3004582,2084624.7,69.38,66.23,3.15,74.63,-5.25,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-05-01,2022-23,5,May,NT,Northern Territory,State/Territory,288548,173873.1,60.26,66.23,-5.97,68.64,-8.38,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-05-01,2022-23,5,May,QLD,Queensland,State/Territory,2810584,1826565.2,64.99,66.23,-1.24,64.56,0.43,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-05-01,2022-23,5,May,SA,South Australia,State/Territory,545538,368851.1,67.61,66.23,1.38,70.27,-2.66,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-05-01,2022-23,5,May,TAS,Tasmania,State/Territory,304513,191525.6,62.9,66.23,-3.33,65.21,-2.31,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-05-01,2022-23,5,May,VIC,Victoria,State/Territory,1931982,1219381.5,63.12,66.23,-3.11,75.12,-12,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-05-01,2022-23,5,May,WA,Western Australia,State/Territory,926032,636252.2,68.71,66.23,2.48,66.7,2.01,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-06-01,2022-23,6,Jun,ACT,Australian Capital Territory,State/Territory,225390,156417.5,69.4,66.18,3.22,71.69,-2.29,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-06-01,2022-23,6,Jun,AUS,Australia,National,9732810,6441497.4,66.18,66.18,0,68.2,-2.02,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-06-01,2022-23,6,Jun,NSW,New South Wales,State/Territory,2910720,1987965.1,68.3,66.18,2.12,71.61,-3.31,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-06-01,2022-23,6,Jun,NT,Northern Territory,State/Territory,279840,191943.1,68.59,66.18,2.41,69.94,-1.35,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-06-01,2022-23,6,Jun,QLD,Queensland,State/Territory,2714100,1854493.4,68.33,66.18,2.15,64.44,3.89,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-06-01,2022-23,6,Jun,SA,South Australia,State/Territory,527580,320255.8,60.7,66.18,-5.48,65.57,-4.87,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-06-01,2022-23,6,Jun,TAS,Tasmania,State/Territory,294360,173644.4,58.99,66.18,-7.19,61.71,-2.72,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-06-01,2022-23,6,Jun,VIC,Victoria,State/Territory,1876980,1150113.9,61.27,66.18,-4.91,69.75,-8.48,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-06-01,2022-23,6,Jun,WA,Western Australia,State/Territory,897930,615186.2,68.51,66.18,2.33,66.17,2.34,Australian-Accommodation-Monitor-Summary-2022-2023.xlsx,State & Territory Summaries
+2023-07-01,2023-24,7,Jul,ACT,Australian Capital Territory,State/Territory,232934,166546.3,71.5,70.55,0.95,85.44,-13.94,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-07-01,2023-24,7,Jul,AUS,Australia,National,10138457,7153062,70.55,70.55,0,75.53,-4.98,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-07-01,2023-24,7,Jul,NSW,New South Wales,State/Territory,3037194,2184800.4,71.93,70.55,1.38,75.26,-3.33,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-07-01,2023-24,7,Jul,NT,Northern Territory,State/Territory,293012,222847.9,76.05,70.55,5.5,81.25,-5.2,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-07-01,2023-24,7,Jul,QLD,Queensland,State/Territory,2824968,2137944.8,75.68,70.55,5.13,76.88,-1.2,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-07-01,2023-24,7,Jul,SA,South Australia,State/Territory,550684,338866.2,61.54,70.55,-9.01,69.77,-8.23,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-07-01,2023-24,7,Jul,TAS,Tasmania,State/Territory,304203,171890.4,56.51,70.55,-14.04,63.08,-6.57,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-07-01,2023-24,7,Jul,VIC,Victoria,State/Territory,1956379,1287049.2,65.79,70.55,-4.76,78.71,-12.92,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-07-01,2023-24,7,Jul,WA,Western Australia,State/Territory,932046,651963,69.95,70.55,-0.6,66.23,3.72,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-08-01,2023-24,8,Aug,ACT,Australian Capital Territory,State/Territory,241614,156653.7,64.84,70.63,-5.79,79.29,-14.45,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-08-01,2023-24,8,Aug,AUS,Australia,National,10173394,7185650.7,70.63,70.63,0,75.66,-5.03,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-08-01,2023-24,8,Aug,NSW,New South Wales,State/Territory,3059173,2257164.3,73.78,70.63,3.15,77.33,-3.55,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-08-01,2023-24,8,Aug,NT,Northern Territory,State/Territory,293260,214212,73.05,70.63,2.42,80.31,-7.26,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-08-01,2023-24,8,Aug,QLD,Queensland,State/Territory,2823573,2096119.2,74.24,70.63,3.61,75.56,-1.32,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-08-01,2023-24,8,Aug,SA,South Australia,State/Territory,549909,367669.7,66.86,70.63,-3.77,68.95,-2.09,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-08-01,2023-24,8,Aug,TAS,Tasmania,State/Territory,304327,172341.9,56.63,70.63,-14,58.89,-2.26,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-08-01,2023-24,8,Aug,VIC,Victoria,State/Territory,1963354,1264398,64.4,70.63,-6.23,79.15,-14.75,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-08-01,2023-24,8,Aug,WA,Western Australia,State/Territory,931147,674317.3,72.42,70.63,1.79,67.8,4.62,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-09-01,2023-24,9,Sep,ACT,Australian Capital Territory,State/Territory,233820,173542.7,74.22,72.14,2.08,80.95,-6.73,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-09-01,2023-24,9,Sep,AUS,Australia,National,9867330,7118336.6,72.14,72.14,0,74.71,-2.57,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-09-01,2023-24,9,Sep,NSW,New South Wales,State/Territory,2966610,2224383,74.98,72.14,2.84,77.66,-2.68,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-09-01,2023-24,9,Sep,NT,Northern Territory,State/Territory,283590,185461.2,65.4,72.14,-6.74,68.08,-2.68,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-09-01,2023-24,9,Sep,QLD,Queensland,State/Territory,2733750,2055615.7,75.19,72.14,3.05,72.17,3.02,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-09-01,2023-24,9,Sep,SA,South Australia,State/Territory,533370,367640.3,68.93,72.14,-3.21,72.36,-3.43,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-09-01,2023-24,9,Sep,TAS,Tasmania,State/Territory,294540,203765.4,69.18,72.14,-2.96,70.67,-1.49,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-09-01,2023-24,9,Sep,VIC,Victoria,State/Territory,1914570,1231736.9,64.33,72.14,-7.81,76.38,-12.05,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-09-01,2023-24,9,Sep,WA,Western Australia,State/Territory,900270,693447.3,77.03,72.14,4.89,71.6,5.43,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-10-01,2023-24,10,Oct,ACT,Australian Capital Territory,State/Territory,241614,168563.5,69.77,72.67,-2.9,86.1,-16.33,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-10-01,2023-24,10,Oct,AUS,Australia,National,10214190,7422845.5,72.67,72.67,0,77.36,-4.69,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-10-01,2023-24,10,Oct,NSW,New South Wales,State/Territory,3088406,2291567.9,74.2,72.67,1.53,79.88,-5.68,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-10-01,2023-24,10,Oct,NT,Northern Territory,State/Territory,293043,169441.8,57.82,72.67,-14.85,60.39,-2.57,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-10-01,2023-24,10,Oct,QLD,Queensland,State/Territory,2825712,2041972.9,72.26,72.67,-0.41,73.23,-0.97,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-10-01,2023-24,10,Oct,SA,South Australia,State/Territory,551552,416466.6,75.51,72.67,2.84,76.72,-1.21,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-10-01,2023-24,10,Oct,TAS,Tasmania,State/Territory,304358,224695.1,73.83,72.67,1.16,76.67,-2.84,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-10-01,2023-24,10,Oct,VIC,Victoria,State/Territory,1972499,1375330.2,69.73,72.67,-2.94,83.32,-13.59,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-10-01,2023-24,10,Oct,WA,Western Australia,State/Territory,929969,744417,80.05,72.67,7.38,72.32,7.73,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-11-01,2023-24,11,Nov,ACT,Australian Capital Territory,State/Territory,232410,180179.1,77.53,75.5,2.03,82.6,-5.07,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-11-01,2023-24,11,Nov,AUS,Australia,National,9873900,7454443.5,75.5,75.5,0,77.86,-2.36,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-11-01,2023-24,11,Nov,NSW,New South Wales,State/Territory,2986650,2366423.1,79.23,75.5,3.73,83.07,-3.84,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-11-01,2023-24,11,Nov,NT,Northern Territory,State/Territory,282600,140930.1,49.87,75.5,-25.63,55.53,-5.66,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-11-01,2023-24,11,Nov,QLD,Queensland,State/Territory,2732580,1967696.6,72.01,75.5,-3.49,70.4,1.61,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-11-01,2023-24,11,Nov,SA,South Australia,State/Territory,534210,404540.3,75.73,75.5,0.23,80.28,-4.55,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-11-01,2023-24,11,Nov,TAS,Tasmania,State/Territory,294540,241031.3,81.83,75.5,6.33,81.79,0.04,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-11-01,2023-24,11,Nov,VIC,Victoria,State/Territory,1910910,1412320,73.91,75.5,-1.59,82.85,-8.94,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-11-01,2023-24,11,Nov,WA,Western Australia,State/Territory,893190,745270.8,83.44,75.5,7.94,76.41,7.03,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-12-01,2023-24,12,Dec,ACT,Australian Capital Territory,State/Territory,240095,148804.8,61.98,68.51,-6.53,65.93,-3.95,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-12-01,2023-24,12,Dec,AUS,Australia,National,10216267,6999221,68.51,68.51,0,70.87,-2.36,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-12-01,2023-24,12,Dec,NSW,New South Wales,State/Territory,3086081,2278296.2,73.82,68.51,5.31,76.79,-2.97,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-12-01,2023-24,12,Dec,NT,Northern Territory,State/Territory,292020,106942.7,36.62,68.51,-31.89,43.74,-7.12,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-12-01,2023-24,12,Dec,QLD,Queensland,State/Territory,2828595,1899342.8,67.15,68.51,-1.36,66.09,1.06,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-12-01,2023-24,12,Dec,SA,South Australia,State/Territory,554838,351546,63.36,68.51,-5.15,72.37,-9.01,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-12-01,2023-24,12,Dec,TAS,Tasmania,State/Territory,304358,228472.1,75.07,68.51,6.56,78.45,-3.38,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-12-01,2023-24,12,Dec,VIC,Victoria,State/Territory,1976870,1331308.7,67.34,68.51,-1.17,74.61,-7.27,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2023-12-01,2023-24,12,Dec,WA,Western Australia,State/Territory,926373,668156.4,72.13,68.51,3.62,65.59,6.54,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-01-01,2023-24,1,Jan,ACT,Australian Capital Territory,State/Territory,239878,147619.5,61.54,67.66,-6.12,69.72,-8.18,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-01-01,2023-24,1,Jan,AUS,Australia,National,10205200,6904804.6,67.66,67.66,0,71.35,-3.69,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-01-01,2023-24,1,Jan,NSW,New South Wales,State/Territory,3077649,2170720.2,70.53,67.66,2.87,77.03,-6.5,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-01-01,2023-24,1,Jan,NT,Northern Territory,State/Territory,290842,98066.1,33.72,67.66,-33.94,39.09,-5.37,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-01-01,2023-24,1,Jan,QLD,Queensland,State/Territory,2821527,1855877.6,65.78,67.66,-1.88,66.47,-0.69,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-01-01,2023-24,1,Jan,SA,South Australia,State/Territory,554807,381597.9,68.78,67.66,1.12,73.03,-4.25,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-01-01,2023-24,1,Jan,TAS,Tasmania,State/Territory,304389,246194.7,80.88,67.66,13.22,85.83,-4.95,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-01-01,2023-24,1,Jan,VIC,Victoria,State/Territory,1983008,1357492.8,68.46,67.66,0.8,76.78,-8.32,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-01-01,2023-24,1,Jan,WA,Western Australia,State/Territory,926063,653666.7,70.59,67.66,2.93,62.49,8.1,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-02-01,2023-24,2,Feb,ACT,Australian Capital Territory,State/Territory,216664,155617.1,71.82,73.9,-2.08,81.7,-9.88,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-02-01,2023-24,2,Feb,AUS,Australia,National,9217180,6811238.8,73.9,73.9,0,76.01,-2.11,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-02-01,2023-24,2,Feb,NSW,New South Wales,State/Territory,2782360,2229034.2,80.11,73.9,6.21,82.13,-2.02,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-02-01,2023-24,2,Feb,NT,Northern Territory,State/Territory,259672,107785,41.51,73.9,-32.39,45.76,-4.25,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-02-01,2023-24,2,Feb,QLD,Queensland,State/Territory,2547552,1690888.3,66.37,73.9,-7.53,65.61,0.76,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-02-01,2023-24,2,Feb,SA,South Australia,State/Territory,502096,359319.2,71.56,73.9,-2.34,75.99,-4.43,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-02-01,2023-24,2,Feb,TAS,Tasmania,State/Territory,274932,233115.2,84.79,73.9,10.89,88.69,-3.9,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-02-01,2023-24,2,Feb,VIC,Victoria,State/Territory,1791104,1354824.1,75.64,73.9,1.74,85.65,-10.01,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-02-01,2023-24,2,Feb,WA,Western Australia,State/Territory,836444,677426.4,80.99,73.9,7.09,71.62,9.37,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-03-01,2023-24,3,Mar,ACT,Australian Capital Territory,State/Territory,239878,172355.5,71.85,73.67,-1.82,76.95,-5.1,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-03-01,2023-24,3,Mar,AUS,Australia,National,10210811,7522552.6,73.67,73.67,0,75.07,-1.4,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-03-01,2023-24,3,Mar,NSW,New South Wales,State/Territory,3080036,2396970.5,77.82,73.67,4.15,80.8,-2.98,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-03-01,2023-24,3,Mar,NT,Northern Territory,State/Territory,287494,138652.7,48.23,73.67,-25.44,50.03,-1.8,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-03-01,2023-24,3,Mar,QLD,Queensland,State/Territory,2820132,1894335.9,67.17,73.67,-6.5,65.39,1.78,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-03-01,2023-24,3,Mar,SA,South Australia,State/Territory,555892,427751.4,76.95,73.67,3.28,78.88,-1.93,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-03-01,2023-24,3,Mar,TAS,Tasmania,State/Territory,304575,252960,83.05,73.67,9.38,84.17,-1.12,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-03-01,2023-24,3,Mar,VIC,Victoria,State/Territory,1984589,1500098,75.59,73.67,1.92,83.37,-7.78,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-03-01,2023-24,3,Mar,WA,Western Australia,State/Territory,931178,729915,78.39,73.67,4.72,70.67,7.72,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-04-01,2023-24,4,Apr,ACT,Australian Capital Territory,State/Territory,232140,153701.4,66.21,68.55,-2.34,81.81,-15.6,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-04-01,2023-24,4,Apr,AUS,Australia,National,9892050,6781005.4,68.55,68.55,0,72.93,-4.38,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-04-01,2023-24,4,Apr,NSW,New South Wales,State/Territory,2988990,2101706.7,70.31,68.55,1.76,77.23,-6.92,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-04-01,2023-24,4,Apr,NT,Northern Territory,State/Territory,277770,158993.2,57.24,68.55,-11.31,58.15,-0.91,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-04-01,2023-24,4,Apr,QLD,Queensland,State/Territory,2728350,1797282,65.87,68.55,-2.68,67.03,-1.16,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-04-01,2023-24,4,Apr,SA,South Australia,State/Territory,537990,398653.7,74.1,68.55,5.55,76.87,-2.77,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-04-01,2023-24,4,Apr,TAS,Tasmania,State/Territory,294090,211598,71.95,68.55,3.4,79.05,-7.1,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-04-01,2023-24,4,Apr,VIC,Victoria,State/Territory,1919640,1284528.3,66.92,68.55,-1.63,76.02,-9.1,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-04-01,2023-24,4,Apr,WA,Western Australia,State/Territory,906270,673085.3,74.27,68.55,5.72,67.72,6.55,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-05-01,2023-24,5,May,ACT,Australian Capital Territory,State/Territory,239878,160127,66.75,67.12,-0.37,69.43,-2.68,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-05-01,2023-24,5,May,AUS,Australia,National,10221568,6860699,67.12,67.12,0,70.49,-3.37,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-05-01,2023-24,5,May,NSW,New South Wales,State/Territory,3087848,2116347.9,68.54,67.12,1.42,74.63,-6.09,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-05-01,2023-24,5,May,NT,Northern Territory,State/Territory,287029,186221.8,64.88,67.12,-2.24,68.64,-3.76,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-05-01,2023-24,5,May,QLD,Queensland,State/Territory,2819264,1871759.9,66.39,67.12,-0.73,64.56,1.83,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-05-01,2023-24,5,May,SA,South Australia,State/Territory,555923,353232.6,63.54,67.12,-3.58,70.27,-6.73,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-05-01,2023-24,5,May,TAS,Tasmania,State/Territory,304203,188630.3,62.01,67.12,-5.11,65.21,-3.2,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-05-01,2023-24,5,May,VIC,Victoria,State/Territory,1984372,1285941.5,64.8,67.12,-2.32,75.12,-10.32,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-05-01,2023-24,5,May,WA,Western Australia,State/Territory,936014,703976.1,75.21,67.12,8.09,66.7,8.51,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-06-01,2023-24,6,Jun,ACT,Australian Capital Territory,State/Territory,233760,162812.9,69.65,67,2.65,71.69,-2.04,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-06-01,2023-24,6,Jun,AUS,Australia,National,9901710,6634193.4,67,67,0,68.2,-1.2,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-06-01,2023-24,6,Jun,NSW,New South Wales,State/Territory,2990970,2035164,68.04,67,1.04,71.61,-3.57,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-06-01,2023-24,6,Jun,NT,Northern Territory,State/Territory,277770,191706.4,69.02,67,2.02,69.94,-0.92,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-06-01,2023-24,6,Jun,QLD,Queensland,State/Territory,2729340,1902297.9,69.7,67,2.7,64.44,5.26,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-06-01,2023-24,6,Jun,SA,South Australia,State/Territory,537990,327899.4,60.95,67,-6.05,65.57,-4.62,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-06-01,2023-24,6,Jun,TAS,Tasmania,State/Territory,294270,170028.9,57.78,67,-9.22,61.71,-3.93,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-06-01,2023-24,6,Jun,VIC,Victoria,State/Territory,1924980,1210200.7,62.87,67,-4.13,69.75,-6.88,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-06-01,2023-24,6,Jun,WA,Western Australia,State/Territory,905820,645057.5,71.21,67,4.21,66.17,5.04,Australian-Accommodation-Monitor-Summary-2023-2024.xlsx,State & Territory Summaries
+2024-07-01,2024-25,7,Jul,ACT,Australian Capital Territory,State/Territory,244528,182632.3,74.69,70.8,3.89,85.44,-10.75,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-07-01,2024-25,7,Jul,AUS,Australia,National,10302106,7293953.9,70.8,70.8,0,75.53,-4.73,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-07-01,2024-25,7,Jul,NSW,New South Wales,State/Territory,3115221,2180566.6,70,70.8,-0.8,75.26,-5.26,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-07-01,2024-25,7,Jul,NT,Northern Territory,State/Territory,290904,223385.9,76.79,70.8,5.99,81.25,-4.46,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-07-01,2024-25,7,Jul,QLD,Queensland,State/Territory,2848435,2174490.1,76.34,70.8,5.54,76.88,-0.54,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-07-01,2024-25,7,Jul,SA,South Australia,State/Territory,566029,359830.5,63.57,70.8,-7.23,69.77,-6.2,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-07-01,2024-25,7,Jul,TAS,Tasmania,State/Territory,304358,189782.8,62.36,70.8,-8.44,63.08,-0.72,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-07-01,2024-25,7,Jul,VIC,Victoria,State/Territory,2006940,1326591,66.1,70.8,-4.7,78.71,-12.61,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-07-01,2024-25,7,Jul,WA,Western Australia,State/Territory,923118,671247.5,72.72,70.8,1.92,66.23,6.49,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-08-01,2024-25,8,Aug,ACT,Australian Capital Territory,State/Territory,244497,174146.6,71.23,71.66,-0.43,79.29,-8.06,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-08-01,2024-25,8,Aug,AUS,Australia,National,10328611,7401949.6,71.66,71.66,0,75.66,-4,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-08-01,2024-25,8,Aug,NSW,New South Wales,State/Territory,3120832,2246709.2,71.99,71.66,0.33,77.33,-5.34,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-08-01,2024-25,8,Aug,NT,Northern Territory,State/Territory,290904,217735.6,74.85,71.66,3.19,80.31,-5.46,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-08-01,2024-25,8,Aug,QLD,Queensland,State/Territory,2859719,2222500.7,77.72,71.66,6.06,75.56,2.16,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-08-01,2024-25,8,Aug,SA,South Australia,State/Territory,574864,361150,62.82,71.66,-8.84,68.95,-6.13,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-08-01,2024-25,8,Aug,TAS,Tasmania,State/Territory,304482,189472.1,62.23,71.66,-9.43,58.89,3.34,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-08-01,2024-25,8,Aug,VIC,Victoria,State/Territory,2007622,1310106.2,65.26,71.66,-6.4,79.15,-13.89,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-08-01,2024-25,8,Aug,WA,Western Australia,State/Territory,923118,706301.1,76.51,71.66,4.85,67.8,8.71,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-09-01,2024-25,9,Sep,ACT,Australian Capital Territory,State/Territory,236610,186073.7,78.64,72.42,6.22,80.95,-2.31,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-09-01,2024-25,9,Sep,AUS,Australia,National,10008870,7248057.1,72.42,72.42,0,74.71,-2.29,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-09-01,2024-25,9,Sep,NSW,New South Wales,State/Territory,3020580,2210640.7,73.19,72.42,0.77,77.66,-4.47,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-09-01,2024-25,9,Sep,NT,Northern Territory,State/Territory,281520,189761.6,67.41,72.42,-5.01,68.08,-0.67,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-09-01,2024-25,9,Sep,QLD,Queensland,State/Territory,2774820,2085950.6,75.17,72.42,2.75,72.17,3,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-09-01,2024-25,9,Sep,SA,South Australia,State/Territory,556320,384518.2,69.12,72.42,-3.3,72.36,-3.24,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-09-01,2024-25,9,Sep,TAS,Tasmania,State/Territory,295560,204984.3,69.35,72.42,-3.07,70.67,-1.32,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-09-01,2024-25,9,Sep,VIC,Victoria,State/Territory,1947630,1278394.9,65.64,72.42,-6.78,76.38,-10.74,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-09-01,2024-25,9,Sep,WA,Western Australia,State/Territory,893340,722876.2,80.92,72.42,8.5,71.6,9.32,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-10-01,2024-25,10,Oct,ACT,Australian Capital Territory,State/Territory,246853,181263.3,73.43,75.58,-2.15,86.1,-12.67,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-10-01,2024-25,10,Oct,AUS,Australia,National,10341445,7816028.1,75.58,75.58,0,77.36,-1.78,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-10-01,2024-25,10,Oct,NSW,New South Wales,State/Territory,3119685,2422777.9,77.66,75.58,2.08,79.88,-2.22,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-10-01,2024-25,10,Oct,NT,Northern Territory,State/Territory,290904,170523.2,58.62,75.58,-16.96,60.39,-1.77,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-10-01,2024-25,10,Oct,QLD,Queensland,State/Territory,2866663,2189121.1,76.36,75.58,0.78,73.23,3.13,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-10-01,2024-25,10,Oct,SA,South Australia,State/Territory,575205,424397.8,73.78,75.58,-1.8,76.72,-2.94,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-10-01,2024-25,10,Oct,TAS,Tasmania,State/Territory,311798,226875,72.76,75.58,-2.82,76.67,-3.91,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-10-01,2024-25,10,Oct,VIC,Victoria,State/Territory,2007281,1464811.1,72.97,75.58,-2.61,83.32,-10.35,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-10-01,2024-25,10,Oct,WA,Western Australia,State/Territory,920483,746705.8,81.12,75.58,5.54,72.32,8.8,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-11-01,2024-25,11,Nov,ACT,Australian Capital Territory,State/Territory,238890,183892.1,76.98,77.17,-0.19,82.6,-5.62,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-11-01,2024-25,11,Nov,AUS,Australia,National,10014660,7727942,77.17,77.17,0,77.86,-0.69,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-11-01,2024-25,11,Nov,NSW,New South Wales,State/Territory,3022020,2453291.5,81.18,77.17,4.01,83.07,-1.89,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-11-01,2024-25,11,Nov,NT,Northern Territory,State/Territory,281160,143244.6,50.95,77.17,-26.22,55.53,-4.58,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-11-01,2024-25,11,Nov,QLD,Queensland,State/Territory,2774790,2055715.9,74.09,77.17,-3.08,70.4,3.69,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-11-01,2024-25,11,Nov,SA,South Australia,State/Territory,556740,425439.4,76.42,77.17,-0.75,80.28,-3.86,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-11-01,2024-25,11,Nov,TAS,Tasmania,State/Territory,301740,239208.1,79.28,77.17,2.11,81.79,-2.51,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-11-01,2024-25,11,Nov,VIC,Victoria,State/Territory,1948950,1488291.6,76.36,77.17,-0.81,82.85,-6.49,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-11-01,2024-25,11,Nov,WA,Western Australia,State/Territory,887880,739553.1,83.29,77.17,6.12,76.41,6.88,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-12-01,2024-25,12,Dec,ACT,Australian Capital Territory,State/Territory,247070,154665.6,62.6,69.69,-7.09,65.93,-3.33,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-12-01,2024-25,12,Dec,AUS,Australia,National,10371546,7228104.8,69.69,69.69,0,70.87,-1.18,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-12-01,2024-25,12,Dec,NSW,New South Wales,State/Territory,3130814,2339817.7,74.74,69.69,5.05,76.79,-2.05,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-12-01,2024-25,12,Dec,NT,Northern Territory,State/Territory,290532,113188.7,38.96,69.69,-30.73,43.74,-4.78,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-12-01,2024-25,12,Dec,QLD,Queensland,State/Territory,2873483,1972947.1,68.66,69.69,-1.03,66.09,2.57,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-12-01,2024-25,12,Dec,SA,South Australia,State/Territory,580134,381413.8,65.75,69.69,-3.94,72.37,-6.62,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-12-01,2024-25,12,Dec,TAS,Tasmania,State/Territory,311798,236272.8,75.78,69.69,6.09,78.45,-2.67,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-12-01,2024-25,12,Dec,VIC,Victoria,State/Territory,2014814,1366248.3,67.81,69.69,-1.88,74.61,-6.8,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2024-12-01,2024-25,12,Dec,WA,Western Australia,State/Territory,920328,675656.1,73.41,69.69,3.72,65.59,7.82,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-01-01,2024-25,1,Jan,ACT,Australian Capital Territory,State/Territory,246977,152518.9,61.75,70.78,-9.03,69.72,-7.97,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-01-01,2024-25,1,Jan,AUS,Australia,National,10372786,7341599.5,70.78,70.78,0,71.35,-0.57,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-01-01,2024-25,1,Jan,NSW,New South Wales,State/Territory,3130163,2321559.7,74.17,70.78,3.39,77.03,-2.86,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-01-01,2024-25,1,Jan,NT,Northern Territory,State/Territory,290532,101825.5,35.05,70.78,-35.73,39.09,-4.04,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-01-01,2024-25,1,Jan,QLD,Queensland,State/Territory,2878319,1985002.3,68.96,70.78,-1.82,66.47,2.49,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-01-01,2024-25,1,Jan,SA,South Australia,State/Territory,580103,395350.2,68.15,70.78,-2.63,73.03,-4.88,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-01-01,2024-25,1,Jan,TAS,Tasmania,State/Territory,311798,258911.8,83.04,70.78,12.26,85.83,-2.79,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-01-01,2024-25,1,Jan,VIC,Victoria,State/Territory,2014628,1455674.1,72.26,70.78,1.48,76.78,-4.52,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-01-01,2024-25,1,Jan,WA,Western Australia,State/Territory,917693,674429,73.49,70.78,2.71,62.49,11,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-02-01,2024-25,2,Feb,ACT,Australian Capital Territory,State/Territory,223076,167191,74.95,74.06,0.89,81.7,-6.75,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-02-01,2024-25,2,Feb,AUS,Australia,National,9374596,6942610.7,74.06,74.06,0,76.01,-1.95,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-02-01,2024-25,2,Feb,NSW,New South Wales,State/Territory,2834552,2259592.4,79.72,74.06,5.66,82.13,-2.41,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-02-01,2024-25,2,Feb,NT,Northern Territory,State/Territory,262752,114207.5,43.47,74.06,-30.59,45.76,-2.29,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-02-01,2024-25,2,Feb,QLD,Queensland,State/Territory,2598932,1733924.1,66.72,74.06,-7.34,65.61,1.11,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-02-01,2024-25,2,Feb,SA,South Australia,State/Territory,523992,386951.5,73.85,74.06,-0.21,75.99,-2.14,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-02-01,2024-25,2,Feb,TAS,Tasmania,State/Territory,280056,243704,87.02,74.06,12.96,88.69,-1.67,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-02-01,2024-25,2,Feb,VIC,Victoria,State/Territory,1819776,1367089.6,75.12,74.06,1.06,85.65,-10.53,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-02-01,2024-25,2,Feb,WA,Western Australia,State/Territory,829136,658157.3,79.38,74.06,5.32,71.62,7.76,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-03-01,2024-25,3,Mar,ACT,Australian Capital Territory,State/Territory,246977,175919.8,71.23,73.25,-2.02,76.95,-5.72,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-03-01,2024-25,3,Mar,AUS,Australia,National,10390487,7610977.4,73.25,73.25,0,75.07,-1.82,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-03-01,2024-25,3,Mar,NSW,New South Wales,State/Territory,3138223,2446426.3,77.96,73.25,4.71,80.8,-2.84,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-03-01,2024-25,3,Mar,NT,Northern Territory,State/Territory,290904,142651.6,49.04,73.25,-24.21,50.03,-0.99,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-03-01,2024-25,3,Mar,QLD,Queensland,State/Territory,2887805,1786029.2,61.85,73.25,-11.4,65.39,-3.54,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-03-01,2024-25,3,Mar,SA,South Australia,State/Territory,580134,449954.9,77.56,73.25,4.31,78.88,-1.32,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-03-01,2024-25,3,Mar,TAS,Tasmania,State/Territory,310062,267923.3,86.41,73.25,13.16,84.17,2.24,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-03-01,2024-25,3,Mar,VIC,Victoria,State/Territory,2015589,1584715.3,78.62,73.25,5.37,83.37,-4.75,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-03-01,2024-25,3,Mar,WA,Western Australia,State/Territory,918220,732975.4,79.83,73.25,6.58,70.67,9.16,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-04-01,2024-25,4,Apr,ACT,Australian Capital Territory,State/Territory,239010,171752.9,71.86,72,-0.14,81.81,-9.95,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-04-01,2024-25,4,Apr,AUS,Australia,National,10064700,7246763.1,72,72,0,72.93,-0.93,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-04-01,2024-25,4,Apr,NSW,New South Wales,State/Territory,3043020,2268464.7,74.55,72,2.55,77.23,-2.68,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-04-01,2024-25,4,Apr,NT,Northern Territory,State/Territory,281520,164551.4,58.45,72,-13.55,58.15,0.3,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-04-01,2024-25,4,Apr,QLD,Queensland,State/Territory,2787270,1908913,68.49,72,-3.51,67.03,1.46,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-04-01,2024-25,4,Apr,SA,South Australia,State/Territory,562830,422944.7,75.15,72,3.15,76.87,-1.72,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-04-01,2024-25,4,Apr,TAS,Tasmania,State/Territory,300060,228405.1,76.12,72,4.12,79.05,-2.93,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-04-01,2024-25,4,Apr,VIC,Victoria,State/Territory,1954320,1382581.1,70.74,72,-1.26,76.02,-5.28,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-04-01,2024-25,4,Apr,WA,Western Australia,State/Territory,894180,696837,77.93,72,5.93,67.72,10.21,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-05-01,2024-25,5,May,ACT,Australian Capital Territory,State/Territory,246853,154602.7,62.63,69.17,-6.54,69.43,-6.8,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-05-01,2024-25,5,May,AUS,Australia,National,10398547,7192456.6,69.17,69.17,0,70.49,-1.32,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-05-01,2024-25,5,May,NSW,New South Wales,State/Territory,3138471,2245446.6,71.55,69.17,2.38,74.63,-3.08,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-05-01,2024-25,5,May,NT,Northern Territory,State/Territory,290904,190906.8,65.63,69.17,-3.54,68.64,-3.01,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-05-01,2024-25,5,May,QLD,Queensland,State/Territory,2886844,1929047.5,66.82,69.17,-2.35,64.56,2.26,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-05-01,2024-25,5,May,SA,South Australia,State/Territory,584009,405637.9,69.46,69.17,0.29,70.27,-0.81,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-05-01,2024-25,5,May,TAS,Tasmania,State/Territory,310062,209438.9,67.55,69.17,-1.62,65.21,2.34,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-05-01,2024-25,5,May,VIC,Victoria,State/Territory,2013698,1360108.7,67.54,69.17,-1.63,75.12,-7.58,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-05-01,2024-25,5,May,WA,Western Australia,State/Territory,925133,706104.4,76.32,69.17,7.15,66.7,9.62,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-06-01,2024-25,6,Jun,ACT,Australian Capital Territory,State/Territory,238890,161528.3,67.62,67.22,0.4,71.69,-4.07,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-06-01,2024-25,6,Jun,AUS,Australia,National,10083420,6777741.4,67.22,67.22,0,68.2,-0.98,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-06-01,2024-25,6,Jun,NSW,New South Wales,State/Territory,3038280,2078031.2,68.39,67.22,1.17,71.61,-3.22,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-06-01,2024-25,6,Jun,NT,Northern Territory,State/Territory,281580,207569,73.72,67.22,6.5,69.94,3.78,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-06-01,2024-25,6,Jun,QLD,Queensland,State/Territory,2798700,1885560.2,67.37,67.22,0.15,64.44,2.93,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-06-01,2024-25,6,Jun,SA,South Australia,State/Territory,566040,367603.5,64.94,67.22,-2.28,65.57,-0.63,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-06-01,2024-25,6,Jun,TAS,Tasmania,State/Territory,299940,189772.2,63.27,67.22,-3.95,61.71,1.56,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-06-01,2024-25,6,Jun,VIC,Victoria,State/Territory,1962810,1222784,62.3,67.22,-4.92,69.75,-7.45,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries
+2025-06-01,2024-25,6,Jun,WA,Western Australia,State/Territory,894690,679831.5,75.99,67.22,8.77,66.17,9.82,Australian-Accommodation-Monitor-Summary-2024-2025.xlsx,State & Territory Summaries

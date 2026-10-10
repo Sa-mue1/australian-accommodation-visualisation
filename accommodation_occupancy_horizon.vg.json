@@ -1,0 +1,233 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "Seasonal accommodation occupancy recovered unevenly",
+    "subtitle": [
+      "Monthly commercial accommodation occupancy by state and territory",
+      "Rings from centre: ACT, NT, TAS, SA, WA, QLD, VIC and NSW"
+    ],
+    "anchor": "start",
+    "fontSize": 19,
+    "subtitleFontSize": 12,
+    "subtitlePadding": 7
+  },
+
+  "data": {
+    "url": "data/aam_monthly_state_occupancy_2018_19_to_2024_25.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "month_number": "number",
+        "occupancy_rate_pct": "number",
+        "room_nights_occupied": "number",
+        "room_nights_available": "number"
+      }
+    }
+  },
+
+  "transform": [
+    {
+      "filter": "datum.geography_type === 'State/Territory'"
+    },
+    {
+      "filter": "datum.financial_year === '2018-19' || datum.financial_year === '2020-21' || datum.financial_year === '2022-23' || datum.financial_year === '2024-25'"
+    },
+    {
+      "calculate": "toNumber(datum.month_number)",
+      "as": "numeric_month"
+    },
+    {
+      "calculate": "datum.numeric_month >= 7 ? datum.numeric_month - 6 : datum.numeric_month + 6",
+      "as": "financial_month"
+    },
+    {
+      "calculate": "(datum.financial_month - 1) * 0.5235987756",
+      "as": "theta_start"
+    },
+    {
+      "calculate": "datum.financial_month * 0.5235987756",
+      "as": "theta_end"
+    },
+    {
+      "calculate": "(datum.financial_month - 0.5) * 0.5235987756",
+      "as": "theta_middle"
+    },
+    {
+      "calculate": "datum.state_code === 'ACT' ? 0 : datum.state_code === 'NT' ? 1 : datum.state_code === 'TAS' ? 2 : datum.state_code === 'SA' ? 3 : datum.state_code === 'WA' ? 4 : datum.state_code === 'QLD' ? 5 : datum.state_code === 'VIC' ? 6 : 7",
+      "as": "ring_number"
+    },
+    {
+      "calculate": "23 + datum.ring_number * 11",
+      "as": "radius_start"
+    },
+    {
+      "calculate": "32 + datum.ring_number * 11",
+      "as": "radius_end"
+    },
+    {
+      "calculate": "125 + sin(datum.theta_middle) * 116",
+      "as": "label_x"
+    },
+    {
+      "calculate": "125 - cos(datum.theta_middle) * 116",
+      "as": "label_y"
+    }
+  ],
+
+  "facet": {
+    "field": "financial_year",
+    "type": "nominal",
+    "sort": [
+      "2018-19",
+      "2020-21",
+      "2022-23",
+      "2024-25"
+    ],
+    "header": {
+      "title": null,
+      "labelFontSize": 14,
+      "labelFontWeight": "bold",
+      "labelPadding": 8
+    }
+  },
+
+  "columns": 2,
+
+  "spec": {
+    "width": 250,
+    "height": 250,
+
+    "layer": [
+      {
+        "mark": {
+          "type": "arc",
+          "theta": {
+            "expr": "datum.theta_start"
+          },
+          "theta2": {
+            "expr": "datum.theta_end"
+          },
+          "radius": {
+            "expr": "datum.radius_end"
+          },
+          "radius2": {
+            "expr": "datum.radius_start"
+          },
+          "padAngle": 0.006,
+          "stroke": "white",
+          "strokeWidth": 0.7
+        },
+
+        "encoding": {
+          "color": {
+            "field": "occupancy_rate_pct",
+            "type": "quantitative",
+            "title": "Occupancy rate (%)",
+            "scale": {
+              "domain": [0, 90],
+              "clamp": true,
+              "scheme": "tealblues"
+            },
+            "legend": {
+              "orient": "right",
+              "gradientLength": 190,
+              "titleFontSize": 12,
+              "labelFontSize": 11
+            }
+          },
+
+          "tooltip": [
+            {
+              "field": "financial_year",
+              "type": "nominal",
+              "title": "Financial year"
+            },
+            {
+              "field": "geography",
+              "type": "nominal",
+              "title": "State or territory"
+            },
+            {
+              "field": "month_name",
+              "type": "nominal",
+              "title": "Month"
+            },
+            {
+              "field": "occupancy_rate_pct",
+              "type": "quantitative",
+              "title": "Occupancy rate",
+              "format": ".1f"
+            },
+            {
+              "field": "room_nights_occupied",
+              "type": "quantitative",
+              "title": "Room nights occupied",
+              "format": ",.0f"
+            },
+            {
+              "field": "room_nights_available",
+              "type": "quantitative",
+              "title": "Room nights available",
+              "format": ",.0f"
+            }
+          ]
+        }
+      },
+
+      {
+        "transform": [
+          {
+            "filter": "datum.state_code === 'NSW'"
+          }
+        ],
+
+        "mark": {
+          "type": "text",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#4B5563",
+          "baseline": "middle",
+          "align": "center"
+        },
+
+        "encoding": {
+          "x": {
+            "field": "label_x",
+            "type": "quantitative",
+            "scale": null,
+            "axis": null
+          },
+          "y": {
+            "field": "label_y",
+            "type": "quantitative",
+            "scale": null,
+            "axis": null
+          },
+          "text": {
+            "field": "month_name"
+          }
+        }
+      }
+    ]
+  },
+
+  "resolve": {
+    "scale": {
+      "color": "shared"
+    }
+  },
+
+  "config": {
+    "background": "white",
+    "font": "Arial",
+
+    "facet": {
+      "spacing": 28
+    },
+
+    "view": {
+      "stroke": null
+    }
+  }
+}
