@@ -56,3 +56,10 @@ vegaEmbed(
   "domestic_accommodation_streamgraph.vg.json",
   embedOptions
 ).catch(console.error);
+
+
+vegaEmbed(
+  "#state-accommodation-mosaic",
+  "state_accommodation_mosaic.vg.json",
+  embedOptions
+).catch(console.error);
