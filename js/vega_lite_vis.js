@@ -50,3 +50,9 @@ vegaEmbed(
   "short_term_rental_price_density.vg.json",
   embedOptions
 ).catch(console.error);
+
+vegaEmbed(
+  "#domestic-accommodation-streamgraph",
+  "domestic_accommodation_streamgraph.vg.json",
+  embedOptions
+).catch(console.error);
