@@ -44,3 +44,9 @@ vegaEmbed(
   "hotel_destination_rankings.vg.json",
   embedOptions
 ).catch(console.error);
+
+vegaEmbed(
+  "#short-term-rental-price-density",
+  "short_term_rental_price_density.vg.json",
+  embedOptions
+).catch(console.error);

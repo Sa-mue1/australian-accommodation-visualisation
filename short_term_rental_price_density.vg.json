@@ -1,0 +1,275 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 680,
+  "height": 85,
+  "spacing": 12,
+
+  "title": {
+  "text": "Room type shapes short-term-rental prices more than city rooms",
+  "subtitle": "Distribution of advertised nightly listing prices in Sydney and Melbourne; dashed lines show medians",
+  "anchor": "start",
+  "fontSize": 18,
+  "subtitleFontSize": 12,
+  "subtitlePadding": 8
+},
+
+  "data": {
+    "url": "./data/short_term_rental_listings.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "price_aud": "number"
+      }
+    }
+  },
+
+  "transform": [
+    {
+      "filter": "isValid(datum.price_aud) && datum.price_aud > 0 && datum.price_aud <= 1000"
+    },
+    {
+      "filter": "indexof(['Entire home/apt', 'Private room', 'Hotel room', 'Shared room'], datum.room_type) >= 0"
+    }
+  ],
+
+  "facet": {
+    "row": {
+      "field": "room_type",
+      "type": "nominal",
+      "sort": [
+        "Entire home/apt",
+        "Private room",
+        "Hotel room",
+        "Shared room"
+      ],
+      "header": {
+        "title": null,
+        "labelOrient": "left",
+        "labelFontSize": 13,
+        "labelFontWeight": "bold",
+        "labelPadding": 12
+      }
+    }
+  },
+
+  "spec": {
+    "width": 760,
+    "height": 105,
+    "layer": [
+      {
+        "transform": [
+          {
+            "density": "price_aud",
+            "groupby": ["city"],
+            "extent": [0, 1000],
+            "steps": 120,
+            "bandwidth": 25,
+            "as": ["nightly_price", "density"]
+          }
+        ],
+
+        "mark": {
+          "type": "area",
+          "interpolate": "monotone",
+          "opacity": 0.3,
+          "clip": true
+        },
+
+        "encoding": {
+          "x": {
+            "field": "nightly_price",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0, 1000]
+            },
+            "axis": {
+              "title": "Advertised nightly listing price (AUD)",
+              "format": "$,.0f",
+              "values": [0, 200, 400, 600, 800, 1000],
+              "grid": true,
+              "gridColor": "#E5E7EB",
+              "labelFontSize": 11,
+              "titleFontSize": 13,
+              "titlePadding": 12
+            }
+          },
+
+          "y": {
+            "field": "density",
+            "type": "quantitative",
+            "axis": null,
+            "stack": null
+          },
+
+          "color": {
+            "field": "city",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Sydney", "Melbourne"],
+              "range": ["#0072B2", "#E69F00"]
+            },
+            "legend": {
+              "title": null,
+              "orient": "top",
+              "direction": "horizontal",
+              "labelFontSize": 12,
+              "symbolOpacity": 0.8
+            }
+          },
+
+          "tooltip": [
+            {
+              "field": "city",
+              "type": "nominal",
+              "title": "City"
+            },
+            {
+              "field": "nightly_price",
+              "type": "quantitative",
+              "title": "Nightly price",
+              "format": "$,.0f"
+            }
+          ]
+        }
+      },
+
+      {
+        "transform": [
+          {
+            "density": "price_aud",
+            "groupby": ["city"],
+            "extent": [0, 1000],
+            "steps": 120,
+            "bandwidth": 25,
+            "as": ["nightly_price", "density"]
+          }
+        ],
+
+        "mark": {
+          "type": "line",
+          "interpolate": "monotone",
+          "strokeWidth": 2.2,
+          "clip": true
+        },
+
+        "encoding": {
+          "x": {
+            "field": "nightly_price",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0, 1000]
+            }
+          },
+
+          "y": {
+            "field": "density",
+            "type": "quantitative",
+            "axis": null
+          },
+
+          "color": {
+            "field": "city",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Sydney", "Melbourne"],
+              "range": ["#0072B2", "#E69F00"]
+            },
+            "legend": null
+          }
+        }
+      },
+
+      {
+        "transform": [
+          {
+            "aggregate": [
+              {
+                "op": "median",
+                "field": "price_aud",
+                "as": "median_price"
+              },
+              {
+                "op": "count",
+                "as": "listing_count"
+              }
+            ],
+            "groupby": ["city"]
+          }
+        ],
+
+        "mark": {
+          "type": "rule",
+          "strokeWidth": 2,
+          "strokeDash": [6, 4],
+          "opacity": 0.9
+        },
+
+        "encoding": {
+          "x": {
+            "field": "median_price",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0, 1000]
+            }
+          },
+
+          "color": {
+            "field": "city",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Sydney", "Melbourne"],
+              "range": ["#0072B2", "#E69F00"]
+            },
+            "legend": null
+          },
+
+          "tooltip": [
+            {
+              "field": "city",
+              "type": "nominal",
+              "title": "City"
+            },
+            {
+              "field": "median_price",
+              "type": "quantitative",
+              "title": "Median nightly price",
+              "format": "$,.0f"
+            },
+            {
+              "field": "listing_count",
+              "type": "quantitative",
+              "title": "Listings displayed",
+              "format": ","
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "resolve": {
+    "scale": {
+      "x": "shared",
+      "y": "independent"
+    }
+  },
+
+  "config": {
+    "background": "white",
+    "font": "Arial",
+
+    "view": {
+      "stroke": null
+    },
+
+    "axis": {
+      "domainColor": "#9CA3AF",
+      "tickColor": "#9CA3AF"
+    },
+
+    "facet": {
+      "spacing": 12
+    }
+  }
+}
