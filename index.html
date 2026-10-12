@@ -3,7 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="An exploration of Australia's accommodation recovery, regional demand, international travel, prices and seasonal occupancy."
+  >
 
   <title>Australian Accommodation and Tourism</title>
 
@@ -17,132 +26,374 @@
 </head>
 
 <body>
-  <main>
-    <header>
-      <p class="eyebrow">Australian accommodation, 2019–2026</p>
-      <h1>How evenly has accommodation demand recovered?</h1>
-      <p class="introduction">
-        Australia’s accommodation recovery differed by accommodation type,
-        location and season.
+
+  <main class="page-container">
+
+    <!-- =====================================================
+         PAGE INTRODUCTION
+    ====================================================== -->
+
+    <header class="hero">
+
+      <p class="eyebrow">
+        Australian accommodation, 2018–2026
       </p>
+
+      <h1>
+        How evenly has accommodation demand recovered?
+      </h1>
+
+      <p class="introduction">
+        Australia’s accommodation industry has recovered from the disruption
+        of the pandemic, but the recovery has not been evenly distributed.
+        Accommodation type, destination, international market and season all
+        influenced where demand returned most strongly.
+      </p>
+
     </header>
 
-    <section class="chart-card">
-      <div id="domestic-recovery" class="chart"></div>
 
-      <p class="chart-note">
-        The index compares each accommodation type with its own 2019 level.
-        A value of 100 means visitor nights have returned to the 2019 level.
-      </p>
-    </section>
+    <!-- =====================================================
+         SECTION 1 — NATIONAL RECOVERY
+    ====================================================== -->
 
-    <aside class="method-note">
-      <strong>Series break:</strong> the National Visitor Survey ended in
-      December 2024. Domestic Tourism Statistics began in 2025 using a new
-      collection method, so the two series should not be connected directly.
-    </aside>
+    <section
+      class="story-section"
+      aria-labelledby="section-recovery-title"
+    >
 
-    <section class="chart-card">
-      <div id="domestic-quarters" class="chart"></div>
+      <header class="section-header">
 
-      <p class="chart-note">
-        Darker cells represent more visitor nights. Values are displayed
-        directly so the chart does not depend only on colour.
-      </p>
-    </section>
+        <p class="section-number">Section 1</p>
 
-    <section class="chart-card">
-       <div id="international-state-map" class="chart"></div>
-    </section>
+        <h2 id="section-recovery-title">
+          How did accommodation demand recover?
+        </h2>
 
+        <p class="section-introduction">
+          Domestic travel recovered after the disruption of 2020 and 2021,
+          but accommodation types followed different paths. Hotels moved above
+          their 2019 level, while several rented and informal accommodation
+          categories experienced a slower recovery.
+        </p>
 
-    <section class="chart-card">
-    <div id="short-term-rental-map" class="chart"></div>
+      </header>
 
-      <p class="chart-note">
-        Each circle represents a neighbourhood. Larger circles contain more
-        short-term rental listings, while darker circles have higher median
-        nightly prices.
-      </p>
-    </section>
+      <div class="chart-grid">
 
-    <section class="chart-card">
-      <div id="international-origin-flow" class="chart"></div>
+        <!-- Indexed recovery line -->
 
-      <p class="chart-note">
-        Thicker routes represent more international trips to Australia.
-        Blue origin points grew from 2025, while orange indicates a decline.
-        Values represent thousands of trips.
-      </p>
-    </section>
+        <article class="chart-card chart-card--full">
 
-    <section class="chart-card">
-      <div id="international-accommodation-change" class="chart"></div>
+          <div
+            id="domestic-recovery"
+            class="chart"
+          ></div>
 
-      <p class="chart-note">
-        Blue points show 2026 and grey points show 2025. Labels indicate
-        percentage change from 2025. Values represent international visitor
-        nights rather than the number of visitors.
-      </p>
-    </section>
+          <p class="chart-note">
+            The index compares each accommodation type with its own 2019 level.
+            A value of 100 means visitor nights have returned to the 2019 level.
+          </p>
 
-    <section class="chart-card">
-      <div id="hotel-destination-rankings" class="chart"></div>
-
-      <p class="chart-note">
-        Rank 1 represents the destination with the most domestic visitor nights
-        in hotels and similar accommodation. Crossings show destinations
-        overtaking one another. Rankings do not show the size of the difference,
-        so hover over a point to see the actual visitor-night value.
-      </p>
-    </section>
-
-    <section class="chart-card">
-      <div id="short-term-rental-price-density" class="chart"></div>
-
-      <p class="chart-note">
-        Curves show the distribution of recorded nightly prices. Listings above
-        AUD 1,000 are excluded from the displayed distributions for readability.
-        Dashed lines show each city’s median price.
-      </p>
-    </section>
+        </article>
 
 
-    <section class="chart-card">
-      <div id="domestic-accommodation-streamgraph" class="chart"></div>
+        <!-- Methodological series break -->
 
-      <p class="chart-note">
-        Band thickness represents domestic visitor nights, not vertical position.
-        “Other” combines own property, guest house/B&amp;B and miscellaneous
-        accommodation. Values are shown in millions of visitor nights.
-      </p>
-    </section>
+        <aside class="method-note grid-full">
 
-   <section class="chart-card">
-      <div id="state-accommodation-mosaic" class="chart"></div>
+          <strong>Series break:</strong>
 
-      <p class="chart-note">
-        Column width represents each state’s total domestic visitor nights.
-        Segment height represents each accommodation type’s share, meaning
-        segment area represents the number of visitor nights. “Other/own
-        property” combines other accommodation, own property and guest
-        houses or B&amp;Bs. The five largest states by visitor nights are shown.
-      </p>
+          The National Visitor Survey ended in December 2024. Domestic Tourism
+          Statistics began in 2025 using a new collection method, so the two
+          series should not be connected directly.
+
+        </aside>
+
+
+        <!-- Streamgraph -->
+
+        <article class="chart-card chart-card--full">
+
+          <div
+            id="domestic-accommodation-streamgraph"
+            class="chart"
+          ></div>
+
+          <p class="chart-note">
+            Band thickness represents domestic visitor nights, rather than
+            vertical position. “Other” combines own property, guest houses,
+            bed and breakfasts and miscellaneous accommodation. Values are
+            shown in millions of visitor nights.
+          </p>
+
+        </article>
+
+      </div>
+
     </section>
 
 
-    <section class="chart-card">
-      <div id="accommodation-occupancy-radial" class="chart"></div>
+    <!-- =====================================================
+         SECTION 2 — DOMESTIC GEOGRAPHY
+    ====================================================== -->
 
-      <p class="chart-note">
-        Each ring represents one state or territory and each segment represents
-        one month, beginning with July. Darker cells indicate higher commercial
-        accommodation occupancy. The selected years compare the pre-pandemic
-        baseline, pandemic disruption, recovery and latest available period.
-      </p>
+    <section
+      class="story-section"
+      aria-labelledby="section-domestic-geography-title"
+    >
+
+      <header class="section-header">
+
+        <p class="section-number">Section 2</p>
+
+        <h2 id="section-domestic-geography-title">
+          Where was domestic demand concentrated?
+        </h2>
+
+        <p class="section-introduction">
+          The national recovery conceals substantial geographic differences.
+          Larger states account for most visitor nights, while seasonal demand,
+          destination rankings and accommodation preferences vary across
+          Australia.
+        </p>
+
+      </header>
+
+      <div class="chart-grid">
+
+        <!-- State quarterly heatmap -->
+
+        <article class="chart-card chart-card--full">
+
+          <div
+            id="domestic-quarters"
+            class="chart"
+          ></div>
+
+          <p class="chart-note">
+            Darker cells represent more visitor nights. Values are displayed
+            directly so the chart does not depend only on colour.
+          </p>
+
+        </article>
+
+
+        <!-- Destination bump chart -->
+
+        <article class="chart-card chart-card--half">
+
+          <div
+            id="hotel-destination-rankings"
+            class="chart"
+          ></div>
+
+          <p class="chart-note">
+            Rank 1 represents the destination with the most domestic visitor
+            nights in hotels and similar accommodation. Crossings show
+            destinations overtaking one another. Hover over a point to see the
+            underlying visitor-night value.
+          </p>
+
+        </article>
+
+
+        <!-- State accommodation mosaic -->
+
+        <article class="chart-card chart-card--half">
+
+          <div
+            id="state-accommodation-mosaic"
+            class="chart"
+          ></div>
+
+          <p class="chart-note">
+            Column width represents each state’s total domestic visitor nights.
+            Segment height represents the accommodation type’s share, so its
+            area represents visitor nights. The five largest states are shown.
+          </p>
+
+        </article>
+
+      </div>
+
     </section>
-    
+
+
+    <!-- =====================================================
+         SECTION 3 — INTERNATIONAL RECOVERY
+    ====================================================== -->
+
+    <section
+      class="story-section"
+      aria-labelledby="section-international-title"
+    >
+
+      <header class="section-header">
+
+        <p class="section-number">Section 3</p>
+
+        <h2 id="section-international-title">
+          How did international travel return?
+        </h2>
+
+        <p class="section-introduction">
+          International recovery depended on both the visitor’s country of
+          origin and their Australian destination. These differences produced
+          uneven changes across states and accommodation categories.
+        </p>
+
+      </header>
+
+      <div class="chart-grid">
+
+        <!-- Origin-destination flow map -->
+
+        <article class="chart-card chart-card--full">
+
+          <div
+            id="international-origin-flow"
+            class="chart"
+          ></div>
+
+          <p class="chart-note">
+            Thicker routes represent more international trips to Australia.
+            Blue origin points indicate growth from 2025, while orange
+            indicates a decline. Values represent thousands of trips.
+          </p>
+
+        </article>
+
+
+        <!-- International state choropleth -->
+
+        <article class="chart-card chart-card--half">
+
+          <div
+            id="international-state-map"
+            class="chart"
+          ></div>
+
+          <p class="chart-note">
+            Colour represents the percentage change in international visitor
+            nights between the years ending June 2025 and June 2026. This is a
+            normalised change measure rather than an absolute visitor total.
+          </p>
+
+        </article>
+
+
+        <!-- International connected-dot comparison -->
+
+        <article class="chart-card chart-card--half">
+
+          <div
+            id="international-accommodation-change"
+            class="chart"
+          ></div>
+
+          <p class="chart-note">
+            Blue points show 2026 and grey points show 2025. Labels indicate
+            the percentage change from 2025. Values represent international
+            visitor nights rather than the number of individual visitors.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SECTION 4 — SUPPLY, PRICE AND SEASONALITY
+    ====================================================== -->
+
+    <section
+      class="story-section"
+      aria-labelledby="section-industry-title"
+    >
+
+      <header class="section-header">
+
+        <p class="section-number">Section 4</p>
+
+        <h2 id="section-industry-title">
+          How do supply, prices and seasons shape the industry?
+        </h2>
+
+        <p class="section-introduction">
+          Accommodation performance is influenced not only by visitor numbers
+          but also by available supply, nightly prices and seasonal occupancy.
+          Short-term-rental markets differ between Sydney and Melbourne, while
+          commercial accommodation follows distinct seasonal patterns.
+        </p>
+
+      </header>
+
+      <div class="chart-grid">
+
+        <!-- Short-term-rental proportional-symbol map -->
+
+        <article class="chart-card chart-card--half">
+
+          <div
+            id="short-term-rental-map"
+            class="chart"
+          ></div>
+
+          <p class="chart-note">
+            Each circle represents a neighbourhood. Larger circles contain
+            more short-term-rental listings, while darker circles have higher
+            median advertised nightly prices.
+          </p>
+
+        </article>
+
+
+        <!-- Short-term-rental ridgeline -->
+
+        <article class="chart-card chart-card--half">
+
+          <div
+            id="short-term-rental-price-density"
+            class="chart"
+          ></div>
+
+          <p class="chart-note">
+            Curves show the distribution of advertised nightly prices.
+            Listings above AUD 1,000 are excluded from the displayed
+            distributions for readability. Dashed lines show category medians.
+          </p>
+
+        </article>
+
+
+        <!-- Radial seasonal occupancy heatmap -->
+
+        <article class="chart-card chart-card--full">
+
+          <div
+            id="accommodation-occupancy-radial"
+            class="chart"
+          ></div>
+
+          <p class="chart-note">
+            Each ring represents one state or territory and each segment
+            represents one month, beginning with July. Darker cells indicate
+            higher commercial accommodation occupancy. The selected years show
+            the pre-pandemic baseline, pandemic disruption, recovery and latest
+            available period.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
   </main>
+
 </body>
 
 </html>

@@ -1,63 +1,431 @@
+/* =========================================================
+   GLOBAL VARIABLES
+========================================================= */
+
+:root {
+  --page-background: #f5f6f7;
+  --card-background: #ffffff;
+
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --text-light: #6b7280;
+
+  --accent-primary: #176b87;
+  --accent-soft: #e8f3f6;
+
+  --border-light: #dfe3e7;
+  --border-medium: #c9d0d6;
+
+  --method-background: #f4f7f8;
+
+  --page-width: 1240px;
+  --section-width: 820px;
+
+  --card-radius: 6px;
+}
+
+
+/* =========================================================
+   BASIC RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: #f4f6f7;
-  color: #263238;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-main {
-  max-width: 1050px;
-  margin: 0 auto;
-  padding: 48px 24px 72px;
-}
+  background: var(--page-background);
+  color: var(--text-primary);
 
-header {
-  max-width: 760px;
-  margin-bottom: 36px;
-}
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-.eyebrow {
-  color: #176b87;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-h1 {
-  margin: 8px 0 14px;
-  font-size: 38px;
-  line-height: 1.15;
-}
-
-.introduction {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
+
+/* =========================================================
+   PAGE CONTAINER
+========================================================= */
+
+.page-container {
+  width: min(
+    calc(100% - 48px),
+    var(--page-width)
+  );
+
+  margin: 0 auto;
+  padding: 64px 0 96px;
+}
+
+
+/* =========================================================
+   PAGE INTRODUCTION
+========================================================= */
+
+.hero {
+  max-width: 900px;
+  margin: 0 auto 96px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+
+  color: var(--accent-primary);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin: 0 auto;
+
+  color: var(--text-primary);
+
+  font-size: clamp(
+    2.2rem,
+    5vw,
+    4.3rem
+  );
+
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+}
+
+.introduction {
+  max-width: 750px;
+  margin: 28px auto 0;
+
+  color: var(--text-secondary);
+
+  font-size: 1.12rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   STORY SECTIONS
+========================================================= */
+
+.story-section {
+  margin-top: 100px;
+  padding-top: 56px;
+
+  border-top: 1px solid var(--border-medium);
+}
+
+.story-section:first-of-type {
+  margin-top: 0;
+}
+
+.section-header {
+  max-width: var(--section-width);
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.section-number {
+  margin: 0 0 10px;
+
+  color: var(--accent-primary);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.section-header h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: clamp(
+    1.8rem,
+    3vw,
+    2.7rem
+  );
+
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.section-introduction {
+  max-width: 720px;
+  margin: 20px auto 0;
+
+  color: var(--text-secondary);
+
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   TWELVE-COLUMN CHART GRID
+========================================================= */
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  align-items: stretch;
+
+  column-gap: 28px;
+  row-gap: 36px;
+}
+
+.chart-card--full,
+.grid-full {
+  grid-column: span 12;
+}
+
+.chart-card--half {
+  grid-column: span 6;
+}
+
+
+/* =========================================================
+   CHART CARDS
+========================================================= */
+
 .chart-card {
-  margin: 28px 0;
+  min-width: 0;
   padding: 28px;
-  background: white;
-  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--card-background);
+
+  border: 1px solid var(--border-light);
+  border-radius: var(--card-radius);
 }
 
 .chart {
-  overflow-x: auto;
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  overflow: hidden;
 }
+
+/*
+  Vega adds this wrapper automatically.
+  These rules keep it within its assigned grid column.
+*/
+
+.chart .vega-embed {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+.chart .vega-embed > div {
+  max-width: 100%;
+}
+
+/*
+  This prevents a fixed-width Vega SVG from breaking
+  outside its chart card during the layout stage.
+*/
+
+.chart svg {
+  display: block;
+
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* =========================================================
+   CHART EXPLANATIONS
+========================================================= */
 
 .chart-note {
-  max-width: 760px;
-  margin: 18px 0 0;
-  color: #59636a;
-  font-size: 14px;
-  line-height: 1.5;
+  margin: auto 0 0;
+  padding-top: 20px;
+
+  color: var(--text-secondary);
+
+  font-size: 0.91rem;
+  line-height: 1.6;
+
+  border-top: 1px solid var(--border-light);
 }
 
+
+/* =========================================================
+   METHODOLOGY NOTE
+========================================================= */
+
 .method-note {
-  margin: 30px 0;
-  padding: 16px 20px;
-  background: #fff7ed;
-  border-left: 4px solid #c65d4b;
-  line-height: 1.55;
+  padding: 20px 24px;
+
+  color: #34434a;
+  background: var(--method-background);
+
+  font-size: 0.92rem;
+  line-height: 1.65;
+
+  border-left: 4px solid var(--accent-primary);
+  border-radius: 0 var(--card-radius) var(--card-radius) 0;
+}
+
+.method-note strong {
+  color: var(--text-primary);
+}
+
+
+/* =========================================================
+   VEGA ACTION MENU
+========================================================= */
+
+.vega-actions {
+  margin-top: 10px;
+
+  color: var(--text-light);
+
+  font-size: 0.8rem;
+}
+
+.vega-actions a {
+  margin-right: 10px;
+
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+.vega-actions a:hover,
+.vega-actions a:focus {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   TABLET LAYOUT
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .page-container {
+    width: min(
+      calc(100% - 36px),
+      var(--page-width)
+    );
+
+    padding-top: 48px;
+  }
+
+  .hero {
+    margin-bottom: 72px;
+  }
+
+  .story-section {
+    margin-top: 78px;
+    padding-top: 44px;
+  }
+
+  /*
+    Paired charts become full-width before they become
+    too narrow to read.
+  */
+
+  .chart-card--half {
+    grid-column: span 12;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE LAYOUT
+========================================================= */
+
+@media (max-width: 640px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  .page-container {
+    width: min(
+      calc(100% - 24px),
+      var(--page-width)
+    );
+
+    padding: 32px 0 64px;
+  }
+
+  .hero {
+    margin-bottom: 58px;
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: 2.35rem;
+  }
+
+  .introduction {
+    margin-top: 22px;
+    font-size: 1rem;
+  }
+
+  .story-section {
+    margin-top: 64px;
+    padding-top: 36px;
+  }
+
+  .section-header {
+    margin-bottom: 30px;
+    text-align: left;
+  }
+
+  .section-header h2 {
+    font-size: 1.85rem;
+  }
+
+  .section-introduction {
+    font-size: 0.97rem;
+  }
+
+  .chart-grid {
+    row-gap: 24px;
+  }
+
+  .chart-card {
+    padding: 18px;
+  }
+
+  .chart-note {
+    padding-top: 16px;
+    font-size: 0.87rem;
+  }
+
+  .method-note {
+    padding: 17px 18px;
+  }
+
 }
