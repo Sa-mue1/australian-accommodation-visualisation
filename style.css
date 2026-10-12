@@ -18,8 +18,8 @@
 
   --method-background: #f4f7f8;
 
-  --page-width: 1240px;
-  --section-width: 820px;
+  --page-width: 1320px;
+  --text-width: 760px;
 
   --card-radius: 6px;
 }
@@ -73,9 +73,15 @@ body {
 ========================================================= */
 
 .hero {
-  max-width: 900px;
-  margin: 0 auto 96px;
-  text-align: center;
+  max-width: 940px;
+
+  /*
+    The previous version used auto side margins and centred
+    text. This version shares the page's left sight line.
+  */
+
+  margin: 0 0 96px;
+  text-align: left;
 }
 
 .eyebrow {
@@ -91,8 +97,8 @@ body {
 }
 
 .hero h1 {
-  max-width: 850px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 0;
 
   color: var(--text-primary);
 
@@ -108,8 +114,8 @@ body {
 }
 
 .introduction {
-  max-width: 750px;
-  margin: 28px auto 0;
+  max-width: var(--text-width);
+  margin: 28px 0 0;
 
   color: var(--text-secondary);
 
@@ -134,9 +140,10 @@ body {
 }
 
 .section-header {
-  max-width: var(--section-width);
-  margin: 0 auto 42px;
-  text-align: center;
+  max-width: var(--text-width);
+  margin: 0 0 42px;
+
+  text-align: left;
 }
 
 .section-number {
@@ -169,7 +176,7 @@ body {
 
 .section-introduction {
   max-width: 720px;
-  margin: 20px auto 0;
+  margin: 20px 0 0;
 
   color: var(--text-secondary);
 
@@ -184,7 +191,9 @@ body {
 
 .chart-grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  grid-template-columns:
+    repeat(12, minmax(0, 1fr));
 
   align-items: stretch;
 
@@ -208,7 +217,7 @@ body {
 
 .chart-card {
   min-width: 0;
-  padding: 28px;
+  padding: 24px;
 
   display: flex;
   flex-direction: column;
@@ -219,20 +228,30 @@ body {
   border-radius: var(--card-radius);
 }
 
+
+/* =========================================================
+   CHART CONTAINERS
+========================================================= */
+
 .chart {
   width: 100%;
   min-width: 0;
 
   display: flex;
-  justify-content: center;
+
+  /*
+    Charts now align with the left edge of their card.
+  */
+
+  justify-content: flex-start;
   align-items: flex-start;
 
   overflow: hidden;
 }
 
+
 /*
-  Vega adds this wrapper automatically.
-  These rules keep it within its assigned grid column.
+  Vega-Embed creates this element automatically.
 */
 
 .chart .vega-embed {
@@ -240,16 +259,21 @@ body {
   min-width: 0;
 
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .chart .vega-embed > div {
   max-width: 100%;
 }
 
+
 /*
-  This prevents a fixed-width Vega SVG from breaking
-  outside its chart card during the layout stage.
+  This prevents the current fixed-width Vega SVG files
+  from escaping their chart cards.
+
+  The individual Vega-Lite widths will be adjusted in the
+  next stage so this scaling is only a safety measure.
 */
 
 .chart svg {
@@ -265,6 +289,7 @@ body {
 ========================================================= */
 
 .chart-note {
+  width: 100%;
   margin: auto 0 0;
   padding-top: 20px;
 
@@ -272,6 +297,7 @@ body {
 
   font-size: 0.91rem;
   line-height: 1.6;
+  text-align: left;
 
   border-top: 1px solid var(--border-light);
 }
@@ -282,6 +308,7 @@ body {
 ========================================================= */
 
 .method-note {
+  width: 100%;
   padding: 20px 24px;
 
   color: #34434a;
@@ -289,9 +316,15 @@ body {
 
   font-size: 0.92rem;
   line-height: 1.65;
+  text-align: left;
 
   border-left: 4px solid var(--accent-primary);
-  border-radius: 0 var(--card-radius) var(--card-radius) 0;
+
+  border-radius:
+    0
+    var(--card-radius)
+    var(--card-radius)
+    0;
 }
 
 .method-note strong {
@@ -309,6 +342,7 @@ body {
   color: var(--text-light);
 
   font-size: 0.8rem;
+  text-align: left;
 }
 
 .vega-actions a {
@@ -328,7 +362,7 @@ body {
    TABLET LAYOUT
 ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1120px) {
 
   .page-container {
     width: min(
@@ -349,8 +383,8 @@ body {
   }
 
   /*
-    Paired charts become full-width before they become
-    too narrow to read.
+    Charts become full-width before their labels and
+    annotations become too small to read.
   */
 
   .chart-card--half {
@@ -381,7 +415,6 @@ body {
 
   .hero {
     margin-bottom: 58px;
-    text-align: left;
   }
 
   .hero h1 {
@@ -390,6 +423,7 @@ body {
 
   .introduction {
     margin-top: 22px;
+
     font-size: 1rem;
   }
 
@@ -400,7 +434,6 @@ body {
 
   .section-header {
     margin-bottom: 30px;
-    text-align: left;
   }
 
   .section-header h2 {
@@ -421,6 +454,7 @@ body {
 
   .chart-note {
     padding-top: 16px;
+
     font-size: 0.87rem;
   }
 
