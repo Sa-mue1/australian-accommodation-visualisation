@@ -482,3 +482,16 @@ body {
 .chart-card--wide .chart-note {
   max-width: 850px;
 }
+
+
+
+.chart-card--half .chart {
+  display: block;
+}
+
+.chart-card--half .chart .vega-embed {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding-right: 38px;
+}
