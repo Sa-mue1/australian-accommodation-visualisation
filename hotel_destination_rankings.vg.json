@@ -1,18 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
   "width": "container",
   "height": 360,
+
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
     "resize": true
   },
+
   "padding": {
     "left": 5,
-    "right": 75,
+    "right": 5,
     "top": 5,
     "bottom": 5
   },
+
   "title": {
     "text": [
       "Sydney regained first place after",
@@ -30,6 +34,7 @@
     "subtitlePadding": 8,
     "offset": 12
   },
+
   "data": {
     "url": "data/domestic_accommodation_types.csv",
     "format": {
@@ -40,6 +45,7 @@
       }
     }
   },
+
   "transform": [
     {
       "filter": "datum.accommodation_type === 'Hotels and similar' && datum.area_type === 'capital_or_primary_region' && datum.measure === 'visitor_nights_thousand' && datum.data_status === 'published' && datum.year >= 2019 && datum.year <= 2024"
@@ -65,11 +71,77 @@
           "order": "descending"
         }
       ],
-      "groupby": [
-        "year"
-      ]
+      "groupby": ["year"]
     }
   ],
+
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "scale": {
+        "domain": [2019, 2024.85],
+        "nice": false,
+        "zero": false
+      },
+      "axis": {
+        "title": "Year",
+        "values": [2019, 2020, 2021, 2022, 2023, 2024],
+        "format": "d",
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "labelPadding": 8,
+        "titleFontSize": 13,
+        "titlePadding": 12,
+        "grid": false,
+        "tickSize": 4,
+        "domain": false
+      }
+    },
+
+    "y": {
+      "field": "rank",
+      "type": "quantitative",
+      "scale": {
+        "domain": [0.5, 8.6],
+        "reverse": true,
+        "nice": false,
+        "zero": false
+      },
+      "axis": {
+        "title": "Rank by hotel visitor nights (1 = highest)",
+        "values": [1, 2, 3, 4, 5, 6, 7, 8],
+        "format": "d",
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "titlePadding": 12,
+        "grid": true,
+        "gridColor": "#E5E7EB",
+        "gridOpacity": 0.8,
+        "domain": false,
+        "tickSize": 0
+      }
+    },
+
+    "color": {
+      "condition": [
+        {
+          "test": "datum.destination === 'Sydney'",
+          "value": "#0072B2"
+        },
+        {
+          "test": "datum.destination === 'Melbourne'",
+          "value": "#D55E00"
+        },
+        {
+          "test": "datum.destination === 'Brisbane'",
+          "value": "#009E73"
+        }
+      ],
+      "value": "#9CA3AF"
+    }
+  },
+
   "layer": [
     {
       "mark": {
@@ -78,78 +150,17 @@
         "opacity": 0.9
       },
       "encoding": {
-        "x": {
-          "field": "year",
-          "type": "ordinal",
-          "sort": "ascending",
-          "axis": {
-            "title": "Year",
-            "labelAngle": 0,
-            "labelFontSize": 12,
-            "titleFontSize": 13,
-            "titlePadding": 12,
-            "grid": false,
-            "tickSize": 4
-          }
-        },
-        "y": {
-          "field": "rank",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0.5,
-              8.6
-            ],
-            "reverse": true
-          },
-          "axis": {
-            "title": "Rank by hotel visitor nights (1 = highest)",
-            "values": [
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8
-            ],
-            "labelFontSize": 12,
-            "titleFontSize": 13,
-            "titlePadding": 12,
-            "grid": true,
-            "gridColor": "#E5E7EB",
-            "gridOpacity": 0.8,
-            "domain": false,
-            "tickSize": 0
-          }
-        },
         "detail": {
-          "field": "destination"
+          "field": "destination",
+          "type": "nominal"
         },
         "order": {
           "field": "year",
-          "type": "ordinal"
-        },
-        "color": {
-          "condition": [
-            {
-              "test": "datum.destination === 'Sydney'",
-              "value": "#0072B2"
-            },
-            {
-              "test": "datum.destination === 'Melbourne'",
-              "value": "#D55E00"
-            },
-            {
-              "test": "datum.destination === 'Brisbane'",
-              "value": "#009E73"
-            }
-          ],
-          "value": "#9CA3AF"
+          "type": "quantitative"
         }
       }
     },
+
     {
       "mark": {
         "type": "point",
@@ -159,45 +170,12 @@
         "strokeWidth": 1.2
       },
       "encoding": {
-        "x": {
-          "field": "year",
-          "type": "ordinal",
-          "sort": "ascending"
-        },
-        "y": {
-          "field": "rank",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0.5,
-              8.6
-            ],
-            "reverse": true
-          }
-        },
-        "color": {
-          "condition": [
-            {
-              "test": "datum.destination === 'Sydney'",
-              "value": "#0072B2"
-            },
-            {
-              "test": "datum.destination === 'Melbourne'",
-              "value": "#D55E00"
-            },
-            {
-              "test": "datum.destination === 'Brisbane'",
-              "value": "#009E73"
-            }
-          ],
-          "value": "#9CA3AF"
-          
-        },
         "tooltip": [
           {
             "field": "year",
-            "type": "ordinal",
-            "title": "Year"
+            "type": "quantitative",
+            "title": "Year",
+            "format": "d"
           },
           {
             "field": "destination",
@@ -219,6 +197,7 @@
         ]
       }
     },
+
     {
       "transform": [
         {
@@ -229,27 +208,11 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 10,
+        "dx": 8,
         "fontSize": 12,
         "fontWeight": "bold"
       },
       "encoding": {
-        "x": {
-          "field": "year",
-          "type": "ordinal",
-          "sort": "ascending"
-        },
-        "y": {
-          "field": "rank",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              0.5,
-              8.6
-            ],
-            "reverse": true
-          }
-        },
         "text": {
           "field": "destination"
         },
@@ -273,6 +236,7 @@
       }
     }
   ],
+
   "config": {
     "background": "white",
     "font": "Arial",
