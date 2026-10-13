@@ -1,14 +1,29 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 760,
-  "height": 420,
+  "width": 450,
+  "height": 350,
+  "padding": {
+    "left": 5,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
   "title": {
-    "text": "Queensland had the highest hotel share among the largest states",
-    "subtitle": "Domestic visitor nights by accommodation type, 2024; column width represents each state's total nights",
+    "text": [
+      "Queensland had the highest hotel share",
+      "among the five largest states"
+    ],
+    "subtitle": [
+      "Domestic visitor nights by accommodation type, 2024",
+      "Column width represents each state's total nights"
+    ],
     "anchor": "start",
-    "fontSize": 18,
+    "fontSize": 17,
+    "fontWeight": "bold",
     "subtitleFontSize": 12,
-    "subtitlePadding": 8
+    "subtitleFontWeight": "normal",
+    "subtitlePadding": 8,
+    "offset": 12
   },
   "data": {
     "url": "data/domestic_accommodation_types.csv",
@@ -55,18 +70,25 @@
           "as": "state_total_thousand"
         }
       ],
-      "groupby": ["state_or_territory"]
+      "groupby": [
+        "state_or_territory"
+      ]
     },
     {
       "stack": "visitor_nights_thousand",
-      "groupby": ["state_or_territory"],
+      "groupby": [
+        "state_or_territory"
+      ],
       "sort": [
         {
           "field": "group_order",
           "order": "ascending"
         }
       ],
-      "as": ["y0_count", "y1_count"],
+      "as": [
+        "y0_count",
+        "y1_count"
+      ],
       "offset": "zero"
     },
     {
@@ -106,6 +128,10 @@
       "as": "y_center"
     },
     {
+      "calculate": "datum.x1 - datum.x0",
+      "as": "state_width"
+    },
+    {
       "calculate": "format(datum.accommodation_share, '.0%')",
       "as": "share_label"
     }
@@ -115,17 +141,20 @@
       "mark": {
         "type": "rect",
         "stroke": "white",
-        "strokeWidth": 2
+        "strokeWidth": 1.5
       },
       "encoding": {
         "x": {
           "field": "x0",
           "type": "quantitative",
           "scale": {
-            "domain": [0, 1]
+            "domain": [
+              0,
+              1
+            ]
           },
           "axis": {
-            "title": "State (column width represents total domestic visitor nights)",
+            "title": "State (width = total visitor nights)",
             "values": [
               0.15473336,
               0.44365708,
@@ -137,12 +166,12 @@
             "labelAngle": 0,
             "labelFontSize": 12,
             "labelFontWeight": "bold",
-            "labelPadding": 10,
+            "labelPadding": 9,
             "tickSize": 0,
             "domain": false,
             "grid": false,
             "titleFontSize": 13,
-            "titlePadding": 16
+            "titlePadding": 14
           }
         },
         "x2": {
@@ -152,18 +181,30 @@
           "field": "y0",
           "type": "quantitative",
           "scale": {
-            "domain": [0, 1]
+            "domain": [
+              0,
+              1
+            ]
           },
           "axis": {
             "title": "Share of state visitor nights",
             "format": ".0%",
-            "tickCount": 6,
+            "values": [
+              0,
+              0.2,
+              0.4,
+              0.6,
+              0.8,
+              1
+            ],
             "grid": true,
             "gridColor": "#E5E7EB",
             "gridOpacity": 0.7,
             "labelFontSize": 12,
             "titleFontSize": 13,
-            "titlePadding": 12
+            "titlePadding": 12,
+            "domain": false,
+            "tickSize": 0
           }
         },
         "y2": {
@@ -200,10 +241,13 @@
             "orient": "bottom",
             "direction": "horizontal",
             "columns": 3,
-            "labelFontSize": 12,
+            "labelFontSize": 11,
+            "labelLimit": 135,
             "titleFontSize": 12,
-            "titlePadding": 8,
-            "rowPadding": 6
+            "titlePadding": 7,
+            "rowPadding": 5,
+            "columnPadding": 10,
+            "symbolSize": 90
           }
         },
         "tooltip": [
@@ -241,14 +285,14 @@
     {
       "transform": [
         {
-          "filter": "datum.accommodation_share >= 0.06"
+          "filter": "datum.accommodation_share >= 0.12 || (datum.state_width >= 0.12 && datum.accommodation_share >= 0.08)"
         }
       ],
       "mark": {
         "type": "text",
         "align": "center",
         "baseline": "middle",
-        "fontSize": 12,
+        "fontSize": 11,
         "fontWeight": "bold"
       },
       "encoding": {
@@ -256,14 +300,20 @@
           "field": "x_center",
           "type": "quantitative",
           "scale": {
-            "domain": [0, 1]
+            "domain": [
+              0,
+              1
+            ]
           }
         },
         "y": {
           "field": "y_center",
           "type": "quantitative",
           "scale": {
-            "domain": [0, 1]
+            "domain": [
+              0,
+              1
+            ]
           }
         },
         "text": {

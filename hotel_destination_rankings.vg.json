@@ -1,17 +1,29 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 650,
-  "height": 430,
+  "width": 410,
+  "height": 360,
+  "padding": {
+    "left": 5,
+    "right": 82,
+    "top": 5,
+    "bottom": 5
+  },
   "title": {
-    "text": "Sydney and Melbourne exchanged the leading hotel rank",
+    "text": [
+      "Sydney regained first place after",
+      "Melbourne briefly led in 2023"
+    ],
     "subtitle": [
       "Major destinations ranked by domestic visitor nights",
       "Hotels and similar accommodation, 2019–2024"
     ],
     "anchor": "start",
-    "fontSize": 18,
+    "fontSize": 17,
+    "fontWeight": "bold",
     "subtitleFontSize": 12,
-    "subtitleColor": "#555555"
+    "subtitleFontWeight": "normal",
+    "subtitlePadding": 8,
+    "offset": 12
   },
   "data": {
     "url": "data/domestic_accommodation_types.csv",
@@ -25,22 +37,10 @@
   },
   "transform": [
     {
-      "filter": "datum.area_type == 'capital_or_primary_region'"
+      "filter": "datum.accommodation_type === 'Hotels and similar' && datum.area_type === 'capital_or_primary_region' && datum.measure === 'visitor_nights_thousand' && datum.data_status === 'published' && datum.year >= 2019 && datum.year <= 2024"
     },
     {
-      "filter": "datum.accommodation_type == 'Hotels and similar'"
-    },
-    {
-      "filter": "datum.measure == 'visitor_nights_thousand'"
-    },
-    {
-      "filter": "datum.data_status == 'published'"
-    },
-    {
-      "filter": "isValid(datum.value) && datum.value > 0"
-    },
-    {
-      "calculate": "datum.geography == 'Experience Perth' ? 'Perth' : datum.geography == 'Hobart and the South' ? 'Hobart' : datum.geography == 'ACT' ? 'Canberra' : datum.geography",
+      "calculate": "datum.geography === 'Experience Perth' ? 'Perth' : datum.geography === 'Hobart and the South' ? 'Hobart' : datum.geography === 'ACT' ? 'Canberra' : datum.geography",
       "as": "destination"
     },
     {
@@ -65,75 +65,83 @@
       ]
     }
   ],
-  "encoding": {
-    "x": {
-      "field": "year",
-      "type": "ordinal",
-      "title": "Year",
-      "sort": "ascending",
-      "scale": {
-        "padding": 0.15
-      },
-      "axis": {
-        "labelAngle": 0,
-        "labelFontSize": 11,
-        "titleFontSize": 12,
-        "titlePadding": 10,
-        "grid": true,
-        "gridColor": "#ededed"
-      }
-    },
-    "y": {
-      "field": "rank",
-      "type": "quantitative",
-      "title": "Rank by hotel visitor nights (1 = highest)",
-      "scale": {
-        "domain": [0.5, 8.5],
-        "reverse": true
-      },
-      "axis": {
-        "values": [1, 2, 3, 4, 5, 6, 7, 8],
-        "labelFontSize": 11,
-        "titleFontSize": 12,
-        "titlePadding": 12,
-        "grid": true,
-        "gridColor": "#ededed"
-      }
-    },
-    "color": {
-      "field": "destination",
-      "type": "nominal",
-      "title": "Destination",
-      "scale": {
-        "domain": [
-          "Sydney",
-          "Melbourne",
-          "Brisbane",
-          "Perth",
-          "Adelaide",
-          "Canberra",
-          "Hobart",
-          "Darwin"
-        ],
-        "scheme": "tableau10"
-      },
-      "legend": null
-    }
-  },
   "layer": [
     {
       "mark": {
         "type": "line",
-        "strokeWidth": 3
+        "strokeWidth": 2.5,
+        "opacity": 0.9
       },
       "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "sort": "ascending",
+          "axis": {
+            "title": "Year",
+            "labelAngle": 0,
+            "labelFontSize": 12,
+            "titleFontSize": 13,
+            "titlePadding": 12,
+            "grid": false,
+            "tickSize": 4
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0.5,
+              8.6
+            ],
+            "reverse": true
+          },
+          "axis": {
+            "title": "Rank by hotel visitor nights (1 = highest)",
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "labelFontSize": 12,
+            "titleFontSize": 13,
+            "titlePadding": 12,
+            "grid": true,
+            "gridColor": "#E5E7EB",
+            "gridOpacity": 0.8,
+            "domain": false,
+            "tickSize": 0
+          }
+        },
         "detail": {
-          "field": "destination",
-          "type": "nominal"
+          "field": "destination"
         },
         "order": {
           "field": "year",
           "type": "ordinal"
+        },
+        "color": {
+          "condition": [
+            {
+              "test": "datum.destination === 'Sydney'",
+              "value": "#0072B2"
+            },
+            {
+              "test": "datum.destination === 'Melbourne'",
+              "value": "#D55E00"
+            },
+            {
+              "test": "datum.destination === 'Brisbane'",
+              "value": "#009E73"
+            }
+          ],
+          "value": "#9CA3AF"
         }
       }
     },
@@ -141,21 +149,55 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 90,
+        "size": 72,
         "stroke": "white",
-        "strokeWidth": 1
+        "strokeWidth": 1.2
       },
       "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "sort": "ascending"
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0.5,
+              8.6
+            ],
+            "reverse": true
+          }
+        },
+        "color": {
+          "condition": [
+            {
+              "test": "datum.destination === 'Sydney'",
+              "value": "#0072B2"
+            },
+            {
+              "test": "datum.destination === 'Melbourne'",
+              "value": "#D55E00"
+            },
+            {
+              "test": "datum.destination === 'Brisbane'",
+              "value": "#009E73"
+            }
+          ],
+          "value": "#9CA3AF"
+          
+        },
         "tooltip": [
-          {
-            "field": "destination",
-            "type": "nominal",
-            "title": "Destination"
-          },
           {
             "field": "year",
             "type": "ordinal",
             "title": "Year"
+          },
+          {
+            "field": "destination",
+            "type": "nominal",
+            "title": "Destination"
           },
           {
             "field": "rank",
@@ -167,7 +209,7 @@
             "field": "visitor_nights_million",
             "type": "quantitative",
             "title": "Hotel visitor nights (millions)",
-            "format": ",.1f"
+            "format": ".1f"
           }
         ]
       }
@@ -175,7 +217,7 @@
     {
       "transform": [
         {
-          "filter": "datum.year == 2024"
+          "filter": "datum.year === 2024"
         }
       ],
       "mark": {
@@ -183,12 +225,45 @@
         "align": "left",
         "baseline": "middle",
         "dx": 10,
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": "bold"
       },
       "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "sort": "ascending"
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0.5,
+              8.6
+            ],
+            "reverse": true
+          }
+        },
         "text": {
           "field": "destination"
+        },
+        "color": {
+          "condition": [
+            {
+              "test": "datum.destination === 'Sydney'",
+              "value": "#0072B2"
+            },
+            {
+              "test": "datum.destination === 'Melbourne'",
+              "value": "#D55E00"
+            },
+            {
+              "test": "datum.destination === 'Brisbane'",
+              "value": "#007A5E"
+            }
+          ],
+          "value": "#5F6873"
         }
       }
     }
