@@ -1,18 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
   "width": "container",
   "height": 360,
+
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
     "resize": true
   },
+
   "padding": {
     "left": 5,
     "right": 5,
     "top": 5,
     "bottom": 5
   },
+
   "title": {
     "text": [
       "Queensland had the highest hotel share",
@@ -30,6 +34,7 @@
     "subtitlePadding": 8,
     "offset": 12
   },
+
   "data": {
     "url": "data/domestic_accommodation_types.csv",
     "format": {
@@ -40,6 +45,7 @@
       }
     }
   },
+
   "transform": [
     {
       "filter": "datum.area_type === 'state_total' && datum.year === 2024 && datum.measure === 'visitor_nights_thousand' && datum.data_status === 'published' && datum.accommodation_type !== 'All accommodation' && indexof(['New South Wales', 'Queensland', 'Victoria', 'Western Australia', 'South Australia'], datum.state_or_territory) >= 0"
@@ -133,14 +139,11 @@
       "as": "y_center"
     },
     {
-      "calculate": "datum.x1 - datum.x0",
-      "as": "state_width"
-    },
-    {
       "calculate": "format(datum.accommodation_share, '.0%')",
       "as": "share_label"
     }
   ],
+
   "layer": [
     {
       "mark": {
@@ -148,15 +151,14 @@
         "stroke": "white",
         "strokeWidth": 1.5
       },
+
       "encoding": {
         "x": {
           "field": "x0",
           "type": "quantitative",
           "scale": {
-            "domain": [
-              0,
-              1
-            ]
+            "domain": [0, 1],
+            "nice": false
           },
           "axis": {
             "title": "State (width = total visitor nights)",
@@ -179,32 +181,23 @@
             "titlePadding": 14
           }
         },
+
         "x2": {
           "field": "x1"
         },
+
         "y": {
           "field": "y0",
           "type": "quantitative",
           "scale": {
-            "domain": [
-              0,
-              1
-            ]
+            "domain": [0, 1],
+            "nice": false
           },
           "axis": {
             "title": "Share of state visitor nights",
             "format": ".0%",
-            "values": [
-              0,
-              0.2,
-              0.4,
-              0.6,
-              0.8,
-              1
-            ],
-            "grid": true,
-            "gridColor": "#E5E7EB",
-            "gridOpacity": 0.7,
+            "values": [0, 0.2, 0.4, 0.6, 0.8, 1],
+            "grid": false,
             "labelFontSize": 12,
             "titleFontSize": 13,
             "titlePadding": 12,
@@ -212,9 +205,11 @@
             "tickSize": 0
           }
         },
+
         "y2": {
           "field": "y1"
         },
+
         "color": {
           "field": "accommodation_group",
           "type": "nominal",
@@ -255,6 +250,7 @@
             "symbolSize": 90
           }
         },
+
         "tooltip": [
           {
             "field": "state_or_territory",
@@ -287,12 +283,8 @@
         ]
       }
     },
+
     {
-      "transform": [
-        {
-          "filter": "datum.accommodation_share >= 0.12 || (datum.state_width >= 0.12 && datum.accommodation_share >= 0.08)"
-        }
-      ],
       "mark": {
         "type": "text",
         "align": "center",
@@ -300,40 +292,60 @@
         "fontSize": 11,
         "fontWeight": "bold"
       },
+
       "encoding": {
         "x": {
           "field": "x_center",
           "type": "quantitative",
           "scale": {
-            "domain": [
-              0,
-              1
-            ]
+            "domain": [0, 1],
+            "nice": false
           }
         },
+
         "y": {
           "field": "y_center",
           "type": "quantitative",
           "scale": {
-            "domain": [
-              0,
-              1
-            ]
+            "domain": [0, 1],
+            "nice": false
           }
         },
+
         "text": {
           "field": "share_label"
         },
+
         "color": {
           "condition": {
             "test": "datum.accommodation_group === 'Hotels' || datum.accommodation_group === 'Friends/relatives'",
             "value": "white"
           },
           "value": "#1F2937"
-        }
+        },
+
+        "tooltip": [
+          {
+            "field": "state_or_territory",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "accommodation_group",
+            "type": "nominal",
+            "title": "Accommodation type"
+          },
+          {
+            "field": "accommodation_share",
+            "type": "quantitative",
+            "title": "Share of state nights",
+            "format": ".1%"
+          }
+        ]
       }
     }
   ],
+
   "config": {
     "background": "white",
     "font": "Arial",
