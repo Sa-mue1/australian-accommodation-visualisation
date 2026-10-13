@@ -80,7 +80,7 @@
       "field": "year",
       "type": "quantitative",
       "scale": {
-        "domain": [2019, 2024.85],
+        "domain": [2018.8, 2024.65],
         "nice": false,
         "zero": false
       },
