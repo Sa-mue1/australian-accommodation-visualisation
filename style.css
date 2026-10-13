@@ -495,3 +495,9 @@ body {
   min-width: 0;
   padding-right: 38px;
 }
+
+
+#hotel-destination-rankings svg {
+  transform: scale(1.04);
+  transform-origin: top left;
+}
