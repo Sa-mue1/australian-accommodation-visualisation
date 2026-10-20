@@ -18,8 +18,8 @@
   },
 
   "title": {
-    "text": "Hotel nights recovered, but stays with friends remained largest",
-    "subtitle": "Australian domestic visitor nights by accommodation type, 2019–2024",
+    "text": "Domestic accommodation visitor nights",
+    "subtitle": "Visitor nights by accommodation type in Australia, 2019–2024",
     "anchor": "start",
     "fontSize": 18,
     "fontWeight": "bold",
@@ -92,28 +92,20 @@
       "field": "year",
       "type": "quantitative",
       "scale": {
-        "domain": [
-          2019,
-          2024
-        ],
+        "domain": [2019, 2024],
         "nice": false,
         "zero": false
       },
       "axis": {
         "title": "Year",
-        "values": [
-          2019,
-          2020,
-          2021,
-          2022,
-          2023,
-          2024
-        ],
+        "values": [2019, 2020, 2021, 2022, 2023, 2024],
         "format": "d",
         "labelAngle": 0,
         "labelFontSize": 12,
-        "labelPadding": 7,
+        "labelFontWeight": "bold",
+        "labelPadding": 8,
         "titleFontSize": 13,
+        "titleFontWeight": "bold",
         "titlePadding": 10,
         "grid": false,
         "domain": false,
@@ -139,13 +131,13 @@
           "type": "quantitative",
           "stack": "center",
           "axis": {
-            "title": "Domestic visitor nights (millions; band thickness)",
+            "title": "Visitor nights (millions)",
             "labels": false,
             "ticks": false,
             "domain": false,
             "grid": false,
             "titleFontSize": 13,
-            "titleFontWeight": "normal",
+            "titleFontWeight": "bold",
             "titlePadding": 14
           }
         },
@@ -228,12 +220,9 @@
       "mark": {
         "type": "rule",
         "color": "#4B5563",
-        "strokeDash": [
-          5,
-          4
-        ],
-        "strokeWidth": 1.2,
-        "opacity": 0.75
+        "strokeDash": [5, 4],
+        "strokeWidth": 1.4,
+        "opacity": 0.8
       }
     },
 
@@ -248,10 +237,10 @@
         "type": "text",
         "align": "left",
         "baseline": "top",
-        "dx": 8,
-        "fontSize": 12,
+        "dx": 9,
+        "fontSize": 10,
         "fontWeight": "bold",
-        "color": "#374151"
+        "color": "#202124"
       },
 
       "encoding": {
@@ -259,7 +248,55 @@
           "value": 8
         },
         "text": {
-          "value": "2020 disruption"
+          "value": "2020: visitor nights fell"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "stack": "visitor_nights_million",
+          "groupby": ["year"],
+          "sort": [
+            {
+              "field": "category_order",
+              "order": "ascending"
+            }
+          ],
+          "offset": "center",
+          "as": [
+            "annotation_start",
+            "annotation_end"
+          ]
+        },
+        {
+          "calculate": "(datum.annotation_start + datum.annotation_end) / 2",
+          "as": "annotation_y"
+        },
+        {
+          "filter": "datum.year === 2023 && datum.category === 'Friends or relatives'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "color": "white"
+      },
+
+      "encoding": {
+        "y": {
+          "field": "annotation_y",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "Friends or relatives:\nlargest category each year"
         }
       }
     }
@@ -275,7 +312,7 @@
 
     "axis": {
       "labelColor": "#374151",
-      "titleColor": "#374151"
+      "titleColor": "#202124"
     }
   }
 }
