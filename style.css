@@ -255,7 +255,7 @@ body {
   padding-right: 0;
 }
 
-#domestic-recovery svg {
+#domestic-recovery svg.marks {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -441,9 +441,17 @@ body {
     min-width: 720px;
   }
 
-  #domestic-recovery svg {
+  #domestic-recovery svg.marks {
     min-width: 720px;
     max-width: none;
   }
+
+  .chart .vega-embed summary svg {
+  width: 16px;
+  height: 16px;
+  min-width: 0;
+  max-width: 16px;
+  transform: none;
+}
 
 }
