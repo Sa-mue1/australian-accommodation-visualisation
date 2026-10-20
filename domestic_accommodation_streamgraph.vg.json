@@ -1,19 +1,36 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 760,
-  "height": 380,
+
+  "width": "container",
+  "height": 300,
+
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding",
+    "resize": true
+  },
+
+  "padding": {
+    "left": 5,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
 
   "title": {
-    "text": "Hotel nights recovered after 2020, but stays with friends remained largest",
+    "text": "Hotel nights recovered, but stays with friends remained largest",
     "subtitle": "Australian domestic visitor nights by accommodation type, 2019–2024",
     "anchor": "start",
     "fontSize": 18,
+    "fontWeight": "bold",
     "subtitleFontSize": 12,
-    "subtitlePadding": 8
+    "subtitleFontWeight": "normal",
+    "subtitlePadding": 7,
+    "offset": 12
   },
 
   "data": {
-    "url": "./data/domestic_accommodation_types.csv",
+    "url": "data/domestic_accommodation_types.csv",
     "format": {
       "type": "csv",
       "parse": {
@@ -25,7 +42,7 @@
 
   "transform": [
     {
-      "filter": "datum.geography === 'Australia' && datum.measure === 'visitor_nights_thousand' && datum.accommodation_type !== 'All accommodation' && datum.data_status === 'published'"
+      "filter": "datum.geography === 'Australia' && datum.area_type === 'australia_total' && datum.measure === 'visitor_nights_thousand' && datum.accommodation_type !== 'All accommodation' && datum.data_status === 'published' && datum.year >= 2019 && datum.year <= 2024"
     },
     {
       "calculate": "datum.accommodation_type === 'Hotels and similar' ? 'Hotels' : datum.accommodation_type === \"Friends or relatives' property\" ? 'Friends or relatives' : datum.accommodation_type === 'Rented accommodation' ? 'Rented accommodation' : datum.accommodation_type === 'Caravan park or commercial camping' ? 'Caravan/camping' : 'Other'",
@@ -39,7 +56,10 @@
           "as": "visitor_nights_thousand"
         }
       ],
-      "groupby": ["year", "category"]
+      "groupby": [
+        "year",
+        "category"
+      ]
     },
     {
       "calculate": "datum.visitor_nights_thousand / 1000",
@@ -53,7 +73,9 @@
           "as": "year_total_million"
         }
       ],
-      "groupby": ["year"]
+      "groupby": [
+        "year"
+      ]
     },
     {
       "calculate": "datum.visitor_nights_million / datum.year_total_million * 100",
@@ -64,6 +86,42 @@
       "as": "category_order"
     }
   ],
+
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          2019,
+          2024
+        ],
+        "nice": false,
+        "zero": false
+      },
+      "axis": {
+        "title": "Year",
+        "values": [
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "format": "d",
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "labelPadding": 7,
+        "titleFontSize": 13,
+        "titlePadding": 10,
+        "grid": false,
+        "domain": false,
+        "tickSize": 3,
+        "tickColor": "#C9D0D6"
+      }
+    }
+  },
 
   "layer": [
     {
@@ -76,20 +134,6 @@
       },
 
       "encoding": {
-        "x": {
-          "field": "year",
-          "type": "ordinal",
-          "sort": "ascending",
-          "axis": {
-            "title": "Year",
-            "labelAngle": 0,
-            "labelFontSize": 12,
-            "titleFontSize": 13,
-            "titlePadding": 12,
-            "grid": false
-          }
-        },
-
         "y": {
           "field": "visitor_nights_million",
           "type": "quantitative",
@@ -99,7 +143,9 @@
             "labels": false,
             "ticks": false,
             "domain": false,
+            "grid": false,
             "titleFontSize": 13,
+            "titleFontWeight": "normal",
             "titlePadding": 14
           }
         },
@@ -124,14 +170,17 @@
             ]
           },
           "legend": {
-            "title": "Accommodation type",
+            "title": null,
             "orient": "top",
             "direction": "horizontal",
-            "columns": 3,
+            "columns": 5,
             "labelFontSize": 12,
-            "titleFontSize": 12,
+            "labelLimit": 180,
             "symbolType": "square",
-            "symbolSize": 120
+            "symbolSize": 100,
+            "columnPadding": 18,
+            "rowPadding": 6,
+            "offset": 12
           }
         },
 
@@ -144,8 +193,9 @@
         "tooltip": [
           {
             "field": "year",
-            "type": "ordinal",
-            "title": "Year"
+            "type": "quantitative",
+            "title": "Year",
+            "format": "d"
           },
           {
             "field": "category",
@@ -161,7 +211,7 @@
           {
             "field": "share_percent",
             "type": "quantitative",
-            "title": "Share of annual nights",
+            "title": "Share of annual nights (%)",
             "format": ".1f"
           }
         ]
@@ -178,16 +228,12 @@
       "mark": {
         "type": "rule",
         "color": "#4B5563",
-        "strokeDash": [5, 4],
-        "strokeWidth": 1.5,
-        "opacity": 0.8
-      },
-
-      "encoding": {
-        "x": {
-          "field": "year",
-          "type": "ordinal"
-        }
+        "strokeDash": [
+          5,
+          4
+        ],
+        "strokeWidth": 1.2,
+        "opacity": 0.75
       }
     },
 
@@ -201,6 +247,7 @@
       "mark": {
         "type": "text",
         "align": "left",
+        "baseline": "top",
         "dx": 8,
         "fontSize": 12,
         "fontWeight": "bold",
@@ -208,12 +255,8 @@
       },
 
       "encoding": {
-        "x": {
-          "field": "year",
-          "type": "ordinal"
-        },
         "y": {
-          "value": 18
+          "value": 8
         },
         "text": {
           "value": "2020 disruption"
@@ -231,8 +274,8 @@
     },
 
     "axis": {
-      "domainColor": "#9CA3AF",
-      "tickColor": "#9CA3AF"
+      "labelColor": "#374151",
+      "titleColor": "#374151"
     }
   }
 }
