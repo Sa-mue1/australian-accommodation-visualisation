@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
   "width": "container",
-  "height": 360,
+  "height": 320,
 
   "autosize": {
     "type": "fit-x",
@@ -126,7 +126,7 @@
           "type": "quantitative",
           "stack": "center",
           "scale": {
-            "domainMin": -110,
+            "domainMin": 0,
             "nice": false
           },
           "axis": {
@@ -276,7 +276,7 @@
           "as": ["anchor_start", "anchor_end"]
         },
         {
-          "filter": "datum.year === 2023 && datum.category === 'Friends or relatives'"
+          "filter": "datum.year === 2020 && datum.category === 'Friends or relatives'"
         }
       ],
 
@@ -292,10 +292,10 @@
           "type": "quantitative"
         },
         "x2": {
-          "datum": 2023.2
+          "datum": 2020.35
         },
         "y2": {
-          "datum": -30
+          "datum": 45
         }
       }
     },
@@ -303,7 +303,7 @@
     {
       "transform": [
         {
-          "filter": "datum.year === 2023 && datum.category === 'Friends or relatives'"
+          "filter": "datum.year === 2020 && datum.category === 'Friends or relatives'"
         }
       ],
 
@@ -317,18 +317,18 @@
 
       "encoding": {
         "x": {
-          "datum": 2022.55,
+          "datum": 2019.85,
           "type": "quantitative"
         },
         "x2": {
-          "datum": 2023.9
+          "datum": 2020.95
         },
         "y": {
-          "datum": -30,
+          "datum": 45,
           "type": "quantitative"
         },
         "y2": {
-          "datum": -95
+          "datum": 1
         }
       }
     },
@@ -348,7 +348,7 @@
           "as": ["anchor_start", "anchor_end"]
         },
         {
-          "filter": "datum.year === 2023 && datum.category === 'Friends or relatives'"
+          "filter": "datum.year === 2020 && datum.category === 'Friends or relatives'"
         }
       ],
 
@@ -372,7 +372,7 @@
     {
       "transform": [
         {
-          "filter": "datum.year === 2023 && datum.category === 'Friends or relatives'"
+          "filter": "datum.year === 2020 && datum.category === 'Friends or relatives'"
         }
       ],
 
@@ -380,25 +380,25 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 12,
+        "dx": 10,
         "fontSize": 10,
         "fontWeight": "bold",
         "lineBreak": "\n",
-        "lineHeight": 14,
+        "lineHeight": 12,
         "color": "#184E65"
       },
 
       "encoding": {
         "x": {
-          "datum": 2022.55,
+          "datum": 2019.85,
           "type": "quantitative"
         },
         "y": {
-          "datum": -62.5,
+          "datum": 31,
           "type": "quantitative"
         },
         "text": {
-          "value": "Friends or relatives recorded\nthe most visitor nights each year."
+          "value": "Friends or relatives led\nvisitor nights in every year."
         }
       }
     }
