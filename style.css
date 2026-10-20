@@ -15,12 +15,10 @@
 
   --border-light: #dfe3e7;
   --border-medium: #c9d0d6;
-
   --method-background: #f4f7f8;
 
-  --page-width: 1320px;
-  --text-width: 760px;
-
+  --page-width: 1160px;
+  --text-width: 820px;
   --card-radius: 6px;
 }
 
@@ -43,13 +41,9 @@ body {
   background: var(--page-background);
   color: var(--text-primary);
 
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 
@@ -64,7 +58,7 @@ body {
   );
 
   margin: 0 auto;
-  padding: 64px 0 96px;
+  padding: 40px 0 64px;
 }
 
 
@@ -73,54 +67,41 @@ body {
 ========================================================= */
 
 .hero {
-  max-width: 940px;
-
-  /*
-    The previous version used auto side margins and centred
-    text. This version shares the page's left sight line.
-  */
-
-  margin: 0 0 96px;
+  max-width: 900px;
+  margin: 0 0 48px;
   text-align: left;
 }
 
 .eyebrow {
-  margin: 0 0 14px;
+  margin: 0 0 10px;
 
   color: var(--accent-primary);
 
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   line-height: 1.4;
   text-transform: uppercase;
 }
 
 .hero h1 {
-  max-width: 900px;
+  max-width: 880px;
   margin: 0;
 
-  color: var(--text-primary);
-
-  font-size: clamp(
-    2.2rem,
-    5vw,
-    4.3rem
-  );
-
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.06;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
 }
 
 .introduction {
   max-width: var(--text-width);
-  margin: 28px 0 0;
+  margin: 18px 0 0;
 
   color: var(--text-secondary);
 
-  font-size: 1.12rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 
@@ -129,10 +110,12 @@ body {
 ========================================================= */
 
 .story-section {
-  margin-top: 100px;
-  padding-top: 56px;
+  margin-top: 52px;
+  padding-top: 24px;
 
   border-top: 1px solid var(--border-medium);
+
+  scroll-margin-top: 20px;
 }
 
 .story-section:first-of-type {
@@ -140,48 +123,42 @@ body {
 }
 
 .section-header {
-  max-width: var(--text-width);
-  margin: 0 0 42px;
+  max-width: 100%;
+  margin: 0 0 20px;
 
   text-align: left;
 }
 
 .section-number {
-  margin: 0 0 10px;
+  margin: 0 0 6px;
 
   color: var(--accent-primary);
 
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   line-height: 1.4;
   text-transform: uppercase;
 }
 
 .section-header h2 {
+  max-width: 100%;
   margin: 0;
 
-  color: var(--text-primary);
-
-  font-size: clamp(
-    1.8rem,
-    3vw,
-    2.7rem
-  );
-
+  font-size: clamp(1.55rem, 2.5vw, 2rem);
   font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .section-introduction {
-  max-width: 720px;
-  margin: 20px 0 0;
+  max-width: 900px;
+  margin: 10px 0 0;
 
   color: var(--text-secondary);
 
-  font-size: 1.02rem;
-  line-height: 1.7;
+  font-size: 0.98rem;
+  line-height: 1.6;
 }
 
 
@@ -197,13 +174,13 @@ body {
 
   align-items: stretch;
 
-  column-gap: 28px;
-  row-gap: 36px;
+  column-gap: 24px;
+  row-gap: 24px;
 }
 
 .chart-card--full,
 .grid-full {
-  grid-column: span 12;
+  grid-column: 1 / -1;
 }
 
 .chart-card--half {
@@ -217,7 +194,7 @@ body {
 
 .chart-card {
   min-width: 0;
-  padding: 24px;
+  padding: 20px;
 
   display: flex;
   flex-direction: column;
@@ -234,47 +211,28 @@ body {
 ========================================================= */
 
 .chart {
+  display: block;
+
   width: 100%;
   min-width: 0;
-
-  display: flex;
-
-  /*
-    Charts now align with the left edge of their card.
-  */
-
-  justify-content: flex-start;
-  align-items: flex-start;
 
   overflow: hidden;
 }
 
-
-/*
-  Vega-Embed creates this element automatically.
-*/
-
 .chart .vega-embed {
+  display: block;
+
   width: 100%;
   min-width: 0;
+}
 
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+.chart .vega-embed.has-actions {
+  padding-right: 36px;
 }
 
 .chart .vega-embed > div {
   max-width: 100%;
 }
-
-
-/*
-  This prevents the current fixed-width Vega SVG files
-  from escaping their chart cards.
-
-  The individual Vega-Lite widths will be adjusted in the
-  next stage so this scaling is only a safety measure.
-*/
 
 .chart svg {
   display: block;
@@ -285,13 +243,36 @@ body {
 
 
 /* =========================================================
+   FIRST RECOVERY CHART
+========================================================= */
+
+/*
+   This chart uses a two-by-two facet layout.
+   Preserve its proportions while filling the full card.
+*/
+
+#domestic-recovery .vega-embed {
+  padding-right: 0;
+}
+
+#domestic-recovery svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+
+  transform: none;
+}
+
+
+/* =========================================================
    CHART EXPLANATIONS
 ========================================================= */
 
 .chart-note {
   width: 100%;
-  margin: auto 0 0;
-  padding-top: 20px;
+
+  margin: 14px 0 0;
+  padding-top: 12px;
 
   color: var(--text-secondary);
 
@@ -302,6 +283,10 @@ body {
   border-top: 1px solid var(--border-light);
 }
 
+.chart-note strong {
+  color: var(--text-primary);
+}
+
 
 /* =========================================================
    METHODOLOGY NOTE
@@ -309,13 +294,13 @@ body {
 
 .method-note {
   width: 100%;
-  padding: 20px 24px;
+  padding: 14px 18px;
 
   color: #34434a;
   background: var(--method-background);
 
-  font-size: 0.92rem;
-  line-height: 1.65;
+  font-size: 0.88rem;
+  line-height: 1.6;
   text-align: left;
 
   border-left: 4px solid var(--accent-primary);
@@ -331,23 +316,22 @@ body {
   color: var(--text-primary);
 }
 
+.method-note p {
+  margin: 0;
+}
+
 
 /* =========================================================
    VEGA ACTION MENU
 ========================================================= */
 
 .vega-actions {
-  margin-top: 10px;
-
   color: var(--text-light);
-
   font-size: 0.8rem;
   text-align: left;
 }
 
 .vega-actions a {
-  margin-right: 10px;
-
   color: var(--accent-primary);
   text-decoration: none;
 }
@@ -362,33 +346,24 @@ body {
    TABLET LAYOUT
 ========================================================= */
 
-@media (max-width: 1120px) {
+@media (max-width: 980px) {
 
   .page-container {
-    width: min(
-      calc(100% - 36px),
-      var(--page-width)
-    );
-
-    padding-top: 48px;
+    width: calc(100% - 36px);
+    padding-top: 32px;
   }
 
   .hero {
-    margin-bottom: 72px;
+    margin-bottom: 36px;
   }
 
   .story-section {
-    margin-top: 78px;
-    padding-top: 44px;
+    margin-top: 40px;
+    padding-top: 22px;
   }
 
-  /*
-    Charts become full-width before their labels and
-    annotations become too small to read.
-  */
-
   .chart-card--half {
-    grid-column: span 12;
+    grid-column: 1 / -1;
   }
 
 }
@@ -400,104 +375,75 @@ body {
 
 @media (max-width: 640px) {
 
-  body {
-    font-size: 15px;
-  }
-
   .page-container {
-    width: min(
-      calc(100% - 24px),
-      var(--page-width)
-    );
-
-    padding: 32px 0 64px;
+    width: calc(100% - 24px);
+    padding: 24px 0 40px;
   }
 
   .hero {
-    margin-bottom: 58px;
-  }
-
-  .hero h1 {
-    font-size: 2.35rem;
-  }
-
-  .introduction {
-    margin-top: 22px;
-
-    font-size: 1rem;
-  }
-
-  .story-section {
-    margin-top: 64px;
-    padding-top: 36px;
-  }
-
-  .section-header {
     margin-bottom: 30px;
   }
 
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .introduction {
+    margin-top: 14px;
+    font-size: 0.96rem;
+  }
+
+  .story-section {
+    margin-top: 32px;
+    padding-top: 20px;
+  }
+
+  .section-header {
+    margin-bottom: 16px;
+  }
+
   .section-header h2 {
-    font-size: 1.85rem;
+    font-size: 1.5rem;
   }
 
   .section-introduction {
-    font-size: 0.97rem;
+    font-size: 0.94rem;
   }
 
   .chart-grid {
-    row-gap: 24px;
+    gap: 18px;
   }
 
   .chart-card {
-    padding: 18px;
+    padding: 14px;
   }
 
   .chart-note {
-    padding-top: 16px;
-
-    font-size: 0.87rem;
+    margin-top: 12px;
+    padding-top: 10px;
+    font-size: 0.88rem;
   }
 
   .method-note {
-    padding: 17px 18px;
+    padding: 12px 14px;
   }
 
-}
+  /*
+     Keep the four-panel chart readable on small screens.
+     Allow horizontal scrolling instead of shrinking its text.
+  */
 
+  #domestic-recovery {
+    overflow-x: auto;
+  }
 
-/* =========================================================
-   FULL-WIDTH ADVANCED CHARTS
-========================================================= */
+  #domestic-recovery .vega-embed {
+    min-width: 720px;
+  }
 
-.chart-card--wide {
-  grid-column: 1 / -1;
-}
+  #domestic-recovery svg {
+    min-width: 720px;
+    max-width: none;
+  }
 
-.chart-card--wide .chart {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-}
-
-.chart-card--wide .chart-note {
-  max-width: 850px;
-}
-
-
-
-.chart-card--half .chart {
-  display: block;
-}
-
-.chart-card--half .chart .vega-embed {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  padding-right: 38px;
-}
-
-
-#hotel-destination-rankings svg {
-  transform: scale(1.05);
-  transform-origin: top left;
 }
