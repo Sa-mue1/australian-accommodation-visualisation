@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
   "width": "container",
-  "height": 340,
+  "height": 360,
 
   "autosize": {
     "type": "fit-x",
@@ -56,10 +56,7 @@
           "as": "visitor_nights_thousand"
         }
       ],
-      "groupby": [
-        "year",
-        "category"
-      ]
+      "groupby": ["year", "category"]
     },
     {
       "calculate": "datum.visitor_nights_thousand / 1000",
@@ -73,9 +70,7 @@
           "as": "year_total_million"
         }
       ],
-      "groupby": [
-        "year"
-      ]
+      "groupby": ["year"]
     },
     {
       "calculate": "datum.visitor_nights_million / datum.year_total_million * 100",
@@ -84,23 +79,6 @@
     {
       "calculate": "datum.category === 'Friends or relatives' ? 1 : datum.category === 'Hotels' ? 2 : datum.category === 'Rented accommodation' ? 3 : datum.category === 'Caravan/camping' ? 4 : 5",
       "as": "category_order"
-    },
-    {
-      "stack": "visitor_nights_million",
-      "groupby": [
-        "year"
-      ],
-      "sort": [
-        {
-          "field": "category_order",
-          "order": "ascending"
-        }
-      ],
-      "offset": "center",
-      "as": [
-        "stack_start",
-        "stack_end"
-      ]
     }
   ],
 
@@ -129,26 +107,6 @@
         "tickSize": 3,
         "tickColor": "#C9D0D6"
       }
-    },
-
-    "y": {
-      "field": "stack_end",
-      "type": "quantitative",
-      "scale": {
-        "domainMin": -65,
-        "nice": false,
-        "zero": false
-      },
-      "axis": {
-        "title": "Visitor nights (millions)",
-        "labels": false,
-        "ticks": false,
-        "domain": false,
-        "grid": false,
-        "titleFontSize": 13,
-        "titleFontWeight": "bold",
-        "titlePadding": 14
-      }
     }
   },
 
@@ -163,8 +121,24 @@
       },
 
       "encoding": {
-        "y2": {
-          "field": "stack_start"
+        "y": {
+          "field": "visitor_nights_million",
+          "type": "quantitative",
+          "stack": "center",
+          "scale": {
+            "domainMin": -110,
+            "nice": false
+          },
+          "axis": {
+            "title": "Visitor nights (millions)",
+            "labels": false,
+            "ticks": false,
+            "domain": false,
+            "grid": false,
+            "titleFontSize": 13,
+            "titleFontWeight": "bold",
+            "titlePadding": 14
+          }
         },
 
         "color": {
@@ -202,8 +176,9 @@
         },
 
         "order": {
-          "field": "year",
-          "type": "quantitative"
+          "field": "category_order",
+          "type": "quantitative",
+          "sort": "ascending"
         },
 
         "tooltip": [
@@ -254,7 +229,7 @@
           "value": 0
         },
         "y2": {
-          "value": 285
+          "value": 275
         }
       }
     },
@@ -289,6 +264,18 @@
     {
       "transform": [
         {
+          "stack": "visitor_nights_million",
+          "groupby": ["year"],
+          "sort": [
+            {
+              "field": "category_order",
+              "order": "ascending"
+            }
+          ],
+          "offset": "center",
+          "as": ["anchor_start", "anchor_end"]
+        },
+        {
           "filter": "datum.year === 2023 && datum.category === 'Friends or relatives'"
         }
       ],
@@ -301,14 +288,14 @@
 
       "encoding": {
         "y": {
-          "field": "stack_start",
+          "field": "anchor_start",
           "type": "quantitative"
         },
         "x2": {
-          "datum": 2023.225
+          "datum": 2023.2
         },
         "y2": {
-          "datum": -16
+          "datum": -30
         }
       }
     },
@@ -330,24 +317,36 @@
 
       "encoding": {
         "x": {
-          "datum": 2022.6,
+          "datum": 2022.55,
           "type": "quantitative"
         },
         "x2": {
-          "datum": 2023.85
+          "datum": 2023.9
         },
         "y": {
-          "datum": -16,
+          "datum": -30,
           "type": "quantitative"
         },
         "y2": {
-          "datum": -58
+          "datum": -95
         }
       }
     },
 
     {
       "transform": [
+        {
+          "stack": "visitor_nights_million",
+          "groupby": ["year"],
+          "sort": [
+            {
+              "field": "category_order",
+              "order": "ascending"
+            }
+          ],
+          "offset": "center",
+          "as": ["anchor_start", "anchor_end"]
+        },
         {
           "filter": "datum.year === 2023 && datum.category === 'Friends or relatives'"
         }
@@ -364,7 +363,7 @@
 
       "encoding": {
         "y": {
-          "field": "stack_start",
+          "field": "anchor_start",
           "type": "quantitative"
         }
       }
@@ -379,26 +378,27 @@
 
       "mark": {
         "type": "text",
-        "align": "center",
+        "align": "left",
         "baseline": "middle",
+        "dx": 12,
         "fontSize": 10,
         "fontWeight": "bold",
         "lineBreak": "\n",
-        "lineHeight": 13,
+        "lineHeight": 14,
         "color": "#184E65"
       },
 
       "encoding": {
         "x": {
-          "datum": 2023.225,
+          "datum": 2022.55,
           "type": "quantitative"
         },
         "y": {
-          "datum": -37,
+          "datum": -62.5,
           "type": "quantitative"
         },
         "text": {
-          "value": "Friends or relatives accounted for\nmost visitor nights in every year"
+          "value": "Friends or relatives recorded\nthe most visitor nights each year."
         }
       }
     }
