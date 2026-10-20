@@ -292,7 +292,7 @@
           "type": "quantitative"
         },
         "x2": {
-          "datum": 2020.35
+          "datum": 2020
         },
         "y2": {
           "datum": 45
@@ -321,14 +321,14 @@
           "type": "quantitative"
         },
         "x2": {
-          "datum": 2020.95
+          "datum": 2020.65
         },
         "y": {
           "datum": 45,
           "type": "quantitative"
         },
         "y2": {
-          "datum": 1
+          "datum": 6
         }
       }
     },
@@ -394,7 +394,7 @@
           "type": "quantitative"
         },
         "y": {
-          "datum": 31,
+          "datum": 33.5,
           "type": "quantitative"
         },
         "text": {
