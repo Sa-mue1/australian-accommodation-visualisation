@@ -1,31 +1,18 @@
-/* =========================================================
-   GLOBAL VARIABLES
-========================================================= */
-
 :root {
   --page-background: #f5f6f7;
   --card-background: #ffffff;
-
   --text-primary: #202124;
   --text-secondary: #5f6368;
   --text-light: #6b7280;
-
   --accent-primary: #176b87;
   --accent-soft: #e8f3f6;
-
   --border-light: #dfe3e7;
   --border-medium: #c9d0d6;
   --method-background: #f4f7f8;
-
   --page-width: 1160px;
   --text-width: 820px;
   --card-radius: 6px;
 }
-
-
-/* =========================================================
-   BASIC RESET
-========================================================= */
 
 * {
   box-sizing: border-box;
@@ -37,34 +24,18 @@ html {
 
 body {
   margin: 0;
-
   background: var(--page-background);
   color: var(--text-primary);
-
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.55;
 }
 
-
-/* =========================================================
-   PAGE CONTAINER
-========================================================= */
-
 .page-container {
-  width: min(
-    calc(100% - 48px),
-    var(--page-width)
-  );
-
+  width: min(calc(100% - 48px), var(--page-width));
   margin: 0 auto;
   padding: 40px 0 64px;
 }
-
-
-/* =========================================================
-   PAGE INTRODUCTION
-========================================================= */
 
 .hero {
   max-width: 900px;
@@ -74,9 +45,7 @@ body {
 
 .eyebrow {
   margin: 0 0 10px;
-
   color: var(--accent-primary);
-
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -87,7 +56,6 @@ body {
 .hero h1 {
   max-width: 880px;
   margin: 0;
-
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.025em;
@@ -97,24 +65,15 @@ body {
 .introduction {
   max-width: var(--text-width);
   margin: 18px 0 0;
-
   color: var(--text-secondary);
-
   font-size: 1rem;
   line-height: 1.65;
 }
 
-
-/* =========================================================
-   STORY SECTIONS
-========================================================= */
-
 .story-section {
   margin-top: 52px;
   padding-top: 24px;
-
   border-top: 1px solid var(--border-medium);
-
   scroll-margin-top: 20px;
 }
 
@@ -125,15 +84,12 @@ body {
 .section-header {
   max-width: 100%;
   margin: 0 0 20px;
-
   text-align: left;
 }
 
 .section-number {
   margin: 0 0 6px;
-
   color: var(--accent-primary);
-
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -144,7 +100,6 @@ body {
 .section-header h2 {
   max-width: 100%;
   margin: 0;
-
   font-size: clamp(1.55rem, 2.5vw, 2rem);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -154,26 +109,15 @@ body {
 .section-introduction {
   max-width: 900px;
   margin: 10px 0 0;
-
   color: var(--text-secondary);
-
   font-size: 0.98rem;
   line-height: 1.6;
 }
 
-
-/* =========================================================
-   TWELVE-COLUMN CHART GRID
-========================================================= */
-
 .chart-grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(12, minmax(0, 1fr));
-
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   align-items: stretch;
-
   column-gap: 24px;
   row-gap: 24px;
 }
@@ -187,41 +131,25 @@ body {
   grid-column: span 6;
 }
 
-
-/* =========================================================
-   CHART CARDS
-========================================================= */
-
 .chart-card {
-  min-width: 0;
-  padding: 20px;
-
   display: flex;
   flex-direction: column;
-
+  min-width: 0;
+  padding: 20px;
   background: var(--card-background);
-
   border: 1px solid var(--border-light);
   border-radius: var(--card-radius);
 }
 
-
-/* =========================================================
-   CHART CONTAINERS
-========================================================= */
-
 .chart {
   display: block;
-
   width: 100%;
   min-width: 0;
-
   overflow: hidden;
 }
 
 .chart .vega-embed {
   display: block;
-
   width: 100%;
   min-width: 0;
 }
@@ -236,20 +164,17 @@ body {
 
 .chart svg {
   display: block;
-
   max-width: 100%;
   height: auto;
 }
 
-
-/* =========================================================
-   FIRST RECOVERY CHART
-========================================================= */
-
-/*
-   This chart uses a two-by-two facet layout.
-   Preserve its proportions while filling the full card.
-*/
+.chart .vega-embed summary svg {
+  width: 16px;
+  height: 16px;
+  min-width: 0;
+  max-width: 16px;
+  transform: none;
+}
 
 #domestic-recovery .vega-embed {
   padding-right: 0;
@@ -259,27 +184,17 @@ body {
   width: 100%;
   max-width: 100%;
   height: auto;
-
   transform: none;
 }
 
-
-/* =========================================================
-   CHART EXPLANATIONS
-========================================================= */
-
 .chart-note {
   width: 100%;
-
   margin: 14px 0 0;
   padding-top: 12px;
-
   color: var(--text-secondary);
-
   font-size: 0.91rem;
   line-height: 1.6;
   text-align: left;
-
   border-top: 1px solid var(--border-light);
 }
 
@@ -287,29 +202,16 @@ body {
   color: var(--text-primary);
 }
 
-
-/* =========================================================
-   METHODOLOGY NOTE
-========================================================= */
-
 .method-note {
   width: 100%;
   padding: 14px 18px;
-
   color: #34434a;
   background: var(--method-background);
-
   font-size: 0.88rem;
   line-height: 1.6;
   text-align: left;
-
   border-left: 4px solid var(--accent-primary);
-
-  border-radius:
-    0
-    var(--card-radius)
-    var(--card-radius)
-    0;
+  border-radius: 0 var(--card-radius) var(--card-radius) 0;
 }
 
 .method-note strong {
@@ -319,11 +221,6 @@ body {
 .method-note p {
   margin: 0;
 }
-
-
-/* =========================================================
-   VEGA ACTION MENU
-========================================================= */
 
 .vega-actions {
   color: var(--text-light);
@@ -341,13 +238,51 @@ body {
   text-decoration: underline;
 }
 
+#section-domestic-geography .chart-card--half {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  row-gap: 0;
+}
 
-/* =========================================================
-   TABLET LAYOUT
-========================================================= */
+#section-domestic-geography .chart-card--half > .chart,
+#section-domestic-geography .ranking-figure {
+  align-self: start;
+  min-width: 0;
+}
+
+#section-domestic-geography .chart-card--half > .chart-note {
+  align-self: start;
+  margin: 14px 0 0;
+}
+
+.ranking-figure {
+  width: 100%;
+  margin: 0;
+}
+
+.ranking-insight {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  background: var(--accent-soft);
+  color: #34434a;
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0 4px 4px 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  line-height: 14px;
+  text-align: left;
+}
+
+.ranking-insight span {
+  display: block;
+}
+
+.ranking-insight strong {
+  color: var(--text-primary);
+}
 
 @media (max-width: 980px) {
-
   .page-container {
     width: calc(100% - 36px);
     padding-top: 32px;
@@ -366,15 +301,14 @@ body {
     grid-column: 1 / -1;
   }
 
+  #section-domestic-geography .chart-card--half {
+    display: flex;
+    flex-direction: column;
+    grid-row: auto;
+  }
 }
 
-
-/* =========================================================
-   MOBILE LAYOUT
-========================================================= */
-
 @media (max-width: 640px) {
-
   .page-container {
     width: calc(100% - 24px);
     padding: 24px 0 40px;
@@ -428,11 +362,6 @@ body {
     padding: 12px 14px;
   }
 
-  /*
-     Keep the four-panel chart readable on small screens.
-     Allow horizontal scrolling instead of shrinking its text.
-  */
-
   #domestic-recovery {
     overflow-x: auto;
   }
@@ -445,67 +374,4 @@ body {
     min-width: 720px;
     max-width: none;
   }
-
-  .chart .vega-embed summary svg {
-  width: 16px;
-  height: 16px;
-  min-width: 0;
-  max-width: 16px;
-  transform: none;
-}
-#section-domestic-geography .chart-card--half {
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 2;
-  row-gap: 0;
-}
-
-#section-domestic-geography .chart-card--half > .chart,
-#section-domestic-geography .ranking-figure {
-  align-self: start;
-  min-width: 0;
-}
-
-#section-domestic-geography .chart-card--half > .chart-note {
-  align-self: start;
-  margin: 14px 0 0;
-}
-
-.ranking-figure {
-  width: 100%;
-  margin: 0;
-}
-
-.ranking-insight {
-  margin: 8px 0 0;
-  padding: 8px 10px;
-
-  background: var(--accent-soft);
-  color: #34434a;
-
-  border-left: 3px solid var(--accent-primary);
-  border-radius: 0 4px 4px 0;
-
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  line-height: 14px;
-  text-align: left;
-}
-
-.ranking-insight span {
-  display: block;
-}
-
-.ranking-insight strong {
-  color: var(--text-primary);
-}
-
-@media (max-width: 980px) {
-  #section-domestic-geography .chart-card--half {
-    display: flex;
-    flex-direction: column;
-    grid-row: auto;
-  }
-}
-
 }
