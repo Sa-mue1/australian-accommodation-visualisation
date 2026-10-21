@@ -1,16 +1,37 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": "container",
+  "height": 280,
+
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding",
+    "resize": true
+  },
+
+  "padding": {
+    "left": 5,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
+
   "title": {
-    "text": "Domestic travel peaks differ across states",
+    "text": "Domestic visitor nights by state and quarter",
     "subtitle": [
-      "Quarterly domestic visitor nights ('000)",
-      "Domestic Tourism Statistics, June 2025–June 2026"
+      "Quarterly visitor nights in thousands, June 2025–June 2026",
+      "Domestic Tourism Statistics"
     ],
     "anchor": "start",
     "fontSize": 18,
+    "fontWeight": "bold",
     "subtitleFontSize": 12,
-    "offset": 16
+    "subtitleFontWeight": "normal",
+    "subtitlePadding": 7,
+    "offset": 12
   },
+
   "data": {
     "url": "data/domestic_state_quarters.csv",
     "format": {
@@ -20,37 +41,43 @@
       }
     }
   },
+
   "transform": [
     {
-      "filter": "datum.metric === 'visitor_nights_thousand'"
+      "filter": "datum.metric === 'visitor_nights_thousand' && datum.data_status === 'published' && datum.state_code !== 'AUS' && datum.period_end >= '2025-06-30' && datum.period_end <= '2026-06-30'"
     },
     {
-      "filter": "datum.state_code !== 'AUS'"
+      "calculate": "substring(datum.period, 0, 3) + ' ' + substring(datum.period, length(datum.period) - 4)",
+      "as": "quarter_label"
     }
   ],
-  "width": {
-    "step": 135
-  },
-  "height": {
-    "step": 42
-  },
+
   "encoding": {
     "x": {
-      "field": "period",
-      "type": "nominal",
-      "sort": [
-        "June quarter 2025",
-        "September quarter 2025",
-        "December quarter 2025",
-        "March quarter 2026",
-        "June quarter 2026"
-      ],
+      "field": "quarter_label",
+      "type": "ordinal",
+      "sort": {
+        "field": "period_end",
+        "order": "ascending"
+      },
+      "scale": {
+        "paddingInner": 0,
+        "paddingOuter": 0
+      },
       "axis": {
-        "title": null,
+        "title": "Quarter ending",
         "labelAngle": 0,
-        "labelLimit": 135
+        "labelFontSize": 12,
+        "labelFontWeight": "bold",
+        "labelPadding": 9,
+        "titleFontSize": 13,
+        "titleFontWeight": "bold",
+        "titlePadding": 12,
+        "ticks": false,
+        "domain": false
       }
     },
+
     "y": {
       "field": "state_or_territory",
       "type": "nominal",
@@ -64,62 +91,94 @@
         "Northern Territory",
         "Australian Capital Territory"
       ],
+      "scale": {
+        "paddingInner": 0,
+        "paddingOuter": 0
+      },
       "axis": {
         "title": null,
-        "labelLimit": 190
+        "labelFontSize": 12,
+        "labelFontWeight": "bold",
+        "labelLimit": 200,
+        "labelPadding": 10,
+        "ticks": false,
+        "domain": false
       }
-    }
+    },
+
+    "tooltip": [
+      {
+        "field": "state_or_territory",
+        "type": "nominal",
+        "title": "State or territory"
+      },
+      {
+        "field": "period",
+        "type": "nominal",
+        "title": "Quarter"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Visitor nights (thousands)",
+        "format": ",.1f"
+      }
+    ]
   },
+
   "layer": [
     {
       "mark": {
         "type": "rect",
-        "cornerRadius": 3,
         "stroke": "white",
-        "strokeWidth": 2
+        "strokeWidth": 2,
+        "cornerRadius": 2
       },
+
       "encoding": {
         "color": {
           "field": "value",
           "type": "quantitative",
-          "title": "Nights ('000)",
           "scale": {
-            "type": "sqrt",
+            "domain": [0, 34000],
             "range": [
-              "#EDF8F5",
-              "#B2E2E2",
-              "#66C2A4",
-              "#2CA25F",
+              "#EDF8F0",
               "#006D2C"
-            ]
-          }
-        },
-        "tooltip": [
-          {
-            "field": "state_or_territory",
-            "type": "nominal",
-            "title": "State"
+            ],
+            "nice": false
           },
-          {
-            "field": "period",
-            "type": "nominal",
-            "title": "Quarter"
-          },
-          {
-            "field": "value",
-            "type": "quantitative",
-            "title": "Visitor nights ('000)",
-            "format": ",.0f"
+          "legend": {
+            "title": "Domestic visitor nights (thousands)",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 260,
+            "gradientThickness": 12,
+            "values": [
+              0,
+              10000,
+              20000,
+              34000
+            ],
+            "format": ",.0f",
+            "labelFontSize": 11,
+            "titleFontSize": 12,
+            "titleFontWeight": "bold",
+            "titleLimit": 360,
+            "titlePadding": 7,
+            "offset": 14
           }
-        ]
+        }
       }
     },
+
     {
       "mark": {
         "type": "text",
         "fontSize": 12,
-        "fontWeight": "bold"
+        "fontWeight": "bold",
+        "baseline": "middle"
       },
+
       "encoding": {
         "text": {
           "field": "value",
@@ -128,29 +187,27 @@
         },
         "color": {
           "condition": {
-            "test": "datum.value >= 18000",
+            "test": "datum.value >= 27000",
             "value": "white"
           },
-          "value": "#263238"
+          "value": "#000000"
         }
       }
     }
   ],
+
   "config": {
+    "background": "white",
     "font": "Arial",
-    "axis": {
-      "labelFontSize": 11,
-      "titleFontSize": 12,
-      "domain": false,
-      "ticks": false
-    },
-    "legend": {
-      "titleFontSize": 12,
-      "labelFontSize": 11,
-      "gradientLength": 180
-    },
+
     "view": {
       "stroke": null
+    },
+
+    "axis": {
+      "grid": false,
+      "labelColor": "#374151",
+      "titleColor": "#202124"
     }
   }
 }
