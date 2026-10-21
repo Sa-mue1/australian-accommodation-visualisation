@@ -1,22 +1,18 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
   "width": "container",
   "height": 280,
-
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
     "resize": true
   },
-
   "padding": {
     "left": 5,
     "right": 5,
     "top": 5,
     "bottom": 5
   },
-
   "title": {
     "text": "Domestic visitor nights by state and quarter",
     "subtitle": [
@@ -31,7 +27,6 @@
     "subtitlePadding": 7,
     "offset": 12
   },
-
   "data": {
     "url": "data/domestic_state_quarters.csv",
     "format": {
@@ -41,25 +36,38 @@
       }
     }
   },
-
   "transform": [
     {
-      "filter": "datum.metric === 'visitor_nights_thousand' && datum.data_status === 'published' && datum.state_code !== 'AUS' && datum.period_end >= '2025-06-30' && datum.period_end <= '2026-06-30'"
+      "filter": "datum.metric === 'visitor_nights_thousand' && datum.data_status === 'published' && datum.state_code !== 'AUS'"
     },
     {
       "calculate": "substring(datum.period, 0, 3) + ' ' + substring(datum.period, length(datum.period) - 4)",
       "as": "quarter_label"
+    },
+    {
+      "filter": {
+        "field": "quarter_label",
+        "oneOf": [
+          "Jun 2025",
+          "Sep 2025",
+          "Dec 2025",
+          "Mar 2026",
+          "Jun 2026"
+        ]
+      }
     }
   ],
-
   "encoding": {
     "x": {
       "field": "quarter_label",
       "type": "ordinal",
-      "sort": {
-        "field": "period_end",
-        "order": "ascending"
-      },
+      "sort": [
+        "Jun 2025",
+        "Sep 2025",
+        "Dec 2025",
+        "Mar 2026",
+        "Jun 2026"
+      ],
       "scale": {
         "paddingInner": 0,
         "paddingOuter": 0
@@ -77,7 +85,6 @@
         "domain": false
       }
     },
-
     "y": {
       "field": "state_or_territory",
       "type": "nominal",
@@ -105,7 +112,6 @@
         "domain": false
       }
     },
-
     "tooltip": [
       {
         "field": "state_or_territory",
@@ -125,7 +131,6 @@
       }
     ]
   },
-
   "layer": [
     {
       "mark": {
@@ -134,17 +139,13 @@
         "strokeWidth": 2,
         "cornerRadius": 2
       },
-
       "encoding": {
         "color": {
           "field": "value",
           "type": "quantitative",
           "scale": {
             "domain": [0, 34000],
-            "range": [
-              "#EDF8F0",
-              "#006D2C"
-            ],
+            "range": ["#EDF8F0", "#006D2C"],
             "nice": false
           },
           "legend": {
@@ -153,12 +154,7 @@
             "direction": "horizontal",
             "gradientLength": 260,
             "gradientThickness": 12,
-            "values": [
-              0,
-              10000,
-              20000,
-              34000
-            ],
+            "values": [0, 10000, 20000, 34000],
             "format": ",.0f",
             "labelFontSize": 11,
             "titleFontSize": 12,
@@ -170,7 +166,6 @@
         }
       }
     },
-
     {
       "mark": {
         "type": "text",
@@ -178,7 +173,6 @@
         "fontWeight": "bold",
         "baseline": "middle"
       },
-
       "encoding": {
         "text": {
           "field": "value",
@@ -195,15 +189,12 @@
       }
     }
   ],
-
   "config": {
     "background": "white",
     "font": "Arial",
-
     "view": {
       "stroke": null
     },
-
     "axis": {
       "grid": false,
       "labelColor": "#374151",
