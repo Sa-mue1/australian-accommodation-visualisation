@@ -453,5 +453,59 @@ body {
   max-width: 16px;
   transform: none;
 }
+#section-domestic-geography .chart-card--half {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  row-gap: 0;
+}
+
+#section-domestic-geography .chart-card--half > .chart,
+#section-domestic-geography .ranking-figure {
+  align-self: start;
+  min-width: 0;
+}
+
+#section-domestic-geography .chart-card--half > .chart-note {
+  align-self: start;
+  margin: 14px 0 0;
+}
+
+.ranking-figure {
+  width: 100%;
+  margin: 0;
+}
+
+.ranking-insight {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+
+  background: var(--accent-soft);
+  color: #34434a;
+
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0 4px 4px 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  line-height: 14px;
+  text-align: left;
+}
+
+.ranking-insight span {
+  display: block;
+}
+
+.ranking-insight strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 980px) {
+  #section-domestic-geography .chart-card--half {
+    display: flex;
+    flex-direction: column;
+    grid-row: auto;
+  }
+}
 
 }

@@ -1,22 +1,18 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
   "width": "container",
-  "height": 360,
-
+  "height": 380,
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
     "resize": true
   },
-
   "padding": {
     "left": 5,
     "right": 5,
     "top": 5,
     "bottom": 5
   },
-
   "title": {
     "text": [
       "Sydney regained first place after",
@@ -34,7 +30,6 @@
     "subtitlePadding": 8,
     "offset": 12
   },
-
   "data": {
     "url": "data/domestic_accommodation_types.csv",
     "format": {
@@ -45,7 +40,6 @@
       }
     }
   },
-
   "transform": [
     {
       "filter": "datum.accommodation_type === 'Hotels and similar' && datum.area_type === 'capital_or_primary_region' && datum.measure === 'visitor_nights_thousand' && datum.data_status === 'published' && datum.year >= 2019 && datum.year <= 2024"
@@ -74,13 +68,12 @@
       "groupby": ["year"]
     }
   ],
-
   "encoding": {
     "x": {
       "field": "year",
       "type": "quantitative",
       "scale": {
-        "domain": [2018.8, 2024.65],
+        "domain": [2018.75, 2024.85],
         "nice": false,
         "zero": false
       },
@@ -90,15 +83,16 @@
         "format": "d",
         "labelAngle": 0,
         "labelFontSize": 12,
+        "labelFontWeight": "bold",
         "labelPadding": 8,
         "titleFontSize": 13,
+        "titleFontWeight": "bold",
         "titlePadding": 12,
         "grid": false,
         "tickSize": 4,
         "domain": false
       }
     },
-
     "y": {
       "field": "rank",
       "type": "quantitative",
@@ -109,11 +103,13 @@
         "zero": false
       },
       "axis": {
-        "title": "Rank by hotel visitor nights (1 = highest)",
+        "title": "Hotel-night rank (1 = highest)",
         "values": [1, 2, 3, 4, 5, 6, 7, 8],
         "format": "d",
         "labelFontSize": 12,
+        "labelFontWeight": "bold",
         "titleFontSize": 13,
+        "titleFontWeight": "bold",
         "titlePadding": 12,
         "grid": true,
         "gridColor": "#E5E7EB",
@@ -122,7 +118,6 @@
         "tickSize": 0
       }
     },
-
     "color": {
       "condition": [
         {
@@ -141,13 +136,12 @@
       "value": "#9CA3AF"
     }
   },
-
   "layer": [
     {
       "mark": {
         "type": "line",
-        "strokeWidth": 2.5,
-        "opacity": 0.9
+        "strokeWidth": 3.2,
+        "opacity": 1
       },
       "encoding": {
         "detail": {
@@ -160,14 +154,14 @@
         }
       }
     },
-
     {
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 72,
+        "size": 100,
         "stroke": "white",
-        "strokeWidth": 1.2
+        "strokeWidth": 1.2,
+        "opacity": 1
       },
       "encoding": {
         "tooltip": [
@@ -197,7 +191,6 @@
         ]
       }
     },
-
     {
       "transform": [
         {
@@ -236,7 +229,6 @@
       }
     }
   ],
-
   "config": {
     "background": "white",
     "font": "Arial",
