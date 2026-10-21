@@ -87,12 +87,20 @@
           "as": "start_lon"
         },
         {
-          "calculate": "datum.origin_country === 'India' ? 68 : datum.origin_country === 'Singapore' ? 116 : datum.origin_country === 'United Kingdom' ? 114 : datum.origin_country === 'United States of America' ? 197 : datum.origin_country === 'Japan' ? 168 : datum.origin_country === 'South Korea' ? 147 : datum.origin_country === 'China' ? 124 : 155",
-          "as": "bend_lon"
+          "calculate": "datum.origin_country === 'India' ? 67 : datum.origin_country === 'Singapore' ? 104 : datum.origin_country === 'United Kingdom' ? 65 : datum.origin_country === 'United States of America' ? 226 : datum.origin_country === 'Japan' ? 143 : datum.origin_country === 'South Korea' ? 128 : datum.origin_country === 'China' ? 110 : 164",
+          "as": "c1_lon"
         },
         {
-          "calculate": "datum.origin_country === 'India' ? -42 : datum.origin_country === 'Singapore' ? -7 : datum.origin_country === 'United Kingdom' ? 110 : datum.origin_country === 'United States of America' ? 65 : datum.origin_country === 'Japan' ? 7 : datum.origin_country === 'South Korea' ? 9 : datum.origin_country === 'China' ? 18 : -47",
-          "as": "bend_lat"
+          "calculate": "datum.origin_country === 'India' ? -8 : datum.origin_country === 'Singapore' ? -6 : datum.origin_country === 'United Kingdom' ? 95 : datum.origin_country === 'United States of America' ? 67 : datum.origin_country === 'Japan' ? 26 : datum.origin_country === 'South Korea' ? 26 : datum.origin_country === 'China' ? 27 : -40",
+          "as": "c1_lat"
+        },
+        {
+          "calculate": "datum.origin_country === 'India' ? 90 : datum.origin_country === 'Singapore' ? 116 : datum.origin_country === 'United Kingdom' ? 98 : datum.origin_country === 'United States of America' ? 190 : datum.origin_country === 'Japan' ? 145 : datum.origin_country === 'South Korea' ? 132 : datum.origin_country === 'China' ? 120 : 149",
+          "as": "c2_lon"
+        },
+        {
+          "calculate": "datum.origin_country === 'India' ? -42 : datum.origin_country === 'Singapore' ? -14 : datum.origin_country === 'United Kingdom' ? -26 : datum.origin_country === 'United States of America' ? 3 : datum.origin_country === 'Japan' ? -6 : datum.origin_country === 'South Korea' ? 6 : datum.origin_country === 'China' ? -4 : -38",
+          "as": "c2_lat"
         },
         {
           "calculate": "sequence(0, 41, 1)",
@@ -107,11 +115,11 @@
           "as": "t"
         },
         {
-          "calculate": "pow(1 - datum.t, 2) * datum.start_lon + 2 * (1 - datum.t) * datum.t * datum.bend_lon + pow(datum.t, 2) * datum.destination_longitude",
+          "calculate": "pow(1 - datum.t, 3) * datum.start_lon + 3 * pow(1 - datum.t, 2) * datum.t * datum.c1_lon + 3 * (1 - datum.t) * pow(datum.t, 2) * datum.c2_lon + pow(datum.t, 3) * datum.destination_longitude",
           "as": "route_lon"
         },
         {
-          "calculate": "pow(1 - datum.t, 2) * datum.origin_latitude + 2 * (1 - datum.t) * datum.t * datum.bend_lat + pow(datum.t, 2) * datum.destination_latitude",
+          "calculate": "pow(1 - datum.t, 3) * datum.origin_latitude + 3 * pow(1 - datum.t, 2) * datum.t * datum.c1_lat + 3 * (1 - datum.t) * pow(datum.t, 2) * datum.c2_lat + pow(datum.t, 3) * datum.destination_latitude",
           "as": "route_lat"
         }
       ],
@@ -254,15 +262,15 @@
           "as": "origin_label"
         },
         {
-          "calculate": "datum.origin_country === 'China' || datum.origin_country === 'India' || datum.origin_country === 'New Zealand' ? 'right' : datum.origin_country === 'South Korea' || datum.origin_country === 'Singapore' ? 'center' : 'left'",
+          "calculate": "datum.origin_country === 'China' || datum.origin_country === 'India' || datum.origin_country === 'New Zealand' || datum.origin_country === 'United Kingdom' ? 'right' : datum.origin_country === 'South Korea' || datum.origin_country === 'Singapore' ? 'center' : 'left'",
           "as": "label_align"
         },
         {
-          "calculate": "datum.label_align === 'right' ? -9 : datum.label_align === 'center' ? 0 : 9",
+          "calculate": "datum.origin_country === 'United Kingdom' || datum.origin_country === 'India' ? -12 : datum.label_align === 'right' ? -9 : datum.label_align === 'center' ? 0 : 9",
           "as": "label_dx"
         },
         {
-          "calculate": "datum.origin_country === 'Singapore' ? -25 : datum.origin_country === 'South Korea' ? -22 : datum.origin_country === 'Japan' ? 3 : datum.origin_country === 'New Zealand' ? 16 : -11",
+          "calculate": "datum.origin_country === 'United Kingdom' ? -12 : datum.origin_country === 'India' ? 3 : datum.origin_country === 'Singapore' ? -25 : datum.origin_country === 'South Korea' ? -22 : datum.origin_country === 'Japan' ? 3 : datum.origin_country === 'New Zealand' ? 16 : -11",
           "as": "label_dy"
         }
       ],
@@ -299,7 +307,7 @@
       },
       "mark": {
         "type": "circle",
-        "size": 190,
+        "size": 250,
         "color": "#E69F00",
         "opacity": 1,
         "stroke": "white",
