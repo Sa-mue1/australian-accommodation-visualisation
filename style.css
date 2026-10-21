@@ -374,4 +374,58 @@ body {
     min-width: 720px;
     max-width: none;
   }
+
+
+  #section-international .section-header {
+  margin-bottom: 16px;
+}
+
+#section-international .section-introduction {
+  max-width: none;
+}
+
+.flow-card {
+  min-width: 0;
+}
+
+.flow-insights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+
+  margin: 8px 0 0;
+  padding: 8px 12px;
+
+  background: var(--accent-soft);
+  color: #34434a;
+
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0 4px 4px 0;
+
+  font-size: 10px;
+  line-height: 14px;
+  text-align: left;
+}
+
+.flow-insights p {
+  margin: 0;
+}
+
+.flow-insights strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--text-primary);
+}
+
+.flow-card .chart-note {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+@media (max-width: 640px) {
+  .flow-insights {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
 }
