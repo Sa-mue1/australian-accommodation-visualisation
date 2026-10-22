@@ -1,17 +1,36 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 680,
-  "height": 420,
+  "width": "container",
+  "height": 380,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding",
+    "resize": true
+  },
+  "padding": {
+    "left": 5,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
   "title": {
-    "text": "Rented accommodation gained while stays with friends fell",
+    "text": [
+      "Rented accommodation gained;",
+      "stays with friends declined"
+    ],
     "subtitle": [
-      "International visitor nights, year ending June",
-      "Grey = 2025 and blue = 2026. Labels show millions of nights."
+      "International visitor nights by accommodation type",
+      "Years ending June 2025 and June 2026"
     ],
     "anchor": "start",
     "fontSize": 18,
+    "fontWeight": "bold",
+    "lineHeight": 22,
     "subtitleFontSize": 12,
-    "subtitleColor": "#555555"
+    "subtitleColor": "#5F6368",
+    "subtitleLineHeight": 16,
+    "subtitlePadding": 7,
+    "offset": 14
   },
   "data": {
     "url": "data/international_accommodation_types.csv",
@@ -25,6 +44,15 @@
     }
   },
   "transform": [
+    {
+      "filter": {
+        "field": "period",
+        "oneOf": [
+          "Year ending June 2025",
+          "Year ending June 2026"
+        ]
+      }
+    },
     {
       "filter": {
         "field": "accommodation_type",
@@ -44,11 +72,11 @@
       "as": "nights_million"
     },
     {
-      "calculate": "datum.period == 'Year ending June 2025' ? '2025' : '2026'",
+      "calculate": "datum.period === 'Year ending June 2025' ? '2025' : '2026'",
       "as": "year_label"
     },
     {
-      "calculate": "datum.accommodation_type == 'Rented house/apartment/flat or unit' ? 'Rented house or apartment' : datum.accommodation_type == 'Friends or relatives property' ? 'Friends or relatives' : datum.accommodation_type == 'Hotel/resort/motel or motor Inn' ? 'Hotel, resort or motel' : datum.accommodation_type == 'Other Private Accommodation' ? 'Other private accommodation' : datum.accommodation_type == 'Other Accommodation' ? 'Other accommodation' : datum.accommodation_type",
+      "calculate": "datum.accommodation_type === 'Rented house/apartment/flat or unit' ? 'Rented home' : datum.accommodation_type === 'Friends or relatives property' ? 'Friends/relatives' : datum.accommodation_type === 'Hotel/resort/motel or motor Inn' ? 'Hotel/resort/motel' : datum.accommodation_type === 'Other Private Accommodation' ? 'Other private' : datum.accommodation_type === 'Backpacker or hostel' ? 'Backpacker/hostel' : datum.accommodation_type === 'Other Accommodation' ? 'Other' : 'Own property'",
       "as": "accommodation_label"
     },
     {
@@ -56,15 +84,15 @@
       "as": "value_label"
     },
     {
-      "calculate": "datum.period == 'Year ending June 2026' ? format(datum.percent_change_from_2025, '+.1f') + '%' : 'Baseline year'",
+      "calculate": "datum.period === 'Year ending June 2026' ? format(datum.percent_change_from_2025, '+.1f') + '%' : 'Baseline year'",
       "as": "change_tooltip"
     },
     {
-      "calculate": "datum.period == 'Year ending June 2025' ? datum.nights_million : null",
+      "calculate": "datum.year_label === '2025' ? datum.nights_million : null",
       "as": "value_2025"
     },
     {
-      "calculate": "datum.period == 'Year ending June 2026' ? datum.nights_million : null",
+      "calculate": "datum.year_label === '2026' ? datum.nights_million : null",
       "as": "value_2026"
     },
     {
@@ -80,9 +108,7 @@
           "as": "type_value_2026"
         }
       ],
-      "groupby": [
-        "accommodation_type"
-      ]
+      "groupby": ["accommodation_type"]
     },
     {
       "calculate": "datum.type_value_2026 >= datum.type_value_2025 ? 'increase' : 'decrease'",
@@ -93,40 +119,46 @@
     "x": {
       "field": "nights_million",
       "type": "quantitative",
-      "title": "International visitor nights (millions)",
+      "title": "Visitor nights (millions)",
       "scale": {
-        "domain": [-5, 170]
+        "domain": [-30, 170],
+        "nice": false,
+        "zero": false
       },
       "axis": {
-        "values": [0, 20, 40, 60, 80, 100, 120, 140, 160],
-        "grid": true,
-        "gridColor": "#e5e5e5",
+        "values": [0, 40, 80, 120, 160],
         "format": ".0f",
-        "labelFontSize": 11,
-        "titleFontSize": 12,
-        "titlePadding": 12
+        "grid": true,
+        "gridColor": "#E5E7EB",
+        "labelFontSize": 12,
+        "labelPadding": 7,
+        "titleFontSize": 13,
+        "titleFontWeight": "bold",
+        "titlePadding": 12,
+        "domainColor": "#C9D0D6",
+        "tickColor": "#C9D0D6"
       }
     },
     "y": {
       "field": "accommodation_label",
       "type": "nominal",
-      "title": "Accommodation type",
+      "title": null,
       "sort": [
-        "Rented house or apartment",
-        "Friends or relatives",
-        "Hotel, resort or motel",
-        "Other private accommodation",
-        "Backpacker or hostel",
-        "Other accommodation",
+        "Rented home",
+        "Friends/relatives",
+        "Hotel/resort/motel",
+        "Other private",
+        "Backpacker/hostel",
+        "Other",
         "Own property"
       ],
       "axis": {
         "domain": false,
         "ticks": false,
-        "labelFontSize": 11,
-        "labelLimit": 220,
-        "titleFontSize": 12,
-        "titlePadding": 12
+        "labelFontSize": 12,
+        "labelFontWeight": "bold",
+        "labelLimit": 140,
+        "labelPadding": 10
       }
     }
   },
@@ -134,8 +166,8 @@
     {
       "mark": {
         "type": "line",
-        "stroke": "#b9bec5",
-        "strokeWidth": 4
+        "stroke": "#B9BEC5",
+        "strokeWidth": 3.5
       },
       "encoding": {
         "detail": {
@@ -152,7 +184,7 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 165,
+        "size": 110,
         "stroke": "white",
         "strokeWidth": 1
       },
@@ -166,15 +198,22 @@
             "range": ["#999999", "#0072B2"]
           },
           "legend": {
-            "orient": "top",
+            "orient": "bottom",
             "direction": "horizontal",
+            "columns": 2,
+            "titleOrient": "top",
+            "titleAnchor": "start",
+            "titlePadding": 5,
+            "labelFontSize": 12,
             "titleFontSize": 12,
-            "labelFontSize": 11
+            "symbolSize": 90,
+            "columnPadding": 20,
+            "offset": 12
           }
         },
         "tooltip": [
           {
-            "field": "accommodation_label",
+            "field": "accommodation_type",
             "type": "nominal",
             "title": "Accommodation type"
           },
@@ -204,82 +243,20 @@
       }
     },
     {
-      "transform": [
-        {
-          "filter": "datum.period == 'Year ending June 2025' && datum.change_direction == 'increase'"
-        }
-      ],
       "mark": {
         "type": "text",
-        "align": "right",
+        "align": {
+          "expr": "(datum.year_label === '2025' && datum.change_direction === 'increase') || (datum.year_label === '2026' && datum.change_direction === 'decrease') ? 'right' : 'left'"
+        },
         "baseline": "middle",
-        "dx": -10,
-        "fontSize": 10,
+        "dx": {
+          "expr": "(datum.year_label === '2025' && datum.change_direction === 'increase') || (datum.year_label === '2026' && datum.change_direction === 'decrease') ? -10 : 10"
+        },
+        "fontSize": 11,
         "fontWeight": "bold",
-        "color": "#666666"
-      },
-      "encoding": {
-        "text": {
-          "field": "value_label"
+        "color": {
+          "expr": "datum.year_label === '2026' ? '#0072B2' : '#5F6368'"
         }
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.period == 'Year ending June 2025' && datum.change_direction == 'decrease'"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle",
-        "dx": 10,
-        "fontSize": 10,
-        "fontWeight": "bold",
-        "color": "#666666"
-      },
-      "encoding": {
-        "text": {
-          "field": "value_label"
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.period == 'Year ending June 2026' && datum.change_direction == 'increase'"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle",
-        "dx": 10,
-        "fontSize": 10,
-        "fontWeight": "bold",
-        "color": "#0072B2"
-      },
-      "encoding": {
-        "text": {
-          "field": "value_label"
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.period == 'Year ending June 2026' && datum.change_direction == 'decrease'"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "baseline": "middle",
-        "dx": -10,
-        "fontSize": 10,
-        "fontWeight": "bold",
-        "color": "#0072B2"
       },
       "encoding": {
         "text": {
@@ -293,6 +270,16 @@
     "font": "Arial",
     "view": {
       "stroke": null
+    },
+    "axis": {
+      "labelColor": "#374151",
+      "titleColor": "#202124"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "bold",
+      "labelColor": "#374151"
     }
   }
 }

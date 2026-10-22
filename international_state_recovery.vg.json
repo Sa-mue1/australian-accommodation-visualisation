@@ -1,20 +1,61 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 700,
-  "height": 480,
+  "width": "container",
+  "height": 380,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding",
+    "resize": true
+  },
+  "padding": {
+    "left": 5,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
   "title": {
-    "text": "International recovery differs across Australia",
-    "subtitle": [
-      "Change in international visitor nights,",
-      "year ending June 2025–June 2026"
+    "text": [
+      "International visitor-night growth",
+      "varied across states"
     ],
-    "anchor": "start"
+    "subtitle": [
+      "Percentage change in international visitor nights",
+      "Years ending June 2025 and June 2026"
+    ],
+    "anchor": "start",
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "lineHeight": 22,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#5F6368",
+    "subtitleLineHeight": 16,
+    "subtitlePadding": 7,
+    "offset": 14
   },
-
   "data": {
-    "url": "data/international_states.csv"
+    "url": "data/international_states.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "value": "number",
+        "change_from_2025": "number",
+        "percent_change_from_2025": "number"
+      }
+    }
   },
-
+  "params": [
+    {
+      "name": "map_zoom",
+      "value": 1,
+      "bind": {
+        "input": "range",
+        "min": 1,
+        "max": 2,
+        "step": 0.05,
+        "name": "Map zoom: "
+      }
+    }
+  ],
   "transform": [
     {
       "filter": "datum.period === 'Year ending June 2026' && datum.metric === 'nights_thousand'"
@@ -38,25 +79,28 @@
       "as": "geo"
     }
   ],
-
   "projection": {
     "type": "conicEqualArea",
     "parallels": [-18, -36],
-    "rotate": [-132, 0, 0]
+    "rotate": [-132, 0, 0],
+    "extent": {
+      "expr": "[[width / 2 - (width - 20) * map_zoom / 2, height / 2 - (height - 12) * map_zoom / 2], [width / 2 + (width - 20) * map_zoom / 2, height / 2 + (height - 12) * map_zoom / 2]]"
+    },
+    "clipExtent": {
+      "expr": "[[0, 0], [width, height]]"
+    }
   },
-
   "mark": {
     "type": "geoshape",
     "stroke": "white",
-    "strokeWidth": 1
+    "strokeWidth": 1.2,
+    "clip": true
   },
-
   "encoding": {
     "shape": {
       "field": "geo",
       "type": "geojson"
     },
-
     "color": {
       "field": "percent_change_from_2025",
       "type": "quantitative",
@@ -64,9 +108,21 @@
       "scale": {
         "domainMid": 0,
         "scheme": "redblue"
+      },
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal",
+        "titleOrient": "top",
+        "titleAnchor": "start",
+        "gradientLength": {
+          "expr": "min(300, width - 20)"
+        },
+        "gradientThickness": 12,
+        "format": "+.0f",
+        "tickCount": 5,
+        "offset": 12
       }
     },
-
     "tooltip": [
       {
         "field": "state_or_territory",
@@ -88,19 +144,22 @@
       {
         "field": "percent_change_from_2025",
         "type": "quantitative",
-        "title": "Change",
-        "format": ".1f"
+        "title": "Change (%)",
+        "format": "+.1f"
       }
     ]
   },
-
   "config": {
+    "background": "white",
+    "font": "Arial",
     "view": {
       "stroke": null
     },
     "legend": {
+      "labelFontSize": 12,
       "titleFontSize": 12,
-      "labelFontSize": 11
+      "titleFontWeight": "bold",
+      "labelColor": "#374151"
     }
   }
 }
