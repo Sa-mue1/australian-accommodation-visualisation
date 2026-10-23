@@ -46,7 +46,6 @@ function createViewUpdater(view) {
 
   return (values, resize = false) => {
     Object.assign(pending, values);
-
     needsResize = needsResize || resize;
 
     if (!scheduled && !running) {
@@ -74,7 +73,6 @@ function enableMapNavigation(view, container, options = {}) {
 
   focusTarget.setAttribute("tabindex", "0");
   focusTarget.setAttribute("role", "region");
-
   focusTarget.setAttribute(
     "aria-label",
     `Interactive ${label} map. Drag to move. Scroll to zoom. Arrow keys move the view. Plus and minus zoom. Home resets.`
@@ -83,35 +81,16 @@ function enableMapNavigation(view, container, options = {}) {
   const toolbar = document.createElement("div");
 
   toolbar.className = "map-toolbar";
-
   toolbar.innerHTML = `
     <div class="map-controls" role="group" aria-label="${label} map navigation">
-      <button
-        type="button"
-        data-map-action="out"
-        aria-label="Zoom out of ${label}"
-        title="Zoom out"
-      >−</button>
-
-      <output
-        class="map-zoom-value"
-        aria-label="${label} zoom level"
-        aria-live="off"
-      >100%</output>
-
-      <button
-        type="button"
-        data-map-action="in"
-        aria-label="Zoom into ${label}"
-        title="Zoom in"
-      >+</button>
-
-      <button
-        type="button"
-        data-map-action="reset"
-        class="map-reset"
-        title="Reset ${label} map"
-      >Reset</button>
+      <button type="button" data-map-action="out"
+        aria-label="Zoom out of ${label}" title="Zoom out">−</button>
+      <output class="map-zoom-value"
+        aria-label="${label} zoom level" aria-live="off">100%</output>
+      <button type="button" data-map-action="in"
+        aria-label="Zoom into ${label}" title="Zoom in">+</button>
+      <button type="button" data-map-action="reset"
+        class="map-reset" title="Reset ${label} map">Reset</button>
     </div>
   `;
 
@@ -120,7 +99,6 @@ function enableMapNavigation(view, container, options = {}) {
 
     help.className = "map-help";
     help.textContent = "Drag to move. Scroll to zoom.";
-
     toolbar.appendChild(help);
   }
 
@@ -130,12 +108,7 @@ function enableMapNavigation(view, container, options = {}) {
   const zoomIn = toolbar.querySelector('[data-map-action="in"]');
   const zoomOut = toolbar.querySelector('[data-map-action="out"]');
 
-  let camera = {
-    zoom: 1,
-    x: 0,
-    y: 0
-  };
-
+  let camera = { zoom: 1, x: 0, y: 0 };
   let drag = null;
 
   const clamp = (value, min, max) =>
@@ -171,7 +144,6 @@ function enableMapNavigation(view, container, options = {}) {
 
   function moveCamera(next) {
     const { width, height } = dimensions();
-
     const zoom = clamp(next.zoom, 1, 6);
     const maxX = width * ((zoom - 1) / 2 + 0.35);
     const maxY = height * ((zoom - 1) / 2 + 0.35);
@@ -189,25 +161,18 @@ function enableMapNavigation(view, container, options = {}) {
     });
 
     zoomValue.textContent = `${Math.round(zoom * 100)}%`;
-
     zoomOut.disabled = zoom <= 1;
     zoomIn.disabled = zoom >= 6;
   }
 
   function changeZoom(factor, point) {
     const { width, height } = dimensions();
-
     const nextZoom = clamp(camera.zoom * factor, 1, 6);
 
     if (nextZoom === camera.zoom) return;
 
     if (nextZoom === 1) {
-      moveCamera({
-        zoom: 1,
-        x: 0,
-        y: 0
-      });
-
+      moveCamera({ zoom: 1, x: 0, y: 0 });
       return;
     }
 
@@ -232,11 +197,7 @@ function enableMapNavigation(view, container, options = {}) {
     if (action === "out") changeZoom(1 / 1.35);
 
     if (action === "reset") {
-      moveCamera({
-        zoom: 1,
-        x: 0,
-        y: 0
-      });
+      moveCamera({ zoom: 1, x: 0, y: 0 });
     }
   });
 
@@ -254,12 +215,9 @@ function enableMapNavigation(view, container, options = {}) {
       -clamp(event.deltaY * multiplier, -250, 250) * 0.002
     );
 
-    if (clamp(camera.zoom * factor, 1, 6) === camera.zoom) {
-      return;
-    }
+    if (clamp(camera.zoom * factor, 1, 6) === camera.zoom) return;
 
     event.preventDefault();
-
     changeZoom(factor, point);
   }, { passive: false });
 
@@ -269,10 +227,7 @@ function enableMapNavigation(view, container, options = {}) {
     if (event.button !== 0 || drag || !inside(point)) return;
 
     event.preventDefault();
-
-    focusTarget.focus({
-      preventScroll: true
-    });
+    focusTarget.focus({ preventScroll: true });
 
     drag = {
       id: event.pointerId,
@@ -282,7 +237,6 @@ function enableMapNavigation(view, container, options = {}) {
     };
 
     svg.setPointerCapture(event.pointerId);
-
     frame.classList.add("is-dragging");
   });
 
@@ -306,7 +260,6 @@ function enableMapNavigation(view, container, options = {}) {
     const pointerId = drag.id;
 
     drag = null;
-
     frame.classList.remove("is-dragging");
 
     if (svg.hasPointerCapture(pointerId)) {
@@ -346,12 +299,7 @@ function enableMapNavigation(view, container, options = {}) {
       changeZoom(1 / 1.35);
     } else if (event.key === "Home" || event.key === "0") {
       event.preventDefault();
-
-      moveCamera({
-        zoom: 1,
-        x: 0,
-        y: 0
-      });
+      moveCamera({ zoom: 1, x: 0, y: 0 });
     }
   });
 
@@ -363,7 +311,6 @@ function enableRentalMaps(view, container) {
   const navigation = document.createElement("div");
 
   navigation.className = "rental-navigation-grid";
-
   container.appendChild(navigation);
 
   const cities = [
@@ -406,22 +353,17 @@ function enableRentalMaps(view, container) {
     if (width === previousWidth) return;
 
     previousWidth = width;
-
-    update({
-      childWidth: width
-    }, true);
+    update({ childWidth: width }, true);
   }
 
   const observer = new ResizeObserver(resizeMaps);
 
   observer.observe(container);
-
   resizeMaps();
 }
 
 function enableRentalPriceSizing(view, container) {
   const update = createViewUpdater(view);
-
   let previousWidth = 0;
 
   function resizeChart() {
@@ -432,16 +374,56 @@ function enableRentalPriceSizing(view, container) {
     if (width === previousWidth) return;
 
     previousWidth = width;
+    update({ child_width: width }, true);
+  }
+
+  const observer = new ResizeObserver(resizeChart);
+
+  observer.observe(container);
+  resizeChart();
+}
+
+function occupancyLayoutPatch(specification) {
+  return {
+    ...specification,
+    layout: {
+      ...specification.layout,
+      columns: {
+        signal: "occupancy_columns"
+      }
+    }
+  };
+}
+
+function enableOccupancySizing(view, container) {
+  const update = createViewUpdater(view);
+  let previousSize = "";
+
+  function resizeChart() {
+    const available = Math.max(280, container.clientWidth);
+    const columns = available >= 1000 ? 4 : available >= 580 ? 2 : 1;
+
+    const width = Math.floor(
+      (available - 12 - (columns - 1) * 20) / columns
+    );
+
+    const radius = Math.min(110, (width - 110) / 2);
+    const size = `${columns}:${width}`;
+
+    if (size === previousSize) return;
+
+    previousSize = size;
 
     update({
-      child_width: width
+      occupancy_columns: columns,
+      child_width: width,
+      child_height: radius * 2 + 76
     }, true);
   }
 
   const observer = new ResizeObserver(resizeChart);
 
   observer.observe(container);
-
   resizeChart();
 }
 
@@ -464,7 +446,11 @@ for (const [id, specification] of charts) {
 
   if (!container) continue;
 
-  vegaEmbed(container, specification, embedOptions)
+  const options = id === "accommodation-occupancy-radial"
+    ? { ...embedOptions, patch: occupancyLayoutPatch }
+    : embedOptions;
+
+  vegaEmbed(container, specification, options)
     .then(result => {
       if (id === "international-state-map") {
         enableMapNavigation(result.view, container);
@@ -476,6 +462,10 @@ for (const [id, specification] of charts) {
 
       if (id === "short-term-rental-price-density") {
         enableRentalPriceSizing(result.view, container);
+      }
+
+      if (id === "accommodation-occupancy-radial") {
+        enableOccupancySizing(result.view, container);
       }
     })
     .catch(console.error);

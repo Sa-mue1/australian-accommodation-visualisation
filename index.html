@@ -63,10 +63,7 @@
 
       <div class="chart-grid">
         <article class="chart-card chart-card--full">
-          <div
-            id="domestic-recovery"
-            class="chart"
-          ></div>
+          <div id="domestic-recovery" class="chart"></div>
 
           <p class="chart-note">
             <strong>Read the recovery:</strong>
@@ -126,10 +123,7 @@
 
       <div class="chart-grid">
         <article class="chart-card chart-card--full">
-          <div
-            id="domestic-quarters"
-            class="chart"
-          ></div>
+          <div id="domestic-quarters" class="chart"></div>
 
           <p class="chart-note">
             <strong>Read the cells:</strong>
@@ -220,10 +214,7 @@
         </article>
 
         <article class="chart-card chart-card--half">
-          <div
-            id="international-state-map"
-            class="chart"
-          ></div>
+          <div id="international-state-map" class="chart"></div>
 
           <p class="chart-note">
             Colour shows percentage change in international visitor nights.
@@ -268,10 +259,7 @@
 
       <div class="chart-grid">
         <article class="chart-card chart-card--half rental-map-card">
-          <div
-            id="short-term-rental-map"
-            class="chart"
-          ></div>
+          <div id="short-term-rental-map" class="chart"></div>
 
           <p class="chart-note">
             Circles sit at average listing locations.
@@ -295,19 +283,81 @@
           </p>
         </article>
 
-        <article class="chart-card chart-card--full">
+        <article class="chart-card chart-card--full occupancy-card">
           <div
             id="accommodation-occupancy-radial"
             class="chart"
           ></div>
 
-          <p class="chart-note">
-            Each ring represents one state or territory and each segment
-            represents one month, beginning with July.
-            Darker cells indicate higher commercial accommodation occupancy.
-            The selected years show the pre-pandemic baseline, pandemic
-            disruption, recovery and latest available period.
-          </p>
+          <div class="occupancy-ring-key">
+            <p
+              id="occupancy-ring-key-title"
+              class="occupancy-key-title"
+            >
+              Rings from the centre to the outside
+            </p>
+
+            <ol
+              class="occupancy-ring-list"
+              aria-labelledby="occupancy-ring-key-title"
+            >
+              <li>
+                <span class="ring-number">1</span>
+                <span>Australian Capital Territory</span>
+              </li>
+
+              <li>
+                <span class="ring-number">2</span>
+                <span>Northern Territory</span>
+              </li>
+
+              <li>
+                <span class="ring-number">3</span>
+                <span>Tasmania</span>
+              </li>
+
+              <li>
+                <span class="ring-number">4</span>
+                <span>South Australia</span>
+              </li>
+
+              <li>
+                <span class="ring-number">5</span>
+                <span>Western Australia</span>
+              </li>
+
+              <li>
+                <span class="ring-number">6</span>
+                <span>Queensland</span>
+              </li>
+
+              <li>
+                <span class="ring-number">7</span>
+                <span>Victoria</span>
+              </li>
+
+              <li>
+                <span class="ring-number">8</span>
+                <span>New South Wales</span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="chart-note occupancy-note-grid">
+            <p>
+              <strong>Read the panels:</strong>
+              move clockwise from July to June. Count rings from the centre
+              using the key above. Hover over a segment for its state,
+              month and occupancy rate.
+            </p>
+
+            <p>
+              <strong>Understand the rates:</strong>
+              occupancy is the share of available room nights occupied.
+              Annual national rates use total occupied room nights divided
+              by total available room nights.
+            </p>
+          </div>
         </article>
       </div>
     </section>

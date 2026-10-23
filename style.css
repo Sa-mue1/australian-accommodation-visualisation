@@ -678,4 +678,101 @@ body {
   height: auto;
   transform: none;
 }
+
+
+#accommodation-occupancy-radial {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#accommodation-occupancy-radial .vega-embed {
+  display: block;
+  width: 100%;
+  min-width: 280px;
+  padding-right: 0;
+}
+
+#accommodation-occupancy-radial svg.marks {
+  display: block;
+  max-width: none;
+  height: auto;
+  transform: none;
+}
+
+.occupancy-ring-key {
+  margin: 12px 5px 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
+}
+
+.occupancy-key-title {
+  margin: 0 0 10px;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.occupancy-ring-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.occupancy-ring-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.ring-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #edf2f5;
+  color: #34434a;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.occupancy-card > .occupancy-note-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 14px;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.occupancy-note-grid p {
+  max-width: 55ch;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .occupancy-ring-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 14px;
+  }
+
+  .occupancy-card > .occupancy-note-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
 }
