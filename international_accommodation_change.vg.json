@@ -11,8 +11,14 @@
     "left": 5,
     "right": 5,
     "top": 5,
-    "bottom": 5
+    "bottom": 47
   },
+  "params": [
+    {
+      "name": "label_gutter",
+      "value": 108
+    }
+  ],
   "title": {
     "text": [
       "Rented accommodation gained;",
@@ -164,6 +170,12 @@
         "labelExpr": "split(datum.label, '|')",
         "labelOffset": {
           "expr": "datum.value === 'Own property' ? 0 : -6.5"
+        },
+        "minExtent": {
+          "expr": "label_gutter"
+        },
+        "maxExtent": {
+          "expr": "label_gutter"
         }
       }
     }
@@ -204,17 +216,23 @@
             "range": ["#999999", "#0072B2"]
           },
           "legend": {
-            "orient": "bottom",
+            "orient": "none",
+            "legendX": {
+              "expr": "-label_gutter"
+            },
+            "legendY": {
+              "expr": "height + 60"
+            },
             "direction": "horizontal",
             "columns": 2,
             "titleOrient": "top",
             "titleAnchor": "start",
+            "titleAlign": "left",
             "titlePadding": 5,
             "labelFontSize": 12,
             "titleFontSize": 12,
             "symbolSize": 100,
-            "columnPadding": 20,
-            "offset": 12
+            "columnPadding": 20
           }
         },
         "tooltip": [
