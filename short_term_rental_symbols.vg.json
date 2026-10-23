@@ -1,10 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Short-term rental listings grouped by neighbourhood area. Circle locations are average listing coordinates. Both maps share listing-count and price scales.",
+  "description": "Short-term rental listings grouped by neighbourhood area. Filled circle areas represent listing counts. Hollow rings improve visibility for areas with fewer than 200 listings.",
   "title": {
     "text": "Short-term rentals by neighbourhood",
     "subtitle": [
-      "Circle area: listings; colour: median advertised nightly price.",
+      "Filled area: listings; colour: median advertised nightly price.",
       "Both maps use the same symbol and colour scales."
     ],
     "anchor": "start",
@@ -105,7 +105,9 @@
             }
           },
           "transform": [
-            {"filter": "datum.properties.STE_NAME21 === 'New South Wales'"}
+            {
+              "filter": "datum.properties.STE_NAME21 === 'New South Wales'"
+            }
           ],
           "mark": {
             "type": "geoshape",
@@ -119,7 +121,10 @@
           "data": {
             "graticule": {
               "step": [0.2, 0.2],
-              "extent": [[149.65, -35.12], [152.39, -32.57]]
+              "extent": [
+                [149.65, -35.12],
+                [152.39, -32.57]
+              ]
             }
           },
           "mark": {
@@ -129,6 +134,46 @@
             "strokeWidth": 0.4,
             "opacity": 0.35,
             "clip": true
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.city === 'Sydney' && datum.listing_count < 200"
+            }
+          ],
+          "mark": {
+            "type": "point",
+            "shape": "circle",
+            "filled": false,
+            "size": 42,
+            "stroke": "#607D8B",
+            "strokeWidth": 0.65,
+            "opacity": 0.75,
+            "clip": true
+          },
+          "encoding": {
+            "longitude": {
+              "field": "mean_longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "mean_latitude",
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "neighbourhood",
+                "type": "nominal",
+                "title": "Neighbourhood area"
+              },
+              {
+                "field": "listing_count",
+                "type": "quantitative",
+                "title": "Listings",
+                "format": ","
+              }
+            ]
           }
         },
         {
@@ -202,12 +247,40 @@
               }
             },
             "tooltip": [
-              {"field": "city", "type": "nominal", "title": "City"},
-              {"field": "neighbourhood", "type": "nominal", "title": "Neighbourhood area"},
-              {"field": "listing_count", "type": "quantitative", "title": "Listings", "format": ","},
-              {"field": "median_price", "type": "quantitative", "title": "Median advertised price (AUD)", "format": "$,.0f"},
-              {"field": "mean_longitude", "type": "quantitative", "title": "Average longitude", "format": ".3f"},
-              {"field": "mean_latitude", "type": "quantitative", "title": "Average latitude", "format": ".3f"}
+              {
+                "field": "city",
+                "type": "nominal",
+                "title": "City"
+              },
+              {
+                "field": "neighbourhood",
+                "type": "nominal",
+                "title": "Neighbourhood area"
+              },
+              {
+                "field": "listing_count",
+                "type": "quantitative",
+                "title": "Listings",
+                "format": ","
+              },
+              {
+                "field": "median_price",
+                "type": "quantitative",
+                "title": "Median advertised price (AUD)",
+                "format": "$,.0f"
+              },
+              {
+                "field": "mean_longitude",
+                "type": "quantitative",
+                "title": "Average longitude",
+                "format": ".3f"
+              },
+              {
+                "field": "mean_latitude",
+                "type": "quantitative",
+                "title": "Average latitude",
+                "format": ".3f"
+              }
             ]
           }
         }
@@ -264,7 +337,9 @@
             }
           },
           "transform": [
-            {"filter": "datum.properties.STE_NAME21 === 'Victoria'"}
+            {
+              "filter": "datum.properties.STE_NAME21 === 'Victoria'"
+            }
           ],
           "mark": {
             "type": "geoshape",
@@ -278,7 +353,10 @@
           "data": {
             "graticule": {
               "step": [0.25, 0.25],
-              "extent": [[143.57, -39.21], [146.57, -36.55]]
+              "extent": [
+                [143.57, -39.21],
+                [146.57, -36.55]
+              ]
             }
           },
           "mark": {
@@ -288,6 +366,46 @@
             "strokeWidth": 0.4,
             "opacity": 0.35,
             "clip": true
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.city === 'Melbourne' && datum.listing_count < 200"
+            }
+          ],
+          "mark": {
+            "type": "point",
+            "shape": "circle",
+            "filled": false,
+            "size": 42,
+            "stroke": "#607D8B",
+            "strokeWidth": 0.65,
+            "opacity": 0.75,
+            "clip": true
+          },
+          "encoding": {
+            "longitude": {
+              "field": "mean_longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "mean_latitude",
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "neighbourhood",
+                "type": "nominal",
+                "title": "Neighbourhood area"
+              },
+              {
+                "field": "listing_count",
+                "type": "quantitative",
+                "title": "Listings",
+                "format": ","
+              }
+            ]
           }
         },
         {
@@ -361,12 +479,40 @@
               }
             },
             "tooltip": [
-              {"field": "city", "type": "nominal", "title": "City"},
-              {"field": "neighbourhood", "type": "nominal", "title": "Neighbourhood area"},
-              {"field": "listing_count", "type": "quantitative", "title": "Listings", "format": ","},
-              {"field": "median_price", "type": "quantitative", "title": "Median advertised price (AUD)", "format": "$,.0f"},
-              {"field": "mean_longitude", "type": "quantitative", "title": "Average longitude", "format": ".3f"},
-              {"field": "mean_latitude", "type": "quantitative", "title": "Average latitude", "format": ".3f"}
+              {
+                "field": "city",
+                "type": "nominal",
+                "title": "City"
+              },
+              {
+                "field": "neighbourhood",
+                "type": "nominal",
+                "title": "Neighbourhood area"
+              },
+              {
+                "field": "listing_count",
+                "type": "quantitative",
+                "title": "Listings",
+                "format": ","
+              },
+              {
+                "field": "median_price",
+                "type": "quantitative",
+                "title": "Median advertised price (AUD)",
+                "format": "$,.0f"
+              },
+              {
+                "field": "mean_longitude",
+                "type": "quantitative",
+                "title": "Average longitude",
+                "format": ".3f"
+              },
+              {
+                "field": "mean_latitude",
+                "type": "quantitative",
+                "title": "Average latitude",
+                "format": ".3f"
+              }
             ]
           }
         }
