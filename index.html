@@ -284,80 +284,83 @@
         </article>
 
         <article class="chart-card chart-card--full occupancy-card">
-          <div
-            id="accommodation-occupancy-radial"
-            class="chart"
-          ></div>
+          <figure class="occupancy-figure">
+            <div
+              id="accommodation-occupancy-radial"
+              class="chart"
+            ></div>
 
-          <div class="occupancy-ring-key">
-            <p
-              id="occupancy-ring-key-title"
-              class="occupancy-key-title"
+            <aside
+              class="occupancy-annotation"
+              aria-label="Guide to reading the occupancy chart"
             >
-              Rings from the centre to the outside
-            </p>
+              <div>
+                <h3>How to read</h3>
 
-            <ol
-              class="occupancy-ring-list"
-              aria-labelledby="occupancy-ring-key-title"
-            >
-              <li>
-                <span class="ring-number">1</span>
-                <span>Australian Capital Territory</span>
-              </li>
+                <p>
+                  Start in July and move clockwise.<br>
+                  Darker colour means higher occupancy.<br>
+                  Hover for the state, month and rate.
+                </p>
 
-              <li>
-                <span class="ring-number">2</span>
-                <span>Northern Territory</span>
-              </li>
+                <p class="occupancy-definition">
+                  Annual rate: occupied room nights divided by
+                  available room nights.
+                </p>
+              </div>
 
-              <li>
-                <span class="ring-number">3</span>
-                <span>Tasmania</span>
-              </li>
+              <div>
+                <h3 id="occupancy-ring-key-title">
+                  Rings: centre to outside
+                </h3>
 
-              <li>
-                <span class="ring-number">4</span>
-                <span>South Australia</span>
-              </li>
+                <ol
+                  class="occupancy-ring-list"
+                  aria-labelledby="occupancy-ring-key-title"
+                >
+                  <li>
+                    <span class="ring-number">1</span>
+                    <span>Australian Capital Territory</span>
+                  </li>
 
-              <li>
-                <span class="ring-number">5</span>
-                <span>Western Australia</span>
-              </li>
+                  <li>
+                    <span class="ring-number">2</span>
+                    <span>Northern Territory</span>
+                  </li>
 
-              <li>
-                <span class="ring-number">6</span>
-                <span>Queensland</span>
-              </li>
+                  <li>
+                    <span class="ring-number">3</span>
+                    <span>Tasmania</span>
+                  </li>
 
-              <li>
-                <span class="ring-number">7</span>
-                <span>Victoria</span>
-              </li>
+                  <li>
+                    <span class="ring-number">4</span>
+                    <span>South Australia</span>
+                  </li>
 
-              <li>
-                <span class="ring-number">8</span>
-                <span>New South Wales</span>
-              </li>
-            </ol>
-          </div>
+                  <li>
+                    <span class="ring-number">5</span>
+                    <span>Western Australia</span>
+                  </li>
 
-          <div class="chart-note occupancy-note-grid">
-            <p>
-              <strong>Read the panels:</strong>
-              move clockwise from July to June. Count rings from the centre
-              using the key above. Hover over a segment for its state,
-              month and occupancy rate.
-            </p>
+                  <li>
+                    <span class="ring-number">6</span>
+                    <span>Queensland</span>
+                  </li>
 
-            <p>
-              <strong>Understand the rates:</strong>
-              occupancy is the share of available room nights occupied.
-              Annual national rates use total occupied room nights divided
-              by total available room nights.
-            </p>
-          </div>
+                  <li>
+                    <span class="ring-number">7</span>
+                    <span>Victoria</span>
+                  </li>
+
+                  <li>
+                    <span class="ring-number">8</span>
+                    <span>New South Wales</span>
+                  </li>
+                </ol>
+              </div>
+            </aside>
+          </figure>
         </article>
       </div>
     </section>

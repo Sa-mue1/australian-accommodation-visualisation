@@ -543,6 +543,114 @@ body {
   text-align: left;
 }
 
+#short-term-rental-price-density,
+#accommodation-occupancy-radial {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#short-term-rental-price-density .vega-embed,
+#accommodation-occupancy-radial .vega-embed {
+  display: block;
+  width: 100%;
+  padding-right: 0;
+}
+
+#short-term-rental-price-density .vega-embed {
+  min-width: 420px;
+}
+
+#accommodation-occupancy-radial .vega-embed {
+  min-width: 280px;
+}
+
+#short-term-rental-price-density svg.marks,
+#accommodation-occupancy-radial svg.marks {
+  display: block;
+  max-width: none;
+  height: auto;
+  transform: none;
+}
+
+.occupancy-figure {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.occupancy-annotation {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: 16px;
+  margin: -58px 5px 0 285px;
+  padding: 10px 12px;
+  border: 1px solid #cfdde5;
+  border-radius: 4px;
+  background: #f4f8fa;
+  color: #374151;
+  text-align: left;
+}
+
+.occupancy-annotation h3 {
+  margin: 0 0 5px;
+  color: #184e65;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+.occupancy-annotation p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.occupancy-annotation .occupancy-definition {
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 15px;
+}
+
+.occupancy-annotation .occupancy-ring-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3px 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.occupancy-annotation .occupancy-ring-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.occupancy-annotation .ring-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 17px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #e2ecf1;
+  color: #34434a;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 17px;
+}
+
 @media (max-width: 980px) {
   .page-container {
     width: calc(100% - 36px);
@@ -569,6 +677,13 @@ body {
     flex-direction: column;
     grid-column: 1 / -1;
     grid-row: auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .occupancy-annotation {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    margin: 8px 5px 0;
   }
 }
 
@@ -657,122 +772,10 @@ body {
     height: 28px;
   }
 
-  #short-term-rental-price-density {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-#short-term-rental-price-density .vega-embed {
-  display: block;
-  width: 100%;
-  min-width: 420px;
-  padding-right: 0;
-}
-
-#short-term-rental-price-density svg.marks {
-  display: block;
-  max-width: none;
-  height: auto;
-  transform: none;
-}
-
-
-#accommodation-occupancy-radial {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-#accommodation-occupancy-radial .vega-embed {
-  display: block;
-  width: 100%;
-  min-width: 280px;
-  padding-right: 0;
-}
-
-#accommodation-occupancy-radial svg.marks {
-  display: block;
-  max-width: none;
-  height: auto;
-  transform: none;
-}
-
-.occupancy-ring-key {
-  margin: 12px 5px 0;
-  padding-top: 12px;
-  border-top: 1px solid var(--border-light);
-}
-
-.occupancy-key-title {
-  margin: 0 0 10px;
-  color: var(--text-primary);
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.4;
-  text-align: left;
-}
-
-.occupancy-ring-list {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px 20px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.occupancy-ring-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  min-width: 0;
-  color: var(--text-secondary);
-  font-size: 12px;
-  line-height: 18px;
-}
-
-.ring-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 18px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #edf2f5;
-  color: #34434a;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.occupancy-card > .occupancy-note-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 14px;
-  padding-top: 0;
-  border-top: 0;
-}
-
-.occupancy-note-grid p {
-  max-width: 55ch;
-  margin: 0;
-}
-
-@media (max-width: 640px) {
-  .occupancy-ring-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px 14px;
-  }
-
-  .occupancy-card > .occupancy-note-grid {
+  .occupancy-annotation {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
+    margin: 10px 0 0;
+    padding: 10px;
   }
-}
 }
