@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="description"
@@ -16,6 +20,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
   <script src="js/vega_lite_vis.js" defer></script>
 </head>
 
@@ -195,27 +200,101 @@
         <p class="section-number">Section 2</p>
 
         <h2 id="section-domestic-geography-title">
-          Where was domestic demand concentrated?
+          Where and when was domestic demand strongest?
         </h2>
 
         <p class="section-introduction">
-          National totals conceal geographic differences.
-          Compare quarterly demand, changes in destination rankings
-          and the accommodation mix across states.
+          <span class="story-line">
+            Demand concentrated in New South Wales, Queensland and Victoria.
+          </span>
+
+          <span class="story-line">
+            Peak quarters differed across the states and territories.
+          </span>
         </p>
       </header>
 
       <div class="chart-grid">
-        <article class="chart-card chart-card--full">
-          <div id="domestic-quarters" class="chart"></div>
+        <article class="chart-card chart-card--full heatmap-card">
+          <div
+            id="domestic-quarters"
+            class="chart"
+          ></div>
 
-          <p class="chart-note">
-            <strong>Read the cells:</strong>
-            darker cells represent more domestic visitor nights.
-            Values are in thousands: 27,614 represents approximately
-            27.6 million nights. These are visitor-night totals,
-            not hotel occupancy rates.
-          </p>
+          <div
+            class="chart-note chart-story story-columns"
+            aria-label="Quarterly domestic demand findings"
+          >
+            <div class="story-column">
+              <h3>
+                <span class="story-line">Three states dominated</span>
+                <span class="story-line">domestic visitor nights</span>
+              </h3>
+
+              <p>
+                <span class="story-line">
+                  New South Wales led in every quarter shown.
+                </span>
+
+                <span class="story-line">
+                  It recorded 27.7 million nights in June 2026.
+                </span>
+
+                <span class="story-line">
+                  Queensland and Victoria recorded 41.7 million nights combined.
+                </span>
+
+                <span class="story-line">
+                  Together, these states represented 78.1% of national nights.
+                </span>
+              </p>
+            </div>
+
+            <div class="story-column">
+              <h3>
+                <span class="story-line">Quarterly peaks differed</span>
+                <span class="story-line">across states and territories</span>
+              </h3>
+
+              <p>
+                <span class="story-line">
+                  March 2026 led in six of the eight jurisdictions.
+                </span>
+
+                <span class="story-line">
+                  Queensland peaked earlier, reaching 24.3 million in September 2025.
+                </span>
+
+                <span class="story-line">
+                  Northern Territory demand also peaked in September 2025.
+                </span>
+
+                <span class="story-line">
+                  Its September total was 2.4 times the March 2026 level.
+                </span>
+              </p>
+            </div>
+
+            <p class="story-meta">
+              <span class="story-line">
+                Domestic stays include commercial and non-commercial accommodation.
+              </span>
+
+              <span class="story-line">
+                Source: Tourism Research Australia, Domestic Tourism Statistics.
+              </span>
+            </p>
+
+            <p class="story-meta">
+              <span class="story-line">
+                Patterns cover June 2025 through June 2026.
+              </span>
+
+              <span class="story-line">
+                Hotel occupancy is examined separately in Section 4.
+              </span>
+            </p>
+          </div>
         </article>
 
         <article class="chart-card chart-card--half">
