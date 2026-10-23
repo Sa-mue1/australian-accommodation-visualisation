@@ -5,7 +5,7 @@
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
-    "resize": true
+    "resize": false
   },
   "padding": {
     "left": 5,
@@ -32,123 +32,274 @@
     "subtitlePadding": 7,
     "offset": 14
   },
-  "data": {
-    "url": "data/international_states.csv",
-    "format": {
-      "type": "csv",
-      "parse": {
-        "value": "number",
-        "change_from_2025": "number",
-        "percent_change_from_2025": "number"
-      }
-    }
-  },
   "params": [
     {
       "name": "map_zoom",
-      "value": 1,
-      "bind": {
-        "input": "range",
-        "min": 1,
-        "max": 2,
-        "step": 0.05,
-        "name": "Map zoom: "
-      }
-    }
-  ],
-  "transform": [
-    {
-      "filter": "datum.period === 'Year ending June 2026' && datum.metric === 'nights_thousand'"
+      "value": 1
     },
     {
-      "calculate": "datum.value - datum.change_from_2025",
-      "as": "nights_2025"
+      "name": "map_pan_x",
+      "value": 0
     },
     {
-      "lookup": "state_or_territory",
-      "from": {
-        "data": {
-          "url": "data/geo/australian_states.topojson",
-          "format": {
-            "type": "topojson",
-            "feature": "STE_2021_AUST_GDA2020"
-          }
-        },
-        "key": "properties.STE_NAME21"
-      },
-      "as": "geo"
+      "name": "map_pan_y",
+      "value": 0
     }
   ],
   "projection": {
     "type": "conicEqualArea",
     "parallels": [-18, -36],
     "rotate": [-132, 0, 0],
+    "fit": {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [110, -7],
+          [156, -7],
+          [110, -47],
+          [156, -47]
+        ]
+      }
+    },
     "extent": {
-      "expr": "[[width / 2 - (width - 20) * map_zoom / 2, height / 2 - (height - 12) * map_zoom / 2], [width / 2 + (width - 20) * map_zoom / 2, height / 2 + (height - 12) * map_zoom / 2]]"
+      "expr": "[[width / 2 + map_pan_x - (width - 16) * map_zoom / 2, height / 2 + map_pan_y - (height - 12) * map_zoom / 2], [width / 2 + map_pan_x + (width - 16) * map_zoom / 2, height / 2 + map_pan_y + (height - 12) * map_zoom / 2]]"
     },
     "clipExtent": {
       "expr": "[[0, 0], [width, height]]"
     }
   },
-  "mark": {
-    "type": "geoshape",
-    "stroke": "white",
-    "strokeWidth": 1.2,
-    "clip": true
-  },
-  "encoding": {
-    "shape": {
-      "field": "geo",
-      "type": "geojson"
-    },
-    "color": {
-      "field": "percent_change_from_2025",
-      "type": "quantitative",
-      "title": "Change from 2025 (%)",
-      "scale": {
-        "domainMid": 0,
-        "scheme": "redblue"
+  "layer": [
+    {
+      "data": {
+        "sphere": true
       },
-      "legend": {
-        "orient": "bottom",
-        "direction": "horizontal",
-        "titleOrient": "top",
-        "titleAnchor": "start",
-        "gradientLength": {
-          "expr": "min(300, width - 20)"
+      "mark": {
+        "type": "geoshape",
+        "fill": "#EAF3F8",
+        "stroke": null,
+        "clip": true
+      }
+    },
+    {
+      "data": {
+        "graticule": {
+          "step": [10, 10],
+          "extent": [
+            [108, -50],
+            [158, -5]
+          ]
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#B7CDD8",
+        "strokeWidth": 0.6,
+        "opacity": 0.8,
+        "clip": true
+      }
+    },
+    {
+      "data": {
+        "url": "data/geo/australian_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "STE_2021_AUST_GDA2020"
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof(['1','2','3','4','5','6','7','8'], datum.properties.STE_CODE21) >= 0"
         },
-        "gradientThickness": 12,
-        "format": "+.0f",
-        "tickCount": 5,
-        "offset": 12
+        {
+          "calculate": "'Unavailable data'",
+          "as": "availability"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#D4D9DF",
+        "stroke": "white",
+        "strokeWidth": 1.1,
+        "clip": true
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.STE_NAME21",
+            "type": "nominal",
+            "title": "State or territory"
+          },
+          {
+            "field": "availability",
+            "type": "nominal",
+            "title": "Visitor-night change"
+          }
+        ]
       }
     },
-    "tooltip": [
-      {
-        "field": "state_or_territory",
-        "type": "nominal",
-        "title": "State or territory"
+    {
+      "data": {
+        "url": "data/international_states.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "value": "number",
+            "change_from_2025": "number",
+            "percent_change_from_2025": "number"
+          }
+        }
       },
-      {
-        "field": "nights_2025",
-        "type": "quantitative",
-        "title": "2025 nights ('000)",
-        "format": ",.0f"
+      "transform": [
+        {
+          "filter": "datum.period === 'Year ending June 2026' && datum.metric === 'nights_thousand'"
+        },
+        {
+          "calculate": "datum.value - datum.change_from_2025",
+          "as": "nights_2025"
+        },
+        {
+          "lookup": "state_or_territory",
+          "from": {
+            "data": {
+              "url": "data/geo/australian_states.topojson",
+              "format": {
+                "type": "topojson",
+                "feature": "STE_2021_AUST_GDA2020"
+              }
+            },
+            "key": "properties.STE_NAME21"
+          },
+          "as": "geo"
+        },
+        {
+          "filter": "isValid(datum.percent_change_from_2025) && isValid(datum.geo)"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1.1,
+        "clip": true
       },
-      {
-        "field": "value",
-        "type": "quantitative",
-        "title": "2026 nights ('000)",
-        "format": ",.0f"
-      },
-      {
-        "field": "percent_change_from_2025",
-        "type": "quantitative",
-        "title": "Change (%)",
-        "format": "+.1f"
+      "encoding": {
+        "shape": {
+          "field": "geo",
+          "type": "geojson"
+        },
+        "color": {
+          "field": "percent_change_from_2025",
+          "type": "quantitative",
+          "title": "Change from 2025 (%)",
+          "scale": {
+            "domainMid": 0,
+            "scheme": "redblue"
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "titleOrient": "top",
+            "titleAnchor": "start",
+            "gradientLength": {
+              "expr": "min(300, width - 20)"
+            },
+            "gradientThickness": 12,
+            "format": ".0f",
+            "tickCount": 5,
+            "offset": 12
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state_or_territory",
+            "type": "nominal",
+            "title": "State or territory"
+          },
+          {
+            "field": "nights_2025",
+            "type": "quantitative",
+            "title": "2025 nights ('000)",
+            "format": ",.0f"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "2026 nights ('000)",
+            "format": ",.0f"
+          },
+          {
+            "field": "percent_change_from_2025",
+            "type": "quantitative",
+            "title": "Change (%)",
+            "format": "+.1f"
+          }
+        ]
       }
-    ]
-  },
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "longitude": 120,
+            "latitude": -10,
+            "label": "120°E"
+          },
+          {
+            "longitude": 130,
+            "latitude": -10,
+            "label": "130°E"
+          },
+          {
+            "longitude": 140,
+            "latitude": -10,
+            "label": "140°E"
+          },
+          {
+            "longitude": 150,
+            "latitude": -10,
+            "label": "150°E"
+          },
+          {
+            "longitude": 111,
+            "latitude": -20,
+            "label": "20°S"
+          },
+          {
+            "longitude": 111,
+            "latitude": -30,
+            "label": "30°S"
+          },
+          {
+            "longitude": 111,
+            "latitude": -40,
+            "label": "40°S"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "normal",
+        "color": "#526F80",
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ],
   "config": {
     "background": "white",
     "font": "Arial",
