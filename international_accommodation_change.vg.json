@@ -5,7 +5,7 @@
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
-    "resize": true
+    "resize": false
   },
   "padding": {
     "left": 5,
@@ -32,6 +32,7 @@
     "subtitlePadding": 7,
     "offset": 14
   },
+  "description": "International visitor nights by accommodation type in the years ending June 2025 and June 2026. Each pair of points uses the same linear scale.",
   "data": {
     "url": "data/international_accommodation_types.csv",
     "format": {
@@ -76,11 +77,11 @@
       "as": "year_label"
     },
     {
-      "calculate": "datum.accommodation_type === 'Rented house/apartment/flat or unit' ? 'Rented home' : datum.accommodation_type === 'Friends or relatives property' ? 'Friends/relatives' : datum.accommodation_type === 'Hotel/resort/motel or motor Inn' ? 'Hotel/resort/motel' : datum.accommodation_type === 'Other Private Accommodation' ? 'Other private' : datum.accommodation_type === 'Backpacker or hostel' ? 'Backpacker/hostel' : datum.accommodation_type === 'Other Accommodation' ? 'Other' : 'Own property'",
+      "calculate": "datum.accommodation_type === 'Rented house/apartment/flat or unit' ? 'Rented house|or apartment' : datum.accommodation_type === 'Friends or relatives property' ? 'Friends or|relatives' : datum.accommodation_type === 'Hotel/resort/motel or motor Inn' ? 'Hotels, resorts|or motels' : datum.accommodation_type === 'Other Private Accommodation' ? 'Other private|accommodation' : datum.accommodation_type === 'Backpacker or hostel' ? 'Backpackers|or hostels' : datum.accommodation_type === 'Other Accommodation' ? 'Other|accommodation' : 'Own property'",
       "as": "accommodation_label"
     },
     {
-      "calculate": "format(datum.nights_million, '.1f') + 'm'",
+      "calculate": "format(datum.nights_million, '.1f')",
       "as": "value_label"
     },
     {
@@ -121,7 +122,7 @@
       "type": "quantitative",
       "title": "Visitor nights (millions)",
       "scale": {
-        "domain": [-30, 170],
+        "domain": [-10, 170],
         "nice": false,
         "zero": false
       },
@@ -144,21 +145,26 @@
       "type": "nominal",
       "title": null,
       "sort": [
-        "Rented home",
-        "Friends/relatives",
-        "Hotel/resort/motel",
-        "Other private",
-        "Backpacker/hostel",
-        "Other",
+        "Rented house|or apartment",
+        "Friends or|relatives",
+        "Hotels, resorts|or motels",
+        "Other private|accommodation",
+        "Backpackers|or hostels",
+        "Other|accommodation",
         "Own property"
       ],
       "axis": {
         "domain": false,
         "ticks": false,
-        "labelFontSize": 12,
-        "labelFontWeight": "bold",
-        "labelLimit": 140,
-        "labelPadding": 10
+        "labelFontSize": 11,
+        "labelFontWeight": "normal",
+        "labelLineHeight": 13,
+        "labelLimit": 100,
+        "labelPadding": 12,
+        "labelExpr": "split(datum.label, '|')",
+        "labelOffset": {
+          "expr": "datum.value === 'Own property' ? 0 : -6.5"
+        }
       }
     }
   },
@@ -167,7 +173,7 @@
       "mark": {
         "type": "line",
         "stroke": "#B9BEC5",
-        "strokeWidth": 3.5
+        "strokeWidth": 3
       },
       "encoding": {
         "detail": {
@@ -184,7 +190,7 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 110,
+        "size": 140,
         "stroke": "white",
         "strokeWidth": 1
       },
@@ -206,7 +212,7 @@
             "titlePadding": 5,
             "labelFontSize": 12,
             "titleFontSize": 12,
-            "symbolSize": 90,
+            "symbolSize": 100,
             "columnPadding": 20,
             "offset": 12
           }
@@ -250,10 +256,12 @@
         },
         "baseline": "middle",
         "dx": {
-          "expr": "(datum.year_label === '2025' && datum.change_direction === 'increase') || (datum.year_label === '2026' && datum.change_direction === 'decrease') ? -10 : 10"
+          "expr": "(datum.year_label === '2025' && datum.change_direction === 'increase') || (datum.year_label === '2026' && datum.change_direction === 'decrease') ? -9 : 9"
         },
         "fontSize": 11,
-        "fontWeight": "bold",
+        "fontWeight": {
+          "expr": "datum.year_label === '2026' ? 'bold' : 'normal'"
+        },
         "color": {
           "expr": "datum.year_label === '2026' ? '#0072B2' : '#5F6368'"
         }
