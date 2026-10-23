@@ -656,4 +656,26 @@ body {
     min-width: 28px;
     height: 28px;
   }
+
+  #short-term-rental-price-density {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#short-term-rental-price-density .vega-embed {
+  display: block;
+  width: 100%;
+  min-width: 420px;
+  padding-right: 0;
+}
+
+#short-term-rental-price-density svg.marks {
+  display: block;
+  max-width: none;
+  height: auto;
+  transform: none;
+}
 }

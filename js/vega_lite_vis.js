@@ -86,10 +86,32 @@ function enableMapNavigation(view, container, options = {}) {
 
   toolbar.innerHTML = `
     <div class="map-controls" role="group" aria-label="${label} map navigation">
-      <button type="button" data-map-action="out" aria-label="Zoom out of ${label}" title="Zoom out">−</button>
-      <output class="map-zoom-value" aria-label="${label} zoom level" aria-live="off">100%</output>
-      <button type="button" data-map-action="in" aria-label="Zoom into ${label}" title="Zoom in">+</button>
-      <button type="button" data-map-action="reset" class="map-reset" title="Reset ${label} map">Reset</button>
+      <button
+        type="button"
+        data-map-action="out"
+        aria-label="Zoom out of ${label}"
+        title="Zoom out"
+      >−</button>
+
+      <output
+        class="map-zoom-value"
+        aria-label="${label} zoom level"
+        aria-live="off"
+      >100%</output>
+
+      <button
+        type="button"
+        data-map-action="in"
+        aria-label="Zoom into ${label}"
+        title="Zoom in"
+      >+</button>
+
+      <button
+        type="button"
+        data-map-action="reset"
+        class="map-reset"
+        title="Reset ${label} map"
+      >Reset</button>
     </div>
   `;
 
@@ -338,7 +360,6 @@ function enableMapNavigation(view, container, options = {}) {
 
 function enableRentalMaps(view, container) {
   const update = createViewUpdater(view);
-
   const navigation = document.createElement("div");
 
   navigation.className = "rental-navigation-grid";
@@ -398,6 +419,32 @@ function enableRentalMaps(view, container) {
   resizeMaps();
 }
 
+function enableRentalPriceSizing(view, container) {
+  const update = createViewUpdater(view);
+
+  let previousWidth = 0;
+
+  function resizeChart() {
+    const width = Math.floor(
+      Math.max(420, container.clientWidth) - 12
+    );
+
+    if (width === previousWidth) return;
+
+    previousWidth = width;
+
+    update({
+      child_width: width
+    }, true);
+  }
+
+  const observer = new ResizeObserver(resizeChart);
+
+  observer.observe(container);
+
+  resizeChart();
+}
+
 const charts = [
   ["domestic-recovery", "domestic_recovery.vg.json"],
   ["domestic-quarters", "domestic_state_quarters.vg.json"],
@@ -425,6 +472,10 @@ for (const [id, specification] of charts) {
 
       if (id === "short-term-rental-map") {
         enableRentalMaps(result.view, container);
+      }
+
+      if (id === "short-term-rental-price-density") {
+        enableRentalPriceSizing(result.view, container);
       }
     })
     .catch(console.error);

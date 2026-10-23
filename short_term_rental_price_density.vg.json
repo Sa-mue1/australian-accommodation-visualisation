@@ -1,239 +1,174 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
-  "width": 680,
-  "height": 85,
-  "spacing": 12,
-
+  "padding": {
+    "left": 5,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
   "title": {
-  "text": "Room type shapes short-term-rental prices more than city rooms",
-  "subtitle": "Distribution of advertised nightly listing prices in Sydney and Melbourne; dashed lines show medians",
-  "anchor": "start",
-  "fontSize": 18,
-  "subtitleFontSize": 12,
-  "subtitlePadding": 8
-},
-
+    "text": "Advertised rental prices by room type",
+    "subtitle": [
+      "Taller curves show common prices within each room type.",
+      "Dots mark estimated peaks; dashed lines show medians."
+    ],
+    "anchor": "start",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "subtitleLineHeight": 16,
+    "subtitlePadding": 7,
+    "offset": 15,
+    "limit": {"expr": "child_width"}
+  },
   "data": {
     "url": "./data/short_term_rental_listings.csv",
     "format": {
       "type": "csv",
-      "parse": {
-        "price_aud": "number"
-      }
+      "parse": {"price_aud": "number"}
     }
   },
-
   "transform": [
     {
       "filter": "isValid(datum.price_aud) && datum.price_aud > 0 && datum.price_aud <= 1000"
     },
     {
-      "filter": "indexof(['Entire home/apt', 'Private room', 'Hotel room', 'Shared room'], datum.room_type) >= 0"
+      "filter": "indexof(['Sydney', 'Melbourne'], datum.city) >= 0 && indexof(['Entire home/apt', 'Private room', 'Hotel room', 'Shared room'], datum.room_type) >= 0"
+    },
+    {
+      "calculate": "indexof(['Entire home/apt', 'Private room', 'Hotel room', 'Shared room'], datum.room_type)",
+      "as": "room_order"
+    },
+    {
+      "joinaggregate": [
+        {"op": "median", "field": "price_aud", "as": "median_price"},
+        {"op": "count", "as": "listing_count"}
+      ],
+      "groupby": ["city", "room_type"]
     }
   ],
-
   "facet": {
     "row": {
       "field": "room_type",
       "type": "nominal",
-      "sort": [
-        "Entire home/apt",
-        "Private room",
-        "Hotel room",
-        "Shared room"
-      ],
+      "sort": {
+        "field": "room_order",
+        "op": "min",
+        "order": "ascending"
+      },
       "header": {
-        "title": null,
-        "labelOrient": "left",
-        "labelFontSize": 13,
-        "labelFontWeight": "bold",
-        "labelPadding": 12
+        "labels": false,
+        "title": null
       }
     }
   },
-
+  "spacing": 10,
   "spec": {
-    "width": 760,
-    "height": 105,
+    "width": 468,
+    "height": 66,
+    "transform": [
+      {
+        "density": "price_aud",
+        "groupby": [
+          "city",
+          "room_type",
+          "room_order",
+          "median_price",
+          "listing_count"
+        ],
+        "extent": [0, 1000],
+        "steps": 120,
+        "bandwidth": 25,
+        "as": ["nightly_price", "density"]
+      },
+      {
+        "joinaggregate": [
+          {"op": "max", "field": "density", "as": "panel_peak"}
+        ],
+        "groupby": ["room_type"]
+      },
+      {
+        "calculate": "datum.density / datum.panel_peak",
+        "as": "relative_density"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "nightly_price",
+        "type": "quantitative",
+        "scale": {
+          "domain": [0, 1000],
+          "nice": false
+        },
+        "axis": {
+          "title": "Advertised nightly price (AUD)",
+          "format": "$,.0f",
+          "values": [0, 200, 400, 600, 800, 1000],
+          "grid": true,
+          "gridColor": "#E5E7EB",
+          "gridOpacity": 0.8,
+          "labelFontSize": 11,
+          "labelPadding": 6,
+          "titleFontSize": 12,
+          "titleFontWeight": "bold",
+          "titlePadding": 10,
+          "domainColor": "#B9C2CB",
+          "tickSize": 3
+        }
+      },
+      "y": {
+        "field": "relative_density",
+        "type": "quantitative",
+        "scale": {
+          "domain": [0, 1.45],
+          "nice": false
+        },
+        "axis": null,
+        "stack": null
+      },
+      "color": {
+        "field": "city",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Sydney", "Melbourne"],
+          "range": ["#0072B2", "#E69F00"]
+        },
+        "legend": {
+          "title": null,
+          "orient": "bottom",
+          "direction": "horizontal",
+          "columns": 2,
+          "labelFontSize": 12,
+          "symbolSize": 85,
+          "symbolOpacity": 1,
+          "offset": 12,
+          "padding": 0
+        }
+      }
+    },
     "layer": [
       {
-        "transform": [
-          {
-            "density": "price_aud",
-            "groupby": ["city"],
-            "extent": [0, 1000],
-            "steps": 120,
-            "bandwidth": 25,
-            "as": ["nightly_price", "density"]
-          }
-        ],
-
         "mark": {
           "type": "area",
           "interpolate": "monotone",
-          "opacity": 0.3,
+          "opacity": 0.18,
           "clip": true
-        },
-
-        "encoding": {
-          "x": {
-            "field": "nightly_price",
-            "type": "quantitative",
-            "scale": {
-              "domain": [0, 1000]
-            },
-            "axis": {
-              "title": "Advertised nightly listing price (AUD)",
-              "format": "$,.0f",
-              "values": [0, 200, 400, 600, 800, 1000],
-              "grid": true,
-              "gridColor": "#E5E7EB",
-              "labelFontSize": 11,
-              "titleFontSize": 13,
-              "titlePadding": 12
-            }
-          },
-
-          "y": {
-            "field": "density",
-            "type": "quantitative",
-            "axis": null,
-            "stack": null
-          },
-
-          "color": {
-            "field": "city",
-            "type": "nominal",
-            "scale": {
-              "domain": ["Sydney", "Melbourne"],
-              "range": ["#0072B2", "#E69F00"]
-            },
-            "legend": {
-              "title": null,
-              "orient": "top",
-              "direction": "horizontal",
-              "labelFontSize": 12,
-              "symbolOpacity": 0.8
-            }
-          },
-
-          "tooltip": [
-            {
-              "field": "city",
-              "type": "nominal",
-              "title": "City"
-            },
-            {
-              "field": "nightly_price",
-              "type": "quantitative",
-              "title": "Nightly price",
-              "format": "$,.0f"
-            }
-          ]
         }
       },
-
       {
-        "transform": [
-          {
-            "density": "price_aud",
-            "groupby": ["city"],
-            "extent": [0, 1000],
-            "steps": 120,
-            "bandwidth": 25,
-            "as": ["nightly_price", "density"]
-          }
-        ],
-
         "mark": {
           "type": "line",
           "interpolate": "monotone",
           "strokeWidth": 2.2,
           "clip": true
         },
-
         "encoding": {
-          "x": {
-            "field": "nightly_price",
-            "type": "quantitative",
-            "scale": {
-              "domain": [0, 1000]
-            }
-          },
-
-          "y": {
-            "field": "density",
-            "type": "quantitative",
-            "axis": null
-          },
-
-          "color": {
-            "field": "city",
-            "type": "nominal",
-            "scale": {
-              "domain": ["Sydney", "Melbourne"],
-              "range": ["#0072B2", "#E69F00"]
-            },
-            "legend": null
-          }
-        }
-      },
-
-      {
-        "transform": [
-          {
-            "aggregate": [
-              {
-                "op": "median",
-                "field": "price_aud",
-                "as": "median_price"
-              },
-              {
-                "op": "count",
-                "as": "listing_count"
-              }
-            ],
-            "groupby": ["city"]
-          }
-        ],
-
-        "mark": {
-          "type": "rule",
-          "strokeWidth": 2,
-          "strokeDash": [6, 4],
-          "opacity": 0.9
-        },
-
-        "encoding": {
-          "x": {
-            "field": "median_price",
-            "type": "quantitative",
-            "scale": {
-              "domain": [0, 1000]
-            }
-          },
-
-          "color": {
-            "field": "city",
-            "type": "nominal",
-            "scale": {
-              "domain": ["Sydney", "Melbourne"],
-              "range": ["#0072B2", "#E69F00"]
-            },
-            "legend": null
-          },
-
           "tooltip": [
+            {"field": "city", "type": "nominal", "title": "City"},
+            {"field": "room_type", "type": "nominal", "title": "Room type"},
             {
-              "field": "city",
-              "type": "nominal",
-              "title": "City"
-            },
-            {
-              "field": "median_price",
+              "field": "nightly_price",
               "type": "quantitative",
-              "title": "Median nightly price",
+              "title": "Advertised price",
               "format": "$,.0f"
             },
             {
@@ -244,32 +179,189 @@
             }
           ]
         }
+      },
+      {
+        "transform": [
+          {
+            "aggregate": [
+              {
+                "op": "max",
+                "field": "median_price",
+                "as": "median_price"
+              },
+              {
+                "op": "max",
+                "field": "listing_count",
+                "as": "listing_count"
+              }
+            ],
+            "groupby": ["city", "room_type"]
+          }
+        ],
+        "mark": {
+          "type": "rule",
+          "strokeWidth": 1.5,
+          "strokeDash": [4, 3],
+          "opacity": 0.85
+        },
+        "encoding": {
+          "x": {
+            "field": "median_price",
+            "type": "quantitative"
+          },
+          "y": {"value": 25},
+          "y2": {"value": {"expr": "child_height"}},
+          "tooltip": [
+            {"field": "city", "type": "nominal", "title": "City"},
+            {
+              "field": "median_price",
+              "type": "quantitative",
+              "title": "Median displayed price",
+              "format": "$,.0f"
+            },
+            {
+              "field": "listing_count",
+              "type": "quantitative",
+              "title": "Listings displayed",
+              "format": ","
+            }
+          ]
+        }
+      },
+      {
+        "transform": [
+          {
+            "window": [
+              {"op": "row_number", "as": "peak_rank"}
+            ],
+            "sort": [
+              {"field": "density", "order": "descending"},
+              {"field": "nightly_price", "order": "ascending"}
+            ],
+            "groupby": ["city", "room_type"]
+          },
+          {"filter": "datum.peak_rank === 1"}
+        ],
+        "mark": {
+          "type": "circle",
+          "size": 58,
+          "stroke": "white",
+          "strokeWidth": 1.4,
+          "opacity": 1
+        },
+        "encoding": {
+          "tooltip": [
+            {"field": "city", "type": "nominal", "title": "City"},
+            {
+              "field": "nightly_price",
+              "type": "quantitative",
+              "title": "Estimated peak price",
+              "format": "$,.0f"
+            },
+            {
+              "field": "listing_count",
+              "type": "quantitative",
+              "title": "Listings displayed",
+              "format": ","
+            }
+          ]
+        }
+      },
+      {
+        "transform": [
+          {
+            "aggregate": [
+              {"op": "count", "as": "rows"}
+            ],
+            "groupby": ["room_type"]
+          },
+          {
+            "calculate": "datum.room_type === 'Entire home/apt' ? 'Entire home or apartment' : datum.room_type + 's'",
+            "as": "room_label"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "top",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "limit": {"expr": "child_width * 0.54"}
+        },
+        "encoding": {
+          "x": {"value": 0},
+          "y": {"value": 0},
+          "color": {"value": "#202124"},
+          "text": {"field": "room_label"},
+          "tooltip": null
+        }
+      },
+      {
+        "transform": [
+          {
+            "window": [
+              {"op": "row_number", "as": "peak_rank"}
+            ],
+            "sort": [
+              {"field": "density", "order": "descending"},
+              {"field": "nightly_price", "order": "ascending"}
+            ],
+            "groupby": ["city", "room_type"]
+          },
+          {"filter": "datum.peak_rank === 1"},
+          {
+            "calculate": "datum.city + ' peak ≈ $' + format(round(datum.nightly_price / 10) * 10, ',.0f')",
+            "as": "peak_label"
+          },
+          {
+            "calculate": "datum.city === 'Sydney' ? 0 : 14",
+            "as": "label_y"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "top",
+          "fontSize": 12,
+          "fontWeight": "bold",
+          "limit": {"expr": "child_width * 0.44 - 2"}
+        },
+        "encoding": {
+          "x": {"value": {"expr": "child_width * 0.56"}},
+          "y": {
+            "field": "label_y",
+            "type": "quantitative",
+            "scale": null
+          },
+          "text": {"field": "peak_label"},
+          "color": {
+            "condition": {
+              "test": "datum.city === 'Sydney'",
+              "value": "#006394"
+            },
+            "value": "#8C6000"
+          },
+          "tooltip": null
+        }
       }
     ]
   },
-
   "resolve": {
     "scale": {
       "x": "shared",
-      "y": "independent"
+      "y": "shared",
+      "color": "shared"
     }
   },
-
   "config": {
     "background": "white",
     "font": "Arial",
-
-    "view": {
-      "stroke": null
-    },
-
+    "view": {"stroke": null},
     "axis": {
-      "domainColor": "#9CA3AF",
-      "tickColor": "#9CA3AF"
+      "labelColor": "#374151",
+      "titleColor": "#202124"
     },
-
-    "facet": {
-      "spacing": 12
-    }
+    "facet": {"spacing": 10},
+    "legend": {"labelColor": "#374151"}
   }
 }
