@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta
     name="description"
@@ -20,7 +16,6 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
   <script src="js/vega_lite_vis.js" defer></script>
 </head>
 
@@ -36,9 +31,17 @@
       </h1>
 
       <p class="introduction">
-        Australia’s accommodation recovery varied across accommodation types,
-        destinations and visitor markets. Explore where visitor nights returned,
-        how accommodation preferences differed and when hotels were busiest.
+        <span class="story-line">
+          Australia’s accommodation recovery varied by type, destination and season.
+        </span>
+
+        <span class="story-line">
+          Explore how domestic and international demand returned unevenly.
+        </span>
+
+        <span class="story-line">
+          Then compare rental prices and seasonal hotel occupancy.
+        </span>
       </p>
     </header>
 
@@ -54,8 +57,10 @@
           How did accommodation demand recover?
         </h2>
 
-        <p class="section-introduction recovery-introduction">
-          <span>Recovery differed across domestic accommodation types.</span>
+        <p class="section-introduction">
+          <span class="story-line">
+            Recovery differed across domestic accommodation types.
+          </span>
         </p>
       </header>
 
@@ -63,40 +68,56 @@
         <article class="chart-card chart-card--full recovery-card">
           <div id="domestic-recovery" class="chart"></div>
 
-          <div class="chart-note recovery-story">
-            <div>
-              <h3>Hotels exceeded their 2019 demand</h3>
+          <div class="chart-note chart-story recovery-story">
+            <div class="story-column">
+              <h3>Hotels recovered after the sharpest fall</h3>
 
               <p>
-                <span>Hotel nights rose 12.4% between 2019 and 2024.</span>
-                <span>Totals increased from 101.0 million to 113.5 million.</span>
+                <span class="story-line">
+                  Hotel nights nearly halved, reaching 51.6 million in 2020.
+                </span>
+
+                <span class="story-line">
+                  By 2024, nights reached 113.5 million, exceeding 2019 by 12.4%.
+                </span>
+
+                <span class="story-line">
+                  Hotels passed their 2019 visitor-night level in 2022.
+                </span>
               </p>
             </div>
 
-            <div>
-              <h3>Three categories remained below 2019</h3>
+            <div class="story-column">
+              <h3>Three categories still lagged behind 2019</h3>
 
               <p>
-                <span>Rented stays fell 2.7%; caravan and camping fell 4.7%.</span>
-                <span>Friends or relatives’ stays remained 7.0% lower.</span>
+                <span class="story-line">
+                  Rented nights reached 34.7 million in 2024, down 2.7%.
+                </span>
+
+                <span class="story-line">
+                  Camping recorded 34.7 million nights, 4.7% below 2019.
+                </span>
+
+                <span class="story-line">
+                  Friends or relatives recorded 133.2 million, down 7.0%.
+                </span>
               </p>
             </div>
+
+            <p class="story-meta">
+              <span class="story-line">
+                Each category is compared with its own 2019 total.
+              </span>
+            </p>
+
+            <p class="story-meta">
+              <span class="story-line">
+                Source: Tourism Research Australia, National Visitor Survey.
+              </span>
+            </p>
           </div>
-
-          <p class="recovery-definition">
-            <span>The dashed line marks each category’s own 2019 level.</span>
-            <span>Source: Tourism Research Australia, National Visitor Survey.</span>
-          </p>
         </article>
-
-        <aside class="method-note grid-full recovery-method">
-          <p>
-            <strong>Comparability</strong>
-            <span>This comparison ends in 2024.</span>
-            <span>Domestic Tourism Statistics replaced the survey in 2025.</span>
-            <span>The changed collection method prevents directly joining these series.</span>
-          </p>
-        </aside>
 
         <article class="chart-card chart-card--full">
           <div
@@ -104,13 +125,63 @@
             class="chart"
           ></div>
 
-          <p class="chart-note recovery-band-note">
-            <strong>Read the bands</strong>
-            <span>Thicker bands represent more domestic visitor nights.</span>
-            <span>Compare band thickness rather than vertical position.</span>
-            <span>Other includes own property, guest houses, and miscellaneous accommodation.</span>
-            <span>It also includes bed and breakfast accommodation.</span>
-          </p>
+          <div class="chart-note chart-story story-columns">
+            <div class="story-column">
+              <h3>Friends’ stays remained the largest category</h3>
+
+              <p>
+                <span class="story-line">
+                  Friends or relatives recorded 133.2 million nights in 2024.
+                </span>
+
+                <span class="story-line">
+                  That was 33.5% of all domestic visitor nights.
+                </span>
+
+                <span class="story-line">
+                  Their total still exceeded hotels’ 113.5 million nights.
+                </span>
+              </p>
+            </div>
+
+            <div class="story-column">
+              <h3>Hotels gained share during an incomplete recovery</h3>
+
+              <p>
+                <span class="story-line">
+                  Hotel share rose from 24.2% to 28.6% since 2019.
+                </span>
+
+                <span class="story-line">
+                  All domestic nights nevertheless remained 4.9% below 2019.
+                </span>
+
+                <span class="story-line">
+                  National nights totalled 397.5 million, versus 417.9 million in 2019.
+                </span>
+              </p>
+            </div>
+
+            <p class="story-meta">
+              <span class="story-line">
+                Band thickness represents nights; vertical position does not.
+              </span>
+
+              <span class="story-line">
+                Source: Tourism Research Australia, National Visitor Survey.
+              </span>
+            </p>
+
+            <p class="story-meta">
+              <span class="story-line">
+                Other includes own property, guesthouses and miscellaneous accommodation.
+              </span>
+
+              <span class="story-line">
+                This group also includes bed and breakfasts.
+              </span>
+            </p>
+          </div>
         </article>
       </div>
     </section>
@@ -136,10 +207,7 @@
 
       <div class="chart-grid">
         <article class="chart-card chart-card--full">
-          <div
-            id="domestic-quarters"
-            class="chart"
-          ></div>
+          <div id="domestic-quarters" class="chart"></div>
 
           <p class="chart-note">
             <strong>Read the cells:</strong>
@@ -151,34 +219,41 @@
         </article>
 
         <article class="chart-card chart-card--half">
-          <div class="ranking-figure">
-            <div
-              id="hotel-destination-rankings"
-              class="chart"
-            ></div>
+          <div
+            id="hotel-destination-rankings"
+            class="chart"
+          ></div>
 
-            <aside
-              class="ranking-insight"
-              aria-label="Ranking highlights"
-            >
-              <span>
-                <strong>2024:</strong>
-                Sydney led Melbourne by approximately 324,000 visitor nights.
+          <div class="chart-note chart-story story-single">
+            <h3>
+              <span class="story-line">Two cities led demand</span>
+              <span class="story-line">with a narrow gap in 2024</span>
+            </h3>
+
+            <p>
+              <span class="story-line">
+                Sydney recorded 13.43 million nights; Melbourne recorded 13.11 million.
               </span>
 
-              <span>
-                <strong>2021:</strong>
-                Brisbane moved into second place.
+              <span class="story-line">
+                Sydney led Melbourne by just 2.5% in 2024.
               </span>
-            </aside>
+
+              <span class="story-line">
+                Brisbane’s 8.25 million nights were 38.5% below Sydney’s.
+              </span>
+            </p>
+
+            <p class="story-meta">
+              <span class="story-line">
+                Rank 1 indicates the largest total among the eight destinations.
+              </span>
+
+              <span class="story-line">
+                Source: National Visitor Survey, 2019–2024.
+              </span>
+            </p>
           </div>
-
-          <p class="chart-note">
-            Rank 1 represents the destination with the most domestic visitor
-            nights in hotels and similar accommodation among those shown.
-            Crossings indicate changes in rank. Hover over a point to see
-            its visitor-night value.
-          </p>
         </article>
 
         <article class="chart-card chart-card--half">
@@ -187,12 +262,36 @@
             class="chart"
           ></div>
 
-          <p class="chart-note">
-            Column width represents each state’s total domestic visitor nights.
-            Segment height represents an accommodation type’s share within
-            that state, so segment area represents visitor-night volume.
-            The five largest states are shown.
-          </p>
+          <div class="chart-note chart-story story-single">
+            <h3>
+              <span class="story-line">A larger hotel share</span>
+              <span class="story-line">does not guarantee more nights</span>
+            </h3>
+
+            <p>
+              <span class="story-line">
+                Queensland’s 31.9% hotel share exceeded New South Wales’ 28.9%.
+              </span>
+
+              <span class="story-line">
+                New South Wales still recorded more hotel nights: 33.0 million.
+              </span>
+
+              <span class="story-line">
+                Queensland followed with 31.5 million hotel nights.
+              </span>
+            </p>
+
+            <p class="story-meta">
+              <span class="story-line">
+                Widths show total nights; segments show accommodation shares.
+              </span>
+
+              <span class="story-line">
+                Source: National Visitor Survey, 2024.
+              </span>
+            </p>
+          </div>
         </article>
       </div>
     </section>

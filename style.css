@@ -666,51 +666,57 @@ body {
   line-height: inherit;
 }
 
-.recovery-introduction span,
-.recovery-story p span,
-.recovery-definition span,
-.recovery-method span,
-.recovery-band-note span {
+.story-line {
   display: block;
 }
 
-.recovery-card > .recovery-story {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px 28px;
+.chart-card > .chart-story {
+  --caption-left: var(--story-left, 0px);
+  --caption-right: var(--story-right, 0px);
   margin-top: 12px;
-  padding-top: 12px;
+  padding: 14px var(--caption-right) 0 var(--caption-left);
   text-align: left;
 }
 
-.recovery-story h3 {
-  margin: 0 0 4px;
+.recovery-story,
+.story-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--story-gap, 28px);
+  row-gap: 8px;
+}
+
+.chart-story h3 {
+  margin: 0 0 6px;
   color: var(--text-primary);
-  font-size: 0.94rem;
+  font-size: 0.98rem;
   font-weight: 700;
   line-height: 1.4;
 }
 
-.recovery-story p {
+.chart-story p {
   margin: 0;
-  font-size: 0.91rem;
-  line-height: 1.5;
+  color: #48515b;
+  font-size: 0.94rem;
+  line-height: 1.55;
 }
 
-.recovery-definition {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4px 28px;
-  margin: 8px 0 0;
+.chart-story .story-meta {
+  margin-top: 2px;
   color: var(--text-secondary);
   font-size: 0.78rem;
   line-height: 1.5;
-  text-align: left;
 }
 
-.recovery-method strong,
-.recovery-band-note strong {
-  display: block;
+#section-domestic-geography .chart-card--half > .chart-story {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.story-single > .story-meta {
+  margin-top: auto;
+  padding-top: 10px;
 }
 
 @media (max-width: 1000px) {
@@ -750,13 +756,19 @@ body {
 }
 
 @media (max-width: 760px) {
-  .recovery-card > .recovery-story,
-  .recovery-definition {
-    grid-template-columns: 1fr;
+  .chart-card > .chart-story {
+    padding-left: 0;
+    padding-right: 0;
   }
 
-  .recovery-card > .recovery-story {
-    gap: 12px;
+  .recovery-story,
+  .story-columns {
+    grid-template-columns: 1fr;
+    row-gap: 14px;
+  }
+
+  .chart-story .story-meta {
+    margin-top: 0;
   }
 }
 

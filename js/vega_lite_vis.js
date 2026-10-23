@@ -486,6 +486,66 @@ function enableOccupancySizing(view, container) {
   resizeChart();
 }
 
+function alignStoryWithPlot(container) {
+  const card = container.closest(".chart-card");
+  const story = card?.querySelector(".chart-story");
+  const svg = container.querySelector("svg.marks");
+
+  if (!card || !story || !svg) return;
+
+  let pendingFrame = null;
+
+  function align() {
+    pendingFrame = null;
+
+    const cells = svg.querySelectorAll(
+      "g.cell > g > path.background"
+    );
+
+    const first = cells.length >= 2
+      ? cells[0]
+      : svg.querySelector("g.root > g > path.background");
+
+    const last = cells.length >= 2 ? cells[1] : first;
+
+    if (!first || !last) return;
+
+    const bounds = container.getBoundingClientRect();
+    const left = first.getBoundingClientRect();
+    const right = last.getBoundingClientRect();
+
+    card.style.setProperty(
+      "--story-left",
+      `${Math.max(0, left.left - bounds.left)}px`
+    );
+
+    card.style.setProperty(
+      "--story-right",
+      `${Math.max(0, bounds.right - right.right)}px`
+    );
+
+    card.style.setProperty(
+      "--story-gap",
+      cells.length >= 2
+        ? `${Math.max(0, right.left - left.right)}px`
+        : "28px"
+    );
+  }
+
+  function schedule() {
+    if (pendingFrame !== null) return;
+
+    pendingFrame = requestAnimationFrame(align);
+  }
+
+  const observer = new ResizeObserver(schedule);
+
+  observer.observe(container);
+  observer.observe(svg);
+
+  schedule();
+}
+
 const charts = [
   ["domestic-recovery", "domestic_recovery.vg.json"],
   ["domestic-quarters", "domestic_state_quarters.vg.json"],
@@ -511,6 +571,8 @@ for (const [id, specification] of charts) {
 
   vegaEmbed(container, specification, options)
     .then(result => {
+      alignStoryWithPlot(container);
+
       if (id === "international-state-map") {
         enableMapNavigation(result.view, container);
       }

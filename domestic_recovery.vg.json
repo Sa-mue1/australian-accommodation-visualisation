@@ -2,7 +2,10 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Domestic accommodation recovery",
-    "subtitle": "Domestic visitor nights, 2019–2024; 2019 = 100",
+    "subtitle": [
+      "Domestic visitor nights, 2019–2024; 2019 = 100",
+      "Collection changed in 2025; the series are not joined."
+    ],
     "anchor": "start",
     "fontSize": 18,
     "fontWeight": "bold",
@@ -14,7 +17,10 @@
     "url": "data/domestic_accommodation_types.csv",
     "format": {
       "type": "csv",
-      "parse": {"year": "number", "value": "number"}
+      "parse": {
+        "year": "number",
+        "value": "number"
+      }
     }
   },
   "transform": [
@@ -34,7 +40,11 @@
     },
     {
       "joinaggregate": [
-        {"op": "max", "field": "baseline_value", "as": "baseline_2019"}
+        {
+          "op": "max",
+          "field": "baseline_value",
+          "as": "baseline_2019"
+        }
       ],
       "groupby": ["category"]
     },
@@ -79,14 +89,20 @@
           "strokeWidth": 1.2
         },
         "encoding": {
-          "y": {"datum": 100, "type": "quantitative"}
+          "y": {
+            "datum": 100,
+            "type": "quantitative"
+          }
         }
       },
       {
         "mark": {
           "type": "line",
           "strokeWidth": 2.5,
-          "point": {"filled": true, "size": 45}
+          "point": {
+            "filled": true,
+            "size": 45
+          }
         },
         "encoding": {
           "x": {
@@ -113,10 +129,16 @@
           "y": {
             "field": "recovery_index",
             "type": "quantitative",
-            "scale": {"domain": [0, 130], "nice": false},
+            "scale": {
+              "domain": [40, 125],
+              "nice": false,
+              "zero": false
+            },
             "axis": {
               "title": "Index (2019 = 100)",
-              "values": [0, 50, 100],
+              "values": [50, 75, 100, 125],
+              "tickCount": 4,
+              "labelOverlap": false,
               "labelFontSize": 12,
               "labelPadding": 5,
               "titleFontSize": 12,
@@ -147,7 +169,10 @@
             },
             "legend": null
           },
-          "order": {"field": "year", "type": "quantitative"},
+          "order": {
+            "field": "year",
+            "type": "quantitative"
+          },
           "tooltip": [
             {
               "field": "category",
@@ -178,12 +203,17 @@
     ]
   },
   "resolve": {
-    "scale": {"x": "shared", "y": "shared"}
+    "scale": {
+      "x": "shared",
+      "y": "shared"
+    }
   },
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
       "labelColor": "#374151",
       "titleColor": "#374151"
