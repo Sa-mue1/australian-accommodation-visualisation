@@ -1,10 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Short-term rental listings grouped by source neighbourhood area. Circle locations are average listing coordinates. Both maps share listing-count and price scales.",
+  "description": "Short-term rental listings grouped by neighbourhood area. Circle locations are average listing coordinates. Both maps share listing-count and price scales.",
   "title": {
     "text": "Short-term rentals by neighbourhood",
     "subtitle": [
-      "Circle area: listing count; colour: median advertised price.",
+      "Circle area: listings; colour: median advertised nightly price.",
       "Both maps use the same symbol and colour scales."
     ],
     "anchor": "start",
@@ -57,7 +57,7 @@
     {
       "name": "sydney",
       "width": 220,
-      "height": 260,
+      "height": 240,
       "title": {
         "text": "Sydney",
         "anchor": "start",
@@ -126,34 +126,9 @@
             "type": "geoshape",
             "fill": null,
             "stroke": "#B9D1DE",
-            "strokeWidth": 0.5,
-            "opacity": 0.65,
+            "strokeWidth": 0.4,
+            "opacity": 0.35,
             "clip": true
-          }
-        },
-        {
-          "data": {
-            "url": "data/geo/sydney_neighbourhoods.geojson",
-            "format": {
-              "type": "json",
-              "property": "features"
-            }
-          },
-          "mark": {
-            "type": "geoshape",
-            "fill": null,
-            "stroke": "#A6AFB4",
-            "strokeWidth": 0.6,
-            "clip": true
-          },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "properties.neighbourhood",
-                "type": "nominal",
-                "title": "Source neighbourhood area"
-              }
-            ]
           }
         },
         {
@@ -162,7 +137,7 @@
           ],
           "mark": {
             "type": "circle",
-            "opacity": 0.88,
+            "opacity": 0.9,
             "stroke": "white",
             "strokeWidth": 0.8,
             "clip": true
@@ -188,7 +163,7 @@
               "scale": {
                 "type": "linear",
                 "domain": [0, 8500],
-                "range": [0, 500],
+                "range": [0, 850],
                 "nice": false,
                 "zero": true
               },
@@ -228,7 +203,7 @@
             },
             "tooltip": [
               {"field": "city", "type": "nominal", "title": "City"},
-              {"field": "neighbourhood", "type": "nominal", "title": "Source neighbourhood area"},
+              {"field": "neighbourhood", "type": "nominal", "title": "Neighbourhood area"},
               {"field": "listing_count", "type": "quantitative", "title": "Listings", "format": ","},
               {"field": "median_price", "type": "quantitative", "title": "Median advertised price (AUD)", "format": "$,.0f"},
               {"field": "mean_longitude", "type": "quantitative", "title": "Average longitude", "format": ".3f"},
@@ -241,7 +216,7 @@
     {
       "name": "melbourne",
       "width": 220,
-      "height": 260,
+      "height": 240,
       "title": {
         "text": "Melbourne",
         "anchor": "start",
@@ -310,34 +285,9 @@
             "type": "geoshape",
             "fill": null,
             "stroke": "#B9D1DE",
-            "strokeWidth": 0.5,
-            "opacity": 0.65,
+            "strokeWidth": 0.4,
+            "opacity": 0.35,
             "clip": true
-          }
-        },
-        {
-          "data": {
-            "url": "data/geo/melbourne_neighbourhoods.geojson",
-            "format": {
-              "type": "json",
-              "property": "features"
-            }
-          },
-          "mark": {
-            "type": "geoshape",
-            "fill": null,
-            "stroke": "#A6AFB4",
-            "strokeWidth": 0.6,
-            "clip": true
-          },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "properties.neighbourhood",
-                "type": "nominal",
-                "title": "Source neighbourhood area"
-              }
-            ]
           }
         },
         {
@@ -346,7 +296,7 @@
           ],
           "mark": {
             "type": "circle",
-            "opacity": 0.88,
+            "opacity": 0.9,
             "stroke": "white",
             "strokeWidth": 0.8,
             "clip": true
@@ -372,7 +322,7 @@
               "scale": {
                 "type": "linear",
                 "domain": [0, 8500],
-                "range": [0, 500],
+                "range": [0, 850],
                 "nice": false,
                 "zero": true
               },
@@ -412,7 +362,7 @@
             },
             "tooltip": [
               {"field": "city", "type": "nominal", "title": "City"},
-              {"field": "neighbourhood", "type": "nominal", "title": "Source neighbourhood area"},
+              {"field": "neighbourhood", "type": "nominal", "title": "Neighbourhood area"},
               {"field": "listing_count", "type": "quantitative", "title": "Listings", "format": ","},
               {"field": "median_price", "type": "quantitative", "title": "Median advertised price (AUD)", "format": "$,.0f"},
               {"field": "mean_longitude", "type": "quantitative", "title": "Average longitude", "format": ".3f"},
