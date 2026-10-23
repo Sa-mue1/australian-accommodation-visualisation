@@ -778,4 +778,27 @@ body {
     margin: 10px 0 0;
     padding: 10px;
   }
+
+
+  .occupancy-card > .occupancy-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 10px 0 0;
+  padding-top: 12px;
+  text-align: left;
+}
+
+.occupancy-results p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+@media (max-width: 640px) {
+  .occupancy-card > .occupancy-results {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
 }

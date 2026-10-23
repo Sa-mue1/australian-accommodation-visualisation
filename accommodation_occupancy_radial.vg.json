@@ -13,23 +13,20 @@
     },
     {
       "name": "occupancy_radius",
-      "expr": "min(110, (child_width - 110) / 2)"
+      "expr": "min(132, (child_width - 50) / 2)"
     }
   ],
   "title": {
     "text": {
       "expr": "occupancy_columns === 1 ? ['Monthly accommodation', 'occupancy'] : 'Monthly accommodation occupancy'"
     },
-    "subtitle": [
-      "Monthly rates by state and territory.",
-      "Darker segments mean higher occupancy."
-    ],
+    "subtitle": "Each ring represents an Australian state or territory.",
     "anchor": "start",
     "fontSize": 18,
     "subtitleFontSize": 12,
     "subtitleLineHeight": 16,
     "subtitlePadding": 7,
-    "offset": 16,
+    "offset": 12,
     "limit": {
       "expr": "occupancy_columns * child_width + (occupancy_columns - 1) * 20"
     }
@@ -67,10 +64,6 @@
       "as": "theta_end"
     },
     {
-      "calculate": "(datum.financial_month - 0.5) * PI / 6",
-      "as": "theta_middle"
-    },
-    {
       "calculate": "indexof(['ACT', 'NT', 'TAS', 'SA', 'WA', 'QLD', 'VIC', 'NSW'], datum.state_code)",
       "as": "ring_number"
     },
@@ -95,16 +88,16 @@
     "header": {
       "title": null,
       "labelExpr": "replace(datum.value, '-', '–20')",
-      "labelFontSize": 14,
+      "labelFontSize": 15,
       "labelFontWeight": "bold",
-      "labelPadding": 10
+      "labelPadding": 8
     }
   },
   "columns": 4,
   "spacing": 20,
   "spec": {
     "width": 260,
-    "height": 226,
+    "height": 294,
     "layer": [
       {
         "transform": [
@@ -121,10 +114,10 @@
             "expr": "datum.theta_end"
           },
           "radius": {
-            "expr": "18 + (datum.ring_number + 1) * (occupancy_radius - 18) / 8 - 0.4"
+            "expr": "16 + (datum.ring_number + 1) * (occupancy_radius - 16) / 8 - 0.4"
           },
           "radius2": {
-            "expr": "18 + datum.ring_number * (occupancy_radius - 18) / 8 + 0.4"
+            "expr": "16 + datum.ring_number * (occupancy_radius - 16) / 8 + 0.4"
           },
           "padAngle": 0.009,
           "stroke": "white",
@@ -133,12 +126,12 @@
         "encoding": {
           "x": {
             "value": {
-              "expr": "child_width / 2 - 12"
+              "expr": "child_width / 2"
             }
           },
           "y": {
             "value": {
-              "expr": "occupancy_radius + 25"
+              "expr": "occupancy_radius + 30"
             }
           },
           "color": {
@@ -162,7 +155,7 @@
                 "titleFontSize": 12,
                 "titleFontWeight": "bold",
                 "labelFontSize": 11,
-                "offset": 14,
+                "offset": 12,
                 "padding": 0
               }
             },
@@ -207,35 +200,39 @@
       {
         "transform": [
           {
+            "filter": "indexof([1, 4, 7, 10], datum.financial_month) >= 0"
+          },
+          {
             "aggregate": [
               {"op": "count", "as": "rows"}
             ],
             "groupby": [
               "financial_month",
               "month_full",
-              "theta_middle"
+              "theta_start"
             ]
           }
         ],
         "mark": {
           "type": "text",
-          "fontSize": 11,
-          "fontWeight": "normal",
+          "fontSize": 12,
+          "fontWeight": "bold",
           "color": "#4B5563",
           "baseline": "middle",
-          "align": {
-            "expr": "sin(datum.theta_middle) > 0 ? 'left' : 'right'"
+          "align": "center",
+          "angle": {
+            "expr": "datum.financial_month === 4 ? 90 : datum.financial_month === 10 ? 270 : 0"
           }
         },
         "encoding": {
           "x": {
             "value": {
-              "expr": "child_width / 2 - 12 + sin(datum.theta_middle) * (occupancy_radius + 8)"
+              "expr": "child_width / 2 + sin(datum.theta_start) * (occupancy_radius + 14)"
             }
           },
           "y": {
             "value": {
-              "expr": "occupancy_radius + 25 - cos(datum.theta_middle) * (occupancy_radius + 8)"
+              "expr": "occupancy_radius + 30 - cos(datum.theta_start) * (occupancy_radius + 14)"
             }
           },
           "text": {
@@ -276,7 +273,7 @@
           "type": "text",
           "align": "center",
           "baseline": "top",
-          "fontSize": 12,
+          "fontSize": 13,
           "fontWeight": "bold",
           "color": "#202124"
         },
@@ -288,7 +285,7 @@
           },
           "y": {
             "value": {
-              "expr": "occupancy_radius * 2 + 56"
+              "expr": "occupancy_radius * 2 + 62"
             }
           },
           "text": {
