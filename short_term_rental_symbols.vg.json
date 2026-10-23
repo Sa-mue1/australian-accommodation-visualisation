@@ -1,11 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Short-term rental listings grouped by neighbourhood area. Filled circle areas represent listing counts. Hollow rings improve visibility for areas with fewer than 200 listings.",
+  "description": "Short-term rental listings grouped by neighbourhood area. Circle sizes use a shared scale with a minimum display size for visibility, so areas are not exactly proportional to listing counts.",
   "title": {
     "text": "Short-term rentals by neighbourhood",
     "subtitle": [
-      "Filled area: listings; colour: median advertised nightly price.",
-      "Both maps use the same symbol and colour scales."
+      "Circle size: listing count, with a minimum display size.",
+      "Colour: median advertised nightly price. Shared scales across cities."
     ],
     "anchor": "start",
     "fontSize": 18,
@@ -138,46 +138,6 @@
         },
         {
           "transform": [
-            {
-              "filter": "datum.city === 'Sydney' && datum.listing_count < 200"
-            }
-          ],
-          "mark": {
-            "type": "point",
-            "shape": "circle",
-            "filled": false,
-            "size": 42,
-            "stroke": "#607D8B",
-            "strokeWidth": 0.65,
-            "opacity": 0.75,
-            "clip": true
-          },
-          "encoding": {
-            "longitude": {
-              "field": "mean_longitude",
-              "type": "quantitative"
-            },
-            "latitude": {
-              "field": "mean_latitude",
-              "type": "quantitative"
-            },
-            "tooltip": [
-              {
-                "field": "neighbourhood",
-                "type": "nominal",
-                "title": "Neighbourhood area"
-              },
-              {
-                "field": "listing_count",
-                "type": "quantitative",
-                "title": "Listings",
-                "format": ","
-              }
-            ]
-          }
-        },
-        {
-          "transform": [
             {"filter": "datum.city === 'Sydney'"}
           ],
           "mark": {
@@ -208,7 +168,7 @@
               "scale": {
                 "type": "linear",
                 "domain": [0, 8500],
-                "range": [0, 850],
+                "range": [12, 850],
                 "nice": false,
                 "zero": true
               },
@@ -370,46 +330,6 @@
         },
         {
           "transform": [
-            {
-              "filter": "datum.city === 'Melbourne' && datum.listing_count < 200"
-            }
-          ],
-          "mark": {
-            "type": "point",
-            "shape": "circle",
-            "filled": false,
-            "size": 42,
-            "stroke": "#607D8B",
-            "strokeWidth": 0.65,
-            "opacity": 0.75,
-            "clip": true
-          },
-          "encoding": {
-            "longitude": {
-              "field": "mean_longitude",
-              "type": "quantitative"
-            },
-            "latitude": {
-              "field": "mean_latitude",
-              "type": "quantitative"
-            },
-            "tooltip": [
-              {
-                "field": "neighbourhood",
-                "type": "nominal",
-                "title": "Neighbourhood area"
-              },
-              {
-                "field": "listing_count",
-                "type": "quantitative",
-                "title": "Listings",
-                "format": ","
-              }
-            ]
-          }
-        },
-        {
-          "transform": [
             {"filter": "datum.city === 'Melbourne'"}
           ],
           "mark": {
@@ -440,7 +360,7 @@
               "scale": {
                 "type": "linear",
                 "domain": [0, 8500],
-                "range": [0, 850],
+                "range": [12, 850],
                 "nice": false,
                 "zero": true
               },
