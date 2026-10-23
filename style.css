@@ -567,6 +567,131 @@ body {
   text-align: left;
 }
 
+#section-industry .section-header {
+  margin-bottom: 16px;
+}
+
+#section-industry .chart-card--half {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  row-gap: 0;
+  min-width: 0;
+}
+
+#section-industry .chart-card--half > .chart {
+  align-self: start;
+  min-width: 0;
+}
+
+#section-industry .chart-card--half > .chart-note {
+  align-self: start;
+  margin: 14px 0 0;
+  padding-top: 12px;
+}
+
+#short-term-rental-map {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#short-term-rental-map .vega-embed {
+  display: block;
+  width: 100%;
+  min-width: 420px;
+  padding-right: 0;
+}
+
+#short-term-rental-map svg.marks {
+  display: block;
+  max-width: none;
+  height: auto;
+  transform: none;
+  touch-action: pan-y;
+}
+
+#short-term-rental-map .sydney_group > g,
+#short-term-rental-map .melbourne_group > g {
+  cursor: grab;
+  touch-action: none;
+}
+
+#short-term-rental-map g.is-dragging,
+#international-state-map g.is-dragging {
+  cursor: grabbing;
+}
+
+#short-term-rental-map [tabindex]:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.rental-navigation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  min-width: 420px;
+  padding: 0 5px;
+}
+
+.rental-navigation-grid .map-toolbar {
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  min-height: 36px;
+}
+
+.rental-navigation-grid .map-controls {
+  gap: 3px;
+}
+
+.rental-navigation-grid .map-controls button {
+  min-width: 28px;
+  height: 30px;
+  padding: 0 6px;
+}
+
+.rental-navigation-grid .map-reset {
+  margin-left: 0;
+}
+
+.rental-navigation-grid .map-zoom-value {
+  min-width: 34px;
+}
+
+.rental-map-help {
+  min-width: 420px;
+  margin: 4px 0 0;
+  padding: 0 5px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  line-height: 16px;
+  text-align: left;
+}
+
+.rental-map-card .chart-source {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+.rental-map-card .chart-source a {
+  color: var(--accent-primary);
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 980px) {
+  #section-industry .chart-card--half {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
 
 
 }

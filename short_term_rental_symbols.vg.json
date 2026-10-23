@@ -1,28 +1,101 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Short-term rental listings grouped by source neighbourhood area. Circle locations are average listing coordinates. Both maps share listing-count and price scales.",
   "title": {
-    "text": "Short-term rentals concentrate in inner Sydney and Melbourne",
-    "subtitle": "Circle area represents listing count; colour represents median nightly price",
+    "text": "Short-term rentals by neighbourhood",
+    "subtitle": [
+      "Circle area: listing count; colour: median advertised price.",
+      "Both maps use the same symbol and colour scales."
+    ],
     "anchor": "start",
     "fontSize": 18,
+    "fontWeight": "bold",
     "subtitleFontSize": 12,
-    "subtitleColor": "#555"
+    "subtitleColor": "#5F6368",
+    "subtitleLineHeight": 16,
+    "subtitlePadding": 7,
+    "offset": 12
   },
+  "autosize": {
+    "type": "pad",
+    "resize": false
+  },
+  "padding": 5,
+  "spacing": 16,
+  "bounds": "flush",
+  "params": [
+    {"name": "sydney_zoom", "value": 1},
+    {"name": "sydney_pan_x", "value": 0},
+    {"name": "sydney_pan_y", "value": 0},
+    {"name": "melbourne_zoom", "value": 1},
+    {"name": "melbourne_pan_x", "value": 0},
+    {"name": "melbourne_pan_y", "value": 0}
+  ],
+  "data": {
+    "url": "data/short_term_rental_listings.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "latitude": "number",
+        "longitude": "number",
+        "price_aud": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "count", "as": "listing_count"},
+        {"op": "mean", "field": "latitude", "as": "mean_latitude"},
+        {"op": "mean", "field": "longitude", "as": "mean_longitude"},
+        {"op": "median", "field": "price_aud", "as": "median_price"}
+      ],
+      "groupby": ["city", "neighbourhood"]
+    }
+  ],
   "hconcat": [
     {
+      "name": "sydney",
+      "width": 220,
+      "height": 260,
       "title": {
-        "text": "Sydney region",
-        "fontSize": 14
+        "text": "Sydney",
+        "anchor": "start",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "offset": 8
       },
-      "width": 330,
-      "height": 400,
       "projection": {
         "type": "mercator",
-        "center": [150.99, -33.75],
-        "scale": 18000,
-        "translate": [165, 200]
+        "center": [151.02, -33.845],
+        "fit": {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [
+              [150.65, -34.12],
+              [151.39, -33.57]
+            ]
+          }
+        },
+        "extent": {
+          "expr": "[[childWidth / 2 + sydney_pan_x - (childWidth - 20) * sydney_zoom / 2, height / 2 + sydney_pan_y - (height - 20) * sydney_zoom / 2], [childWidth / 2 + sydney_pan_x + (childWidth - 20) * sydney_zoom / 2, height / 2 + sydney_pan_y + (height - 20) * sydney_zoom / 2]]"
+        },
+        "clipExtent": {
+          "expr": "[[0, 0], [childWidth, height]]"
+        }
       },
       "layer": [
+        {
+          "data": {"sphere": true},
+          "mark": {
+            "type": "geoshape",
+            "fill": "#EAF3F8",
+            "stroke": null,
+            "clip": true
+          }
+        },
         {
           "data": {
             "url": "data/geo/australian_states.topojson",
@@ -32,67 +105,67 @@
             }
           },
           "transform": [
-            {
-              "filter": "datum.properties.STE_NAME21 == 'New South Wales'"
-            }
+            {"filter": "datum.properties.STE_NAME21 === 'New South Wales'"}
           ],
           "mark": {
             "type": "geoshape",
-            "fill": "#f2f0ea",
-            "stroke": "#777777",
-            "strokeWidth": 0.8,
+            "fill": "#F4F3EF",
+            "stroke": "#9DAAAF",
+            "strokeWidth": 0.65,
             "clip": true
           }
         },
         {
           "data": {
-            "url": "data/short_term_rental_listings.csv",
-            "format": {
-              "type": "csv",
-              "parse": {
-                "latitude": "number",
-                "longitude": "number",
-                "price_aud": "number"
-              }
+            "graticule": {
+              "step": [0.2, 0.2],
+              "extent": [[149.65, -35.12], [152.39, -32.57]]
             }
           },
-          "transform": [
-            {
-              "filter": "datum.city == 'Sydney'"
-            },
-            {
-              "aggregate": [
-                {
-                  "op": "count",
-                  "as": "listing_count"
-                },
-                {
-                  "op": "mean",
-                  "field": "latitude",
-                  "as": "mean_latitude"
-                },
-                {
-                  "op": "mean",
-                  "field": "longitude",
-                  "as": "mean_longitude"
-                },
-                {
-                  "op": "median",
-                  "field": "price_aud",
-                  "as": "median_price"
-                }
-              ],
-              "groupby": [
-                "city",
-                "neighbourhood"
-              ]
+          "mark": {
+            "type": "geoshape",
+            "fill": null,
+            "stroke": "#B9D1DE",
+            "strokeWidth": 0.5,
+            "opacity": 0.65,
+            "clip": true
+          }
+        },
+        {
+          "data": {
+            "url": "data/geo/sydney_neighbourhoods.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
             }
+          },
+          "mark": {
+            "type": "geoshape",
+            "fill": null,
+            "stroke": "#A6AFB4",
+            "strokeWidth": 0.6,
+            "clip": true
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "properties.neighbourhood",
+                "type": "nominal",
+                "title": "Source neighbourhood area"
+              }
+            ]
+          }
+        },
+        {
+          "transform": [
+            {"filter": "datum.city === 'Sydney'"}
           ],
           "mark": {
             "type": "circle",
-            "opacity": 0.78,
+            "opacity": 0.88,
             "stroke": "white",
-            "strokeWidth": 0.8
+            "strokeWidth": 0.8,
+            "clip": true
           },
           "encoding": {
             "longitude": {
@@ -103,68 +176,110 @@
               "field": "mean_latitude",
               "type": "quantitative"
             },
+            "order": {
+              "field": "listing_count",
+              "type": "quantitative",
+              "sort": "descending"
+            },
             "size": {
               "field": "listing_count",
               "type": "quantitative",
               "title": "Number of listings",
               "scale": {
-                "type": "sqrt",
+                "type": "linear",
                 "domain": [0, 8500],
-                "range": [20, 1800]
+                "range": [0, 500],
+                "nice": false,
+                "zero": true
+              },
+              "legend": {
+                "values": [500, 2000, 8000],
+                "format": ",.0f",
+                "symbolFillColor": "#647482",
+                "symbolStrokeColor": "white",
+                "symbolOpacity": 1,
+                "symbolStrokeWidth": 0.8,
+                "titleOrient": "top",
+                "titleAnchor": "start",
+                "columns": 3,
+                "columnPadding": 8
               }
             },
             "color": {
               "field": "median_price",
               "type": "quantitative",
-              "title": "Median nightly price (AUD)",
+              "title": "Median price (AUD)",
               "scale": {
-                "scheme": "blues",
+                "scheme": {
+                  "name": "blues",
+                  "extent": [0.3, 0.95]
+                },
                 "domain": [100, 650],
                 "clamp": true
+              },
+              "legend": {
+                "gradientLength": 145,
+                "gradientThickness": 10,
+                "values": [100, 300, 500, 650],
+                "format": ".0f",
+                "titleOrient": "top",
+                "titleAnchor": "start"
               }
             },
             "tooltip": [
-              {
-                "field": "city",
-                "type": "nominal",
-                "title": "City"
-              },
-              {
-                "field": "neighbourhood",
-                "type": "nominal",
-                "title": "Neighbourhood"
-              },
-              {
-                "field": "listing_count",
-                "type": "quantitative",
-                "title": "Listings",
-                "format": ","
-              },
-              {
-                "field": "median_price",
-                "type": "quantitative",
-                "title": "Median nightly price",
-                "format": "$,.0f"
-              }
+              {"field": "city", "type": "nominal", "title": "City"},
+              {"field": "neighbourhood", "type": "nominal", "title": "Source neighbourhood area"},
+              {"field": "listing_count", "type": "quantitative", "title": "Listings", "format": ","},
+              {"field": "median_price", "type": "quantitative", "title": "Median advertised price (AUD)", "format": "$,.0f"},
+              {"field": "mean_longitude", "type": "quantitative", "title": "Average longitude", "format": ".3f"},
+              {"field": "mean_latitude", "type": "quantitative", "title": "Average latitude", "format": ".3f"}
             ]
           }
         }
       ]
     },
     {
+      "name": "melbourne",
+      "width": 220,
+      "height": 260,
       "title": {
-        "text": "Melbourne region",
-        "fontSize": 14
+        "text": "Melbourne",
+        "anchor": "start",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "offset": 8
       },
-      "width": 330,
-      "height": 400,
       "projection": {
         "type": "mercator",
-        "center": [145.16, -37.86],
-        "scale": 9000,
-        "translate": [165, 200]
+        "center": [145.07, -37.88],
+        "fit": {
+          "type": "Feature",
+          "properties": {},
+          "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [
+              [144.57, -38.21],
+              [145.57, -37.55]
+            ]
+          }
+        },
+        "extent": {
+          "expr": "[[childWidth / 2 + melbourne_pan_x - (childWidth - 20) * melbourne_zoom / 2, height / 2 + melbourne_pan_y - (height - 20) * melbourne_zoom / 2], [childWidth / 2 + melbourne_pan_x + (childWidth - 20) * melbourne_zoom / 2, height / 2 + melbourne_pan_y + (height - 20) * melbourne_zoom / 2]]"
+        },
+        "clipExtent": {
+          "expr": "[[0, 0], [childWidth, height]]"
+        }
       },
       "layer": [
+        {
+          "data": {"sphere": true},
+          "mark": {
+            "type": "geoshape",
+            "fill": "#EAF3F8",
+            "stroke": null,
+            "clip": true
+          }
+        },
         {
           "data": {
             "url": "data/geo/australian_states.topojson",
@@ -174,67 +289,67 @@
             }
           },
           "transform": [
-            {
-              "filter": "datum.properties.STE_NAME21 == 'Victoria'"
-            }
+            {"filter": "datum.properties.STE_NAME21 === 'Victoria'"}
           ],
           "mark": {
             "type": "geoshape",
-            "fill": "#f2f0ea",
-            "stroke": "#777777",
-            "strokeWidth": 0.8,
+            "fill": "#F4F3EF",
+            "stroke": "#9DAAAF",
+            "strokeWidth": 0.65,
             "clip": true
           }
         },
         {
           "data": {
-            "url": "data/short_term_rental_listings.csv",
-            "format": {
-              "type": "csv",
-              "parse": {
-                "latitude": "number",
-                "longitude": "number",
-                "price_aud": "number"
-              }
+            "graticule": {
+              "step": [0.25, 0.25],
+              "extent": [[143.57, -39.21], [146.57, -36.55]]
             }
           },
-          "transform": [
-            {
-              "filter": "datum.city == 'Melbourne'"
-            },
-            {
-              "aggregate": [
-                {
-                  "op": "count",
-                  "as": "listing_count"
-                },
-                {
-                  "op": "mean",
-                  "field": "latitude",
-                  "as": "mean_latitude"
-                },
-                {
-                  "op": "mean",
-                  "field": "longitude",
-                  "as": "mean_longitude"
-                },
-                {
-                  "op": "median",
-                  "field": "price_aud",
-                  "as": "median_price"
-                }
-              ],
-              "groupby": [
-                "city",
-                "neighbourhood"
-              ]
+          "mark": {
+            "type": "geoshape",
+            "fill": null,
+            "stroke": "#B9D1DE",
+            "strokeWidth": 0.5,
+            "opacity": 0.65,
+            "clip": true
+          }
+        },
+        {
+          "data": {
+            "url": "data/geo/melbourne_neighbourhoods.geojson",
+            "format": {
+              "type": "json",
+              "property": "features"
             }
+          },
+          "mark": {
+            "type": "geoshape",
+            "fill": null,
+            "stroke": "#A6AFB4",
+            "strokeWidth": 0.6,
+            "clip": true
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "properties.neighbourhood",
+                "type": "nominal",
+                "title": "Source neighbourhood area"
+              }
+            ]
+          }
+        },
+        {
+          "transform": [
+            {"filter": "datum.city === 'Melbourne'"}
           ],
           "mark": {
             "type": "circle",
-            "opacity": 0.78,
+            "opacity": 0.88,
             "stroke": "white",
-            "strokeWidth": 0.8
+            "strokeWidth": 0.8,
+            "clip": true
           },
           "encoding": {
             "longitude": {
@@ -245,49 +360,63 @@
               "field": "mean_latitude",
               "type": "quantitative"
             },
+            "order": {
+              "field": "listing_count",
+              "type": "quantitative",
+              "sort": "descending"
+            },
             "size": {
               "field": "listing_count",
               "type": "quantitative",
               "title": "Number of listings",
               "scale": {
-                "type": "sqrt",
+                "type": "linear",
                 "domain": [0, 8500],
-                "range": [20, 1800]
+                "range": [0, 500],
+                "nice": false,
+                "zero": true
+              },
+              "legend": {
+                "values": [500, 2000, 8000],
+                "format": ",.0f",
+                "symbolFillColor": "#647482",
+                "symbolStrokeColor": "white",
+                "symbolOpacity": 1,
+                "symbolStrokeWidth": 0.8,
+                "titleOrient": "top",
+                "titleAnchor": "start",
+                "columns": 3,
+                "columnPadding": 8
               }
             },
             "color": {
               "field": "median_price",
               "type": "quantitative",
-              "title": "Median nightly price (AUD)",
+              "title": "Median price (AUD)",
               "scale": {
-                "scheme": "blues",
+                "scheme": {
+                  "name": "blues",
+                  "extent": [0.3, 0.95]
+                },
                 "domain": [100, 650],
                 "clamp": true
+              },
+              "legend": {
+                "gradientLength": 145,
+                "gradientThickness": 10,
+                "values": [100, 300, 500, 650],
+                "format": ".0f",
+                "titleOrient": "top",
+                "titleAnchor": "start"
               }
             },
             "tooltip": [
-              {
-                "field": "city",
-                "type": "nominal",
-                "title": "City"
-              },
-              {
-                "field": "neighbourhood",
-                "type": "nominal",
-                "title": "Neighbourhood"
-              },
-              {
-                "field": "listing_count",
-                "type": "quantitative",
-                "title": "Listings",
-                "format": ","
-              },
-              {
-                "field": "median_price",
-                "type": "quantitative",
-                "title": "Median nightly price",
-                "format": "$,.0f"
-              }
+              {"field": "city", "type": "nominal", "title": "City"},
+              {"field": "neighbourhood", "type": "nominal", "title": "Source neighbourhood area"},
+              {"field": "listing_count", "type": "quantitative", "title": "Listings", "format": ","},
+              {"field": "median_price", "type": "quantitative", "title": "Median advertised price (AUD)", "format": "$,.0f"},
+              {"field": "mean_longitude", "type": "quantitative", "title": "Average longitude", "format": ".3f"},
+              {"field": "mean_latitude", "type": "quantitative", "title": "Average latitude", "format": ".3f"}
             ]
           }
         }
@@ -298,17 +427,29 @@
     "scale": {
       "size": "shared",
       "color": "shared"
+    },
+    "legend": {
+      "size": "shared",
+      "color": "shared"
     }
   },
   "config": {
     "background": "white",
+    "font": "Arial",
     "view": {
-      "stroke": null
+      "stroke": "#C7D6DE",
+      "strokeWidth": 0.7
     },
     "legend": {
-      "labelFontSize": 11,
+      "orient": "top",
+      "direction": "horizontal",
       "titleFontSize": 12,
-      "orient": "bottom"
+      "titleFontWeight": "bold",
+      "labelFontSize": 11,
+      "labelColor": "#374151",
+      "titleColor": "#202124",
+      "offset": 10,
+      "padding": 0
     }
   }
 }

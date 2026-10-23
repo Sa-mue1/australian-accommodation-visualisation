@@ -3,56 +3,106 @@ const embedOptions = {
   renderer: "svg"
 };
 
-function enableMapNavigation(view, container) {
+function createViewUpdater(view) {
+  let pending = {};
+  let needsResize = false;
+  let scheduled = false;
+  let running = false;
+
+  async function flush() {
+    scheduled = false;
+
+    if (running) return;
+
+    running = true;
+
+    try {
+      while (Object.keys(pending).length) {
+        const values = pending;
+        const resize = needsResize;
+
+        pending = {};
+        needsResize = false;
+
+        if (resize) view.resize();
+
+        await view.runAsync(null, current => {
+          for (const [name, value] of Object.entries(values)) {
+            current.signal(name, value);
+          }
+        });
+      }
+    } catch (error) {
+      console.error("Chart update failed:", error);
+    } finally {
+      running = false;
+
+      if (Object.keys(pending).length && !scheduled) {
+        scheduled = true;
+        requestAnimationFrame(flush);
+      }
+    }
+  }
+
+  return (values, resize = false) => {
+    Object.assign(pending, values);
+
+    needsResize = needsResize || resize;
+
+    if (!scheduled && !running) {
+      scheduled = true;
+      requestAnimationFrame(flush);
+    }
+  };
+}
+
+function enableMapNavigation(view, container, options = {}) {
   const svg = container.querySelector("svg.marks");
-  const frame = svg?.querySelector("g.mark-group.role-frame.root");
+
+  const frame = svg?.querySelector(
+    options.frameSelector || "g.mark-group.role-frame.root"
+  );
 
   if (!svg || !frame) return;
 
-  container.tabIndex = 0;
-  container.setAttribute("role", "region");
-  container.setAttribute(
+  const prefix = options.prefix || "map";
+  const label = options.label || "Australian";
+  const focusTarget = options.focusFrame ? frame : container;
+  const controlsHost = options.controlsHost || container;
+  const update = options.update || createViewUpdater(view);
+  const widthSignal = options.widthSignal || "width";
+
+  focusTarget.setAttribute("tabindex", "0");
+  focusTarget.setAttribute("role", "region");
+
+  focusTarget.setAttribute(
     "aria-label",
-    "Interactive Australian map. Drag to move. Scroll to zoom. Arrow keys move the view. Plus and minus zoom. Home resets."
+    `Interactive ${label} map. Drag to move. Scroll to zoom. Arrow keys move the view. Plus and minus zoom. Home resets.`
   );
 
   const toolbar = document.createElement("div");
+
   toolbar.className = "map-toolbar";
 
   toolbar.innerHTML = `
-    <div class="map-controls" role="group" aria-label="Map navigation">
-      <button
-        type="button"
-        data-map-action="out"
-        aria-label="Zoom out"
-        title="Zoom out"
-      >−</button>
-
-      <output
-        class="map-zoom-value"
-        aria-label="Zoom level"
-        aria-live="off"
-      >100%</output>
-
-      <button
-        type="button"
-        data-map-action="in"
-        aria-label="Zoom in"
-        title="Zoom in"
-      >+</button>
-
-      <button
-        type="button"
-        data-map-action="reset"
-        class="map-reset"
-        title="Show all of Australia"
-      >Reset</button>
+    <div class="map-controls" role="group" aria-label="${label} map navigation">
+      <button type="button" data-map-action="out" aria-label="Zoom out of ${label}" title="Zoom out">−</button>
+      <output class="map-zoom-value" aria-label="${label} zoom level" aria-live="off">100%</output>
+      <button type="button" data-map-action="in" aria-label="Zoom into ${label}" title="Zoom in">+</button>
+      <button type="button" data-map-action="reset" class="map-reset" title="Reset ${label} map">Reset</button>
     </div>
-
-    <p class="map-help">Drag to move. Scroll to zoom.</p>
   `;
 
-  container.appendChild(toolbar);
+  if (options.showHelp !== false) {
+    const help = document.createElement("p");
+
+    help.className = "map-help";
+    help.textContent = "Drag to move. Scroll to zoom.";
+
+    toolbar.appendChild(help);
+  }
+
+  controlsHost.appendChild(toolbar);
 
   const zoomValue = toolbar.querySelector("output");
   const zoomIn = toolbar.querySelector('[data-map-action="in"]');
@@ -64,16 +114,13 @@ function enableMapNavigation(view, container) {
     y: 0
   };
 
-  let pending = null;
-  let rendering = false;
-  let animation = 0;
   let drag = null;
 
   const clamp = (value, min, max) =>
     Math.max(min, Math.min(max, value));
 
   const dimensions = () => ({
-    width: Number(view.signal("width")),
+    width: Number(view.signal(widthSignal)),
     height: Number(view.signal("height"))
   });
 
@@ -100,35 +147,6 @@ function enableMapNavigation(view, container) {
       point.y <= height;
   }
 
-  async function renderCamera() {
-    animation = 0;
-
-    if (rendering) return;
-
-    rendering = true;
-
-    try {
-      while (pending) {
-        const next = pending;
-        pending = null;
-
-        await view.runAsync(null, current => {
-          current.signal("map_zoom", next.zoom);
-          current.signal("map_pan_x", next.x);
-          current.signal("map_pan_y", next.y);
-        });
-      }
-    } catch (error) {
-      console.error("Map navigation failed:", error);
-    } finally {
-      rendering = false;
-
-      if (pending && !animation) {
-        animation = requestAnimationFrame(renderCamera);
-      }
-    }
-  }
-
   function moveCamera(next) {
     const { width, height } = dimensions();
 
@@ -142,16 +160,16 @@ function enableMapNavigation(view, container) {
       y: clamp(next.y, -maxY, maxY)
     };
 
-    pending = { ...camera };
+    update({
+      [`${prefix}_zoom`]: camera.zoom,
+      [`${prefix}_pan_x`]: camera.x,
+      [`${prefix}_pan_y`]: camera.y
+    });
 
     zoomValue.textContent = `${Math.round(zoom * 100)}%`;
 
     zoomOut.disabled = zoom <= 1;
     zoomIn.disabled = zoom >= 6;
-
-    if (!animation && !rendering) {
-      animation = requestAnimationFrame(renderCamera);
-    }
   }
 
   function changeZoom(factor, point) {
@@ -188,13 +206,8 @@ function enableMapNavigation(view, container) {
   toolbar.addEventListener("click", event => {
     const action = event.target.closest("button")?.dataset.mapAction;
 
-    if (action === "in") {
-      changeZoom(1.35);
-    }
-
-    if (action === "out") {
-      changeZoom(1 / 1.35);
-    }
+    if (action === "in") changeZoom(1.35);
+    if (action === "out") changeZoom(1 / 1.35);
 
     if (action === "reset") {
       moveCamera({
@@ -215,27 +228,27 @@ function enableMapNavigation(view, container) {
       event.deltaMode === 2 ? 300 :
       1;
 
-    const delta = event.deltaY * multiplier;
-    const factor = Math.exp(-clamp(delta, -250, 250) * 0.002);
+    const factor = Math.exp(
+      -clamp(event.deltaY * multiplier, -250, 250) * 0.002
+    );
 
     if (clamp(camera.zoom * factor, 1, 6) === camera.zoom) {
       return;
     }
 
     event.preventDefault();
+
     changeZoom(factor, point);
   }, { passive: false });
 
   svg.addEventListener("pointerdown", event => {
     const point = plotPoint(event);
 
-    if (event.button !== 0 || drag || !inside(point)) {
-      return;
-    }
+    if (event.button !== 0 || drag || !inside(point)) return;
 
     event.preventDefault();
 
-    container.focus({
+    focusTarget.focus({
       preventScroll: true
     });
 
@@ -247,13 +260,12 @@ function enableMapNavigation(view, container) {
     };
 
     svg.setPointerCapture(event.pointerId);
-    container.classList.add("is-dragging");
+
+    frame.classList.add("is-dragging");
   });
 
   svg.addEventListener("pointermove", event => {
-    if (!drag || event.pointerId !== drag.id) {
-      return;
-    }
+    if (!drag || event.pointerId !== drag.id) return;
 
     const point = plotPoint(event);
 
@@ -267,14 +279,13 @@ function enableMapNavigation(view, container) {
   });
 
   function endDrag(event) {
-    if (!drag || event.pointerId !== drag.id) {
-      return;
-    }
+    if (!drag || event.pointerId !== drag.id) return;
 
     const pointerId = drag.id;
 
     drag = null;
-    container.classList.remove("is-dragging");
+
+    frame.classList.remove("is-dragging");
 
     if (svg.hasPointerCapture(pointerId)) {
       svg.releasePointerCapture(pointerId);
@@ -285,10 +296,8 @@ function enableMapNavigation(view, container) {
   svg.addEventListener("pointercancel", endDrag);
   svg.addEventListener("lostpointercapture", endDrag);
 
-  container.addEventListener("keydown", event => {
-    if (event.target.closest("button, summary, a, input")) {
-      return;
-    }
+  focusTarget.addEventListener("keydown", event => {
+    if (event.target.closest("button, summary, a, input")) return;
 
     const moves = {
       ArrowLeft: [40, 0],
@@ -327,51 +336,80 @@ function enableMapNavigation(view, container) {
   zoomOut.disabled = true;
 }
 
+function enableRentalMaps(view, container) {
+  const update = createViewUpdater(view);
+
+  const navigation = document.createElement("div");
+
+  navigation.className = "rental-navigation-grid";
+
+  container.appendChild(navigation);
+
+  const cities = [
+    ["sydney", "Sydney"],
+    ["melbourne", "Melbourne"]
+  ];
+
+  for (const [prefix, label] of cities) {
+    const host = document.createElement("div");
+
+    navigation.appendChild(host);
+
+    enableMapNavigation(view, container, {
+      prefix,
+      label,
+      frameSelector: `g.${prefix}_group > g`,
+      widthSignal: "childWidth",
+      focusFrame: true,
+      controlsHost: host,
+      showHelp: false,
+      update
+    });
+  }
+
+  const help = document.createElement("p");
+
+  help.className = "rental-map-help";
+  help.textContent =
+    "Drag either map to move. Scroll or use buttons to zoom.";
+
+  container.appendChild(help);
+
+  let previousWidth = 0;
+
+  function resizeMaps() {
+    const width = Math.floor(
+      (Math.max(420, container.clientWidth) - 26) / 2
+    );
+
+    if (width === previousWidth) return;
+
+    previousWidth = width;
+
+    update({
+      childWidth: width
+    }, true);
+  }
+
+  const observer = new ResizeObserver(resizeMaps);
+
+  observer.observe(container);
+
+  resizeMaps();
+}
+
 const charts = [
-  [
-    "domestic-recovery",
-    "domestic_recovery.vg.json"
-  ],
-  [
-    "domestic-quarters",
-    "domestic_state_quarters.vg.json"
-  ],
-  [
-    "international-state-map",
-    "international_state_recovery.vg.json"
-  ],
-  [
-    "short-term-rental-map",
-    "short_term_rental_symbols.vg.json"
-  ],
-  [
-    "international-origin-flow",
-    "international_origin_flow.vg.json"
-  ],
-  [
-    "international-accommodation-change",
-    "international_accommodation_change.vg.json"
-  ],
-  [
-    "hotel-destination-rankings",
-    "hotel_destination_rankings.vg.json"
-  ],
-  [
-    "short-term-rental-price-density",
-    "short_term_rental_price_density.vg.json"
-  ],
-  [
-    "domestic-accommodation-streamgraph",
-    "domestic_accommodation_streamgraph.vg.json"
-  ],
-  [
-    "state-accommodation-mosaic",
-    "state_accommodation_mosaic.vg.json"
-  ],
-  [
-    "accommodation-occupancy-radial",
-    "accommodation_occupancy_radial.vg.json"
-  ]
+  ["domestic-recovery", "domestic_recovery.vg.json"],
+  ["domestic-quarters", "domestic_state_quarters.vg.json"],
+  ["international-state-map", "international_state_recovery.vg.json"],
+  ["short-term-rental-map", "short_term_rental_symbols.vg.json"],
+  ["international-origin-flow", "international_origin_flow.vg.json"],
+  ["international-accommodation-change", "international_accommodation_change.vg.json"],
+  ["hotel-destination-rankings", "hotel_destination_rankings.vg.json"],
+  ["short-term-rental-price-density", "short_term_rental_price_density.vg.json"],
+  ["domestic-accommodation-streamgraph", "domestic_accommodation_streamgraph.vg.json"],
+  ["state-accommodation-mosaic", "state_accommodation_mosaic.vg.json"],
+  ["accommodation-occupancy-radial", "accommodation_occupancy_radial.vg.json"]
 ];
 
 for (const [id, specification] of charts) {
@@ -383,6 +421,10 @@ for (const [id, specification] of charts) {
     .then(result => {
       if (id === "international-state-map") {
         enableMapNavigation(result.view, container);
+      }
+
+      if (id === "short-term-rental-map") {
+        enableRentalMaps(result.view, container);
       }
     })
     .catch(console.error);
