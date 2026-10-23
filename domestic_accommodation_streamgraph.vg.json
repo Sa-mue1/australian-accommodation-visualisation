@@ -1,22 +1,18 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
   "width": "container",
   "height": 320,
-
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
     "resize": true
   },
-
   "padding": {
     "left": 5,
     "right": 5,
     "top": 5,
     "bottom": 5
   },
-
   "title": {
     "text": "Domestic accommodation visitor nights",
     "subtitle": "Visitor nights by accommodation type in Australia, 2019–2024",
@@ -28,18 +24,13 @@
     "subtitlePadding": 7,
     "offset": 12
   },
-
   "data": {
     "url": "data/domestic_accommodation_types.csv",
     "format": {
       "type": "csv",
-      "parse": {
-        "year": "number",
-        "value": "number"
-      }
+      "parse": {"year": "number", "value": "number"}
     }
   },
-
   "transform": [
     {
       "filter": "datum.geography === 'Australia' && datum.area_type === 'australia_total' && datum.measure === 'visitor_nights_thousand' && datum.accommodation_type !== 'All accommodation' && datum.data_status === 'published' && datum.year >= 2019 && datum.year <= 2024"
@@ -50,11 +41,7 @@
     },
     {
       "aggregate": [
-        {
-          "op": "sum",
-          "field": "value",
-          "as": "visitor_nights_thousand"
-        }
+        {"op": "sum", "field": "value", "as": "visitor_nights_thousand"}
       ],
       "groupby": ["year", "category"]
     },
@@ -81,7 +68,6 @@
       "as": "category_order"
     }
   ],
-
   "encoding": {
     "x": {
       "field": "year",
@@ -109,7 +95,6 @@
       }
     }
   },
-
   "layer": [
     {
       "mark": {
@@ -119,16 +104,12 @@
         "stroke": "white",
         "strokeWidth": 0.8
       },
-
       "encoding": {
         "y": {
           "field": "visitor_nights_million",
           "type": "quantitative",
           "stack": "center",
-          "scale": {
-            "domainMin": 0,
-            "nice": false
-          },
+          "scale": {"domainMin": 0, "nice": false},
           "axis": {
             "title": "Visitor nights (millions)",
             "labels": false,
@@ -140,7 +121,6 @@
             "titlePadding": 14
           }
         },
-
         "color": {
           "field": "category",
           "type": "nominal",
@@ -153,11 +133,11 @@
               "Other"
             ],
             "range": [
-              "#0072B2",
-              "#E69F00",
-              "#009E73",
-              "#CC79A7",
-              "#999999"
+              "#3E454D",
+              "#3366A3",
+              "#B78118",
+              "#A05E93",
+              "#B8BDC5"
             ]
           },
           "legend": {
@@ -174,13 +154,11 @@
             "offset": 12
           }
         },
-
         "order": {
           "field": "category_order",
           "type": "quantitative",
           "sort": "ascending"
         },
-
         "tooltip": [
           {
             "field": "year",
@@ -208,14 +186,10 @@
         ]
       }
     },
-
     {
       "transform": [
-        {
-          "filter": "datum.year === 2020 && datum.category === 'Hotels'"
-        }
+        {"filter": "datum.year === 2020 && datum.category === 'Hotels'"}
       ],
-
       "mark": {
         "type": "rule",
         "color": "#4B5563",
@@ -223,24 +197,15 @@
         "strokeWidth": 1.2,
         "opacity": 0.75
       },
-
       "encoding": {
-        "y": {
-          "value": 0
-        },
-        "y2": {
-          "value": 275
-        }
+        "y": {"value": 0},
+        "y2": {"value": 275}
       }
     },
-
     {
       "transform": [
-        {
-          "filter": "datum.year === 2020 && datum.category === 'Hotels'"
-        }
+        {"filter": "datum.year === 2020 && datum.category === 'Hotels'"}
       ],
-
       "mark": {
         "type": "text",
         "align": "left",
@@ -250,27 +215,18 @@
         "fontWeight": "bold",
         "color": "#202124"
       },
-
       "encoding": {
-        "y": {
-          "value": 8
-        },
-        "text": {
-          "value": "2020: visitor nights fell"
-        }
+        "y": {"value": 8},
+        "text": {"value": "2020: visitor nights fell"}
       }
     },
-
     {
       "transform": [
         {
           "stack": "visitor_nights_million",
           "groupby": ["year"],
           "sort": [
-            {
-              "field": "category_order",
-              "order": "ascending"
-            }
+            {"field": "category_order", "order": "ascending"}
           ],
           "offset": "center",
           "as": ["anchor_start", "anchor_end"]
@@ -279,34 +235,23 @@
           "filter": "datum.year === 2020 && datum.category === 'Friends or relatives'"
         }
       ],
-
       "mark": {
         "type": "rule",
-        "color": "#0072B2",
+        "color": "#3E454D",
         "strokeWidth": 1.2
       },
-
       "encoding": {
-        "y": {
-          "field": "anchor_start",
-          "type": "quantitative"
-        },
-        "x2": {
-          "datum": 2020
-        },
-        "y2": {
-          "datum": 45
-        }
+        "y": {"field": "anchor_start", "type": "quantitative"},
+        "x2": {"datum": 2020},
+        "y2": {"datum": 45}
       }
     },
-
     {
       "transform": [
         {
           "filter": "datum.year === 2020 && datum.category === 'Friends or relatives'"
         }
       ],
-
       "mark": {
         "type": "rect",
         "fill": "#E8F3F8",
@@ -314,35 +259,20 @@
         "strokeWidth": 1,
         "cornerRadius": 4
       },
-
       "encoding": {
-        "x": {
-          "datum": 2019.85,
-          "type": "quantitative"
-        },
-        "x2": {
-          "datum": 2020.65
-        },
-        "y": {
-          "datum": 45,
-          "type": "quantitative"
-        },
-        "y2": {
-          "datum": 6
-        }
+        "x": {"datum": 2019.85, "type": "quantitative"},
+        "x2": {"datum": 2020.65},
+        "y": {"datum": 45, "type": "quantitative"},
+        "y2": {"datum": 6}
       }
     },
-
     {
       "transform": [
         {
           "stack": "visitor_nights_million",
           "groupby": ["year"],
           "sort": [
-            {
-              "field": "category_order",
-              "order": "ascending"
-            }
+            {"field": "category_order", "order": "ascending"}
           ],
           "offset": "center",
           "as": ["anchor_start", "anchor_end"]
@@ -351,31 +281,24 @@
           "filter": "datum.year === 2020 && datum.category === 'Friends or relatives'"
         }
       ],
-
       "mark": {
         "type": "point",
         "filled": true,
         "size": 28,
-        "color": "#0072B2",
+        "color": "#3E454D",
         "stroke": "white",
         "strokeWidth": 1
       },
-
       "encoding": {
-        "y": {
-          "field": "anchor_start",
-          "type": "quantitative"
-        }
+        "y": {"field": "anchor_start", "type": "quantitative"}
       }
     },
-
     {
       "transform": [
         {
           "filter": "datum.year === 2020 && datum.category === 'Friends or relatives'"
         }
       ],
-
       "mark": {
         "type": "text",
         "align": "left",
@@ -385,33 +308,21 @@
         "fontWeight": "bold",
         "lineBreak": "\n",
         "lineHeight": 12,
-        "color": "#184E65"
+        "color": "#202124"
       },
-
       "encoding": {
-        "x": {
-          "datum": 2019.85,
-          "type": "quantitative"
-        },
-        "y": {
-          "datum": 33.5,
-          "type": "quantitative"
-        },
+        "x": {"datum": 2019.85, "type": "quantitative"},
+        "y": {"datum": 33.5, "type": "quantitative"},
         "text": {
           "value": "Friends or relatives led\nvisitor nights in every year."
         }
       }
     }
   ],
-
   "config": {
     "background": "white",
     "font": "Arial",
-
-    "view": {
-      "stroke": null
-    },
-
+    "view": {"stroke": null},
     "axis": {
       "labelColor": "#374151",
       "titleColor": "#202124"

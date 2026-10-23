@@ -651,6 +651,75 @@ body {
   line-height: 17px;
 }
 
+.occupancy-card > .occupancy-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 10px 0 0;
+  padding-top: 12px;
+  text-align: left;
+}
+
+.occupancy-results p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.recovery-introduction span,
+.recovery-story p span,
+.recovery-definition span,
+.recovery-method span,
+.recovery-band-note span {
+  display: block;
+}
+
+.recovery-card > .recovery-story {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 28px;
+  margin-top: 12px;
+  padding-top: 12px;
+  text-align: left;
+}
+
+.recovery-story h3 {
+  margin: 0 0 4px;
+  color: var(--text-primary);
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.recovery-story p {
+  margin: 0;
+  font-size: 0.91rem;
+  line-height: 1.5;
+}
+
+.recovery-definition {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 28px;
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.recovery-method strong,
+.recovery-band-note strong {
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  .occupancy-annotation {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    margin: 8px 5px 0;
+  }
+}
+
 @media (max-width: 980px) {
   .page-container {
     width: calc(100% - 36px);
@@ -680,10 +749,14 @@ body {
   }
 }
 
-@media (max-width: 1000px) {
-  .occupancy-annotation {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    margin: 8px 5px 0;
+@media (max-width: 760px) {
+  .recovery-card > .recovery-story,
+  .recovery-definition {
+    grid-template-columns: 1fr;
+  }
+
+  .recovery-card > .recovery-story {
+    gap: 12px;
   }
 }
 
@@ -779,26 +852,8 @@ body {
     padding: 10px;
   }
 
-
-  .occupancy-card > .occupancy-results {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  margin: 10px 0 0;
-  padding-top: 12px;
-  text-align: left;
-}
-
-.occupancy-results p {
-  margin: 0;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-@media (max-width: 640px) {
   .occupancy-card > .occupancy-results {
     grid-template-columns: 1fr;
     gap: 8px;
   }
-}
 }
