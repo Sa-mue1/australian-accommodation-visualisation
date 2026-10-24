@@ -66,9 +66,7 @@
   },
   "layer": [
     {
-      "data": {
-        "sphere": true
-      },
+      "data": {"sphere": true},
       "mark": {
         "type": "geoshape",
         "fill": "#F2F7FA",
@@ -78,9 +76,7 @@
     },
     {
       "data": {
-        "graticule": {
-          "step": [60, 30]
-        }
+        "graticule": {"step": [60, 30]}
       },
       "mark": {
         "type": "geoshape",
@@ -99,9 +95,7 @@
         }
       },
       "transform": [
-        {
-          "filter": "toNumber(datum.id) !== 10"
-        }
+        {"filter": "toNumber(datum.id) !== 10"}
       ],
       "mark": {
         "type": "geoshape",
@@ -118,10 +112,7 @@
             "type": "Feature",
             "geometry": {
               "type": "LineString",
-              "coordinates": [
-                [0, -55],
-                [0, 75]
-              ]
+              "coordinates": [[0, -55], [0, 75]]
             }
           }
         ]
@@ -208,18 +199,9 @@
         "clip": true
       },
       "encoding": {
-        "longitude": {
-          "field": "route_lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "route_lat",
-          "type": "quantitative"
-        },
-        "detail": {
-          "field": "origin_country",
-          "type": "nominal"
-        },
+        "longitude": {"field": "route_lon", "type": "quantitative"},
+        "latitude": {"field": "route_lat", "type": "quantitative"},
+        "detail": {"field": "origin_country", "type": "nominal"},
         "order": {
           "field": "step",
           "type": "quantitative",
@@ -230,7 +212,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["Growth", "Decline"],
-            "range": ["#BD2674", "#55606D"]
+            "range": ["#527A6F", "#AA8660"]
           },
           "legend": {
             "title": "Change since 2025",
@@ -327,7 +309,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["Growth", "Decline"],
-            "range": ["#BD2674", "#55606D"]
+            "range": ["#527A6F", "#AA8660"]
           },
           "legend": null
         },
@@ -389,9 +371,7 @@
           "field": "origin_latitude",
           "type": "quantitative"
         },
-        "text": {
-          "field": "origin_label"
-        }
+        "text": {"field": "origin_label"}
       }
     },
     {
@@ -601,8 +581,6 @@
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {
-      "stroke": null
-    }
+    "view": {"stroke": null}
   }
 }
