@@ -1,18 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 360,
+  "height": 260,
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
     "resize": true
   },
-  "padding": {
-    "left": 5,
-    "right": 5,
-    "top": 5,
-    "bottom": 5
-  },
+  "padding": {"left": 5, "right": 5, "top": 5, "bottom": 5},
   "title": {
     "text": [
       "Queensland had the highest hotel share",
@@ -20,15 +15,15 @@
     ],
     "subtitle": [
       "Domestic visitor nights by accommodation type, 2024",
-      "Column width represents each state's total nights"
+      "Widths compare recorded accommodation nights"
     ],
     "anchor": "start",
     "fontSize": 17,
     "fontWeight": "bold",
     "subtitleFontSize": 12,
     "subtitleFontWeight": "normal",
-    "subtitlePadding": 8,
-    "offset": 12
+    "subtitlePadding": 7,
+    "offset": 8
   },
   "data": {
     "url": "data/domestic_accommodation_types.csv",
@@ -73,9 +68,7 @@
     {
       "stack": "visitor_nights_thousand",
       "groupby": ["state_or_territory"],
-      "sort": [
-        {"field": "group_order", "order": "ascending"}
-      ],
+      "sort": [{"field": "group_order", "order": "ascending"}],
       "as": ["y0_count", "y1_count"],
       "offset": "zero"
     },
@@ -133,7 +126,7 @@
           "type": "quantitative",
           "scale": {"domain": [0, 1], "nice": false},
           "axis": {
-            "title": "State (width = total visitor nights)",
+            "title": "State (width = recorded nights)",
             "values": [
               0.15473336,
               0.44365708,
@@ -145,12 +138,13 @@
             "labelAngle": 0,
             "labelFontSize": 12,
             "labelFontWeight": "bold",
-            "labelPadding": 9,
+            "labelPadding": 6,
             "tickSize": 0,
             "domain": false,
             "grid": false,
             "titleFontSize": 13,
-            "titlePadding": 14
+            "titlePadding": 8,
+            "titleFontWeight": "bold"
           }
         },
         "x2": {"field": "x1"},
@@ -159,7 +153,7 @@
           "type": "quantitative",
           "scale": {"domain": [0, 1], "nice": false},
           "axis": {
-            "title": "Share of state visitor nights",
+            "title": "Share of recorded state nights",
             "format": ".0%",
             "values": [0, 0.2, 0.4, 0.6, 0.8, 1],
             "grid": false,
@@ -167,7 +161,8 @@
             "titleFontSize": 13,
             "titlePadding": 12,
             "domain": false,
-            "tickSize": 0
+            "tickSize": 0,
+            "titleFontWeight": "bold"
           }
         },
         "y2": {"field": "y1"},
@@ -205,10 +200,12 @@
             "labelFontSize": 11,
             "labelLimit": 135,
             "titleFontSize": 12,
-            "titlePadding": 7,
+            "titlePadding": 5,
             "rowPadding": 5,
             "columnPadding": 10,
-            "symbolSize": 90
+            "symbolSize": 90,
+            "titleFontWeight": "bold",
+            "offset": 8
           }
         },
         "tooltip": [
@@ -231,13 +228,13 @@
           {
             "field": "state_total_million",
             "type": "quantitative",
-            "title": "State total nights (millions)",
+            "title": "Recorded category nights (millions)",
             "format": ",.1f"
           },
           {
             "field": "accommodation_share",
             "type": "quantitative",
-            "title": "Share of state nights",
+            "title": "Share of recorded state nights",
             "format": ".1%"
           }
         ]
@@ -248,7 +245,7 @@
         "type": "text",
         "align": "center",
         "baseline": "middle",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": "bold"
       },
       "encoding": {
@@ -284,7 +281,7 @@
           {
             "field": "accommodation_share",
             "type": "quantitative",
-            "title": "Share of state nights",
+            "title": "Share of recorded state nights",
             "format": ".1%"
           }
         ]
