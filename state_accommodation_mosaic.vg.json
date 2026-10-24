@@ -1,13 +1,18 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 260,
+  "height": 300,
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
     "resize": true
   },
-  "padding": {"left": 5, "right": 5, "top": 5, "bottom": 5},
+  "padding": {
+    "left": 5,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
   "title": {
     "text": [
       "Queensland had the highest hotel share",
@@ -29,7 +34,10 @@
     "url": "data/domestic_accommodation_types.csv",
     "format": {
       "type": "csv",
-      "parse": {"year": "number", "value": "number"}
+      "parse": {
+        "year": "number",
+        "value": "number"
+      }
     }
   },
   "transform": [
@@ -46,7 +54,11 @@
     },
     {
       "aggregate": [
-        {"op": "sum", "field": "value", "as": "visitor_nights_thousand"}
+        {
+          "op": "sum",
+          "field": "value",
+          "as": "visitor_nights_thousand"
+        }
       ],
       "groupby": [
         "state_code",
@@ -68,7 +80,12 @@
     {
       "stack": "visitor_nights_thousand",
       "groupby": ["state_or_territory"],
-      "sort": [{"field": "group_order", "order": "ascending"}],
+      "sort": [
+        {
+          "field": "group_order",
+          "order": "ascending"
+        }
+      ],
       "as": ["y0_count", "y1_count"],
       "offset": "zero"
     },
@@ -124,7 +141,10 @@
         "x": {
           "field": "x0",
           "type": "quantitative",
-          "scale": {"domain": [0, 1], "nice": false},
+          "scale": {
+            "domain": [0, 1],
+            "nice": false
+          },
           "axis": {
             "title": "State (width = recorded nights)",
             "values": [
@@ -143,15 +163,20 @@
             "domain": false,
             "grid": false,
             "titleFontSize": 13,
-            "titlePadding": 8,
-            "titleFontWeight": "bold"
+            "titleFontWeight": "bold",
+            "titlePadding": 8
           }
         },
-        "x2": {"field": "x1"},
+        "x2": {
+          "field": "x1"
+        },
         "y": {
           "field": "y0",
           "type": "quantitative",
-          "scale": {"domain": [0, 1], "nice": false},
+          "scale": {
+            "domain": [0, 1],
+            "nice": false
+          },
           "axis": {
             "title": "Share of recorded state nights",
             "format": ".0%",
@@ -159,13 +184,15 @@
             "grid": false,
             "labelFontSize": 12,
             "titleFontSize": 13,
+            "titleFontWeight": "bold",
             "titlePadding": 12,
             "domain": false,
-            "tickSize": 0,
-            "titleFontWeight": "bold"
+            "tickSize": 0
           }
         },
-        "y2": {"field": "y1"},
+        "y2": {
+          "field": "y1"
+        },
         "color": {
           "field": "accommodation_group",
           "type": "nominal",
@@ -200,11 +227,11 @@
             "labelFontSize": 11,
             "labelLimit": 135,
             "titleFontSize": 12,
+            "titleFontWeight": "bold",
             "titlePadding": 5,
             "rowPadding": 5,
             "columnPadding": 10,
             "symbolSize": 90,
-            "titleFontWeight": "bold",
             "offset": 8
           }
         },
@@ -252,14 +279,22 @@
         "x": {
           "field": "x_center",
           "type": "quantitative",
-          "scale": {"domain": [0, 1], "nice": false}
+          "scale": {
+            "domain": [0, 1],
+            "nice": false
+          }
         },
         "y": {
           "field": "y_center",
           "type": "quantitative",
-          "scale": {"domain": [0, 1], "nice": false}
+          "scale": {
+            "domain": [0, 1],
+            "nice": false
+          }
         },
-        "text": {"field": "share_label"},
+        "text": {
+          "field": "share_label"
+        },
         "color": {
           "condition": {
             "test": "indexof(['Hotels', 'Friends/relatives', 'Caravan/camping'], datum.accommodation_group) >= 0",
@@ -291,6 +326,8 @@
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {"stroke": null}
+    "view": {
+      "stroke": null
+    }
   }
 }
