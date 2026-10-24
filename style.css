@@ -14,13 +14,9 @@
   --card-radius: 6px;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -37,11 +33,7 @@ body {
   padding: 40px 0 64px;
 }
 
-.hero {
-  max-width: 900px;
-  margin: 0 0 48px;
-  text-align: left;
-}
+.hero { max-width: 900px; margin: 0 0 48px; text-align: left; }
 
 .eyebrow {
   margin: 0 0 10px;
@@ -77,13 +69,11 @@ body {
   scroll-margin-top: 20px;
 }
 
-.story-section:first-of-type {
-  margin-top: 0;
-}
+.story-section:first-of-type { margin-top: 0; }
 
 .section-header {
   max-width: 100%;
-  margin: 0 0 20px;
+  margin: 0 0 14px;
   text-align: left;
 }
 
@@ -108,10 +98,10 @@ body {
 
 .section-introduction {
   max-width: 900px;
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   color: var(--text-secondary);
   font-size: 0.98rem;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .chart-grid {
@@ -119,17 +109,13 @@ body {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   align-items: stretch;
   column-gap: 24px;
-  row-gap: 24px;
+  row-gap: 20px;
 }
 
 .chart-card--full,
-.grid-full {
-  grid-column: 1 / -1;
-}
+.grid-full { grid-column: 1 / -1; }
 
-.chart-card--half {
-  grid-column: span 6;
-}
+.chart-card--half { grid-column: span 6; }
 
 .chart-card {
   display: flex;
@@ -141,32 +127,15 @@ body {
   border-radius: var(--card-radius);
 }
 
-.chart {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  overflow: hidden;
-}
+.chart { display: block; width: 100%; min-width: 0; overflow: hidden; }
 
-.chart .vega-embed {
-  display: block;
-  width: 100%;
-  min-width: 0;
-}
+.chart .vega-embed { display: block; width: 100%; min-width: 0; }
 
-.chart .vega-embed.has-actions {
-  padding-right: 36px;
-}
+.chart .vega-embed.has-actions { padding-right: 36px; }
 
-.chart .vega-embed > div {
-  max-width: 100%;
-}
+.chart .vega-embed > div { max-width: 100%; }
 
-.chart svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
+.chart svg { display: block; max-width: 100%; height: auto; }
 
 .chart .vega-embed summary svg {
   width: 16px;
@@ -176,9 +145,7 @@ body {
   transform: none;
 }
 
-#domestic-recovery .vega-embed {
-  padding-right: 0;
-}
+#domestic-recovery .vega-embed { padding-right: 0; }
 
 #domestic-recovery svg.marks {
   width: 100%;
@@ -198,9 +165,7 @@ body {
   border-top: 1px solid var(--border-light);
 }
 
-.chart-note strong {
-  color: var(--text-primary);
-}
+.chart-note strong { color: var(--text-primary); }
 
 .method-note {
   width: 100%;
@@ -214,13 +179,9 @@ body {
   border-radius: 0 var(--card-radius) var(--card-radius) 0;
 }
 
-.method-note strong {
-  color: var(--text-primary);
-}
+.method-note strong { color: var(--text-primary); }
 
-.method-note p {
-  margin: 0;
-}
+.method-note p { margin: 0; }
 
 .vega-actions {
   color: var(--text-light);
@@ -228,15 +189,10 @@ body {
   text-align: left;
 }
 
-.vega-actions a {
-  color: var(--accent-primary);
-  text-decoration: none;
-}
+.vega-actions a { color: var(--accent-primary); text-decoration: none; }
 
 .vega-actions a:hover,
-.vega-actions a:focus {
-  text-decoration: underline;
-}
+.vega-actions a:focus { text-decoration: underline; }
 
 #section-domestic-geography .chart-card--half {
   display: grid;
@@ -256,10 +212,7 @@ body {
   margin: 14px 0 0;
 }
 
-.ranking-figure {
-  width: 100%;
-  margin: 0;
-}
+.ranking-figure { width: 100%; margin: 0; }
 
 .ranking-insight {
   margin: 8px 0 0;
@@ -274,26 +227,15 @@ body {
   text-align: left;
 }
 
-.ranking-insight span {
-  display: block;
-}
+.ranking-insight span { display: block; }
 
-.ranking-insight strong {
-  color: var(--text-primary);
-}
+.ranking-insight strong { color: var(--text-primary); }
 
-#section-international .section-header {
-  margin-bottom: 16px;
-}
+#section-international .section-header { margin-bottom: 16px; }
 
-.flow-card {
-  min-width: 0;
-}
+.flow-card { min-width: 0; }
 
-.flow-card .chart-note {
-  margin-top: 10px;
-  padding-top: 10px;
-}
+.flow-card .chart-note { margin-top: 10px; padding-top: 10px; }
 
 #section-international .chart-card--half {
   display: grid;
@@ -340,14 +282,9 @@ body {
   transform: none;
 }
 
-#international-state-map svg.marks {
-  touch-action: none;
-  cursor: grab;
-}
+#international-state-map svg.marks { touch-action: none; cursor: grab; }
 
-#international-state-map.is-dragging svg.marks {
-  cursor: grabbing;
-}
+#international-state-map.is-dragging svg.marks { cursor: grabbing; }
 
 #international-state-map:focus-visible {
   outline: 2px solid var(--accent-primary);
@@ -367,11 +304,7 @@ body {
   color: var(--text-secondary);
 }
 
-.map-controls {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
+.map-controls { display: flex; align-items: center; gap: 4px; }
 
 .map-controls button {
   display: inline-flex;
@@ -389,35 +322,20 @@ body {
   cursor: pointer;
 }
 
-.map-controls button:hover {
-  background: var(--accent-soft);
-}
+.map-controls button:hover { background: var(--accent-soft); }
 
-.map-controls button:disabled {
-  opacity: 0.45;
-  cursor: default;
-}
+.map-controls button:disabled { opacity: 0.45; cursor: default; }
 
 .map-controls button:focus-visible {
   outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
 }
 
-.map-controls .map-reset {
-  margin-left: 4px;
-}
+.map-controls .map-reset { margin-left: 4px; }
 
-.map-zoom-value {
-  min-width: 42px;
-  text-align: center;
-  font-weight: 700;
-}
+.map-zoom-value { min-width: 42px; text-align: center; font-weight: 700; }
 
-.map-help {
-  margin: 0;
-  font-size: 11px;
-  line-height: 16px;
-}
+.map-help { margin: 0; font-size: 11px; line-height: 16px; }
 
 #international-state-map .map-toolbar {
   justify-content: flex-start;
@@ -427,14 +345,9 @@ body {
   text-align: left;
 }
 
-#international-state-map .map-help {
-  margin: 0;
-  text-align: left;
-}
+#international-state-map .map-help { margin: 0; text-align: left; }
 
-#section-industry .section-header {
-  margin-bottom: 16px;
-}
+#section-industry .section-header { margin-bottom: 16px; }
 
 #section-industry .chart-card--half {
   display: grid;
@@ -485,15 +398,11 @@ body {
 }
 
 #short-term-rental-map g.is-dragging,
-#international-state-map g.is-dragging {
-  cursor: grabbing;
-}
+#international-state-map g.is-dragging { cursor: grabbing; }
 
 #short-term-rental-map g[tabindex],
 #short-term-rental-map g[tabindex]:focus,
-#short-term-rental-map g[tabindex]:focus-visible {
-  outline: none;
-}
+#short-term-rental-map g[tabindex]:focus-visible { outline: none; }
 
 #short-term-rental-map g[tabindex]:focus-visible > path.background {
   stroke: var(--accent-primary);
@@ -515,9 +424,7 @@ body {
   padding: 0;
 }
 
-.rental-navigation-grid .map-controls {
-  gap: 3px;
-}
+.rental-navigation-grid .map-controls { gap: 3px; }
 
 .rental-navigation-grid .map-controls button {
   min-width: 28px;
@@ -525,13 +432,9 @@ body {
   padding: 0 6px;
 }
 
-.rental-navigation-grid .map-reset {
-  margin-left: 0;
-}
+.rental-navigation-grid .map-reset { margin-left: 0; }
 
-.rental-navigation-grid .map-zoom-value {
-  min-width: 34px;
-}
+.rental-navigation-grid .map-zoom-value { min-width: 34px; }
 
 .rental-map-help {
   min-width: 420px;
@@ -559,13 +462,9 @@ body {
   padding-right: 0;
 }
 
-#short-term-rental-price-density .vega-embed {
-  min-width: 420px;
-}
+#short-term-rental-price-density .vega-embed { min-width: 420px; }
 
-#accommodation-occupancy-radial .vega-embed {
-  min-width: 280px;
-}
+#accommodation-occupancy-radial .vega-embed { min-width: 280px; }
 
 #short-term-rental-price-density svg.marks,
 #accommodation-occupancy-radial svg.marks {
@@ -575,11 +474,7 @@ body {
   transform: none;
 }
 
-.occupancy-figure {
-  width: 100%;
-  min-width: 0;
-  margin: 0;
-}
+.occupancy-figure { width: 100%; min-width: 0; margin: 0; }
 
 .occupancy-annotation {
   position: relative;
@@ -604,11 +499,7 @@ body {
   line-height: 16px;
 }
 
-.occupancy-annotation p {
-  margin: 0;
-  font-size: 12px;
-  line-height: 16px;
-}
+.occupancy-annotation p { margin: 0; font-size: 12px; line-height: 16px; }
 
 .occupancy-annotation .occupancy-definition {
   margin-top: 6px;
@@ -660,21 +551,13 @@ body {
   text-align: left;
 }
 
-.occupancy-results p {
-  margin: 0;
-  font-size: inherit;
-  line-height: inherit;
-}
+.occupancy-results p { margin: 0; font-size: inherit; line-height: inherit; }
 
-.story-line {
-  display: block;
-}
+.story-line { display: block; }
 
 .chart-card > .chart-story {
-  --caption-left: var(--story-left, 0px);
-  --caption-right: var(--story-right, 0px);
-  margin-top: 12px;
-  padding: 14px var(--caption-right) 0 var(--caption-left);
+  margin-top: 10px;
+  padding: 12px 5px 0;
   text-align: left;
 }
 
@@ -682,7 +565,7 @@ body {
 .story-columns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: var(--story-gap, 28px);
+  column-gap: 28px;
   row-gap: 8px;
 }
 
@@ -714,10 +597,7 @@ body {
   align-self: stretch;
 }
 
-.story-single > .story-meta {
-  margin-top: auto;
-  padding-top: 10px;
-}
+.story-single > .story-meta { margin-top: auto; padding-top: 10px; }
 
 @media (max-width: 1000px) {
   .occupancy-annotation {
@@ -727,23 +607,13 @@ body {
 }
 
 @media (max-width: 980px) {
-  .page-container {
-    width: calc(100% - 36px);
-    padding-top: 32px;
-  }
+  .page-container { width: calc(100% - 36px); padding-top: 32px; }
 
-  .hero {
-    margin-bottom: 36px;
-  }
+  .hero { margin-bottom: 36px; }
 
-  .story-section {
-    margin-top: 40px;
-    padding-top: 22px;
-  }
+  .story-section { margin-top: 40px; padding-top: 22px; }
 
-  .chart-card--half {
-    grid-column: 1 / -1;
-  }
+  .chart-card--half { grid-column: 1 / -1; }
 
   #section-domestic-geography .chart-card--half,
   #section-international .chart-card--half,
@@ -756,101 +626,50 @@ body {
 }
 
 @media (max-width: 760px) {
-  .chart-card > .chart-story {
-    padding-left: 0;
-    padding-right: 0;
-  }
+  .chart-card > .chart-story { padding-left: 0; padding-right: 0; }
 
   .recovery-story,
-  .story-columns {
-    grid-template-columns: 1fr;
-    row-gap: 14px;
-  }
+  .story-columns { grid-template-columns: 1fr; row-gap: 14px; }
 
-  .chart-story .story-meta {
-    margin-top: 0;
-  }
+  .chart-story .story-meta { margin-top: 0; }
 }
 
 @media (max-width: 640px) {
-  .page-container {
-    width: calc(100% - 24px);
-    padding: 24px 0 40px;
-  }
+  .page-container { width: calc(100% - 24px); padding: 24px 0 40px; }
 
-  .hero {
-    margin-bottom: 30px;
-  }
+  .hero { margin-bottom: 30px; }
 
-  .hero h1 {
-    font-size: 2rem;
-  }
+  .hero h1 { font-size: 2rem; }
 
-  .introduction {
-    margin-top: 14px;
-    font-size: 0.96rem;
-  }
+  .introduction { margin-top: 14px; font-size: 0.96rem; }
 
-  .story-section {
-    margin-top: 32px;
-    padding-top: 20px;
-  }
+  .story-section { margin-top: 32px; padding-top: 20px; }
 
-  .section-header {
-    margin-bottom: 16px;
-  }
+  .section-header { margin-bottom: 16px; }
 
-  .section-header h2 {
-    font-size: 1.5rem;
-  }
+  .section-header h2 { font-size: 1.5rem; }
 
-  .section-introduction {
-    font-size: 0.94rem;
-  }
+  .section-introduction { font-size: 0.94rem; }
 
-  .chart-grid {
-    gap: 18px;
-  }
+  .chart-grid { gap: 18px; }
 
-  .chart-card {
-    padding: 14px;
-  }
+  .chart-card { padding: 14px; }
 
-  .chart-note {
-    margin-top: 12px;
-    padding-top: 10px;
-    font-size: 0.88rem;
-  }
+  .chart-note { margin-top: 12px; padding-top: 10px; font-size: 0.88rem; }
 
-  .method-note {
-    padding: 12px 14px;
-  }
+  .method-note { padding: 12px 14px; }
 
-  #domestic-recovery {
-    overflow-x: auto;
-  }
+  #domestic-recovery { overflow-x: auto; }
 
-  #domestic-recovery .vega-embed {
-    min-width: 720px;
-  }
+  #domestic-recovery .vega-embed { min-width: 720px; }
 
-  #domestic-recovery svg.marks {
-    min-width: 720px;
-    max-width: none;
-  }
+  #domestic-recovery svg.marks { min-width: 720px; max-width: none; }
 
-  .map-toolbar {
-    padding-top: 4px;
-  }
+  .map-toolbar { padding-top: 4px; }
 
-  .map-controls button {
-    min-width: 40px;
-    height: 36px;
-  }
+  .map-controls button { min-width: 40px; height: 36px; }
 
-  .rental-navigation-grid .map-toolbar {
-    padding: 0;
-  }
+  .rental-navigation-grid .map-toolbar { padding: 0; }
 
   .rental-navigation-grid .map-controls button {
     min-width: 28px;

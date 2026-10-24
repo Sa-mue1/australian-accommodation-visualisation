@@ -1,39 +1,29 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 280,
+  "height": 224,
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
     "resize": true
   },
-  "padding": {
-    "left": 5,
-    "right": 5,
-    "top": 5,
-    "bottom": 5
-  },
+  "padding": {"left": 5, "right": 5, "top": 5, "bottom": 5},
   "title": {
     "text": "Domestic visitor nights by state and quarter",
-    "subtitle": [
-      "Quarterly visitor nights in thousands, June 2025–June 2026",
-      "Domestic Tourism Statistics"
-    ],
+    "subtitle": "Quarterly visitor nights in thousands, June 2025–June 2026",
     "anchor": "start",
     "fontSize": 18,
     "fontWeight": "bold",
     "subtitleFontSize": 12,
     "subtitleFontWeight": "normal",
     "subtitlePadding": 7,
-    "offset": 12
+    "offset": 8
   },
   "data": {
     "url": "data/domestic_state_quarters.csv",
     "format": {
       "type": "csv",
-      "parse": {
-        "value": "number"
-      }
+      "parse": {"value": "number"}
     }
   },
   "transform": [
@@ -68,19 +58,16 @@
         "Mar 2026",
         "Jun 2026"
       ],
-      "scale": {
-        "paddingInner": 0,
-        "paddingOuter": 0
-      },
+      "scale": {"paddingInner": 0, "paddingOuter": 0},
       "axis": {
         "title": "Quarter ending",
         "labelAngle": 0,
         "labelFontSize": 12,
         "labelFontWeight": "bold",
-        "labelPadding": 9,
+        "labelPadding": 6,
         "titleFontSize": 13,
         "titleFontWeight": "bold",
-        "titlePadding": 12,
+        "titlePadding": 8,
         "ticks": false,
         "domain": false
       }
@@ -98,10 +85,7 @@
         "Northern Territory",
         "Australian Capital Territory"
       ],
-      "scale": {
-        "paddingInner": 0,
-        "paddingOuter": 0
-      },
+      "scale": {"paddingInner": 0, "paddingOuter": 0},
       "axis": {
         "title": null,
         "labelFontSize": 12,
@@ -153,15 +137,15 @@
             "orient": "bottom",
             "direction": "horizontal",
             "gradientLength": 260,
-            "gradientThickness": 12,
+            "gradientThickness": 10,
             "values": [0, 10000, 20000, 34000],
             "format": ",.0f",
             "labelFontSize": 11,
             "titleFontSize": 12,
             "titleFontWeight": "bold",
             "titleLimit": 360,
-            "titlePadding": 7,
-            "offset": 14
+            "titlePadding": 5,
+            "offset": 8
           }
         }
       }
@@ -192,9 +176,7 @@
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {
-      "stroke": null
-    },
+    "view": {"stroke": null},
     "axis": {
       "grid": false,
       "labelColor": "#374151",

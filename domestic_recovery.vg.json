@@ -11,16 +11,13 @@
     "fontWeight": "bold",
     "subtitleFontSize": 12,
     "subtitlePadding": 7,
-    "offset": 12
+    "offset": 8
   },
   "data": {
     "url": "data/domestic_accommodation_types.csv",
     "format": {
       "type": "csv",
-      "parse": {
-        "year": "number",
-        "value": "number"
-      }
+      "parse": {"year": "number", "value": "number"}
     }
   },
   "transform": [
@@ -40,11 +37,7 @@
     },
     {
       "joinaggregate": [
-        {
-          "op": "max",
-          "field": "baseline_value",
-          "as": "baseline_2019"
-        }
+        {"op": "max", "field": "baseline_value", "as": "baseline_2019"}
       ],
       "groupby": ["category"]
     },
@@ -71,15 +64,15 @@
       "labelFontSize": 14,
       "labelFontWeight": "bold",
       "labelColor": "#202124",
-      "labelPadding": 8,
+      "labelPadding": 6,
       "labelLimit": 400
     }
   },
   "columns": 2,
-  "spacing": 24,
+  "spacing": 20,
   "spec": {
     "width": 450,
-    "height": 112,
+    "height": 104,
     "layer": [
       {
         "mark": {
@@ -89,20 +82,14 @@
           "strokeWidth": 1.2
         },
         "encoding": {
-          "y": {
-            "datum": 100,
-            "type": "quantitative"
-          }
+          "y": {"datum": 100, "type": "quantitative"}
         }
       },
       {
         "mark": {
           "type": "line",
           "strokeWidth": 2.5,
-          "point": {
-            "filled": true,
-            "size": 45
-          }
+          "point": {"filled": true, "size": 45}
         },
         "encoding": {
           "x": {
@@ -169,10 +156,7 @@
             },
             "legend": null
           },
-          "order": {
-            "field": "year",
-            "type": "quantitative"
-          },
+          "order": {"field": "year", "type": "quantitative"},
           "tooltip": [
             {
               "field": "category",
@@ -203,17 +187,12 @@
     ]
   },
   "resolve": {
-    "scale": {
-      "x": "shared",
-      "y": "shared"
-    }
+    "scale": {"x": "shared", "y": "shared"}
   },
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {
-      "stroke": null
-    },
+    "view": {"stroke": null},
     "axis": {
       "labelColor": "#374151",
       "titleColor": "#374151"

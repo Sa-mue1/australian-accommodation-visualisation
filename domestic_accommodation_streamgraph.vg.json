@@ -1,18 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 320,
+  "height": 270,
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
     "resize": true
   },
-  "padding": {
-    "left": 5,
-    "right": 5,
-    "top": 5,
-    "bottom": 5
-  },
+  "padding": {"left": 5, "right": 5, "top": 5, "bottom": 5},
   "title": {
     "text": "Domestic accommodation visitor nights",
     "subtitle": "Visitor nights by accommodation type in Australia, 2019–2024",
@@ -22,7 +17,7 @@
     "subtitleFontSize": 12,
     "subtitleFontWeight": "normal",
     "subtitlePadding": 7,
-    "offset": 12
+    "offset": 8
   },
   "data": {
     "url": "data/domestic_accommodation_types.csv",
@@ -66,6 +61,10 @@
     {
       "calculate": "datum.category === 'Friends or relatives' ? 1 : datum.category === 'Hotels' ? 2 : datum.category === 'Rented accommodation' ? 3 : datum.category === 'Caravan/camping' ? 4 : 5",
       "as": "category_order"
+    },
+    {
+      "calculate": "datum.category === 'Other' ? 'Own property; guesthouses; bed and breakfasts; miscellaneous accommodation' : datum.category",
+      "as": "category_coverage"
     }
   ],
   "encoding": {
@@ -151,7 +150,7 @@
             "symbolSize": 100,
             "columnPadding": 18,
             "rowPadding": 6,
-            "offset": 12
+            "offset": 8
           }
         },
         "order": {
@@ -170,6 +169,11 @@
             "field": "category",
             "type": "nominal",
             "title": "Accommodation type"
+          },
+          {
+            "field": "category_coverage",
+            "type": "nominal",
+            "title": "Accommodation coverage"
           },
           {
             "field": "visitor_nights_million",
@@ -199,7 +203,7 @@
       },
       "encoding": {
         "y": {"value": 0},
-        "y2": {"value": 275}
+        "y2": {"value": {"expr": "height * 0.86"}}
       }
     },
     {
