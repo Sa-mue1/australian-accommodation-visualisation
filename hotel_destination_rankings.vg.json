@@ -139,49 +139,14 @@
         "domain": false,
         "tickSize": 0
       }
-    },
-    "color": {
-      "field": "destination_group",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "Sydney",
-          "Melbourne",
-          "Brisbane",
-          "Other destinations"
-        ],
-        "range": [
-          "#0072B2",
-          "#E69F00",
-          "#7B5BA7",
-          "#9CA3AF"
-        ]
-      },
-      "legend": {
-        "title": "Destination",
-        "orient": "bottom",
-        "direction": "horizontal",
-        "columns": 2,
-        "labelFontSize": 11,
-        "labelLimit": 170,
-        "titleFontSize": 12,
-        "titleFontWeight": "bold",
-        "titlePadding": 5,
-        "rowPadding": 5,
-        "columnPadding": 16,
-        "symbolType": "stroke",
-        "symbolStrokeWidth": 3,
-        "symbolSize": 140,
-        "offset": 8
-      }
     }
   },
   "layer": [
     {
       "mark": {
         "type": "line",
-        "strokeWidth": 3,
-        "opacity": 1
+        "color": "#334155",
+        "strokeWidth": 3
       },
       "encoding": {
         "detail": {
@@ -191,19 +156,89 @@
         "order": {
           "field": "year",
           "type": "quantitative"
+        },
+        "strokeDash": {
+          "field": "destination_group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Sydney",
+              "Melbourne",
+              "Brisbane",
+              "Other destinations"
+            ],
+            "range": [
+              [1, 0],
+              [8, 4],
+              [2, 3],
+              [5, 2, 1, 2]
+            ]
+          },
+          "legend": {
+            "title": "Destination line pattern",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 2,
+            "labelFontSize": 11,
+            "labelLimit": 170,
+            "titleFontSize": 12,
+            "titleFontWeight": "bold",
+            "titlePadding": 5,
+            "rowPadding": 5,
+            "columnPadding": 16,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3,
+            "symbolSize": 240,
+            "offset": 8
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "destination_focus",
+            "value": 1
+          },
+          "value": 0.15
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "destination_focus",
+            "empty": false,
+            "value": 4.2
+          },
+          "value": 3
         }
       }
     },
     {
+      "params": [
+        {
+          "name": "destination_focus",
+          "select": {
+            "type": "point",
+            "fields": ["destination"],
+            "nearest": true,
+            "on": "pointerover",
+            "clear": "pointerout",
+            "toggle": false
+          }
+        }
+      ],
       "mark": {
         "type": "point",
         "filled": true,
         "size": 90,
+        "color": "#334155",
         "stroke": "white",
-        "strokeWidth": 1.2,
-        "opacity": 1
+        "strokeWidth": 1.2
       },
       "encoding": {
+        "opacity": {
+          "condition": {
+            "param": "destination_focus",
+            "value": 1
+          },
+          "value": 0.15
+        },
         "tooltip": [
           {
             "field": "year",
@@ -249,28 +284,19 @@
         "baseline": "middle",
         "dx": 8,
         "fontSize": 12,
-        "fontWeight": "bold"
+        "fontWeight": "bold",
+        "color": "#334155"
       },
       "encoding": {
         "text": {
           "field": "destination"
         },
-        "color": {
-          "condition": [
-            {
-              "test": "datum.destination === 'Sydney'",
-              "value": "#0072B2"
-            },
-            {
-              "test": "datum.destination === 'Melbourne'",
-              "value": "#8C6000"
-            },
-            {
-              "test": "datum.destination === 'Brisbane'",
-              "value": "#6B468D"
-            }
-          ],
-          "value": "#5F6873"
+        "opacity": {
+          "condition": {
+            "param": "destination_focus",
+            "value": 1
+          },
+          "value": 0.3
         }
       }
     }
