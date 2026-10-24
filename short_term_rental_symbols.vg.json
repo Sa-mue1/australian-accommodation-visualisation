@@ -3,18 +3,15 @@
   "description": "Short-term rental listings grouped by neighbourhood area. Circle sizes use a shared scale with a minimum display size for visibility, so areas are not exactly proportional to listing counts.",
   "title": {
     "text": "Short-term rentals by neighbourhood",
-    "subtitle": [
-      "Circle size: listing count, with a minimum display size.",
-      "Colour: median advertised nightly price. Shared scales across cities."
-    ],
+    "subtitle": "Circles mark average listing locations; shade shows median advertised prices.",
     "anchor": "start",
-    "fontSize": 18,
+    "fontSize": 17,
     "fontWeight": "bold",
     "subtitleFontSize": 12,
     "subtitleColor": "#5F6368",
-    "subtitleLineHeight": 16,
+    "subtitleLineHeight": 15,
     "subtitlePadding": 7,
-    "offset": 12
+    "offset": 8
   },
   "autosize": {
     "type": "pad",
@@ -57,13 +54,14 @@
     {
       "name": "sydney",
       "width": 220,
-      "height": 240,
+      "height": 260,
       "title": {
         "text": "Sydney",
         "anchor": "start",
         "fontSize": 13,
         "fontWeight": "bold",
-        "offset": 8
+        "offset": 8,
+        "color": "#007C91"
       },
       "projection": {
         "type": "mercator",
@@ -73,10 +71,7 @@
           "properties": {},
           "geometry": {
             "type": "MultiPoint",
-            "coordinates": [
-              [150.65, -34.12],
-              [151.39, -33.57]
-            ]
+            "coordinates": [[150.65, -34.12], [151.39, -33.57]]
           }
         },
         "extent": {
@@ -105,9 +100,7 @@
             }
           },
           "transform": [
-            {
-              "filter": "datum.properties.STE_NAME21 === 'New South Wales'"
-            }
+            {"filter": "datum.properties.STE_NAME21 === 'New South Wales'"}
           ],
           "mark": {
             "type": "geoshape",
@@ -121,10 +114,7 @@
           "data": {
             "graticule": {
               "step": [0.2, 0.2],
-              "extent": [
-                [149.65, -35.12],
-                [152.39, -32.57]
-              ]
+              "extent": [[149.65, -35.12], [152.39, -32.57]]
             }
           },
           "mark": {
@@ -164,7 +154,7 @@
             "size": {
               "field": "listing_count",
               "type": "quantitative",
-              "title": "Number of listings",
+              "title": "Listings (minimum size)",
               "scale": {
                 "type": "linear",
                 "domain": [0, 8500],
@@ -175,7 +165,7 @@
               "legend": {
                 "values": [500, 2000, 8000],
                 "format": ",.0f",
-                "symbolFillColor": "#647482",
+                "symbolFillColor": "#6B7B87",
                 "symbolStrokeColor": "white",
                 "symbolOpacity": 1,
                 "symbolStrokeWidth": 0.8,
@@ -188,30 +178,25 @@
             "color": {
               "field": "median_price",
               "type": "quantitative",
-              "title": "Median price (AUD)",
+              "title": "Median nightly price (AUD)",
               "scale": {
-                "scheme": {
-                  "name": "blues",
-                  "extent": [0.3, 0.95]
-                },
                 "domain": [100, 650],
+                "range": ["#B8C4CB", "#405663"],
+                "interpolate": "lab",
                 "clamp": true
               },
               "legend": {
-                "gradientLength": 145,
+                "gradientLength": 190,
                 "gradientThickness": 10,
                 "values": [100, 300, 500, 650],
                 "format": ".0f",
                 "titleOrient": "top",
-                "titleAnchor": "start"
+                "titleAnchor": "start",
+                "titleLimit": 210
               }
             },
             "tooltip": [
-              {
-                "field": "city",
-                "type": "nominal",
-                "title": "City"
-              },
+              {"field": "city", "type": "nominal", "title": "City"},
               {
                 "field": "neighbourhood",
                 "type": "nominal",
@@ -249,13 +234,14 @@
     {
       "name": "melbourne",
       "width": 220,
-      "height": 240,
+      "height": 260,
       "title": {
         "text": "Melbourne",
         "anchor": "start",
         "fontSize": 13,
         "fontWeight": "bold",
-        "offset": 8
+        "offset": 8,
+        "color": "#C65D21"
       },
       "projection": {
         "type": "mercator",
@@ -265,10 +251,7 @@
           "properties": {},
           "geometry": {
             "type": "MultiPoint",
-            "coordinates": [
-              [144.57, -38.21],
-              [145.57, -37.55]
-            ]
+            "coordinates": [[144.57, -38.21], [145.57, -37.55]]
           }
         },
         "extent": {
@@ -297,9 +280,7 @@
             }
           },
           "transform": [
-            {
-              "filter": "datum.properties.STE_NAME21 === 'Victoria'"
-            }
+            {"filter": "datum.properties.STE_NAME21 === 'Victoria'"}
           ],
           "mark": {
             "type": "geoshape",
@@ -313,10 +294,7 @@
           "data": {
             "graticule": {
               "step": [0.25, 0.25],
-              "extent": [
-                [143.57, -39.21],
-                [146.57, -36.55]
-              ]
+              "extent": [[143.57, -39.21], [146.57, -36.55]]
             }
           },
           "mark": {
@@ -356,7 +334,7 @@
             "size": {
               "field": "listing_count",
               "type": "quantitative",
-              "title": "Number of listings",
+              "title": "Listings (minimum size)",
               "scale": {
                 "type": "linear",
                 "domain": [0, 8500],
@@ -367,7 +345,7 @@
               "legend": {
                 "values": [500, 2000, 8000],
                 "format": ",.0f",
-                "symbolFillColor": "#647482",
+                "symbolFillColor": "#6B7B87",
                 "symbolStrokeColor": "white",
                 "symbolOpacity": 1,
                 "symbolStrokeWidth": 0.8,
@@ -380,30 +358,25 @@
             "color": {
               "field": "median_price",
               "type": "quantitative",
-              "title": "Median price (AUD)",
+              "title": "Median nightly price (AUD)",
               "scale": {
-                "scheme": {
-                  "name": "blues",
-                  "extent": [0.3, 0.95]
-                },
                 "domain": [100, 650],
+                "range": ["#B8C4CB", "#405663"],
+                "interpolate": "lab",
                 "clamp": true
               },
               "legend": {
-                "gradientLength": 145,
+                "gradientLength": 190,
                 "gradientThickness": 10,
                 "values": [100, 300, 500, 650],
                 "format": ".0f",
                 "titleOrient": "top",
-                "titleAnchor": "start"
+                "titleAnchor": "start",
+                "titleLimit": 210
               }
             },
             "tooltip": [
-              {
-                "field": "city",
-                "type": "nominal",
-                "title": "City"
-              },
+              {"field": "city", "type": "nominal", "title": "City"},
               {
                 "field": "neighbourhood",
                 "type": "nominal",
@@ -440,14 +413,8 @@
     }
   ],
   "resolve": {
-    "scale": {
-      "size": "shared",
-      "color": "shared"
-    },
-    "legend": {
-      "size": "shared",
-      "color": "shared"
-    }
+    "scale": {"size": "shared", "color": "shared"},
+    "legend": {"size": "shared", "color": "shared"}
   },
   "config": {
     "background": "white",
@@ -457,14 +424,14 @@
       "strokeWidth": 0.7
     },
     "legend": {
-      "orient": "top",
+      "orient": "bottom",
       "direction": "horizontal",
       "titleFontSize": 12,
       "titleFontWeight": "bold",
       "labelFontSize": 11,
       "labelColor": "#374151",
       "titleColor": "#202124",
-      "offset": 10,
+      "offset": 8,
       "padding": 0
     }
   }

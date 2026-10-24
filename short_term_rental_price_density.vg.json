@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Distributions of positive advertised nightly prices up to AUD 1,000. Curves show relative concentration within room types, not listing counts. Dashed lines show medians. These are advertised prices, not confirmed booking prices.",
   "padding": {
     "left": 5,
     "right": 5,
@@ -8,16 +9,14 @@
   },
   "title": {
     "text": "Advertised rental prices by room type",
-    "subtitle": [
-      "Taller curves show common prices within each room type.",
-      "Dots mark estimated peaks; dashed lines show medians."
-    ],
+    "subtitle": "Prices up to $1,000; dots mark peaks, dashes mark medians.",
     "anchor": "start",
-    "fontSize": 18,
+    "fontSize": 17,
+    "fontWeight": "bold",
     "subtitleFontSize": 12,
     "subtitleLineHeight": 16,
     "subtitlePadding": 7,
-    "offset": 15,
+    "offset": 8,
     "limit": {"expr": "child_width"}
   },
   "data": {
@@ -64,7 +63,7 @@
   "spacing": 10,
   "spec": {
     "width": 468,
-    "height": 66,
+    "height": 72,
     "transform": [
       {
         "density": "price_aud",
@@ -130,18 +129,23 @@
         "type": "nominal",
         "scale": {
           "domain": ["Sydney", "Melbourne"],
-          "range": ["#0072B2", "#E69F00"]
+          "range": ["#007C91", "#C65D21"]
         },
         "legend": {
-          "title": null,
+          "title": "City",
           "orient": "bottom",
           "direction": "horizontal",
           "columns": 2,
           "labelFontSize": 12,
           "symbolSize": 85,
           "symbolOpacity": 1,
-          "offset": 12,
-          "padding": 0
+          "offset": 8,
+          "padding": 0,
+          "titleOrient": "left",
+          "titleAnchor": "middle",
+          "titleFontSize": 12,
+          "titleFontWeight": "bold",
+          "titlePadding": 8
         }
       }
     },
@@ -184,16 +188,8 @@
         "transform": [
           {
             "aggregate": [
-              {
-                "op": "max",
-                "field": "median_price",
-                "as": "median_price"
-              },
-              {
-                "op": "max",
-                "field": "listing_count",
-                "as": "listing_count"
-              }
+              {"op": "max", "field": "median_price", "as": "median_price"},
+              {"op": "max", "field": "listing_count", "as": "listing_count"}
             ],
             "groupby": ["city", "room_type"]
           }
@@ -231,9 +227,7 @@
       {
         "transform": [
           {
-            "window": [
-              {"op": "row_number", "as": "peak_rank"}
-            ],
+            "window": [{"op": "row_number", "as": "peak_rank"}],
             "sort": [
               {"field": "density", "order": "descending"},
               {"field": "nightly_price", "order": "ascending"}
@@ -270,13 +264,11 @@
       {
         "transform": [
           {
-            "aggregate": [
-              {"op": "count", "as": "rows"}
-            ],
+            "aggregate": [{"op": "count", "as": "rows"}],
             "groupby": ["room_type"]
           },
           {
-            "calculate": "datum.room_type === 'Entire home/apt' ? 'Entire home or apartment' : datum.room_type + 's'",
+            "calculate": "datum.room_type === 'Entire home/apt' ? 'Entire home or apartment' : datum.room_type === 'Hotel room' ? 'Listed hotel rooms' : datum.room_type + 's'",
             "as": "room_label"
           }
         ],
@@ -299,9 +291,7 @@
       {
         "transform": [
           {
-            "window": [
-              {"op": "row_number", "as": "peak_rank"}
-            ],
+            "window": [{"op": "row_number", "as": "peak_rank"}],
             "sort": [
               {"field": "density", "order": "descending"},
               {"field": "nightly_price", "order": "ascending"}
@@ -337,9 +327,9 @@
           "color": {
             "condition": {
               "test": "datum.city === 'Sydney'",
-              "value": "#006394"
+              "value": "#007C91"
             },
-            "value": "#8C6000"
+            "value": "#C65D21"
           },
           "tooltip": null
         }
