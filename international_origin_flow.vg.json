@@ -138,26 +138,10 @@
     {
       "data": {
         "values": [
-          {
-            "longitude": 0,
-            "latitude": -49,
-            "label": "0°"
-          },
-          {
-            "longitude": -24,
-            "latitude": 30,
-            "label": "30°N"
-          },
-          {
-            "longitude": -24,
-            "latitude": 0,
-            "label": "0°"
-          },
-          {
-            "longitude": -24,
-            "latitude": -30,
-            "label": "30°S"
-          }
+          {"longitude": 0, "latitude": -49, "label": "0°"},
+          {"longitude": -24, "latitude": 30, "label": "30°N"},
+          {"longitude": -24, "latitude": 0, "label": "0°"},
+          {"longitude": -24, "latitude": -30, "label": "30°S"}
         ]
       },
       "mark": {
@@ -168,17 +152,9 @@
         "dx": 3
       },
       "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "label"
-        }
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"field": "label"}
       }
     },
     {
@@ -254,7 +230,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["Growth", "Decline"],
-            "range": ["#2C6E8F", "#B5662E"]
+            "range": ["#BD2674", "#55606D"]
           },
           "legend": {
             "title": "Change since 2025",
@@ -289,7 +265,7 @@
             "values": [400, 800, 1200],
             "format": ",.0f",
             "symbolType": "stroke",
-            "symbolStrokeColor": "#607483",
+            "symbolStrokeColor": "#7A8490",
             "symbolSize": 400,
             "columns": 3,
             "columnPadding": 20,
@@ -351,7 +327,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["Growth", "Decline"],
-            "range": ["#2C6E8F", "#B5662E"]
+            "range": ["#BD2674", "#55606D"]
           },
           "legend": null
         },
@@ -437,14 +413,8 @@
         "strokeWidth": 1.5
       },
       "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        },
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
         "tooltip": [
           {
             "field": "country",
@@ -474,17 +444,9 @@
         "dy": 25
       },
       "encoding": {
-        "longitude": {
-          "field": "longitude",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "latitude",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "label"
-        }
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"field": "label"}
       }
     },
     {
@@ -499,21 +461,9 @@
         },
         {
           "joinaggregate": [
-            {
-              "op": "sum",
-              "field": "trip_increase",
-              "as": "total_increase"
-            },
-            {
-              "op": "sum",
-              "field": "trips_2026_thousand",
-              "as": "total_trips"
-            },
-            {
-              "op": "sum",
-              "field": "pair_trips",
-              "as": "pair_total"
-            }
+            {"op": "sum", "field": "trip_increase", "as": "total_increase"},
+            {"op": "sum", "field": "trips_2026_thousand", "as": "total_trips"},
+            {"op": "sum", "field": "pair_trips", "as": "pair_total"}
           ]
         },
         {
