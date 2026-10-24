@@ -139,13 +139,47 @@
         "domain": false,
         "tickSize": 0
       }
+    },
+    "color": {
+      "field": "destination_group",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Sydney",
+          "Melbourne",
+          "Brisbane",
+          "Other destinations"
+        ],
+        "range": [
+          "#007C91",
+          "#C65D21",
+          "#5B4B9A",
+          "#9AA3AD"
+        ]
+      },
+      "legend": {
+        "title": "Destination",
+        "orient": "bottom",
+        "direction": "horizontal",
+        "columns": 2,
+        "labelFontSize": 11,
+        "labelLimit": 170,
+        "titleFontSize": 12,
+        "titleFontWeight": "bold",
+        "titlePadding": 5,
+        "rowPadding": 5,
+        "columnPadding": 16,
+        "symbolType": "stroke",
+        "symbolStrokeWidth": 3,
+        "symbolSize": 140,
+        "offset": 8
+      }
     }
   },
   "layer": [
     {
       "mark": {
         "type": "line",
-        "color": "#334155",
         "strokeWidth": 3
       },
       "encoding": {
@@ -156,41 +190,6 @@
         "order": {
           "field": "year",
           "type": "quantitative"
-        },
-        "strokeDash": {
-          "field": "destination_group",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Sydney",
-              "Melbourne",
-              "Brisbane",
-              "Other destinations"
-            ],
-            "range": [
-              [1, 0],
-              [8, 4],
-              [2, 3],
-              [5, 2, 1, 2]
-            ]
-          },
-          "legend": {
-            "title": "Destination line pattern",
-            "orient": "bottom",
-            "direction": "horizontal",
-            "columns": 2,
-            "labelFontSize": 11,
-            "labelLimit": 170,
-            "titleFontSize": 12,
-            "titleFontWeight": "bold",
-            "titlePadding": 5,
-            "rowPadding": 5,
-            "columnPadding": 16,
-            "symbolType": "stroke",
-            "symbolStrokeWidth": 3,
-            "symbolSize": 240,
-            "offset": 8
-          }
         },
         "opacity": {
           "condition": {
@@ -227,7 +226,6 @@
         "type": "point",
         "filled": true,
         "size": 90,
-        "color": "#334155",
         "stroke": "white",
         "strokeWidth": 1.2
       },
@@ -284,12 +282,28 @@
         "baseline": "middle",
         "dx": 8,
         "fontSize": 12,
-        "fontWeight": "bold",
-        "color": "#334155"
+        "fontWeight": "bold"
       },
       "encoding": {
         "text": {
           "field": "destination"
+        },
+        "color": {
+          "condition": [
+            {
+              "test": "datum.destination === 'Sydney'",
+              "value": "#007C91"
+            },
+            {
+              "test": "datum.destination === 'Melbourne'",
+              "value": "#C65D21"
+            },
+            {
+              "test": "datum.destination === 'Brisbane'",
+              "value": "#5B4B9A"
+            }
+          ],
+          "value": "#606975"
         },
         "opacity": {
           "condition": {
