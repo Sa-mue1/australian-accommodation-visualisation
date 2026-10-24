@@ -277,9 +277,7 @@
           "expr": "(datum.year_label === '2025' && datum.change_direction === 'increase') || (datum.year_label === '2026' && datum.change_direction === 'decrease') ? -9 : 9"
         },
         "fontSize": 12,
-        "fontWeight": {
-          "expr": "datum.year_label === '2026' ? 'bold' : 'normal'"
-        },
+        "fontWeight": "bold",
         "color": {
           "expr": "datum.year_label === '2026' ? '#8C445C' : '#626B77'"
         }

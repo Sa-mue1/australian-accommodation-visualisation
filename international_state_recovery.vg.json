@@ -283,10 +283,6 @@
         {
           "calculate": "datum.state_or_territory === 'Queensland' ? -22 : -32",
           "as": "label_latitude"
-        },
-        {
-          "calculate": "datum.state_or_territory + '\\n' + format(datum.percent_change_from_2025, '+.1f') + '%'",
-          "as": "state_label"
         }
       ],
       "mark": {
@@ -295,8 +291,6 @@
         "fontWeight": "bold",
         "align": "center",
         "baseline": "middle",
-        "lineBreak": "\n",
-        "lineHeight": 14,
         "clip": true
       },
       "encoding": {
@@ -309,7 +303,7 @@
           "type": "quantitative"
         },
         "text": {
-          "field": "state_label"
+          "field": "state_or_territory"
         },
         "color": {
           "condition": {
