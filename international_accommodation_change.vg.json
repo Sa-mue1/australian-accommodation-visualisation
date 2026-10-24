@@ -1,11 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 380,
+  "height": 330,
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
-    "resize": false
+    "resize": true
   },
   "padding": {
     "left": 5,
@@ -16,7 +16,7 @@
   "params": [
     {
       "name": "label_gutter",
-      "value": 108
+      "value": 120
     }
   ],
   "title": {
@@ -25,18 +25,18 @@
       "stays with friends declined"
     ],
     "subtitle": [
-      "International visitor nights by accommodation type",
+      "Selected accommodation types; international visitor nights",
       "Years ending June 2025 and June 2026"
     ],
     "anchor": "start",
-    "fontSize": 18,
+    "fontSize": 17,
     "fontWeight": "bold",
-    "lineHeight": 22,
+    "lineHeight": 21,
     "subtitleFontSize": 12,
     "subtitleColor": "#5F6368",
-    "subtitleLineHeight": 16,
+    "subtitleLineHeight": 15,
     "subtitlePadding": 7,
-    "offset": 14
+    "offset": 10
   },
   "description": "International visitor nights by accommodation type in the years ending June 2025 and June 2026. Each pair of points uses the same linear scale.",
   "data": {
@@ -83,7 +83,7 @@
       "as": "year_label"
     },
     {
-      "calculate": "datum.accommodation_type === 'Rented house/apartment/flat or unit' ? 'Rented house|or apartment' : datum.accommodation_type === 'Friends or relatives property' ? 'Friends or|relatives' : datum.accommodation_type === 'Hotel/resort/motel or motor Inn' ? 'Hotels, resorts|or motels' : datum.accommodation_type === 'Other Private Accommodation' ? 'Other private|accommodation' : datum.accommodation_type === 'Backpacker or hostel' ? 'Backpackers|or hostels' : datum.accommodation_type === 'Other Accommodation' ? 'Other|accommodation' : 'Own property'",
+      "calculate": "datum.accommodation_type === 'Rented house/apartment/flat or unit' ? 'Rented homes' : datum.accommodation_type === 'Friends or relatives property' ? 'Friends or relatives' : datum.accommodation_type === 'Hotel/resort/motel or motor Inn' ? 'Hotels and similar' : datum.accommodation_type === 'Other Private Accommodation' ? 'Other private' : datum.accommodation_type === 'Backpacker or hostel' ? 'Hostels' : datum.accommodation_type === 'Other Accommodation' ? 'Other stays' : 'Own property'",
       "as": "accommodation_label"
     },
     {
@@ -141,7 +141,7 @@
         "labelPadding": 7,
         "titleFontSize": 13,
         "titleFontWeight": "bold",
-        "titlePadding": 12,
+        "titlePadding": 10,
         "domainColor": "#C9D0D6",
         "tickColor": "#C9D0D6"
       }
@@ -151,25 +151,25 @@
       "type": "nominal",
       "title": null,
       "sort": [
-        "Rented house|or apartment",
-        "Friends or|relatives",
-        "Hotels, resorts|or motels",
-        "Other private|accommodation",
-        "Backpackers|or hostels",
-        "Other|accommodation",
+        "Rented homes",
+        "Friends or relatives",
+        "Hotels and similar",
+        "Other private",
+        "Hostels",
+        "Other stays",
         "Own property"
       ],
       "axis": {
         "domain": false,
         "ticks": false,
-        "labelFontSize": 11,
+        "labelFontSize": 12,
         "labelFontWeight": "normal",
-        "labelLineHeight": 13,
-        "labelLimit": 100,
-        "labelPadding": 12,
-        "labelExpr": "split(datum.label, '|')",
+        "labelLineHeight": 14,
+        "labelLimit": 114,
+        "labelPadding": 8,
+        "labelExpr": "datum.label === 'Friends or relatives' ? ['Friends or', 'relatives'] : datum.label",
         "labelOffset": {
-          "expr": "datum.value === 'Own property' ? 0 : -6.5"
+          "expr": "datum.value === 'Friends or relatives' ? -7 : 0"
         },
         "minExtent": {
           "expr": "label_gutter"
@@ -202,18 +202,18 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 140,
+        "size": 120,
         "stroke": "white",
         "strokeWidth": 1
       },
       "encoding": {
         "color": {
           "field": "year_label",
-          "type": "ordinal",
+          "type": "nominal",
           "title": "Year ending June",
           "scale": {
             "domain": ["2025", "2026"],
-            "range": ["#999999", "#0072B2"]
+            "range": ["#AEB5BF", "#8C445C"]
           },
           "legend": {
             "orient": "none",
@@ -276,12 +276,12 @@
         "dx": {
           "expr": "(datum.year_label === '2025' && datum.change_direction === 'increase') || (datum.year_label === '2026' && datum.change_direction === 'decrease') ? -9 : 9"
         },
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": {
           "expr": "datum.year_label === '2026' ? 'bold' : 'normal'"
         },
         "color": {
-          "expr": "datum.year_label === '2026' ? '#0072B2' : '#5F6368'"
+          "expr": "datum.year_label === '2026' ? '#8C445C' : '#626B77'"
         }
       },
       "encoding": {
@@ -294,9 +294,7 @@
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {
-      "stroke": null
-    },
+    "view": {"stroke": null},
     "axis": {
       "labelColor": "#374151",
       "titleColor": "#202124"

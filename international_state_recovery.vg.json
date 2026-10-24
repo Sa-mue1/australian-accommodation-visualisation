@@ -1,11 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 380,
+  "height": 330,
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
-    "resize": false
+    "resize": true
   },
   "padding": {
     "left": 5,
@@ -23,28 +23,19 @@
       "Years ending June 2025 and June 2026"
     ],
     "anchor": "start",
-    "fontSize": 18,
+    "fontSize": 17,
     "fontWeight": "bold",
-    "lineHeight": 22,
+    "lineHeight": 21,
     "subtitleFontSize": 12,
     "subtitleColor": "#5F6368",
-    "subtitleLineHeight": 16,
+    "subtitleLineHeight": 15,
     "subtitlePadding": 7,
-    "offset": 14
+    "offset": 10
   },
   "params": [
-    {
-      "name": "map_zoom",
-      "value": 1
-    },
-    {
-      "name": "map_pan_x",
-      "value": 0
-    },
-    {
-      "name": "map_pan_y",
-      "value": 0
-    }
+    {"name": "map_zoom", "value": 1},
+    {"name": "map_pan_x", "value": 0},
+    {"name": "map_pan_y", "value": 0}
   ],
   "projection": {
     "type": "conicEqualArea",
@@ -56,10 +47,10 @@
       "geometry": {
         "type": "MultiPoint",
         "coordinates": [
-          [110, -7],
-          [156, -7],
-          [110, -47],
-          [156, -47]
+          [110, -9],
+          [156, -9],
+          [110, -45],
+          [156, -45]
         ]
       }
     },
@@ -72,9 +63,7 @@
   },
   "layer": [
     {
-      "data": {
-        "sphere": true
-      },
+      "data": {"sphere": true},
       "mark": {
         "type": "geoshape",
         "fill": "#EAF3F8",
@@ -86,10 +75,7 @@
       "data": {
         "graticule": {
           "step": [10, 10],
-          "extent": [
-            [108, -50],
-            [158, -5]
-          ]
+          "extent": [[108, -50], [158, -5]]
         }
       },
       "mark": {
@@ -161,6 +147,14 @@
           "as": "nights_2025"
         },
         {
+          "calculate": "datum.nights_2025 / 1000",
+          "as": "nights_2025_million"
+        },
+        {
+          "calculate": "datum.value / 1000",
+          "as": "nights_2026_million"
+        },
+        {
           "lookup": "state_or_territory",
           "from": {
             "data": {
@@ -192,10 +186,13 @@
         "color": {
           "field": "percent_change_from_2025",
           "type": "quantitative",
-          "title": "Change from 2025 (%)",
+          "title": "Visitor-night change (%)",
           "scale": {
-            "domainMid": 0,
-            "scheme": "redblue"
+            "domain": [-20, 0, 20],
+            "range": ["#A97836", "#F6F4F0", "#71507C"],
+            "interpolate": "lab",
+            "nice": false,
+            "clamp": true
           },
           "legend": {
             "orient": "bottom",
@@ -203,12 +200,12 @@
             "titleOrient": "top",
             "titleAnchor": "start",
             "gradientLength": {
-              "expr": "min(300, width - 20)"
+              "expr": "min(330, width - 20)"
             },
-            "gradientThickness": 12,
-            "format": ".0f",
-            "tickCount": 5,
-            "offset": 12
+            "gradientThickness": 11,
+            "format": "+.0f",
+            "values": [-20, -10, 0, 10, 20],
+            "offset": 8
           }
         },
         "tooltip": [
@@ -218,21 +215,21 @@
             "title": "State or territory"
           },
           {
-            "field": "nights_2025",
+            "field": "nights_2025_million",
             "type": "quantitative",
-            "title": "2025 nights ('000)",
-            "format": ",.0f"
+            "title": "2025 visitor nights (millions)",
+            "format": ",.1f"
           },
           {
-            "field": "value",
+            "field": "nights_2026_million",
             "type": "quantitative",
-            "title": "2026 nights ('000)",
-            "format": ",.0f"
+            "title": "2026 visitor nights (millions)",
+            "format": ",.1f"
           },
           {
             "field": "percent_change_from_2025",
             "type": "quantitative",
-            "title": "Change (%)",
+            "title": "Change from 2025 (%)",
             "format": "+.1f"
           }
         ]
@@ -241,41 +238,13 @@
     {
       "data": {
         "values": [
-          {
-            "longitude": 120,
-            "latitude": -10,
-            "label": "120°E"
-          },
-          {
-            "longitude": 130,
-            "latitude": -10,
-            "label": "130°E"
-          },
-          {
-            "longitude": 140,
-            "latitude": -10,
-            "label": "140°E"
-          },
-          {
-            "longitude": 150,
-            "latitude": -10,
-            "label": "150°E"
-          },
-          {
-            "longitude": 111,
-            "latitude": -20,
-            "label": "20°S"
-          },
-          {
-            "longitude": 111,
-            "latitude": -30,
-            "label": "30°S"
-          },
-          {
-            "longitude": 111,
-            "latitude": -40,
-            "label": "40°S"
-          }
+          {"longitude": 120, "latitude": -12, "label": "120°E"},
+          {"longitude": 130, "latitude": -12, "label": "130°E"},
+          {"longitude": 140, "latitude": -12, "label": "140°E"},
+          {"longitude": 150, "latitude": -12, "label": "150°E"},
+          {"longitude": 111, "latitude": -20, "label": "20°S"},
+          {"longitude": 111, "latitude": -30, "label": "30°S"},
+          {"longitude": 111, "latitude": -40, "label": "40°S"}
         ]
       },
       "mark": {
@@ -286,16 +255,68 @@
         "clip": true
       },
       "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
+    },
+    {
+      "data": {
+        "url": "data/international_states.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "value": "number",
+            "change_from_2025": "number",
+            "percent_change_from_2025": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.period === 'Year ending June 2026' && datum.metric === 'nights_thousand' && indexof(['Queensland','New South Wales'], datum.state_or_territory) >= 0"
+        },
+        {
+          "calculate": "datum.state_or_territory === 'Queensland' ? 144 : 146",
+          "as": "label_longitude"
+        },
+        {
+          "calculate": "datum.state_or_territory === 'Queensland' ? -22 : -32",
+          "as": "label_latitude"
+        },
+        {
+          "calculate": "datum.state_or_territory + '\\n' + format(datum.percent_change_from_2025, '+.1f') + '%'",
+          "as": "state_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "align": "center",
+        "baseline": "middle",
+        "lineBreak": "\n",
+        "lineHeight": 14,
+        "clip": true
+      },
+      "encoding": {
         "longitude": {
-          "field": "longitude",
+          "field": "label_longitude",
           "type": "quantitative"
         },
         "latitude": {
-          "field": "latitude",
+          "field": "label_latitude",
           "type": "quantitative"
         },
         "text": {
-          "field": "label"
+          "field": "state_label"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.state_or_territory === 'Queensland'",
+            "value": "white"
+          },
+          "value": "#46394C"
         }
       }
     }
@@ -303,9 +324,7 @@
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {
-      "stroke": null
-    },
+    "view": {"stroke": null},
     "legend": {
       "labelFontSize": 12,
       "titleFontSize": 12,
