@@ -15,7 +15,7 @@
   },
   "title": {
     "text": "Australia’s largest international visitor markets",
-    "subtitle": "Trips to Australia, year ending June 2026 · change from the previous year",
+    "subtitle": "Trips to Australia, year ending June 2026",
     "anchor": "start",
     "fontSize": 18,
     "fontWeight": "bold",
@@ -38,6 +38,12 @@
       }
     }
   },
+  "transform": [
+    {
+      "calculate": "datum.percent_change < 0 ? 'Decline' : 'Growth'",
+      "as": "change_direction"
+    }
+  ],
   "projection": {
     "type": "equirectangular",
     "rotate": [-150, 0, 0],
@@ -61,6 +67,31 @@
   "layer": [
     {
       "data": {
+        "sphere": true
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#F2F7FA",
+        "stroke": null,
+        "clip": true
+      }
+    },
+    {
+      "data": {
+        "graticule": {
+          "step": [60, 30]
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#D7E1E7",
+        "strokeWidth": 0.45,
+        "opacity": 0.65,
+        "clip": true
+      }
+    },
+    {
+      "data": {
         "url": "https://cdn.jsdelivr.net/npm/vega-datasets@3/data/world-110m.json",
         "format": {
           "type": "topojson",
@@ -74,10 +105,80 @@
       ],
       "mark": {
         "type": "geoshape",
-        "fill": "#ECE9E2",
+        "fill": "#EBE8E1",
         "stroke": "white",
         "strokeWidth": 0.6,
         "clip": true
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [0, -55],
+                [0, 75]
+              ]
+            }
+          }
+        ]
+      },
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#B8C8D2",
+        "strokeWidth": 0.8,
+        "strokeDash": [3, 4],
+        "clip": true
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "longitude": 0,
+            "latitude": -49,
+            "label": "0°"
+          },
+          {
+            "longitude": -24,
+            "latitude": 30,
+            "label": "30°N"
+          },
+          {
+            "longitude": -24,
+            "latitude": 0,
+            "label": "0°"
+          },
+          {
+            "longitude": -24,
+            "latitude": -30,
+            "label": "30°S"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 9,
+        "color": "#7A8C98",
+        "align": "left",
+        "dx": 3
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
       }
     },
     {
@@ -87,19 +188,19 @@
           "as": "start_lon"
         },
         {
-          "calculate": "datum.origin_country === 'India' ? 67 : datum.origin_country === 'Singapore' ? 104 : datum.origin_country === 'United Kingdom' ? 65 : datum.origin_country === 'United States of America' ? 226 : datum.origin_country === 'Japan' ? 143 : datum.origin_country === 'South Korea' ? 128 : datum.origin_country === 'China' ? 110 : 164",
+          "calculate": "datum.origin_country === 'India' ? 67 : datum.origin_country === 'Singapore' ? 113 : datum.origin_country === 'United Kingdom' ? 65 : datum.origin_country === 'United States of America' ? 226 : datum.origin_country === 'Japan' ? 143 : datum.origin_country === 'South Korea' ? 128 : datum.origin_country === 'China' ? 110 : 164",
           "as": "c1_lon"
         },
         {
-          "calculate": "datum.origin_country === 'India' ? -8 : datum.origin_country === 'Singapore' ? -6 : datum.origin_country === 'United Kingdom' ? 95 : datum.origin_country === 'United States of America' ? 67 : datum.origin_country === 'Japan' ? 26 : datum.origin_country === 'South Korea' ? 26 : datum.origin_country === 'China' ? 27 : -40",
+          "calculate": "datum.origin_country === 'India' ? -8 : datum.origin_country === 'Singapore' ? 0 : datum.origin_country === 'United Kingdom' ? 95 : datum.origin_country === 'United States of America' ? 67 : datum.origin_country === 'Japan' ? 26 : datum.origin_country === 'South Korea' ? 26 : datum.origin_country === 'China' ? 27 : -40",
           "as": "c1_lat"
         },
         {
-          "calculate": "datum.origin_country === 'India' ? 90 : datum.origin_country === 'Singapore' ? 116 : datum.origin_country === 'United Kingdom' ? 98 : datum.origin_country === 'United States of America' ? 190 : datum.origin_country === 'Japan' ? 145 : datum.origin_country === 'South Korea' ? 132 : datum.origin_country === 'China' ? 120 : 149",
+          "calculate": "datum.origin_country === 'India' ? 90 : datum.origin_country === 'Singapore' ? 125 : datum.origin_country === 'United Kingdom' ? 98 : datum.origin_country === 'United States of America' ? 190 : datum.origin_country === 'Japan' ? 145 : datum.origin_country === 'South Korea' ? 132 : datum.origin_country === 'China' ? 120 : 149",
           "as": "c2_lon"
         },
         {
-          "calculate": "datum.origin_country === 'India' ? -42 : datum.origin_country === 'Singapore' ? -14 : datum.origin_country === 'United Kingdom' ? -26 : datum.origin_country === 'United States of America' ? 3 : datum.origin_country === 'Japan' ? -6 : datum.origin_country === 'South Korea' ? 6 : datum.origin_country === 'China' ? -4 : -38",
+          "calculate": "datum.origin_country === 'India' ? -42 : datum.origin_country === 'Singapore' ? -12 : datum.origin_country === 'United Kingdom' ? -26 : datum.origin_country === 'United States of America' ? 3 : datum.origin_country === 'Japan' ? -6 : datum.origin_country === 'South Korea' ? 6 : datum.origin_country === 'China' ? -4 : -38",
           "as": "c2_lat"
         },
         {
@@ -149,11 +250,29 @@
           "sort": "ascending"
         },
         "color": {
-          "condition": {
-            "test": "datum.percent_change < 0",
-            "value": "#D55E00"
+          "field": "change_direction",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Growth", "Decline"],
+            "range": ["#2C6E8F", "#B5662E"]
           },
-          "value": "#0072B2"
+          "legend": {
+            "title": "Change since 2025",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 2,
+            "titleOrient": "left",
+            "titleAnchor": "middle",
+            "titlePadding": 10,
+            "labelFontSize": 11,
+            "titleFontSize": 12,
+            "titleFontWeight": "bold",
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 4,
+            "symbolSize": 400,
+            "columnPadding": 16,
+            "offset": 8
+          }
         },
         "strokeWidth": {
           "field": "trips_2026_thousand",
@@ -164,13 +283,13 @@
             "zero": true
           },
           "legend": {
-            "title": "Trips in 2026 (thousands)",
+            "title": "Trips (thousands)",
             "orient": "bottom",
             "direction": "horizontal",
             "values": [400, 800, 1200],
             "format": ",.0f",
             "symbolType": "stroke",
-            "symbolStrokeColor": "#0072B2",
+            "symbolStrokeColor": "#607483",
             "symbolSize": 400,
             "columns": 3,
             "columnPadding": 20,
@@ -228,11 +347,13 @@
           "type": "quantitative"
         },
         "color": {
-          "condition": {
-            "test": "datum.percent_change < 0",
-            "value": "#D55E00"
+          "field": "change_direction",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Growth", "Decline"],
+            "range": ["#2C6E8F", "#B5662E"]
           },
-          "value": "#0072B2"
+          "legend": null
         },
         "tooltip": [
           {
@@ -292,7 +413,9 @@
           "field": "origin_latitude",
           "type": "quantitative"
         },
-        "text": {"field": "origin_label"}
+        "text": {
+          "field": "origin_label"
+        }
       }
     },
     {
@@ -308,16 +431,26 @@
       "mark": {
         "type": "circle",
         "size": 250,
-        "color": "#E69F00",
+        "color": "#243746",
         "opacity": 1,
         "stroke": "white",
         "strokeWidth": 1.5
       },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
         "tooltip": [
-          {"field": "country", "type": "nominal", "title": "Destination"}
+          {
+            "field": "country",
+            "type": "nominal",
+            "title": "Destination"
+          }
         ]
       }
     },
@@ -341,9 +474,17 @@
         "dy": 25
       },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "text": {"field": "label"}
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
       }
     },
     {
@@ -358,9 +499,21 @@
         },
         {
           "joinaggregate": [
-            {"op": "sum", "field": "trip_increase", "as": "total_increase"},
-            {"op": "sum", "field": "trips_2026_thousand", "as": "total_trips"},
-            {"op": "sum", "field": "pair_trips", "as": "pair_total"}
+            {
+              "op": "sum",
+              "field": "trip_increase",
+              "as": "total_increase"
+            },
+            {
+              "op": "sum",
+              "field": "trips_2026_thousand",
+              "as": "total_trips"
+            },
+            {
+              "op": "sum",
+              "field": "pair_trips",
+              "as": "pair_total"
+            }
           ]
         },
         {
@@ -371,7 +524,7 @@
           "as": "growth_heading"
         },
         {
-          "calculate": "'China added ' + format(round(datum.trip_increase) * 1000, ',.0f') + ' of the\\n' + format(round(datum.total_increase) * 1000, ',.0f') + ' extra trips across\\nthese eight markets.'",
+          "calculate": "'China added ' + format(round(datum.trip_increase) * 1000, ',.0f') + ' of the\\\\n' + format(round(datum.total_increase) * 1000, ',.0f') + ' extra trips across\\\\nthese eight markets.'",
           "as": "growth_body"
         },
         {
@@ -379,7 +532,7 @@
           "as": "share_heading"
         },
         {
-          "calculate": "'New Zealand and China\\naccounted for ' + format(datum.pair_total / datum.total_trips, '.0%') + ' of trips\\nacross the markets shown.'",
+          "calculate": "'New Zealand and China\\\\naccounted for ' + format(datum.pair_total / datum.total_trips, '.0%') + ' of trips\\\\nacross the markets shown.'",
           "as": "share_body"
         }
       ],
@@ -395,7 +548,11 @@
           },
           "encoding": {
             "x": {"value": {"expr": "width * 0.59"}},
-            "x2": {"value": {"expr": "width * 0.59 + min(220, width * 0.27)"}},
+            "x2": {
+              "value": {
+                "expr": "width * 0.59 + min(220, width * 0.27)"
+              }
+            },
             "y": {"value": 176},
             "y2": {"value": 244}
           }
@@ -408,7 +565,7 @@
             "fontSize": 10,
             "fontWeight": "bold",
             "color": "#184E65",
-            "lineBreak": "\n",
+            "lineBreak": "\\n",
             "lineHeight": 12
           },
           "encoding": {
@@ -425,7 +582,7 @@
             "fontSize": 10,
             "fontWeight": "normal",
             "color": "#374151",
-            "lineBreak": "\n",
+            "lineBreak": "\\n",
             "lineHeight": 12
           },
           "encoding": {
@@ -445,7 +602,11 @@
           },
           "encoding": {
             "x": {"value": {"expr": "width * 0.59"}},
-            "x2": {"value": {"expr": "width * 0.59 + min(220, width * 0.27)"}},
+            "x2": {
+              "value": {
+                "expr": "width * 0.59 + min(220, width * 0.27)"
+              }
+            },
             "y": {"value": 254},
             "y2": {"value": 322}
           }
@@ -458,7 +619,7 @@
             "fontSize": 10,
             "fontWeight": "bold",
             "color": "#184E65",
-            "lineBreak": "\n",
+            "lineBreak": "\\n",
             "lineHeight": 12
           },
           "encoding": {
@@ -475,7 +636,7 @@
             "fontSize": 10,
             "fontWeight": "normal",
             "color": "#374151",
-            "lineBreak": "\n",
+            "lineBreak": "\\n",
             "lineHeight": 12
           },
           "encoding": {
@@ -490,6 +651,8 @@
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {"stroke": null}
+    "view": {
+      "stroke": null
+    }
   }
 }
