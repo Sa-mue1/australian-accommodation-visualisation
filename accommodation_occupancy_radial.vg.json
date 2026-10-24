@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Monthly occupancy rates for eight states and territories across four selected financial years. National annual rates are weighted by available room nights.",
   "padding": {
     "left": 5,
     "right": 5,
@@ -13,20 +14,24 @@
     },
     {
       "name": "occupancy_radius",
-      "expr": "min(132, (child_width - 50) / 2)"
+      "expr": "min(132, (child_width - 38) / 2)"
     }
   ],
   "title": {
     "text": {
       "expr": "occupancy_columns === 1 ? ['Monthly accommodation', 'occupancy'] : 'Monthly accommodation occupancy'"
     },
-    "subtitle": "Each ring represents an Australian state or territory.",
+    "subtitle": [
+      "Rings represent states and territories.",
+      "Months run clockwise from July."
+    ],
     "anchor": "start",
-    "fontSize": 18,
+    "fontSize": 17,
+    "fontWeight": "bold",
     "subtitleFontSize": 12,
     "subtitleLineHeight": 16,
-    "subtitlePadding": 7,
-    "offset": 12,
+    "subtitlePadding": 6,
+    "offset": 8,
     "limit": {
       "expr": "occupancy_columns * child_width + (occupancy_columns - 1) * 20"
     }
@@ -119,9 +124,9 @@
           "radius2": {
             "expr": "16 + datum.ring_number * (occupancy_radius - 16) / 8 + 0.4"
           },
-          "padAngle": 0.009,
+          "padAngle": 0.007,
           "stroke": "white",
-          "strokeWidth": 0.45
+          "strokeWidth": 0.55
         },
         "encoding": {
           "x": {
@@ -131,7 +136,7 @@
           },
           "y": {
             "value": {
-              "expr": "occupancy_radius + 30"
+              "expr": "occupancy_radius + 24"
             }
           },
           "color": {
@@ -140,22 +145,33 @@
               "field": "occupancy_rate_pct",
               "type": "quantitative",
               "scale": {
-                "domain": [0, 100],
-                "clamp": true,
-                "scheme": "tealblues"
+                "type": "linear",
+                "domain": [0, 25, 50, 75, 100],
+                "range": [
+                  "#EFF7FC",
+                  "#B8DDF0",
+                  "#69B7DE",
+                  "#1978BA",
+                  "#083B78"
+                ],
+                "interpolate": "lab",
+                "nice": false,
+                "clamp": true
               },
               "legend": {
                 "title": "Occupancy rate (%)",
                 "orient": "bottom",
                 "direction": "horizontal",
-                "gradientLength": 240,
-                "gradientThickness": 10,
+                "gradientLength": {
+                  "expr": "min(300, occupancy_columns * child_width + (occupancy_columns - 1) * 20 - 14)"
+                },
+                "gradientThickness": 12,
                 "values": [0, 20, 40, 60, 80, 100],
                 "format": ".0f",
                 "titleFontSize": 12,
                 "titleFontWeight": "bold",
                 "labelFontSize": 11,
-                "offset": 12,
+                "offset": 8,
                 "padding": 0
               }
             },
@@ -204,7 +220,10 @@
           },
           {
             "aggregate": [
-              {"op": "count", "as": "rows"}
+              {
+                "op": "count",
+                "as": "rows"
+              }
             ],
             "groupby": [
               "financial_month",
@@ -227,12 +246,12 @@
         "encoding": {
           "x": {
             "value": {
-              "expr": "child_width / 2 + sin(datum.theta_start) * (occupancy_radius + 14)"
+              "expr": "child_width / 2 + sin(datum.theta_start) * (occupancy_radius + 11)"
             }
           },
           "y": {
             "value": {
-              "expr": "occupancy_radius + 30 - cos(datum.theta_start) * (occupancy_radius + 14)"
+              "expr": "occupancy_radius + 24 - cos(datum.theta_start) * (occupancy_radius + 11)"
             }
           },
           "text": {
@@ -285,7 +304,7 @@
           },
           "y": {
             "value": {
-              "expr": "occupancy_radius * 2 + 62"
+              "expr": "occupancy_radius * 2 + 52"
             }
           },
           "text": {
