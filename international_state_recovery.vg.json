@@ -63,7 +63,9 @@
   },
   "layer": [
     {
-      "data": {"sphere": true},
+      "data": {
+        "sphere": true
+      },
       "mark": {
         "type": "geoshape",
         "fill": "#EAF3F8",
@@ -255,62 +257,16 @@
         "clip": true
       },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "text": {"field": "label"}
-      }
-    },
-    {
-      "data": {
-        "url": "data/international_states.csv",
-        "format": {
-          "type": "csv",
-          "parse": {
-            "value": "number",
-            "change_from_2025": "number",
-            "percent_change_from_2025": "number"
-          }
-        }
-      },
-      "transform": [
-        {
-          "filter": "datum.period === 'Year ending June 2026' && datum.metric === 'nights_thousand' && indexof(['Queensland','New South Wales'], datum.state_or_territory) >= 0"
-        },
-        {
-          "calculate": "datum.state_or_territory === 'Queensland' ? 144 : 146",
-          "as": "label_longitude"
-        },
-        {
-          "calculate": "datum.state_or_territory === 'Queensland' ? -22 : -32",
-          "as": "label_latitude"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "fontSize": 11,
-        "fontWeight": "bold",
-        "align": "center",
-        "baseline": "middle",
-        "clip": true
-      },
-      "encoding": {
         "longitude": {
-          "field": "label_longitude",
+          "field": "longitude",
           "type": "quantitative"
         },
         "latitude": {
-          "field": "label_latitude",
+          "field": "latitude",
           "type": "quantitative"
         },
         "text": {
-          "field": "state_or_territory"
-        },
-        "color": {
-          "condition": {
-            "test": "datum.state_or_territory === 'Queensland'",
-            "value": "white"
-          },
-          "value": "#46394C"
+          "field": "label"
         }
       }
     }
@@ -318,7 +274,9 @@
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "legend": {
       "labelFontSize": 12,
       "titleFontSize": 12,
