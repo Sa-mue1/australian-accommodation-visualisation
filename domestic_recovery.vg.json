@@ -126,6 +126,84 @@
         }
       },
       {
+        "transform": [
+          {
+            "filter": "datum.year === 2020"
+          }
+        ],
+        "mark": {
+          "type": "rule",
+          "strokeWidth": 1,
+          "opacity": 0.65
+        },
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "quantitative",
+            "scale": {
+              "domain": [2018.85, 2024.15],
+              "nice": false,
+              "zero": false
+            },
+            "axis": {
+              "title": null,
+              "values": [2019, 2020, 2021, 2022, 2023, 2024],
+              "format": "d",
+              "labelAngle": 0,
+              "labelFontSize": 12,
+              "labelPadding": 6,
+              "grid": false,
+              "domain": false,
+              "tickSize": 3,
+              "tickColor": "#C9D0D6"
+            }
+          },
+          "x2": {
+            "value": {
+              "expr": "child_width - 148"
+            }
+          },
+          "y": {
+            "field": "change_from_2019",
+            "type": "quantitative",
+            "scale": {
+              "domain": [-0.6, 0.4],
+              "nice": false,
+              "zero": false
+            },
+            "axis": {
+              "title": "Change from 2019",
+              "values": [-0.5, -0.25, 0, 0.25],
+              "labelExpr": "datum.value === 0 ? '0%' : format(datum.value, '+.0%')",
+              "labelOverlap": false,
+              "labelFont": "Arial",
+              "labelFontSize": 12,
+              "labelPadding": 5,
+              "titleFont": "Arial",
+              "titleFontSize": 12,
+              "titleFontWeight": "bold",
+              "titlePadding": 10,
+              "grid": true,
+              "gridColor": "#E9ECEF",
+              "domain": false,
+              "tickSize": 0
+            }
+          },
+          "y2": {
+            "value": {
+              "expr": "child_height - 19"
+            }
+          },
+          "stroke": {
+            "field": "annotation_border",
+            "type": "nominal",
+            "scale": null,
+            "legend": null
+          },
+          "tooltip": null
+        }
+      },
+      {
         "mark": {
           "type": "line",
           "strokeWidth": 2.5,
@@ -262,10 +340,14 @@
                 }
               },
               "y": {
-                "value": 3
+                "value": {
+                  "expr": "child_height - 30"
+                }
               },
               "y2": {
-                "value": 25
+                "value": {
+                  "expr": "child_height - 8"
+                }
               },
               "fill": {
                 "field": "annotation_fill",
@@ -298,7 +380,9 @@
                 }
               },
               "y": {
-                "value": 14
+                "value": {
+                  "expr": "child_height - 19"
+                }
               },
               "text": {
                 "field": "drop_label"
