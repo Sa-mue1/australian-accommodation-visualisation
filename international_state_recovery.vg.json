@@ -204,7 +204,7 @@
           "title": "Visitor-night change (%)",
           "scale": {
             "domain": [-20, 0, 20],
-            "range": ["#B18A4C", "#F6F4F0", "#6A4376"],
+            "range": ["#C73E3E", "#FAF8F3", "#243C5A"],
             "interpolate": "lab",
             "nice": false,
             "clamp": true
