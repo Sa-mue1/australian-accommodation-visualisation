@@ -25,6 +25,31 @@ const embedOptions = {
   }
 };
 
+const roleColours = {
+  flowGrowth: "#00736B",
+  flowFill: "#EFF7F5",
+  flowBorder: "#A8CBC5",
+  year2025: "#80658F",
+  priceLow: "#E8BB82",
+  priceMiddle: "#BB7330",
+  priceHigh: "#74300B"
+};
+
+document.documentElement.style.setProperty(
+  "--flow-growth",
+  roleColours.flowGrowth
+);
+
+document.documentElement.style.setProperty(
+  "--flow-annotation-fill",
+  roleColours.flowFill
+);
+
+document.documentElement.style.setProperty(
+  "--flow-annotation-border",
+  roleColours.flowBorder
+);
+
 function themeColour(name, fallback) {
   return getComputedStyle(document.documentElement)
     .getPropertyValue(name).trim() || fallback;
@@ -37,10 +62,17 @@ const chartPalette = {
   sydneyTint: themeColour("--city-sydney-tint", "#EEF3F9"),
   melbourne: themeColour("--city-melbourne", "#8C6D00"),
   melbourneTint: themeColour("--city-melbourne-tint", "#FBF6DF"),
-  flowGrowth: themeColour("--flow-growth", "#394854"),
+  flowGrowth: roleColours.flowGrowth,
   flowDecline: themeColour("--flow-decline", "#9E007E"),
-  flowFill: themeColour("--flow-annotation-fill", "#F3F5F7"),
-  flowBorder: themeColour("--flow-annotation-border", "#B9C4CE"),
+  flowFill: roleColours.flowFill,
+  flowBorder: roleColours.flowBorder,
+  year2025: roleColours.year2025,
+  year2026: themeColour("--international-current", "#6F2945"),
+  rentalPrices: [
+    roleColours.priceLow,
+    roleColours.priceMiddle,
+    roleColours.priceHigh
+  ],
   occupancyText: themeColour("--occupancy-highlight", "#00677F"),
   occupancy: [
     themeColour("--occupancy-0", "#F0FBFF"),
@@ -115,7 +147,84 @@ function applyChartTheme(id, specification) {
     replacements["#006B8F"] = chartPalette.occupancyText;
   }
 
+  if (id === "international-accommodation-change") {
+    replacements["#AEB5BF"] = chartPalette.year2025;
+    replacements["#626B77"] = chartPalette.year2025;
+    replacements["#6F2945"] = chartPalette.year2026;
+  }
+
   const themed = replaceChartColours(specification, replacements);
+
+  if (id === "short-term-rental-map") {
+    themed.title.subtitle =
+      "Circle size shows listings; copper shows median advertised prices.";
+
+    for (const panel of themed.hconcat) {
+      const circles = panel.layer.find(layer =>
+        layer.encoding?.color?.field === "median_price"
+      );
+
+      if (!circles) continue;
+
+      circles.encoding.color.title = "Median advertised price (AUD)";
+
+      circles.encoding.color.scale = {
+        domain: [100, 375, 650],
+        range: chartPalette.rentalPrices,
+        interpolate: "lab",
+        clamp: true
+      };
+
+      const sizeLegend = circles.encoding.size.legend;
+
+      sizeLegend.symbolFillColor = "white";
+      sizeLegend.symbolStrokeColor = roleColours.priceHigh;
+      sizeLegend.symbolStrokeWidth = 1.5;
+    }
+  }
+
+  if (id === "international-accommodation-change") {
+    const points = themed.layer.find(layer =>
+      layer.mark?.type === "point" &&
+      layer.encoding?.color?.field === "year_label"
+    );
+
+    if (points) {
+      const legend = points.encoding.color.legend;
+
+      delete points.encoding.color;
+      delete points.mark.stroke;
+
+      points.mark.strokeWidth = 2;
+
+      points.encoding.fill = {
+        field: "year_label",
+        type: "nominal",
+        title: "Year ending June",
+        scale: {
+          domain: ["2025", "2026"],
+          range: ["white", chartPalette.year2026]
+        },
+        legend
+      };
+
+      points.encoding.stroke = {
+        field: "year_label",
+        type: "nominal",
+        title: "Year ending June",
+        scale: {
+          domain: ["2025", "2026"],
+          range: [chartPalette.year2025, chartPalette.year2026]
+        },
+        legend
+      };
+
+      legend.symbolStrokeWidth = 2;
+
+      legend.labelExpr =
+        "datum.label === '2025' ? '2025 (hollow)' : '2026 (filled)'";
+    }
+  }
 
   if (id === "hotel-destination-rankings") {
     const lines = themed.layer.find(
@@ -146,6 +255,9 @@ function applyChartTheme(id, specification) {
   }
 
   if (id === "short-term-rental-price-density") {
+    themed.title.subtitle =
+      "Up to $1,000: vertical dashes mark medians; dots mark peaks.";
+
     const lines = themed.spec.layer.find(
       layer => layer.mark?.type === "line"
     );
