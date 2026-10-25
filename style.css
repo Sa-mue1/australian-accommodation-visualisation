@@ -21,6 +21,10 @@
   --category-rented: #8A6100;
   --category-camping: #925386;
   --category-friends: #3E454D;
+  --demand-highlight: #006D2C;
+  --city-sydney: #007C91;
+  --city-melbourne: #B4521A;
+  --city-brisbane: #5B4B9A;
 }
 
 * {
@@ -695,7 +699,12 @@ h3 {
 .story-columns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: calc(var(--chart-gap) + 2 * var(--card-padding) + 2 * var(--story-inset) + 2px);
+  column-gap: calc(
+    var(--chart-gap)
+    + 2 * var(--card-padding)
+    + 2 * var(--story-inset)
+    + 2px
+  );
   row-gap: 8px;
 }
 
@@ -752,11 +761,13 @@ h3 {
   margin-bottom: 12px;
 }
 
-#section-recovery .section-introduction {
+#section-recovery .section-introduction,
+#section-domestic-geography .section-introduction {
   color: #34404C;
 }
 
-#section-recovery .section-introduction strong {
+#section-recovery .section-introduction strong,
+#section-domestic-geography .section-introduction strong {
   color: var(--text-primary);
   font-weight: 700;
 }
@@ -779,6 +790,22 @@ h3 {
 
 .chart-story .category-friends {
   color: var(--category-friends);
+}
+
+.chart-story .demand-highlight {
+  color: var(--demand-highlight);
+}
+
+.chart-story .city-sydney {
+  color: var(--city-sydney);
+}
+
+.chart-story .city-melbourne {
+  color: var(--city-melbourne);
+}
+
+.chart-story .city-brisbane {
+  color: var(--city-brisbane);
 }
 
 @media (max-width: 1000px) {
