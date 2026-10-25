@@ -360,7 +360,7 @@ function enableMapNavigation(view, container, options = {}) {
     } else if (event.key === "+" || event.key === "=") {
       event.preventDefault();
       changeZoom(1.35);
-    } else if (event.key === "-" || event.key === "_") {
+    } else if (event.key === "-") {
       event.preventDefault();
       changeZoom(1 / 1.35);
     } else if (event.key === "Home" || event.key === "0") {
@@ -487,7 +487,7 @@ function enableOccupancySizing(view, container) {
       (available - 12 - (columns - 1) * 20) / columns
     );
 
-    const radius = Math.min(132, (width - 50) / 2);
+    const radius = Math.min(140, (width - 28) / 2);
     const size = `${columns}:${width}`;
 
     if (size === previousSize) return;
@@ -497,7 +497,7 @@ function enableOccupancySizing(view, container) {
     update({
       occupancy_columns: columns,
       child_width: width,
-      child_height: radius * 2 + 84
+      child_height: radius * 2 + 78
     }, true);
   }
 

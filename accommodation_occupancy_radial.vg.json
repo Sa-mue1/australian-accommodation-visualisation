@@ -14,7 +14,7 @@
     },
     {
       "name": "occupancy_radius",
-      "expr": "min(132, (child_width - 38) / 2)"
+      "expr": "min(140, (child_width - 28) / 2)"
     }
   ],
   "title": {
@@ -26,9 +26,10 @@
       "Months run clockwise from July."
     ],
     "anchor": "start",
-    "fontSize": 17,
+    "fontSize": 18,
     "fontWeight": "bold",
     "subtitleFontSize": 12,
+    "subtitleColor": "#202124",
     "subtitleLineHeight": 16,
     "subtitlePadding": 6,
     "offset": 8,
@@ -79,6 +80,10 @@
     {
       "calculate": "isValid(datum.occupancy_rate_pct) ? format(datum.occupancy_rate_pct / 100, '.1%') : 'Not available'",
       "as": "occupancy_label"
+    },
+    {
+      "calculate": "replace(datum.financial_year, '-', '–20')",
+      "as": "financial_year_full"
     }
   ],
   "facet": {
@@ -93,7 +98,7 @@
     "header": {
       "title": null,
       "labelExpr": "replace(datum.value, '-', '–20')",
-      "labelFontSize": 15,
+      "labelFontSize": 16,
       "labelFontWeight": "bold",
       "labelPadding": 8
     }
@@ -102,7 +107,7 @@
   "spacing": 20,
   "spec": {
     "width": 260,
-    "height": 294,
+    "height": 310,
     "layer": [
       {
         "transform": [
@@ -148,11 +153,11 @@
                 "type": "linear",
                 "domain": [0, 25, 50, 75, 100],
                 "range": [
-                  "#EFF7FC",
-                  "#B8DDF0",
-                  "#69B7DE",
-                  "#1978BA",
-                  "#083B78"
+                  "#F0FCFF",
+                  "#C7EFFA",
+                  "#79D5F0",
+                  "#20A8D8",
+                  "#007EA8"
                 ],
                 "interpolate": "lab",
                 "nice": false,
@@ -170,7 +175,7 @@
                 "format": ".0f",
                 "titleFontSize": 12,
                 "titleFontWeight": "bold",
-                "labelFontSize": 11,
+                "labelFontSize": 12,
                 "offset": 8,
                 "padding": 0
               }
@@ -179,7 +184,7 @@
           },
           "tooltip": [
             {
-              "field": "financial_year",
+              "field": "financial_year_full",
               "type": "nominal",
               "title": "Financial year"
             },
@@ -197,18 +202,6 @@
               "field": "occupancy_label",
               "type": "nominal",
               "title": "Occupancy rate"
-            },
-            {
-              "field": "room_nights_occupied",
-              "type": "quantitative",
-              "title": "Occupied room nights",
-              "format": ",.0f"
-            },
-            {
-              "field": "room_nights_available",
-              "type": "quantitative",
-              "title": "Available room nights",
-              "format": ",.0f"
             }
           ]
         }
@@ -236,7 +229,7 @@
           "type": "text",
           "fontSize": 12,
           "fontWeight": "bold",
-          "color": "#4B5563",
+          "color": "#202124",
           "baseline": "middle",
           "align": "center",
           "angle": {
@@ -246,12 +239,12 @@
         "encoding": {
           "x": {
             "value": {
-              "expr": "child_width / 2 + sin(datum.theta_start) * (occupancy_radius + 11)"
+              "expr": "child_width / 2 + sin(datum.theta_start) * (occupancy_radius + 8)"
             }
           },
           "y": {
             "value": {
-              "expr": "occupancy_radius + 24 - cos(datum.theta_start) * (occupancy_radius + 11)"
+              "expr": "occupancy_radius + 24 - cos(datum.theta_start) * (occupancy_radius + 8)"
             }
           },
           "text": {
@@ -277,7 +270,8 @@
                 "field": "room_nights_available",
                 "as": "available"
               }
-            ]
+            ],
+            "groupby": ["financial_year_full"]
           },
           {
             "calculate": "datum.occupied / datum.available",
@@ -292,9 +286,9 @@
           "type": "text",
           "align": "center",
           "baseline": "top",
-          "fontSize": 13,
+          "fontSize": 14,
           "fontWeight": "bold",
-          "color": "#202124"
+          "color": "#006B8F"
         },
         "encoding": {
           "x": {
@@ -311,6 +305,11 @@
             "field": "annual_label"
           },
           "tooltip": [
+            {
+              "field": "financial_year_full",
+              "type": "nominal",
+              "title": "Financial year"
+            },
             {
               "field": "annual_occupancy",
               "type": "quantitative",
@@ -349,7 +348,7 @@
       "spacing": 20
     },
     "legend": {
-      "labelColor": "#374151",
+      "labelColor": "#202124",
       "titleColor": "#202124"
     }
   }
