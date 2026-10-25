@@ -70,7 +70,7 @@
       "as": "comparison_label"
     },
     {
-      "calculate": "format(abs(datum.change_from_2019), '.1%') + ' below 2019'",
+      "calculate": "'2020 drop: ' + format(abs(datum.change_from_2019), '.1%')",
       "as": "drop_label"
     },
     {
@@ -247,22 +247,25 @@
           {
             "mark": {
               "type": "rect",
-              "cornerRadius": 4,
+              "cornerRadius": 3,
               "strokeWidth": 1
             },
             "encoding": {
               "x": {
-                "datum": 2019.3,
-                "type": "quantitative"
+                "value": {
+                  "expr": "child_width - 148"
+                }
               },
               "x2": {
-                "datum": 2021.55
+                "value": {
+                  "expr": "child_width - 8"
+                }
               },
               "y": {
                 "value": 3
               },
               "y2": {
-                "value": 41
+                "value": 25
               },
               "fill": {
                 "field": "annotation_fill",
@@ -286,46 +289,16 @@
               "fontSize": 12,
               "fontWeight": "bold",
               "align": "left",
-              "baseline": "top",
-              "dx": 10
+              "baseline": "middle"
             },
             "encoding": {
               "x": {
-                "datum": 2019.3,
-                "type": "quantitative"
+                "value": {
+                  "expr": "child_width - 140"
+                }
               },
               "y": {
-                "value": 8
-              },
-              "text": {
-                "value": "2020 decline"
-              },
-              "fill": {
-                "field": "annotation_ink",
-                "type": "nominal",
-                "scale": null,
-                "legend": null
-              },
-              "tooltip": null
-            }
-          },
-          {
-            "mark": {
-              "type": "text",
-              "font": "Arial",
-              "fontSize": 12,
-              "fontWeight": "normal",
-              "align": "left",
-              "baseline": "top",
-              "dx": 10
-            },
-            "encoding": {
-              "x": {
-                "datum": 2019.3,
-                "type": "quantitative"
-              },
-              "y": {
-                "value": 24
+                "value": 14
               },
               "text": {
                 "field": "drop_label"
