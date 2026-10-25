@@ -25,7 +25,7 @@
       "stays with friends declined"
     ],
     "subtitle": [
-      "Selected accommodation types; international visitor nights",
+      "International visitor nights in millions, by accommodation type",
       "Years ending June 2025 and June 2026"
     ],
     "anchor": "start",
@@ -120,6 +120,10 @@
     {
       "calculate": "datum.type_value_2026 >= datum.type_value_2025 ? 'increase' : 'decrease'",
       "as": "change_direction"
+    },
+    {
+      "calculate": "datum.share_percent / 100",
+      "as": "share_fraction"
     }
   ],
   "encoding": {
@@ -204,7 +208,8 @@
         "filled": true,
         "size": 120,
         "stroke": "white",
-        "strokeWidth": 1
+        "strokeWidth": 1,
+        "opacity": 1
       },
       "encoding": {
         "color": {
@@ -213,7 +218,7 @@
           "title": "Year ending June",
           "scale": {
             "domain": ["2025", "2026"],
-            "range": ["#AEB5BF", "#8C445C"]
+            "range": ["#AEB5BF", "#6F2945"]
           },
           "legend": {
             "orient": "none",
@@ -249,14 +254,14 @@
           {
             "field": "nights_million",
             "type": "quantitative",
-            "title": "Visitor nights (millions)",
+            "title": "Visitor nights",
             "format": ",.1f"
           },
           {
-            "field": "share_percent",
+            "field": "share_fraction",
             "type": "quantitative",
-            "title": "Share of visitor nights (%)",
-            "format": ".1f"
+            "title": "Share of visitor nights",
+            "format": ".1%"
           },
           {
             "field": "change_tooltip",
@@ -279,20 +284,51 @@
         "fontSize": 12,
         "fontWeight": "bold",
         "color": {
-          "expr": "datum.year_label === '2026' ? '#8C445C' : '#626B77'"
+          "expr": "datum.year_label === '2026' ? '#6F2945' : '#626B77'"
         }
       },
       "encoding": {
         "text": {
           "field": "value_label"
-        }
+        },
+        "tooltip": [
+          {
+            "field": "accommodation_type",
+            "type": "nominal",
+            "title": "Accommodation type"
+          },
+          {
+            "field": "year_label",
+            "type": "ordinal",
+            "title": "Year ending June"
+          },
+          {
+            "field": "nights_million",
+            "type": "quantitative",
+            "title": "Visitor nights",
+            "format": ",.1f"
+          },
+          {
+            "field": "share_fraction",
+            "type": "quantitative",
+            "title": "Share of visitor nights",
+            "format": ".1%"
+          },
+          {
+            "field": "change_tooltip",
+            "type": "nominal",
+            "title": "Change from 2025"
+          }
+        ]
       }
     }
   ],
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
       "labelColor": "#374151",
       "titleColor": "#202124"

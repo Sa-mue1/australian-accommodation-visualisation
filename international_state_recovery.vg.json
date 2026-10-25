@@ -19,7 +19,7 @@
       "varied across states"
     ],
     "subtitle": [
-      "Percentage change in international visitor nights",
+      "Percentage change; visitor-night totals are in millions",
       "Years ending June 2025 and June 2026"
     ],
     "anchor": "start",
@@ -33,9 +33,18 @@
     "offset": 10
   },
   "params": [
-    {"name": "map_zoom", "value": 1},
-    {"name": "map_pan_x", "value": 0},
-    {"name": "map_pan_y", "value": 0}
+    {
+      "name": "map_zoom",
+      "value": 1
+    },
+    {
+      "name": "map_pan_x",
+      "value": 0
+    },
+    {
+      "name": "map_pan_y",
+      "value": 0
+    }
   ],
   "projection": {
     "type": "conicEqualArea",
@@ -48,9 +57,9 @@
         "type": "MultiPoint",
         "coordinates": [
           [110, -9],
-          [156, -9],
+          [165, -9],
           [110, -45],
-          [156, -45]
+          [165, -45]
         ]
       }
     },
@@ -157,6 +166,10 @@
           "as": "nights_2026_million"
         },
         {
+          "calculate": "datum.percent_change_from_2025 / 100",
+          "as": "change_fraction"
+        },
+        {
           "lookup": "state_or_territory",
           "from": {
             "data": {
@@ -191,7 +204,7 @@
           "title": "Visitor-night change (%)",
           "scale": {
             "domain": [-20, 0, 20],
-            "range": ["#A97836", "#F6F4F0", "#71507C"],
+            "range": ["#B18A4C", "#F6F4F0", "#6A4376"],
             "interpolate": "lab",
             "nice": false,
             "clamp": true
@@ -219,20 +232,20 @@
           {
             "field": "nights_2025_million",
             "type": "quantitative",
-            "title": "2025 visitor nights (millions)",
+            "title": "2025 visitor nights",
             "format": ",.1f"
           },
           {
             "field": "nights_2026_million",
             "type": "quantitative",
-            "title": "2026 visitor nights (millions)",
+            "title": "2026 visitor nights",
             "format": ",.1f"
           },
           {
-            "field": "percent_change_from_2025",
+            "field": "change_fraction",
             "type": "quantitative",
-            "title": "Change from 2025 (%)",
-            "format": "+.1f"
+            "title": "Change from 2025",
+            "format": "+.1%"
           }
         ]
       }
@@ -240,13 +253,41 @@
     {
       "data": {
         "values": [
-          {"longitude": 120, "latitude": -12, "label": "120°E"},
-          {"longitude": 130, "latitude": -12, "label": "130°E"},
-          {"longitude": 140, "latitude": -12, "label": "140°E"},
-          {"longitude": 150, "latitude": -12, "label": "150°E"},
-          {"longitude": 111, "latitude": -20, "label": "20°S"},
-          {"longitude": 111, "latitude": -30, "label": "30°S"},
-          {"longitude": 111, "latitude": -40, "label": "40°S"}
+          {
+            "longitude": 120,
+            "latitude": -12,
+            "label": "120°E"
+          },
+          {
+            "longitude": 130,
+            "latitude": -12,
+            "label": "130°E"
+          },
+          {
+            "longitude": 140,
+            "latitude": -12,
+            "label": "140°E"
+          },
+          {
+            "longitude": 150,
+            "latitude": -12,
+            "label": "150°E"
+          },
+          {
+            "longitude": 111,
+            "latitude": -20,
+            "label": "20°S"
+          },
+          {
+            "longitude": 111,
+            "latitude": -30,
+            "label": "30°S"
+          },
+          {
+            "longitude": 111,
+            "latitude": -40,
+            "label": "40°S"
+          }
         ]
       },
       "mark": {
@@ -269,6 +310,164 @@
           "field": "label"
         }
       }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "label": "Queensland",
+            "longitude": 144.5,
+            "latitude": -22.5,
+            "label_longitude": 155.5,
+            "label_latitude": -22.5
+          },
+          {
+            "label": "New South\nWales",
+            "longitude": 146.5,
+            "latitude": -32,
+            "label_longitude": 156,
+            "label_latitude": -31.5
+          },
+          {
+            "label": "Australian\nCapital\nTerritory",
+            "longitude": 149.1,
+            "latitude": -35.5,
+            "label_longitude": 156,
+            "label_latitude": -39
+          }
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "rule",
+            "color": "white",
+            "strokeWidth": 2.6,
+            "clip": true,
+            "tooltip": null
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "longitude2": {
+              "field": "label_longitude"
+            },
+            "latitude2": {
+              "field": "label_latitude"
+            },
+            "opacity": {
+              "condition": {
+                "test": "map_zoom <= 1.01 && abs(map_pan_x) < 1 && abs(map_pan_y) < 1",
+                "value": 1
+              },
+              "value": 0
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "rule",
+            "color": "#53606C",
+            "strokeWidth": 0.9,
+            "clip": true,
+            "tooltip": null
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "longitude2": {
+              "field": "label_longitude"
+            },
+            "latitude2": {
+              "field": "label_latitude"
+            },
+            "opacity": {
+              "condition": {
+                "test": "map_zoom <= 1.01 && abs(map_pan_x) < 1 && abs(map_pan_y) < 1",
+                "value": 1
+              },
+              "value": 0
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "point",
+            "shape": "triangle-left",
+            "filled": true,
+            "size": 32,
+            "color": "#53606C",
+            "stroke": "white",
+            "strokeWidth": 0.7,
+            "clip": true,
+            "tooltip": null
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "opacity": {
+              "condition": {
+                "test": "map_zoom <= 1.01 && abs(map_pan_x) < 1 && abs(map_pan_y) < 1",
+                "value": 1
+              },
+              "value": 0
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 5,
+            "fontSize": 11,
+            "fontWeight": "bold",
+            "color": "#35414C",
+            "lineBreak": "\n",
+            "lineHeight": 13,
+            "clip": true,
+            "tooltip": null
+          },
+          "encoding": {
+            "longitude": {
+              "field": "label_longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "label_latitude",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "label"
+            },
+            "opacity": {
+              "condition": {
+                "test": "map_zoom <= 1.01 && abs(map_pan_x) < 1 && abs(map_pan_y) < 1",
+                "value": 1
+              },
+              "value": 0
+            }
+          }
+        }
+      ]
     }
   ],
   "config": {

@@ -25,6 +25,11 @@
   --city-sydney: #007C91;
   --city-melbourne: #B4521A;
   --city-brisbane: #5B4B9A;
+  --flow-growth: #355E56;
+  --flow-decline: #9B6A45;
+  --international-growth: #6A4376;
+  --international-decline: #846021;
+  --international-current: #6F2945;
 }
 
 * {
@@ -762,12 +767,14 @@ h3 {
 }
 
 #section-recovery .section-introduction,
-#section-domestic-geography .section-introduction {
+#section-domestic-geography .section-introduction,
+#section-international .section-introduction {
   color: #34404C;
 }
 
 #section-recovery .section-introduction strong,
-#section-domestic-geography .section-introduction strong {
+#section-domestic-geography .section-introduction strong,
+#section-international .section-introduction strong {
   color: var(--text-primary);
   font-weight: 700;
 }
@@ -806,6 +813,26 @@ h3 {
 
 .chart-story .city-brisbane {
   color: var(--city-brisbane);
+}
+
+.chart-story .flow-growth {
+  color: var(--flow-growth);
+}
+
+.chart-story .flow-decline {
+  color: var(--flow-decline);
+}
+
+.chart-story .international-growth {
+  color: var(--international-growth);
+}
+
+.chart-story .international-decline {
+  color: var(--international-decline);
+}
+
+.chart-story .international-current {
+  color: var(--international-current);
 }
 
 @media (max-width: 1000px) {
