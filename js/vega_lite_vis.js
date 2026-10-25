@@ -155,6 +155,13 @@ function applyChartTheme(id, specification) {
 
   const themed = replaceChartColours(specification, replacements);
 
+  if ([
+    "international-state-map",
+    "international-accommodation-change"
+  ].includes(id)) {
+    themed.title.subtitleColor = "#202124";
+  }
+
   if (id === "short-term-rental-map") {
     themed.title.subtitle =
       "Circle size shows listings; copper shows median advertised prices.";
@@ -659,6 +666,8 @@ function enableMapNavigation(view, container, options = {}) {
 }
 
 function enableRentalMaps(view, container) {
+  container.style.paddingRight = "0px";
+
   const update = createViewUpdater(view);
   const navigation = document.createElement("div");
 
