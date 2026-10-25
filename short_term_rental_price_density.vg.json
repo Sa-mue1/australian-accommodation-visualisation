@@ -14,16 +14,21 @@
     "fontSize": 17,
     "fontWeight": "bold",
     "subtitleFontSize": 12,
+    "subtitleColor": "#202124",
     "subtitleLineHeight": 16,
     "subtitlePadding": 7,
     "offset": 8,
-    "limit": {"expr": "child_width"}
+    "limit": {
+      "expr": "child_width"
+    }
   },
   "data": {
     "url": "./data/short_term_rental_listings.csv",
     "format": {
       "type": "csv",
-      "parse": {"price_aud": "number"}
+      "parse": {
+        "price_aud": "number"
+      }
     }
   },
   "transform": [
@@ -39,8 +44,15 @@
     },
     {
       "joinaggregate": [
-        {"op": "median", "field": "price_aud", "as": "median_price"},
-        {"op": "count", "as": "listing_count"}
+        {
+          "op": "median",
+          "field": "price_aud",
+          "as": "median_price"
+        },
+        {
+          "op": "count",
+          "as": "listing_count"
+        }
       ],
       "groupby": ["city", "room_type"]
     }
@@ -63,7 +75,7 @@
   "spacing": 10,
   "spec": {
     "width": 468,
-    "height": 72,
+    "height": 64,
     "transform": [
       {
         "density": "price_aud",
@@ -81,7 +93,11 @@
       },
       {
         "joinaggregate": [
-          {"op": "max", "field": "density", "as": "panel_peak"}
+          {
+            "op": "max",
+            "field": "density",
+            "as": "panel_peak"
+          }
         ],
         "groupby": ["room_type"]
       },
@@ -105,9 +121,9 @@
           "grid": true,
           "gridColor": "#E5E7EB",
           "gridOpacity": 0.8,
-          "labelFontSize": 11,
+          "labelFontSize": 12,
           "labelPadding": 6,
-          "titleFontSize": 12,
+          "titleFontSize": 13,
           "titleFontWeight": "bold",
           "titlePadding": 10,
           "domainColor": "#B9C2CB",
@@ -167,8 +183,16 @@
         },
         "encoding": {
           "tooltip": [
-            {"field": "city", "type": "nominal", "title": "City"},
-            {"field": "room_type", "type": "nominal", "title": "Room type"},
+            {
+              "field": "city",
+              "type": "nominal",
+              "title": "City"
+            },
+            {
+              "field": "room_type",
+              "type": "nominal",
+              "title": "Room type"
+            },
             {
               "field": "nightly_price",
               "type": "quantitative",
@@ -188,8 +212,16 @@
         "transform": [
           {
             "aggregate": [
-              {"op": "max", "field": "median_price", "as": "median_price"},
-              {"op": "max", "field": "listing_count", "as": "listing_count"}
+              {
+                "op": "max",
+                "field": "median_price",
+                "as": "median_price"
+              },
+              {
+                "op": "max",
+                "field": "listing_count",
+                "as": "listing_count"
+              }
             ],
             "groupby": ["city", "room_type"]
           }
@@ -205,10 +237,20 @@
             "field": "median_price",
             "type": "quantitative"
           },
-          "y": {"value": 25},
-          "y2": {"value": {"expr": "child_height"}},
+          "y": {
+            "value": 25
+          },
+          "y2": {
+            "value": {
+              "expr": "child_height"
+            }
+          },
           "tooltip": [
-            {"field": "city", "type": "nominal", "title": "City"},
+            {
+              "field": "city",
+              "type": "nominal",
+              "title": "City"
+            },
             {
               "field": "median_price",
               "type": "quantitative",
@@ -227,14 +269,27 @@
       {
         "transform": [
           {
-            "window": [{"op": "row_number", "as": "peak_rank"}],
+            "window": [
+              {
+                "op": "row_number",
+                "as": "peak_rank"
+              }
+            ],
             "sort": [
-              {"field": "density", "order": "descending"},
-              {"field": "nightly_price", "order": "ascending"}
+              {
+                "field": "density",
+                "order": "descending"
+              },
+              {
+                "field": "nightly_price",
+                "order": "ascending"
+              }
             ],
             "groupby": ["city", "room_type"]
           },
-          {"filter": "datum.peak_rank === 1"}
+          {
+            "filter": "datum.peak_rank === 1"
+          }
         ],
         "mark": {
           "type": "circle",
@@ -245,7 +300,11 @@
         },
         "encoding": {
           "tooltip": [
-            {"field": "city", "type": "nominal", "title": "City"},
+            {
+              "field": "city",
+              "type": "nominal",
+              "title": "City"
+            },
             {
               "field": "nightly_price",
               "type": "quantitative",
@@ -264,7 +323,12 @@
       {
         "transform": [
           {
-            "aggregate": [{"op": "count", "as": "rows"}],
+            "aggregate": [
+              {
+                "op": "count",
+                "as": "rows"
+              }
+            ],
             "groupby": ["room_type"]
           },
           {
@@ -278,61 +342,143 @@
           "baseline": "top",
           "fontSize": 13,
           "fontWeight": "bold",
-          "limit": {"expr": "child_width * 0.54"}
+          "limit": {
+            "expr": "child_width * 0.54"
+          }
         },
         "encoding": {
-          "x": {"value": 0},
-          "y": {"value": 0},
-          "color": {"value": "#202124"},
-          "text": {"field": "room_label"},
+          "x": {
+            "value": 0
+          },
+          "y": {
+            "value": 0
+          },
+          "color": {
+            "value": "#202124"
+          },
+          "text": {
+            "field": "room_label"
+          },
           "tooltip": null
         }
       },
       {
         "transform": [
           {
-            "window": [{"op": "row_number", "as": "peak_rank"}],
+            "window": [
+              {
+                "op": "row_number",
+                "as": "peak_rank"
+              }
+            ],
             "sort": [
-              {"field": "density", "order": "descending"},
-              {"field": "nightly_price", "order": "ascending"}
+              {
+                "field": "density",
+                "order": "descending"
+              },
+              {
+                "field": "nightly_price",
+                "order": "ascending"
+              }
             ],
             "groupby": ["city", "room_type"]
           },
-          {"filter": "datum.peak_rank === 1"},
+          {
+            "filter": "datum.peak_rank === 1"
+          },
           {
             "calculate": "datum.city + ' peak ≈ $' + format(round(datum.nightly_price / 10) * 10, ',.0f')",
             "as": "peak_label"
           },
           {
-            "calculate": "datum.city === 'Sydney' ? 0 : 14",
-            "as": "label_y"
+            "calculate": "datum.city === 'Sydney' ? 0 : 24",
+            "as": "box_y"
+          },
+          {
+            "calculate": "datum.box_y + 20",
+            "as": "box_bottom"
+          },
+          {
+            "calculate": "datum.box_y + 10",
+            "as": "text_y"
           }
         ],
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "baseline": "top",
-          "fontSize": 12,
-          "fontWeight": "bold",
-          "limit": {"expr": "child_width * 0.44 - 2"}
-        },
-        "encoding": {
-          "x": {"value": {"expr": "child_width * 0.56"}},
-          "y": {
-            "field": "label_y",
-            "type": "quantitative",
-            "scale": null
-          },
-          "text": {"field": "peak_label"},
-          "color": {
-            "condition": {
-              "test": "datum.city === 'Sydney'",
-              "value": "#007C91"
+        "layer": [
+          {
+            "mark": {
+              "type": "rect",
+              "cornerRadius": 3,
+              "strokeWidth": 0.8,
+              "tooltip": null
             },
-            "value": "#C65D21"
+            "encoding": {
+              "x": {
+                "value": {
+                  "expr": "child_width - 192"
+                }
+              },
+              "x2": {
+                "value": {
+                  "expr": "child_width - 8"
+                }
+              },
+              "y": {
+                "field": "box_y",
+                "type": "quantitative",
+                "scale": null
+              },
+              "y2": {
+                "field": "box_bottom"
+              },
+              "color": {
+                "condition": {
+                  "test": "datum.city === 'Sydney'",
+                  "value": "#EDF7F8"
+                },
+                "value": "#FCF2E9"
+              },
+              "stroke": {
+                "condition": {
+                  "test": "datum.city === 'Sydney'",
+                  "value": "#007C91"
+                },
+                "value": "#C65D21"
+              }
+            }
           },
-          "tooltip": null
-        }
+          {
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "middle",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "tooltip": null
+            },
+            "encoding": {
+              "x": {
+                "value": {
+                  "expr": "child_width - 182"
+                }
+              },
+              "y": {
+                "field": "text_y",
+                "type": "quantitative",
+                "scale": null
+              },
+              "text": {
+                "field": "peak_label"
+              },
+              "color": {
+                "condition": {
+                  "test": "datum.city === 'Sydney'",
+                  "value": "#007C91"
+                },
+                "value": "#B4521A"
+              }
+            }
+          }
+        ]
       }
     ]
   },
@@ -346,12 +492,18 @@
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
-      "labelColor": "#374151",
+      "labelColor": "#202124",
       "titleColor": "#202124"
     },
-    "facet": {"spacing": 10},
-    "legend": {"labelColor": "#374151"}
+    "facet": {
+      "spacing": 10
+    },
+    "legend": {
+      "labelColor": "#202124"
+    }
   }
 }

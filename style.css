@@ -459,8 +459,12 @@ h3 {
   text-align: left;
 }
 
+#section-industry {
+  padding-top: 20px;
+}
+
 #section-industry .section-header {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 #section-industry .chart-card--half {
@@ -772,13 +776,15 @@ h3 {
 
 #section-recovery .section-introduction,
 #section-domestic-geography .section-introduction,
-#section-international .section-introduction {
+#section-international .section-introduction,
+#section-industry .section-introduction {
   color: var(--story-text);
 }
 
 #section-recovery .section-introduction strong,
 #section-domestic-geography .section-introduction strong,
-#section-international .section-introduction strong {
+#section-international .section-introduction strong,
+#section-industry .section-introduction strong {
   color: var(--story-text);
   font-weight: 700;
 }

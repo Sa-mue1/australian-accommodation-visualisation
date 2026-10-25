@@ -8,7 +8,7 @@
     "fontSize": 17,
     "fontWeight": "bold",
     "subtitleFontSize": 12,
-    "subtitleColor": "#5F6368",
+    "subtitleColor": "#202124",
     "subtitleLineHeight": 15,
     "subtitlePadding": 7,
     "offset": 8
@@ -21,12 +21,30 @@
   "spacing": 16,
   "bounds": "flush",
   "params": [
-    {"name": "sydney_zoom", "value": 1},
-    {"name": "sydney_pan_x", "value": 0},
-    {"name": "sydney_pan_y", "value": 0},
-    {"name": "melbourne_zoom", "value": 1},
-    {"name": "melbourne_pan_x", "value": 0},
-    {"name": "melbourne_pan_y", "value": 0}
+    {
+      "name": "sydney_zoom",
+      "value": 1
+    },
+    {
+      "name": "sydney_pan_x",
+      "value": 0
+    },
+    {
+      "name": "sydney_pan_y",
+      "value": 0
+    },
+    {
+      "name": "melbourne_zoom",
+      "value": 1
+    },
+    {
+      "name": "melbourne_pan_x",
+      "value": 0
+    },
+    {
+      "name": "melbourne_pan_y",
+      "value": 0
+    }
   ],
   "data": {
     "url": "data/short_term_rental_listings.csv",
@@ -42,10 +60,25 @@
   "transform": [
     {
       "aggregate": [
-        {"op": "count", "as": "listing_count"},
-        {"op": "mean", "field": "latitude", "as": "mean_latitude"},
-        {"op": "mean", "field": "longitude", "as": "mean_longitude"},
-        {"op": "median", "field": "price_aud", "as": "median_price"}
+        {
+          "op": "count",
+          "as": "listing_count"
+        },
+        {
+          "op": "mean",
+          "field": "latitude",
+          "as": "mean_latitude"
+        },
+        {
+          "op": "mean",
+          "field": "longitude",
+          "as": "mean_longitude"
+        },
+        {
+          "op": "median",
+          "field": "price_aud",
+          "as": "median_price"
+        }
       ],
       "groupby": ["city", "neighbourhood"]
     }
@@ -54,7 +87,7 @@
     {
       "name": "sydney",
       "width": 220,
-      "height": 260,
+      "height": 230,
       "title": {
         "text": "Sydney",
         "anchor": "start",
@@ -71,7 +104,10 @@
           "properties": {},
           "geometry": {
             "type": "MultiPoint",
-            "coordinates": [[150.65, -34.12], [151.39, -33.57]]
+            "coordinates": [
+              [150.65, -34.12],
+              [151.39, -33.57]
+            ]
           }
         },
         "extent": {
@@ -83,7 +119,9 @@
       },
       "layer": [
         {
-          "data": {"sphere": true},
+          "data": {
+            "sphere": true
+          },
           "mark": {
             "type": "geoshape",
             "fill": "#EAF3F8",
@@ -100,7 +138,9 @@
             }
           },
           "transform": [
-            {"filter": "datum.properties.STE_NAME21 === 'New South Wales'"}
+            {
+              "filter": "datum.properties.STE_NAME21 === 'New South Wales'"
+            }
           ],
           "mark": {
             "type": "geoshape",
@@ -114,7 +154,10 @@
           "data": {
             "graticule": {
               "step": [0.2, 0.2],
-              "extent": [[149.65, -35.12], [152.39, -32.57]]
+              "extent": [
+                [149.65, -35.12],
+                [152.39, -32.57]
+              ]
             }
           },
           "mark": {
@@ -128,7 +171,9 @@
         },
         {
           "transform": [
-            {"filter": "datum.city === 'Sydney'"}
+            {
+              "filter": "datum.city === 'Sydney'"
+            }
           ],
           "mark": {
             "type": "circle",
@@ -196,7 +241,11 @@
               }
             },
             "tooltip": [
-              {"field": "city", "type": "nominal", "title": "City"},
+              {
+                "field": "city",
+                "type": "nominal",
+                "title": "City"
+              },
               {
                 "field": "neighbourhood",
                 "type": "nominal",
@@ -234,7 +283,7 @@
     {
       "name": "melbourne",
       "width": 220,
-      "height": 260,
+      "height": 230,
       "title": {
         "text": "Melbourne",
         "anchor": "start",
@@ -251,7 +300,10 @@
           "properties": {},
           "geometry": {
             "type": "MultiPoint",
-            "coordinates": [[144.57, -38.21], [145.57, -37.55]]
+            "coordinates": [
+              [144.57, -38.21],
+              [145.57, -37.55]
+            ]
           }
         },
         "extent": {
@@ -263,7 +315,9 @@
       },
       "layer": [
         {
-          "data": {"sphere": true},
+          "data": {
+            "sphere": true
+          },
           "mark": {
             "type": "geoshape",
             "fill": "#EAF3F8",
@@ -280,7 +334,9 @@
             }
           },
           "transform": [
-            {"filter": "datum.properties.STE_NAME21 === 'Victoria'"}
+            {
+              "filter": "datum.properties.STE_NAME21 === 'Victoria'"
+            }
           ],
           "mark": {
             "type": "geoshape",
@@ -294,7 +350,10 @@
           "data": {
             "graticule": {
               "step": [0.25, 0.25],
-              "extent": [[143.57, -39.21], [146.57, -36.55]]
+              "extent": [
+                [143.57, -39.21],
+                [146.57, -36.55]
+              ]
             }
           },
           "mark": {
@@ -308,7 +367,9 @@
         },
         {
           "transform": [
-            {"filter": "datum.city === 'Melbourne'"}
+            {
+              "filter": "datum.city === 'Melbourne'"
+            }
           ],
           "mark": {
             "type": "circle",
@@ -376,7 +437,11 @@
               }
             },
             "tooltip": [
-              {"field": "city", "type": "nominal", "title": "City"},
+              {
+                "field": "city",
+                "type": "nominal",
+                "title": "City"
+              },
               {
                 "field": "neighbourhood",
                 "type": "nominal",
@@ -413,8 +478,14 @@
     }
   ],
   "resolve": {
-    "scale": {"size": "shared", "color": "shared"},
-    "legend": {"size": "shared", "color": "shared"}
+    "scale": {
+      "size": "shared",
+      "color": "shared"
+    },
+    "legend": {
+      "size": "shared",
+      "color": "shared"
+    }
   },
   "config": {
     "background": "white",
@@ -428,8 +499,8 @@
       "direction": "horizontal",
       "titleFontSize": 12,
       "titleFontWeight": "bold",
-      "labelFontSize": 11,
-      "labelColor": "#374151",
+      "labelFontSize": 12,
+      "labelColor": "#202124",
       "titleColor": "#202124",
       "offset": 8,
       "padding": 0
