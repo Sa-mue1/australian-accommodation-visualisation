@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 300,
+  "height": 320,
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
@@ -20,7 +20,7 @@
     ],
     "subtitle": [
       "Major destinations ranked by domestic visitor nights",
-      "Hotels and similar accommodation, 2019–2024"
+      "Hotels and similar accommodation, 2019–2024; nights in millions"
     ],
     "anchor": "start",
     "fontSize": 17,
@@ -258,7 +258,7 @@
           {
             "field": "visitor_nights_million",
             "type": "quantitative",
-            "title": "Hotel visitor nights (millions)",
+            "title": "Hotel visitor nights",
             "format": ".2f"
           },
           {

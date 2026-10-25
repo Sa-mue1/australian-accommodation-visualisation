@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 300,
+  "height": 320,
   "autosize": {
     "type": "fit-x",
     "contains": "padding",
@@ -20,7 +20,7 @@
     ],
     "subtitle": [
       "Domestic visitor nights by accommodation type, 2024",
-      "Widths compare recorded accommodation nights"
+      "Widths compare recorded nights; night totals are in millions"
     ],
     "anchor": "start",
     "fontSize": 17,
@@ -249,13 +249,13 @@
           {
             "field": "visitor_nights_million",
             "type": "quantitative",
-            "title": "Visitor nights (millions)",
+            "title": "Visitor nights",
             "format": ",.1f"
           },
           {
             "field": "state_total_million",
             "type": "quantitative",
-            "title": "Recorded category nights (millions)",
+            "title": "Recorded state nights",
             "format": ",.1f"
           },
           {

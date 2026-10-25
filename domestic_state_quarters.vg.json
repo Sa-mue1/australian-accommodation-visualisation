@@ -7,7 +7,12 @@
     "contains": "padding",
     "resize": true
   },
-  "padding": {"left": 5, "right": 5, "top": 5, "bottom": 5},
+  "padding": {
+    "left": 5,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
   "title": {
     "text": "Domestic visitor nights by state and quarter",
     "subtitle": "Quarterly visitor nights in thousands, June 2025–June 2026",
@@ -23,7 +28,9 @@
     "url": "data/domestic_state_quarters.csv",
     "format": {
       "type": "csv",
-      "parse": {"value": "number"}
+      "parse": {
+        "value": "number"
+      }
     }
   },
   "transform": [
@@ -58,7 +65,10 @@
         "Mar 2026",
         "Jun 2026"
       ],
-      "scale": {"paddingInner": 0, "paddingOuter": 0},
+      "scale": {
+        "paddingInner": 0,
+        "paddingOuter": 0
+      },
       "axis": {
         "title": "Quarter ending",
         "labelAngle": 0,
@@ -85,7 +95,10 @@
         "Northern Territory",
         "Australian Capital Territory"
       ],
-      "scale": {"paddingInner": 0, "paddingOuter": 0},
+      "scale": {
+        "paddingInner": 0,
+        "paddingOuter": 0
+      },
       "axis": {
         "title": null,
         "labelFontSize": 12,
@@ -110,7 +123,7 @@
       {
         "field": "value",
         "type": "quantitative",
-        "title": "Visitor nights (thousands)",
+        "title": "Visitor nights",
         "format": ",.1f"
       }
     ]
@@ -176,7 +189,9 @@
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
       "grid": false,
       "labelColor": "#374151",
