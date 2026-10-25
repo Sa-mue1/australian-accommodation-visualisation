@@ -31,10 +31,12 @@ function themeColour(name, fallback) {
 }
 
 const chartPalette = {
-  hotel: themeColour("--category-hotel", "#1466E8"),
+  hotel: themeColour("--category-hotel", "#0055FF"),
   hotelTint: themeColour("--hotel-annotation-fill", "#EDF4FF"),
-  sydney: themeColour("--city-sydney", "#007C91"),
-  melbourne: themeColour("--city-melbourne", "#B4521A"),
+  sydney: themeColour("--city-sydney", "#173B69"),
+  sydneyTint: themeColour("--city-sydney-tint", "#EEF3F9"),
+  melbourne: themeColour("--city-melbourne", "#8C6D00"),
+  melbourneTint: themeColour("--city-melbourne-tint", "#FBF6DF"),
   flowGrowth: themeColour("--flow-growth", "#394854"),
   flowDecline: themeColour("--flow-decline", "#9E007E"),
   flowFill: themeColour("--flow-annotation-fill", "#F3F5F7"),
@@ -92,6 +94,8 @@ function applyChartTheme(id, specification) {
     replacements["#007C91"] = chartPalette.sydney;
     replacements["#C65D21"] = chartPalette.melbourne;
     replacements["#B4521A"] = chartPalette.melbourne;
+    replacements["#EDF7F8"] = chartPalette.sydneyTint;
+    replacements["#FCF2E9"] = chartPalette.melbourneTint;
   }
 
   if (id === "international-origin-flow") {
@@ -112,6 +116,56 @@ function applyChartTheme(id, specification) {
   }
 
   const themed = replaceChartColours(specification, replacements);
+
+  if (id === "hotel-destination-rankings") {
+    const lines = themed.layer.find(
+      layer => layer.mark?.type === "line"
+    );
+
+    if (lines) {
+      lines.encoding.strokeDash = {
+        field: "destination_group",
+        type: "nominal",
+        scale: {
+          domain: [
+            "Sydney",
+            "Melbourne",
+            "Brisbane",
+            "Other destinations"
+          ],
+          range: [
+            [1, 0],
+            [7, 4],
+            [2, 3],
+            [1, 0]
+          ]
+        },
+        legend: null
+      };
+    }
+  }
+
+  if (id === "short-term-rental-price-density") {
+    const lines = themed.spec.layer.find(
+      layer => layer.mark?.type === "line"
+    );
+
+    if (lines) {
+      lines.encoding.strokeDash = {
+        field: "city",
+        type: "nominal",
+        scale: {
+          domain: ["Sydney", "Melbourne"],
+          range: [[1, 0], [7, 4]]
+        },
+        legend: null
+      };
+    }
+
+    themed.spec.encoding.color.legend.symbolType = "stroke";
+    themed.spec.encoding.color.legend.symbolStrokeWidth = 3;
+    themed.spec.encoding.color.legend.symbolSize = 160;
+  }
 
   if (id === "international-origin-flow") {
     const routes = themed.layer.find(layer =>

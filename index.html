@@ -12,12 +12,78 @@
   <title>Australian Accommodation and Tourism</title>
 
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="colour-theme.css?v=20261025">
+
+  <style>
+    :root {
+      --category-hotel: #0055FF;
+      --hotel-annotation-fill: #EDF4FF;
+      --city-sydney: #173B69;
+      --city-sydney-tint: #EEF3F9;
+      --city-melbourne: #8C6D00;
+      --city-melbourne-tint: #FBF6DF;
+      --flow-growth: #394854;
+      --flow-decline: #9E007E;
+      --flow-annotation-fill: #F3F5F7;
+      --flow-annotation-border: #B9C4CE;
+      --occupancy-highlight: #00677F;
+      --occupancy-0: #F0FBFF;
+      --occupancy-25: #C6EDF7;
+      --occupancy-50: #76D2E9;
+      --occupancy-75: #078CB5;
+      --occupancy-100: #003A4D;
+    }
+
+    .reference-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: #000000;
+      font-family: var(--font-body);
+      font-size: var(--story-font-size);
+      font-weight: 400;
+      line-height: 2;
+    }
+
+    .reference-list li {
+      min-width: 0;
+      padding-left: 1.5em;
+    }
+
+    .reference-line {
+      display: block;
+    }
+
+    .reference-line:first-child {
+      margin-left: -1.5em;
+    }
+
+    .reference-list em {
+      font-style: italic;
+    }
+
+    .reference-list a {
+      color: #202124;
+      overflow-wrap: anywhere;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .reference-list a:hover {
+      color: var(--accent-primary);
+    }
+
+    .reference-list a:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+    }
+  </style>
 
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <script src="js/vega_lite_vis.js?v=20261025-colours" defer></script>
+  <script src="js/vega_lite_vis.js?v=20261025-city-colours-2" defer></script>
 </head>
 
 <body>
@@ -545,29 +611,10 @@
           <div class="chart-story conclusion-copy">
             <h3>Sources</h3>
 
-            <ul
-              class="reference-list"
-              aria-label="Dataset references in APA seventh edition"
-            >
+            <ul class="reference-list" aria-label="Main dataset websites">
               <li>
                 <span class="reference-line">
-                  Australian Bureau of Statistics. (2021).
-                </span>
-                <span class="reference-line">
-                  <em>States and territories – 2021</em> [Data set].
-                </span>
-                <span class="reference-line">
-                  <a
-                    href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files</a>
-                </span>
-              </li>
-
-              <li>
-                <span class="reference-line">
-                  Inside Airbnb. (n.d.). <em>Get the data</em> [Data sets].
+                  Inside Airbnb. (n.d.). <em>Get the data</em>.
                 </span>
                 <span class="reference-line">
                   Retrieved October 25, 2026, from
@@ -583,23 +630,7 @@
 
               <li>
                 <span class="reference-line">
-                  Natural Earth. (n.d.). <em>Admin 0 – countries</em> [Data set].
-                </span>
-                <span class="reference-line">
-                  Retrieved October 25, 2026, from
-                </span>
-                <span class="reference-line">
-                  <a
-                    href="https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/</a>
-                </span>
-              </li>
-
-              <li>
-                <span class="reference-line">
-                  STR. (n.d.). <em>Australian accommodation monitor</em> [Data sets]. CoStar.
+                  STR. (n.d.). <em>Australian accommodation monitor</em>. CoStar.
                 </span>
                 <span class="reference-line">
                   Retrieved October 25, 2026, from
@@ -615,74 +646,17 @@
 
               <li>
                 <span class="reference-line">
-                  Tourism Research Australia. (n.d.-a).
-                </span>
-                <span class="reference-line">
-                  <em>Domestic tourism statistics results</em> [Data sets].
+                  Tourism Research Australia. (n.d.). <em>Tourism statistics</em>.
                 </span>
                 <span class="reference-line">
                   Retrieved October 25, 2026, from
                 </span>
                 <span class="reference-line">
                   <a
-                    href="https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results"
+                    href="https://www.tra.gov.au/en/tourism-statistics"
                     target="_blank"
                     rel="noopener noreferrer"
-                  >https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results</a>
-                </span>
-              </li>
-
-              <li>
-                <span class="reference-line">
-                  Tourism Research Australia. (n.d.-b).
-                </span>
-                <span class="reference-line">
-                  <em>International tourism results</em> [Data sets].
-                </span>
-                <span class="reference-line">
-                  Retrieved October 25, 2026, from
-                </span>
-                <span class="reference-line">
-                  <a
-                    href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >https://www.tra.gov.au/en/tourism-statistics/international-tourism-results</a>
-                </span>
-              </li>
-
-              <li>
-                <span class="reference-line">
-                  Tourism Research Australia. (n.d.-c).
-                </span>
-                <span class="reference-line">
-                  <em>National Visitor Survey trends</em> [Data set].
-                </span>
-                <span class="reference-line">
-                  Retrieved October 25, 2026, from
-                </span>
-                <span class="reference-line">
-                  <a
-                    href="https://www.tra.gov.au/en/tourism-statistics/national-visitor-survey-trends"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >https://www.tra.gov.au/en/tourism-statistics/national-visitor-survey-trends</a>
-                </span>
-              </li>
-
-              <li>
-                <span class="reference-line">
-                  Vega. (n.d.). <em>world-110m.json</em> [Data set]. GitHub.
-                </span>
-                <span class="reference-line">
-                  Retrieved October 25, 2026, from
-                </span>
-                <span class="reference-line">
-                  <a
-                    href="https://github.com/vega/vega-datasets/blob/main/data/world-110m.json"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >https://github.com/vega/vega-datasets/blob/main/data/world-110m.json</a>
+                  >https://www.tra.gov.au/en/tourism-statistics</a>
                 </span>
               </li>
             </ul>
