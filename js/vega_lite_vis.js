@@ -25,6 +25,121 @@ const embedOptions = {
   }
 };
 
+function themeColour(name, fallback) {
+  return getComputedStyle(document.documentElement)
+    .getPropertyValue(name).trim() || fallback;
+}
+
+const chartPalette = {
+  hotel: themeColour("--category-hotel", "#1466E8"),
+  hotelTint: themeColour("--hotel-annotation-fill", "#EDF4FF"),
+  sydney: themeColour("--city-sydney", "#007C91"),
+  melbourne: themeColour("--city-melbourne", "#B4521A"),
+  flowGrowth: themeColour("--flow-growth", "#394854"),
+  flowDecline: themeColour("--flow-decline", "#9E007E"),
+  flowFill: themeColour("--flow-annotation-fill", "#F3F5F7"),
+  flowBorder: themeColour("--flow-annotation-border", "#B9C4CE"),
+  occupancyText: themeColour("--occupancy-highlight", "#00677F"),
+  occupancy: [
+    themeColour("--occupancy-0", "#F0FBFF"),
+    themeColour("--occupancy-25", "#C6EDF7"),
+    themeColour("--occupancy-50", "#76D2E9"),
+    themeColour("--occupancy-75", "#078CB5"),
+    themeColour("--occupancy-100", "#003A4D")
+  ]
+};
+
+function replaceChartColours(value, replacements) {
+  if (typeof value === "string") {
+    return value.replace(/#[0-9a-f]{6}\b/gi, colour =>
+      replacements[colour.toUpperCase()] || colour
+    );
+  }
+
+  if (Array.isArray(value)) {
+    return value.map(item => replaceChartColours(item, replacements));
+  }
+
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [
+        key,
+        replaceChartColours(item, replacements)
+      ])
+    );
+  }
+
+  return value;
+}
+
+function applyChartTheme(id, specification) {
+  const replacements = {};
+
+  if ([
+    "domestic-recovery",
+    "domestic-accommodation-streamgraph",
+    "state-accommodation-mosaic"
+  ].includes(id)) {
+    replacements["#3366A3"] = chartPalette.hotel;
+    replacements["#EEF4FB"] = chartPalette.hotelTint;
+  }
+
+  if ([
+    "hotel-destination-rankings",
+    "short-term-rental-map",
+    "short-term-rental-price-density"
+  ].includes(id)) {
+    replacements["#007C91"] = chartPalette.sydney;
+    replacements["#C65D21"] = chartPalette.melbourne;
+    replacements["#B4521A"] = chartPalette.melbourne;
+  }
+
+  if (id === "international-origin-flow") {
+    replacements["#355E56"] = chartPalette.flowGrowth;
+    replacements["#31594F"] = chartPalette.flowGrowth;
+    replacements["#9B6A45"] = chartPalette.flowDecline;
+    replacements["#F0F5F3"] = chartPalette.flowFill;
+    replacements["#A8C0B8"] = chartPalette.flowBorder;
+  }
+
+  if (id === "accommodation-occupancy-radial") {
+    ["#F0FCFF", "#C7EFFA", "#79D5F0", "#20A8D8", "#007EA8"]
+      .forEach((colour, index) => {
+        replacements[colour] = chartPalette.occupancy[index];
+      });
+
+    replacements["#006B8F"] = chartPalette.occupancyText;
+  }
+
+  const themed = replaceChartColours(specification, replacements);
+
+  if (id === "international-origin-flow") {
+    const routes = themed.layer.find(layer =>
+      layer.mark?.type === "line" &&
+      layer.encoding?.color?.field === "change_direction"
+    );
+
+    if (routes) {
+      routes.mark.opacity = 0.9;
+
+      routes.encoding.strokeDash = {
+        field: "change_direction",
+        type: "nominal",
+        scale: {
+          domain: ["Growth", "Decline"],
+          range: [[1, 0], [6, 4]]
+        },
+        legend: null
+      };
+
+      routes.encoding.color.legend.labelExpr =
+        "datum.label === 'Decline' ? 'Decline (dashed)' : 'Growth (solid)'";
+    }
+  }
+
+  return themed;
+}
+
 function createViewUpdater(view) {
   let pending = {};
   let needsResize = false;
@@ -582,34 +697,44 @@ const charts = [
   ["accommodation-occupancy-radial", "accommodation_occupancy_radial.vg.json"]
 ];
 
-for (const [id, specification] of charts) {
+async function embedChart(id, filename) {
   const container = document.getElementById(id);
 
-  if (!container) continue;
+  if (!container) return;
+
+  const response = await fetch(filename, { cache: "no-cache" });
+
+  if (!response.ok) {
+    throw new Error(`Unable to load ${filename}: ${response.status}`);
+  }
+
+  const specification = applyChartTheme(id, await response.json());
 
   const options = id === "accommodation-occupancy-radial"
     ? { ...embedOptions, patch: occupancyLayoutPatch }
     : embedOptions;
 
-  vegaEmbed(container, specification, options)
-    .then(result => {
-      alignStoryWithPlot(container);
+  const result = await vegaEmbed(container, specification, options);
 
-      if (id === "international-state-map") {
-        enableMapNavigation(result.view, container);
-      }
+  alignStoryWithPlot(container);
 
-      if (id === "short-term-rental-map") {
-        enableRentalMaps(result.view, container);
-      }
+  if (id === "international-state-map") {
+    enableMapNavigation(result.view, container);
+  }
 
-      if (id === "short-term-rental-price-density") {
-        enableRentalPriceSizing(result.view, container);
-      }
+  if (id === "short-term-rental-map") {
+    enableRentalMaps(result.view, container);
+  }
 
-      if (id === "accommodation-occupancy-radial") {
-        enableOccupancySizing(result.view, container);
-      }
-    })
-    .catch(console.error);
+  if (id === "short-term-rental-price-density") {
+    enableRentalPriceSizing(result.view, container);
+  }
+
+  if (id === "accommodation-occupancy-radial") {
+    enableOccupancySizing(result.view, container);
+  }
+}
+
+for (const [id, filename] of charts) {
+  embedChart(id, filename).catch(console.error);
 }

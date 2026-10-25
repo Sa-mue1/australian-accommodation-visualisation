@@ -12,24 +12,21 @@
   <title>Australian Accommodation and Tourism</title>
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="colour-theme.css?v=20261025">
 
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <script src="js/vega_lite_vis.js" defer></script>
+  <script src="js/vega_lite_vis.js?v=20261025-colours" defer></script>
 </head>
 
 <body>
   <main class="page-container">
 
     <header class="hero">
-      <p class="eyebrow">
-        Australian accommodation, 2018–2026
-      </p>
+      <p class="eyebrow">Australian accommodation, 2018–2026</p>
 
-      <h1>
-        How evenly has accommodation demand recovered?
-      </h1>
+      <h1>How evenly has accommodation demand recovered?</h1>
 
       <p class="introduction">
         <span class="story-line">
@@ -104,10 +101,7 @@
         </article>
 
         <article class="chart-card chart-card--full">
-          <div
-            id="domestic-accommodation-streamgraph"
-            class="chart"
-          ></div>
+          <div id="domestic-accommodation-streamgraph" class="chart"></div>
 
           <div class="chart-note chart-story story-columns">
             <div class="story-column">
@@ -213,10 +207,7 @@
         </article>
 
         <article class="chart-card chart-card--half">
-          <div
-            id="hotel-destination-rankings"
-            class="chart"
-          ></div>
+          <div id="hotel-destination-rankings" class="chart"></div>
 
           <div class="chart-note chart-story story-single">
             <h3>Rankings conceal changes in demand</h3>
@@ -239,10 +230,7 @@
         </article>
 
         <article class="chart-card chart-card--half">
-          <div
-            id="state-accommodation-mosaic"
-            class="chart"
-          ></div>
+          <div id="state-accommodation-mosaic" class="chart"></div>
 
           <div class="chart-note chart-story story-single">
             <h3>Hotel share differed from hotel volume</h3>
@@ -287,10 +275,7 @@
       <div class="chart-grid">
 
         <article class="chart-card chart-card--full flow-card">
-          <div
-            id="international-origin-flow"
-            class="chart"
-          ></div>
+          <div id="international-origin-flow" class="chart"></div>
 
           <div
             class="chart-note chart-story story-columns"
@@ -321,10 +306,7 @@
         </article>
 
         <article class="chart-card chart-card--half">
-          <div
-            id="international-state-map"
-            class="chart"
-          ></div>
+          <div id="international-state-map" class="chart"></div>
 
           <div class="chart-note chart-story story-single">
             <h3>Growth and volume told different stories</h3>
@@ -347,10 +329,7 @@
         </article>
 
         <article class="chart-card chart-card--half">
-          <div
-            id="international-accommodation-change"
-            class="chart"
-          ></div>
+          <div id="international-accommodation-change" class="chart"></div>
 
           <div class="chart-note chart-story story-single">
             <h3>Rented homes outpaced hotel growth</h3>
@@ -395,10 +374,7 @@
       <div class="chart-grid">
 
         <article class="chart-card chart-card--half rental-map-card">
-          <div
-            id="short-term-rental-map"
-            class="chart"
-          ></div>
+          <div id="short-term-rental-map" class="chart"></div>
 
           <div class="chart-note chart-story story-single">
             <h3>Melbourne had more recorded listings</h3>
@@ -418,10 +394,7 @@
         </article>
 
         <article class="chart-card chart-card--half">
-          <div
-            id="short-term-rental-price-density"
-            class="chart"
-          ></div>
+          <div id="short-term-rental-price-density" class="chart"></div>
 
           <div class="chart-note chart-story story-single">
             <h3>Room type mattered more than city</h3>
@@ -444,10 +417,7 @@
           id="occupancy-card"
           class="chart-card chart-card--full occupancy-card"
         >
-          <div
-            id="accommodation-occupancy-radial"
-            class="chart"
-          ></div>
+          <div id="accommodation-occupancy-radial" class="chart"></div>
 
           <div class="chart-note chart-story story-columns">
             <div class="story-column">
@@ -500,6 +470,7 @@
     >
       <header class="section-header">
         <p class="section-number">Final findings</p>
+
         <h2 id="section-conclusion-title">Conclusion</h2>
 
         <p class="section-introduction">
@@ -574,89 +545,145 @@
           <div class="chart-story conclusion-copy">
             <h3>Sources</h3>
 
-            <ul class="source-list">
+            <ul
+              class="reference-list"
+              aria-label="Dataset references in APA seventh edition"
+            >
               <li>
-                <strong class="source-author">Tourism Research Australia</strong>
-
-                <a
-                  href="https://www.tra.gov.au/en/tourism-statistics/national-visitor-survey-trends"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  National Visitor Survey trends, 2019–2024
-                </a>
-
-                <a
-                  href="https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Domestic Tourism Statistics, 2025–2026
-                </a>
-
-                <a
-                  href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  International Visitor Survey, 2025–2026
-                </a>
+                <span class="reference-line">
+                  Australian Bureau of Statistics. (2021).
+                </span>
+                <span class="reference-line">
+                  <em>States and territories – 2021</em> [Data set].
+                </span>
+                <span class="reference-line">
+                  <a
+                    href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files</a>
+                </span>
               </li>
 
               <li>
-                <strong class="source-author">STR / CoStar</strong>
-
-                <a
-                  href="https://www.costar.com/products/str-benchmark/australian-accommodation-monitor"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Australian Accommodation Monitor, 2018–2025
-                </a>
+                <span class="reference-line">
+                  Inside Airbnb. (n.d.). <em>Get the data</em> [Data sets].
+                </span>
+                <span class="reference-line">
+                  Retrieved October 25, 2026, from
+                </span>
+                <span class="reference-line">
+                  <a
+                    href="https://insideairbnb.com/get-the-data/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >https://insideairbnb.com/get-the-data/</a>
+                </span>
               </li>
 
               <li>
-                <strong class="source-author">Inside Airbnb</strong>
-
-                <a
-                  href="https://insideairbnb.com/get-the-data/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Sydney and Melbourne listing datasets
-                </a>
+                <span class="reference-line">
+                  Natural Earth. (n.d.). <em>Admin 0 – countries</em> [Data set].
+                </span>
+                <span class="reference-line">
+                  Retrieved October 25, 2026, from
+                </span>
+                <span class="reference-line">
+                  <a
+                    href="https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/</a>
+                </span>
               </li>
 
               <li>
-                <strong class="source-author">Australian Bureau of Statistics</strong>
-
-                <a
-                  href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  State and territory boundaries, 2021
-                </a>
+                <span class="reference-line">
+                  STR. (n.d.). <em>Australian accommodation monitor</em> [Data sets]. CoStar.
+                </span>
+                <span class="reference-line">
+                  Retrieved October 25, 2026, from
+                </span>
+                <span class="reference-line">
+                  <a
+                    href="https://www.costar.com/products/str-benchmark/australian-accommodation-monitor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >https://www.costar.com/products/str-benchmark/australian-accommodation-monitor</a>
+                </span>
               </li>
 
               <li>
-                <strong class="source-author">Natural Earth / Vega Datasets</strong>
+                <span class="reference-line">
+                  Tourism Research Australia. (n.d.-a).
+                </span>
+                <span class="reference-line">
+                  <em>Domestic tourism statistics results</em> [Data sets].
+                </span>
+                <span class="reference-line">
+                  Retrieved October 25, 2026, from
+                </span>
+                <span class="reference-line">
+                  <a
+                    href="https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results</a>
+                </span>
+              </li>
 
-                <a
-                  href="https://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  World country boundaries
-                </a>
+              <li>
+                <span class="reference-line">
+                  Tourism Research Australia. (n.d.-b).
+                </span>
+                <span class="reference-line">
+                  <em>International tourism results</em> [Data sets].
+                </span>
+                <span class="reference-line">
+                  Retrieved October 25, 2026, from
+                </span>
+                <span class="reference-line">
+                  <a
+                    href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >https://www.tra.gov.au/en/tourism-statistics/international-tourism-results</a>
+                </span>
+              </li>
 
-                <a
-                  href="https://github.com/vega/vega-datasets/blob/main/data/world-110m.json"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  World map file supplied through Vega Datasets
-                </a>
+              <li>
+                <span class="reference-line">
+                  Tourism Research Australia. (n.d.-c).
+                </span>
+                <span class="reference-line">
+                  <em>National Visitor Survey trends</em> [Data set].
+                </span>
+                <span class="reference-line">
+                  Retrieved October 25, 2026, from
+                </span>
+                <span class="reference-line">
+                  <a
+                    href="https://www.tra.gov.au/en/tourism-statistics/national-visitor-survey-trends"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >https://www.tra.gov.au/en/tourism-statistics/national-visitor-survey-trends</a>
+                </span>
+              </li>
+
+              <li>
+                <span class="reference-line">
+                  Vega. (n.d.). <em>world-110m.json</em> [Data set]. GitHub.
+                </span>
+                <span class="reference-line">
+                  Retrieved October 25, 2026, from
+                </span>
+                <span class="reference-line">
+                  <a
+                    href="https://github.com/vega/vega-datasets/blob/main/data/world-110m.json"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >https://github.com/vega/vega-datasets/blob/main/data/world-110m.json</a>
+                </span>
               </li>
             </ul>
           </div>
