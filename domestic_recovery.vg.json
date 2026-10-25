@@ -1,15 +1,19 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Annual domestic visitor nights compared with each accommodation type's 2019 total. Zero means the same number of nights as 2019; negative percentages mean fewer nights. Four annotations identify the 2020 decline.",
   "title": {
     "text": "Domestic accommodation recovery",
     "subtitle": [
-      "Domestic visitor nights, 2019–2024; 2019 = 100",
-      "Collection changed in 2025; the series are not joined."
+      "Domestic visitor nights, 2019–2024; percentage change from 2019.",
+      "Dashed line: same as 2019; negative values mean fewer nights."
     ],
     "anchor": "start",
-    "fontSize": 18,
+    "font": "Georgia",
+    "fontSize": 17,
     "fontWeight": "bold",
+    "subtitleFont": "Arial",
     "subtitleFontSize": 12,
+    "subtitleLineHeight": 16,
     "subtitlePadding": 7,
     "offset": 8
   },
@@ -17,7 +21,10 @@
     "url": "data/domestic_accommodation_types.csv",
     "format": {
       "type": "csv",
-      "parse": {"year": "number", "value": "number"}
+      "parse": {
+        "year": "number",
+        "value": "number"
+      }
     }
   },
   "transform": [
@@ -37,17 +44,33 @@
     },
     {
       "joinaggregate": [
-        {"op": "max", "field": "baseline_value", "as": "baseline_2019"}
+        {
+          "op": "max",
+          "field": "baseline_value",
+          "as": "baseline_2019"
+        }
       ],
       "groupby": ["category"]
     },
     {
-      "calculate": "datum.value / datum.baseline_2019 * 100",
-      "as": "recovery_index"
+      "calculate": "datum.value / datum.baseline_2019 - 1",
+      "as": "change_from_2019"
     },
     {
       "calculate": "datum.value / 1000",
       "as": "visitor_nights_million"
+    },
+    {
+      "calculate": "datum.baseline_2019 / 1000",
+      "as": "baseline_nights_million"
+    },
+    {
+      "calculate": "abs(datum.change_from_2019) < 0.000001 ? 'Same number of nights as 2019' : format(abs(datum.change_from_2019), '.1%') + (datum.change_from_2019 < 0 ? ' fewer nights than 2019' : ' more nights than 2019')",
+      "as": "comparison_label"
+    },
+    {
+      "calculate": "'2020: ' + format(abs(datum.change_from_2019), '.1%') + ' below 2019'",
+      "as": "drop_label"
     }
   ],
   "facet": {
@@ -61,6 +84,7 @@
     ],
     "header": {
       "title": null,
+      "labelFont": "Georgia",
       "labelFontSize": 14,
       "labelFontWeight": "bold",
       "labelColor": "#202124",
@@ -72,7 +96,7 @@
   "spacing": 20,
   "spec": {
     "width": 450,
-    "height": 104,
+    "height": 120,
     "layer": [
       {
         "mark": {
@@ -82,14 +106,20 @@
           "strokeWidth": 1.2
         },
         "encoding": {
-          "y": {"datum": 100, "type": "quantitative"}
+          "y": {
+            "datum": 0,
+            "type": "quantitative"
+          }
         }
       },
       {
         "mark": {
           "type": "line",
           "strokeWidth": 2.5,
-          "point": {"filled": true, "size": 45}
+          "point": {
+            "filled": true,
+            "size": 45
+          }
         },
         "encoding": {
           "x": {
@@ -114,22 +144,24 @@
             }
           },
           "y": {
-            "field": "recovery_index",
+            "field": "change_from_2019",
             "type": "quantitative",
             "scale": {
-              "domain": [40, 125],
+              "domain": [-0.75, 0.25],
               "nice": false,
               "zero": false
             },
             "axis": {
-              "title": "Index (2019 = 100)",
-              "values": [50, 75, 100, 125],
-              "tickCount": 4,
+              "title": "Change from 2019",
+              "values": [-0.5, -0.25, 0, 0.25],
+              "labelExpr": "datum.value === 0 ? '0%' : format(datum.value, '+.0%')",
               "labelOverlap": false,
+              "labelFont": "Arial",
               "labelFontSize": 12,
               "labelPadding": 5,
+              "titleFont": "Arial",
               "titleFontSize": 12,
-              "titleFontWeight": "normal",
+              "titleFontWeight": "bold",
               "titlePadding": 10,
               "grid": true,
               "gridColor": "#E9ECEF",
@@ -156,7 +188,10 @@
             },
             "legend": null
           },
-          "order": {"field": "year", "type": "quantitative"},
+          "order": {
+            "field": "year",
+            "type": "quantitative"
+          },
           "tooltip": [
             {
               "field": "category",
@@ -170,32 +205,120 @@
               "format": "d"
             },
             {
-              "field": "recovery_index",
-              "type": "quantitative",
-              "title": "Index (2019 = 100)",
-              "format": ".1f"
-            },
-            {
               "field": "visitor_nights_million",
               "type": "quantitative",
               "title": "Visitor nights (millions)",
               "format": ".1f"
+            },
+            {
+              "field": "baseline_nights_million",
+              "type": "quantitative",
+              "title": "2019 nights (millions)",
+              "format": ".1f"
+            },
+            {
+              "field": "comparison_label",
+              "type": "nominal",
+              "title": "Compared with 2019"
             }
           ]
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.year === 2020"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "font": "Arial",
+          "fontSize": 12,
+          "fontWeight": "bold",
+          "align": "center",
+          "baseline": "top",
+          "dy": 12,
+          "color": "#374151"
+        },
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "quantitative",
+            "scale": {
+              "domain": [2018.85, 2024.15],
+              "nice": false,
+              "zero": false
+            },
+            "axis": {
+              "title": null,
+              "values": [2019, 2020, 2021, 2022, 2023, 2024],
+              "format": "d",
+              "labelAngle": 0,
+              "labelFontSize": 12,
+              "labelPadding": 6,
+              "grid": false,
+              "domain": false,
+              "tickSize": 3,
+              "tickColor": "#C9D0D6"
+            }
+          },
+          "y": {
+            "field": "change_from_2019",
+            "type": "quantitative",
+            "scale": {
+              "domain": [-0.75, 0.25],
+              "nice": false,
+              "zero": false
+            },
+            "axis": {
+              "title": "Change from 2019",
+              "values": [-0.5, -0.25, 0, 0.25],
+              "labelExpr": "datum.value === 0 ? '0%' : format(datum.value, '+.0%')",
+              "labelOverlap": false,
+              "labelFont": "Arial",
+              "labelFontSize": 12,
+              "labelPadding": 5,
+              "titleFont": "Arial",
+              "titleFontSize": 12,
+              "titleFontWeight": "bold",
+              "titlePadding": 10,
+              "grid": true,
+              "gridColor": "#E9ECEF",
+              "domain": false,
+              "tickSize": 0
+            }
+          },
+          "text": {
+            "field": "drop_label"
+          },
+          "tooltip": null
         }
       }
     ]
   },
   "resolve": {
-    "scale": {"x": "shared", "y": "shared"}
+    "scale": {
+      "x": "shared",
+      "y": "shared"
+    }
   },
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {"stroke": null},
+    "view": {
+      "stroke": null
+    },
     "axis": {
       "labelColor": "#374151",
       "titleColor": "#374151"
+    },
+    "title": {
+      "font": "Georgia",
+      "subtitleFont": "Arial"
+    },
+    "header": {
+      "labelFont": "Georgia",
+      "titleFont": "Georgia"
     }
   }
 }

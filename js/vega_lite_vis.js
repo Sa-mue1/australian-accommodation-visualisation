@@ -1,6 +1,28 @@
 const embedOptions = {
   actions: true,
-  renderer: "svg"
+  renderer: "svg",
+  config: {
+    font: "Arial",
+    title: {
+      font: "Georgia",
+      subtitleFont: "Arial"
+    },
+    header: {
+      labelFont: "Georgia",
+      titleFont: "Georgia"
+    },
+    axis: {
+      labelFont: "Arial",
+      titleFont: "Arial"
+    },
+    legend: {
+      labelFont: "Arial",
+      titleFont: "Arial"
+    },
+    text: {
+      font: "Arial"
+    }
+  }
 };
 
 function createViewUpdater(view) {
