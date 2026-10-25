@@ -87,7 +87,7 @@
     {
       "name": "sydney",
       "width": 220,
-      "height": 230,
+      "height": 238,
       "title": {
         "text": "Sydney",
         "anchor": "start",
@@ -208,6 +208,14 @@
                 "zero": true
               },
               "legend": {
+                "orient": "none",
+                "legendX": {
+                  "expr": "childWidth + 16"
+                },
+                "legendY": {
+                  "expr": "height + 8"
+                },
+                "direction": "horizontal",
                 "values": [500, 2000, 8000],
                 "format": ",.0f",
                 "symbolFillColor": "#6B7B87",
@@ -217,7 +225,7 @@
                 "titleOrient": "top",
                 "titleAnchor": "start",
                 "columns": 3,
-                "columnPadding": 8
+                "columnPadding": 6
               }
             },
             "color": {
@@ -249,31 +257,19 @@
               {
                 "field": "neighbourhood",
                 "type": "nominal",
-                "title": "Neighbourhood area"
+                "title": "Area"
               },
               {
                 "field": "listing_count",
                 "type": "quantitative",
-                "title": "Listings",
+                "title": "Recorded listings",
                 "format": ","
               },
               {
                 "field": "median_price",
                 "type": "quantitative",
-                "title": "Median advertised price (AUD)",
+                "title": "Median nightly price",
                 "format": "$,.0f"
-              },
-              {
-                "field": "mean_longitude",
-                "type": "quantitative",
-                "title": "Average longitude",
-                "format": ".3f"
-              },
-              {
-                "field": "mean_latitude",
-                "type": "quantitative",
-                "title": "Average latitude",
-                "format": ".3f"
               }
             ]
           }
@@ -283,7 +279,7 @@
     {
       "name": "melbourne",
       "width": 220,
-      "height": 230,
+      "height": 238,
       "title": {
         "text": "Melbourne",
         "anchor": "start",
@@ -404,6 +400,14 @@
                 "zero": true
               },
               "legend": {
+                "orient": "none",
+                "legendX": {
+                  "expr": "childWidth + 16"
+                },
+                "legendY": {
+                  "expr": "height + 8"
+                },
+                "direction": "horizontal",
                 "values": [500, 2000, 8000],
                 "format": ",.0f",
                 "symbolFillColor": "#6B7B87",
@@ -413,7 +417,7 @@
                 "titleOrient": "top",
                 "titleAnchor": "start",
                 "columns": 3,
-                "columnPadding": 8
+                "columnPadding": 6
               }
             },
             "color": {
@@ -445,31 +449,19 @@
               {
                 "field": "neighbourhood",
                 "type": "nominal",
-                "title": "Neighbourhood area"
+                "title": "Area"
               },
               {
                 "field": "listing_count",
                 "type": "quantitative",
-                "title": "Listings",
+                "title": "Recorded listings",
                 "format": ","
               },
               {
                 "field": "median_price",
                 "type": "quantitative",
-                "title": "Median advertised price (AUD)",
+                "title": "Median nightly price",
                 "format": "$,.0f"
-              },
-              {
-                "field": "mean_longitude",
-                "type": "quantitative",
-                "title": "Average longitude",
-                "format": ".3f"
-              },
-              {
-                "field": "mean_latitude",
-                "type": "quantitative",
-                "title": "Average latitude",
-                "format": ".3f"
               }
             ]
           }

@@ -75,7 +75,7 @@
   "spacing": 10,
   "spec": {
     "width": 468,
-    "height": 64,
+    "height": 66,
     "transform": [
       {
         "density": "price_aud",
@@ -104,6 +104,10 @@
       {
         "calculate": "datum.density / datum.panel_peak",
         "as": "relative_density"
+      },
+      {
+        "calculate": "datum.room_type === 'Entire home/apt' ? 'Entire home or apartment' : datum.room_type === 'Hotel room' ? 'Listed hotel rooms' : datum.room_type + 's'",
+        "as": "room_label"
       }
     ],
     "encoding": {
@@ -178,7 +182,7 @@
         "mark": {
           "type": "line",
           "interpolate": "monotone",
-          "strokeWidth": 2.2,
+          "strokeWidth": 2.5,
           "clip": true
         },
         "encoding": {
@@ -189,20 +193,20 @@
               "title": "City"
             },
             {
-              "field": "room_type",
+              "field": "room_label",
               "type": "nominal",
               "title": "Room type"
             },
             {
-              "field": "nightly_price",
+              "field": "median_price",
               "type": "quantitative",
-              "title": "Advertised price",
+              "title": "Median nightly price",
               "format": "$,.0f"
             },
             {
               "field": "listing_count",
               "type": "quantitative",
-              "title": "Listings displayed",
+              "title": "Listings shown",
               "format": ","
             }
           ]
@@ -223,7 +227,7 @@
                 "as": "listing_count"
               }
             ],
-            "groupby": ["city", "room_type"]
+            "groupby": ["city", "room_type", "room_label"]
           }
         ],
         "mark": {
@@ -252,15 +256,20 @@
               "title": "City"
             },
             {
+              "field": "room_label",
+              "type": "nominal",
+              "title": "Room type"
+            },
+            {
               "field": "median_price",
               "type": "quantitative",
-              "title": "Median displayed price",
+              "title": "Median nightly price",
               "format": "$,.0f"
             },
             {
               "field": "listing_count",
               "type": "quantitative",
-              "title": "Listings displayed",
+              "title": "Listings shown",
               "format": ","
             }
           ]
@@ -289,11 +298,15 @@
           },
           {
             "filter": "datum.peak_rank === 1"
+          },
+          {
+            "calculate": "round(datum.nightly_price / 10) * 10",
+            "as": "peak_price_rounded"
           }
         ],
         "mark": {
           "type": "circle",
-          "size": 58,
+          "size": 66,
           "stroke": "white",
           "strokeWidth": 1.4,
           "opacity": 1
@@ -306,15 +319,20 @@
               "title": "City"
             },
             {
-              "field": "nightly_price",
+              "field": "room_label",
+              "type": "nominal",
+              "title": "Room type"
+            },
+            {
+              "field": "peak_price_rounded",
               "type": "quantitative",
-              "title": "Estimated peak price",
+              "title": "Estimated peak",
               "format": "$,.0f"
             },
             {
               "field": "listing_count",
               "type": "quantitative",
-              "title": "Listings displayed",
+              "title": "Listings shown",
               "format": ","
             }
           ]
