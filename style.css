@@ -17,6 +17,10 @@
   --card-padding: 20px;
   --chart-gap: 24px;
   --story-inset: 5px;
+  --category-hotel: #3366A3;
+  --category-rented: #8A6100;
+  --category-camping: #925386;
+  --category-friends: #3E454D;
 }
 
 * {
@@ -738,6 +742,43 @@ h3 {
 .chart-story strong {
   color: var(--text-primary);
   font-weight: 700;
+}
+
+#section-recovery {
+  padding-top: 20px;
+}
+
+#section-recovery > .section-header {
+  margin-bottom: 12px;
+}
+
+#section-recovery .section-introduction {
+  color: #34404C;
+}
+
+#section-recovery .section-introduction strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.recovery-card > .chart-story {
+  margin-top: 8px;
+}
+
+.chart-story .category-hotel {
+  color: var(--category-hotel);
+}
+
+.chart-story .category-rented {
+  color: var(--category-rented);
+}
+
+.chart-story .category-camping {
+  color: var(--category-camping);
+}
+
+.chart-story .category-friends {
+  color: var(--category-friends);
 }
 
 @media (max-width: 1000px) {

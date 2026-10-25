@@ -1,11 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Annual domestic visitor nights compared with each accommodation type's 2019 total. Zero means the same number of nights as 2019; negative percentages mean fewer nights. Four annotations identify the 2020 decline.",
+  "description": "Annual domestic visitor nights compared with each accommodation type's 2019 total. Zero means the same number of nights as 2019; negative percentages mean fewer nights.",
   "title": {
     "text": "Domestic accommodation recovery",
     "subtitle": [
       "Domestic visitor nights, percentage change from 2019-2024",
-      "Dashed line means same as 2019 negative values mean fewer nights."
+      "Dashed line means same as 2019;",
+      "negative values mean fewer nights."
     ],
     "anchor": "start",
     "font": "Georgia",
@@ -69,8 +70,20 @@
       "as": "comparison_label"
     },
     {
-      "calculate": "'2020: ' + format(abs(datum.change_from_2019), '.1%') + ' below 2019'",
+      "calculate": "format(abs(datum.change_from_2019), '.1%') + ' below 2019'",
       "as": "drop_label"
+    },
+    {
+      "calculate": "datum.category === 'Hotels and similar' ? '#EEF4FB' : datum.category === 'Rented accommodation' ? '#FBF5E8' : datum.category === 'Caravan / camping' ? '#F8EFF6' : '#F1F3F5'",
+      "as": "annotation_fill"
+    },
+    {
+      "calculate": "datum.category === 'Hotels and similar' ? '#3366A3' : datum.category === 'Rented accommodation' ? '#B78118' : datum.category === 'Caravan / camping' ? '#A05E93' : '#3E454D'",
+      "as": "annotation_border"
+    },
+    {
+      "calculate": "datum.category === 'Hotels and similar' ? '#3366A3' : datum.category === 'Rented accommodation' ? '#8A6100' : datum.category === 'Caravan / camping' ? '#925386' : '#3E454D'",
+      "as": "annotation_ink"
     }
   ],
   "facet": {
@@ -96,7 +109,7 @@
   "spacing": 20,
   "spec": {
     "width": 450,
-    "height": 120,
+    "height": 124,
     "layer": [
       {
         "mark": {
@@ -147,7 +160,7 @@
             "field": "change_from_2019",
             "type": "quantitative",
             "scale": {
-              "domain": [-0.75, 0.25],
+              "domain": [-0.6, 0.4],
               "nice": false,
               "zero": false
             },
@@ -230,69 +243,103 @@
             "filter": "datum.year === 2020"
           }
         ],
-        "mark": {
-          "type": "text",
-          "font": "Arial",
-          "fontSize": 12,
-          "fontWeight": "bold",
-          "align": "center",
-          "baseline": "top",
-          "dy": 12,
-          "color": "#374151"
-        },
-        "encoding": {
-          "x": {
-            "field": "year",
-            "type": "quantitative",
-            "scale": {
-              "domain": [2018.85, 2024.15],
-              "nice": false,
-              "zero": false
+        "layer": [
+          {
+            "mark": {
+              "type": "rect",
+              "cornerRadius": 4,
+              "strokeWidth": 1
             },
-            "axis": {
-              "title": null,
-              "values": [2019, 2020, 2021, 2022, 2023, 2024],
-              "format": "d",
-              "labelAngle": 0,
-              "labelFontSize": 12,
-              "labelPadding": 6,
-              "grid": false,
-              "domain": false,
-              "tickSize": 3,
-              "tickColor": "#C9D0D6"
+            "encoding": {
+              "x": {
+                "datum": 2019.3,
+                "type": "quantitative"
+              },
+              "x2": {
+                "datum": 2021.55
+              },
+              "y": {
+                "value": 3
+              },
+              "y2": {
+                "value": 41
+              },
+              "fill": {
+                "field": "annotation_fill",
+                "type": "nominal",
+                "scale": null,
+                "legend": null
+              },
+              "stroke": {
+                "field": "annotation_border",
+                "type": "nominal",
+                "scale": null,
+                "legend": null
+              },
+              "tooltip": null
             }
           },
-          "y": {
-            "field": "change_from_2019",
-            "type": "quantitative",
-            "scale": {
-              "domain": [-0.75, 0.25],
-              "nice": false,
-              "zero": false
+          {
+            "mark": {
+              "type": "text",
+              "font": "Arial",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "align": "left",
+              "baseline": "top",
+              "dx": 10
             },
-            "axis": {
-              "title": "Change from 2019",
-              "values": [-0.5, -0.25, 0, 0.25],
-              "labelExpr": "datum.value === 0 ? '0%' : format(datum.value, '+.0%')",
-              "labelOverlap": false,
-              "labelFont": "Arial",
-              "labelFontSize": 12,
-              "labelPadding": 5,
-              "titleFont": "Arial",
-              "titleFontSize": 12,
-              "titleFontWeight": "bold",
-              "titlePadding": 10,
-              "grid": true,
-              "gridColor": "#E9ECEF",
-              "domain": false,
-              "tickSize": 0
+            "encoding": {
+              "x": {
+                "datum": 2019.3,
+                "type": "quantitative"
+              },
+              "y": {
+                "value": 8
+              },
+              "text": {
+                "value": "2020 decline"
+              },
+              "fill": {
+                "field": "annotation_ink",
+                "type": "nominal",
+                "scale": null,
+                "legend": null
+              },
+              "tooltip": null
             }
           },
-          "text": {
-            "field": "drop_label"
-          },
-          "tooltip": null
-        }
+          {
+            "mark": {
+              "type": "text",
+              "font": "Arial",
+              "fontSize": 12,
+              "fontWeight": "normal",
+              "align": "left",
+              "baseline": "top",
+              "dx": 10
+            },
+            "encoding": {
+              "x": {
+                "datum": 2019.3,
+                "type": "quantitative"
+              },
+              "y": {
+                "value": 24
+              },
+              "text": {
+                "field": "drop_label"
+              },
+              "fill": {
+                "field": "annotation_ink",
+                "type": "nominal",
+                "scale": null,
+                "legend": null
+              },
+              "tooltip": null
+            }
+          }
+        ]
       }
     ]
   },
