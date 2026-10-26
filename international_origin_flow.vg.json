@@ -122,7 +122,10 @@
             "type": "Feature",
             "geometry": {
               "type": "LineString",
-              "coordinates": [[0, -55], [0, 75]]
+              "coordinates": [
+                [0, -55],
+                [0, 75]
+              ]
             }
           }
         ]
@@ -183,6 +186,7 @@
       }
     },
     {
+      "name": "flow_routes",
       "transform": [
         {
           "calculate": "datum.origin_longitude < -30 ? datum.origin_longitude + 360 : datum.origin_longitude",
@@ -303,6 +307,13 @@
             "titleFontWeight": "bold"
           }
         },
+        "opacity": {
+          "condition": {
+            "param": "market_focus",
+            "value": 0.9
+          },
+          "value": 0.14
+        },
         "tooltip": [
           {
             "field": "origin_country",
@@ -331,6 +342,116 @@
       }
     },
     {
+      "name": "flow_hit",
+      "params": [
+        {
+          "name": "market_focus",
+          "select": {
+            "type": "point",
+            "fields": ["origin_country"],
+            "on": "@flow_routes_marks:pointerover, @flow_hit_marks:pointerover, @flow_origins_marks:pointerover, @flow_labels_marks:pointerover",
+            "clear": "pointerout",
+            "toggle": false
+          }
+        }
+      ],
+      "transform": [
+        {
+          "calculate": "datum.origin_longitude < -30 ? datum.origin_longitude + 360 : datum.origin_longitude",
+          "as": "start_lon"
+        },
+        {
+          "calculate": "datum.origin_country === 'India' ? 67 : datum.origin_country === 'Singapore' ? 113 : datum.origin_country === 'United Kingdom' ? 65 : datum.origin_country === 'United States of America' ? 226 : datum.origin_country === 'Japan' ? 143 : datum.origin_country === 'South Korea' ? 128 : datum.origin_country === 'China' ? 110 : 164",
+          "as": "c1_lon"
+        },
+        {
+          "calculate": "datum.origin_country === 'India' ? -8 : datum.origin_country === 'Singapore' ? 0 : datum.origin_country === 'United Kingdom' ? 95 : datum.origin_country === 'United States of America' ? 67 : datum.origin_country === 'Japan' ? 26 : datum.origin_country === 'South Korea' ? 26 : datum.origin_country === 'China' ? 27 : -40",
+          "as": "c1_lat"
+        },
+        {
+          "calculate": "datum.origin_country === 'India' ? 90 : datum.origin_country === 'Singapore' ? 125 : datum.origin_country === 'United Kingdom' ? 98 : datum.origin_country === 'United States of America' ? 190 : datum.origin_country === 'Japan' ? 145 : datum.origin_country === 'South Korea' ? 132 : datum.origin_country === 'China' ? 120 : 149",
+          "as": "c2_lon"
+        },
+        {
+          "calculate": "datum.origin_country === 'India' ? -42 : datum.origin_country === 'Singapore' ? -12 : datum.origin_country === 'United Kingdom' ? -26 : datum.origin_country === 'United States of America' ? 3 : datum.origin_country === 'Japan' ? -6 : datum.origin_country === 'South Korea' ? 6 : datum.origin_country === 'China' ? -4 : -38",
+          "as": "c2_lat"
+        },
+        {
+          "calculate": "sequence(0, 41, 1)",
+          "as": "steps"
+        },
+        {
+          "flatten": ["steps"],
+          "as": ["step"]
+        },
+        {
+          "calculate": "datum.step / 40",
+          "as": "t"
+        },
+        {
+          "calculate": "pow(1 - datum.t, 3) * datum.start_lon + 3 * pow(1 - datum.t, 2) * datum.t * datum.c1_lon + 3 * (1 - datum.t) * pow(datum.t, 2) * datum.c2_lon + pow(datum.t, 3) * datum.destination_longitude",
+          "as": "route_lon"
+        },
+        {
+          "calculate": "pow(1 - datum.t, 3) * datum.origin_latitude + 3 * pow(1 - datum.t, 2) * datum.t * datum.c1_lat + 3 * (1 - datum.t) * pow(datum.t, 2) * datum.c2_lat + pow(datum.t, 3) * datum.destination_latitude",
+          "as": "route_lat"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "interpolate": "basis",
+        "stroke": "transparent",
+        "strokeWidth": 12,
+        "strokeCap": "round",
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "route_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "route_lat",
+          "type": "quantitative"
+        },
+        "detail": {
+          "field": "origin_country",
+          "type": "nominal"
+        },
+        "order": {
+          "field": "step",
+          "type": "quantitative",
+          "sort": "ascending"
+        },
+        "tooltip": [
+          {
+            "field": "origin_country",
+            "type": "nominal",
+            "title": "Visitor market"
+          },
+          {
+            "field": "trips_2025_thousand",
+            "type": "quantitative",
+            "title": "2025 trips",
+            "format": ",.1f"
+          },
+          {
+            "field": "trips_2026_thousand",
+            "type": "quantitative",
+            "title": "2026 trips",
+            "format": ",.1f"
+          },
+          {
+            "field": "change_fraction",
+            "type": "quantitative",
+            "title": "Change from 2025",
+            "format": "+.1%"
+          }
+        ]
+      }
+    },
+    {
+      "name": "flow_origins",
       "mark": {
         "type": "circle",
         "size": 100,
@@ -356,6 +477,13 @@
           },
           "legend": null
         },
+        "opacity": {
+          "condition": {
+            "param": "market_focus",
+            "value": 1
+          },
+          "value": 0.25
+        },
         "tooltip": [
           {
             "field": "origin_country",
@@ -384,6 +512,7 @@
       }
     },
     {
+      "name": "flow_labels",
       "transform": [
         {
           "calculate": "datum.origin_country === 'United States of America' ? 'USA' : datum.origin_country === 'United Kingdom' ? 'UK' : datum.origin_country === 'South Korea' ? 'S. Korea' : datum.origin_country",
@@ -428,7 +557,39 @@
         },
         "text": {
           "field": "origin_label"
-        }
+        },
+        "opacity": {
+          "condition": {
+            "param": "market_focus",
+            "value": 1
+          },
+          "value": 0.25
+        },
+        "tooltip": [
+          {
+            "field": "origin_country",
+            "type": "nominal",
+            "title": "Visitor market"
+          },
+          {
+            "field": "trips_2025_thousand",
+            "type": "quantitative",
+            "title": "2025 trips",
+            "format": ",.1f"
+          },
+          {
+            "field": "trips_2026_thousand",
+            "type": "quantitative",
+            "title": "2026 trips",
+            "format": ",.1f"
+          },
+          {
+            "field": "change_fraction",
+            "type": "quantitative",
+            "title": "Change from 2025",
+            "format": "+.1%"
+          }
+        ]
       }
     },
     {
