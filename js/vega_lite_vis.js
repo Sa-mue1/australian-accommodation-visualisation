@@ -164,7 +164,7 @@ function applyChartTheme(id, specification) {
 
   if (id === "short-term-rental-map") {
     themed.title.subtitle =
-      "Circle size shows listings; copper shows median advertised prices.";
+      "Circle size shows listings, copper color shows median advertised prices.";
 
     for (const panel of themed.hconcat) {
       const circles = panel.layer.find(layer =>
@@ -263,7 +263,7 @@ function applyChartTheme(id, specification) {
 
   if (id === "short-term-rental-price-density") {
     themed.title.subtitle =
-      "Up to $1,000: vertical dashes mark medians; dots mark peaks.";
+      "Up to $1,000 in listings, vertical dashes mark medians, dots mark peaks.";
 
     const lines = themed.spec.layer.find(
       layer => layer.mark?.type === "line"
