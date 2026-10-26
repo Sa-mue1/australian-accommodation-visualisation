@@ -33,9 +33,12 @@
       --occupancy-100: #003A4D;
     }
 
+    .sources-card .conclusion-copy > h3 {
+      text-align: center;
+    }
+
     .reference-list {
-      display: grid;
-      gap: 14px;
+      display: block;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -48,15 +51,10 @@
 
     .reference-list li {
       min-width: 0;
-      padding-left: 1.5em;
-    }
-
-    .reference-line {
-      display: block;
-    }
-
-    .reference-line:first-child {
-      margin-left: -1.5em;
+      margin: 0;
+      padding: 0 0 0 1.27cm;
+      text-indent: -1.27cm;
+      overflow-wrap: anywhere;
     }
 
     .reference-list em {
@@ -615,55 +613,28 @@
 
         <article class="chart-card chart-card--half conclusion-card sources-card">
           <div class="chart-story conclusion-copy">
-            <h3>Sources</h3>
+            <h3>References</h3>
 
-            <ul class="reference-list" aria-label="Main dataset websites">
+            <ul class="reference-list" aria-label="Dataset source references">
               <li>
-                <span class="reference-line">
-                  Inside Airbnb. (n.d.). <em>Get the data</em>.
-                </span>
-                <span class="reference-line">
-                  Retrieved October 25, 2026, from
-                </span>
-                <span class="reference-line">
-                  <a
-                    href="https://insideairbnb.com/get-the-data/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >https://insideairbnb.com/get-the-data/</a>
-                </span>
+                Inside Airbnb. (n.d.). <em>Get the data</em>.
+                <a href="https://insideairbnb.com/get-the-data/" target="_blank" rel="noopener noreferrer">https://insideairbnb.com/get-the-data/</a>
               </li>
-
               <li>
-                <span class="reference-line">
-                  STR. (n.d.). <em>Australian accommodation monitor</em>. CoStar.
-                </span>
-                <span class="reference-line">
-                  Retrieved October 25, 2026, from
-                </span>
-                <span class="reference-line">
-                  <a
-                    href="https://www.costar.com/products/str-benchmark/australian-accommodation-monitor"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >https://www.costar.com/products/str-benchmark/australian-accommodation-monitor</a>
-                </span>
+                STR. (n.d.). <em>Austrade + STR Benchmark</em>. CoStar.
+                <a href="https://www.costar.com/products/str-benchmark/australian-accommodation-monitor" target="_blank" rel="noopener noreferrer">https://www.costar.com/products/str-benchmark/australian-accommodation-monitor</a>
               </li>
-
               <li>
-                <span class="reference-line">
-                  Tourism Research Australia. (n.d.). <em>Tourism statistics</em>.
-                </span>
-                <span class="reference-line">
-                  Retrieved October 25, 2026, from
-                </span>
-                <span class="reference-line">
-                  <a
-                    href="https://www.tra.gov.au/en/tourism-statistics"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >https://www.tra.gov.au/en/tourism-statistics</a>
-                </span>
+                Tourism Research Australia. (n.d.-a). <em>Domestic tourism statistics results</em>.
+                <a href="https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results" target="_blank" rel="noopener noreferrer">https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results</a>
+              </li>
+              <li>
+                Tourism Research Australia. (n.d.-b). <em>International tourism results</em>.
+                <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results" target="_blank" rel="noopener noreferrer">https://www.tra.gov.au/en/tourism-statistics/international-tourism-results</a>
+              </li>
+              <li>
+                Tourism Research Australia. (n.d.-c). <em>National Visitor Survey trends</em>.
+                <a href="https://www.tra.gov.au/en/tourism-statistics/national-visitor-survey-trends" target="_blank" rel="noopener noreferrer">https://www.tra.gov.au/en/tourism-statistics/national-visitor-survey-trends</a>
               </li>
             </ul>
           </div>
