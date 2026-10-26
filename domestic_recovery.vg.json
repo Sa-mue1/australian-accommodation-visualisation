@@ -1,12 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Annual domestic visitor nights compared with each accommodation type's 2019 total. Zero means the same number of nights as 2019; negative percentages mean fewer nights.",
+  "description": "Annual domestic visitor nights compared with each accommodation type's 2019 total. Zero means the same number of nights as 2019, negative percentages mean fewer nights.",
   "title": {
     "text": "Domestic accommodation recovery",
     "subtitle": [
-      "Domestic visitor nights, 2019–2024; tooltip totals in millions.",
+      "Domestic visitor nights, 2019-2024 totals in millions.",
       "Lines show percentage change from each category’s 2019 total.",
-      "Dashed line marks no change; negative percentages mean fewer nights."
+      "Dashed line shows no change, negative percentages mean fewer nights."
     ],
     "anchor": "start",
     "font": "Georgia",

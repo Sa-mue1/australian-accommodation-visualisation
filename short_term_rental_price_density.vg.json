@@ -9,7 +9,7 @@
   },
   "title": {
     "text": "Advertised rental prices by room type",
-    "subtitle": "Prices up to $1,000; dots mark peaks, dashes mark medians.",
+    "subtitle": "Prices up to $1,000, dots mark peaks, dashes mark medians.",
     "anchor": "start",
     "fontSize": 17,
     "fontWeight": "bold",

@@ -3,7 +3,7 @@
   "description": "Short-term rental listings grouped by neighbourhood area. Circle sizes use a shared scale with a minimum display size for visibility, so areas are not exactly proportional to listing counts.",
   "title": {
     "text": "Short-term rentals by neighbourhood",
-    "subtitle": "Circles mark average listing locations; shade shows median advertised prices.",
+    "subtitle": "Circles mark average listing locations, shade shows median advertised prices.",
     "anchor": "start",
     "fontSize": 17,
     "fontWeight": "bold",
