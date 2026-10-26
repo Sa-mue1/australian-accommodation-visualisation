@@ -146,7 +146,7 @@
             "nice": false
           },
           "legend": {
-            "title": "Domestic visitor nights (thousands)",
+            "title": "Domestic visitor nights",
             "orient": "bottom",
             "direction": "horizontal",
             "gradientLength": 260,
