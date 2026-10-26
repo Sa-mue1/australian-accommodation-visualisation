@@ -15,7 +15,7 @@
   },
   "title": {
     "text": "Domestic accommodation visitor nights",
-    "subtitle": "Visitor nights by accommodation type in Australia, 2019–2024",
+    "subtitle": "Domestic visitor nights by accommodation type, 2019–2024; values in millions.",
     "anchor": "start",
     "fontSize": 18,
     "fontWeight": "bold",
@@ -67,8 +67,8 @@
       "groupby": ["year"]
     },
     {
-      "calculate": "datum.visitor_nights_million / datum.year_total_million * 100",
-      "as": "share_percent"
+      "calculate": "datum.visitor_nights_million / datum.year_total_million",
+      "as": "annual_share"
     },
     {
       "calculate": "datum.category === 'Friends or relatives' ? 1 : datum.category === 'Hotels' ? 2 : datum.category === 'Rented accommodation' ? 3 : datum.category === 'Caravan/camping' ? 4 : 5",
@@ -183,24 +183,19 @@
           {
             "field": "category",
             "type": "nominal",
-            "title": "Accommodation type"
-          },
-          {
-            "field": "category_coverage",
-            "type": "nominal",
-            "title": "Accommodation coverage"
+            "title": "Accommodation"
           },
           {
             "field": "visitor_nights_million",
             "type": "quantitative",
-            "title": "Visitor nights (millions)",
+            "title": "Visitor nights",
             "format": ".1f"
           },
           {
-            "field": "share_percent",
+            "field": "annual_share",
             "type": "quantitative",
-            "title": "Share of annual nights (%)",
-            "format": ".1f"
+            "title": "Share of annual nights",
+            "format": ".1%"
           }
         ]
       }

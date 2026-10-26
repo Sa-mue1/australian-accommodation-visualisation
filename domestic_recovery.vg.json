@@ -4,9 +4,9 @@
   "title": {
     "text": "Domestic accommodation recovery",
     "subtitle": [
-      "Domestic visitor nights, percentage change from 2019-2024",
-      "Dashed line means same as 2019;",
-      "negative values mean fewer nights."
+      "Domestic visitor nights, 2019–2024; tooltip totals in millions.",
+      "Lines show percentage change from each category’s 2019 total.",
+      "Dashed line marks no change; negative percentages mean fewer nights."
     ],
     "anchor": "start",
     "font": "Georgia",
@@ -66,7 +66,7 @@
       "as": "baseline_nights_million"
     },
     {
-      "calculate": "abs(datum.change_from_2019) < 0.000001 ? 'Same number of nights as 2019' : format(abs(datum.change_from_2019), '.1%') + (datum.change_from_2019 < 0 ? ' fewer nights than 2019' : ' more nights than 2019')",
+      "calculate": "abs(datum.change_from_2019) < 0.000001 ? 'No change' : format(abs(datum.change_from_2019), '.1%') + (datum.change_from_2019 < 0 ? ' fewer nights' : ' more nights')",
       "as": "comparison_label"
     },
     {
@@ -298,19 +298,19 @@
             {
               "field": "visitor_nights_million",
               "type": "quantitative",
-              "title": "Visitor nights (millions)",
+              "title": "Visitor nights",
               "format": ".1f"
             },
             {
               "field": "baseline_nights_million",
               "type": "quantitative",
-              "title": "2019 nights (millions)",
+              "title": "2019 baseline",
               "format": ".1f"
             },
             {
               "field": "comparison_label",
               "type": "nominal",
-              "title": "Compared with 2019"
+              "title": "Change from 2019"
             }
           ]
         }
