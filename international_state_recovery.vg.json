@@ -33,18 +33,9 @@
     "offset": 10
   },
   "params": [
-    {
-      "name": "map_zoom",
-      "value": 1
-    },
-    {
-      "name": "map_pan_x",
-      "value": 0
-    },
-    {
-      "name": "map_pan_y",
-      "value": 0
-    }
+    {"name": "map_zoom", "value": 1},
+    {"name": "map_pan_x", "value": 0},
+    {"name": "map_pan_y", "value": 0}
   ],
   "projection": {
     "type": "conicEqualArea",
@@ -72,9 +63,7 @@
   },
   "layer": [
     {
-      "data": {
-        "sphere": true
-      },
+      "data": {"sphere": true},
       "mark": {
         "type": "geoshape",
         "fill": "#EAF3F8",
@@ -253,41 +242,13 @@
     {
       "data": {
         "values": [
-          {
-            "longitude": 120,
-            "latitude": -12,
-            "label": "120°E"
-          },
-          {
-            "longitude": 130,
-            "latitude": -12,
-            "label": "130°E"
-          },
-          {
-            "longitude": 140,
-            "latitude": -12,
-            "label": "140°E"
-          },
-          {
-            "longitude": 150,
-            "latitude": -12,
-            "label": "150°E"
-          },
-          {
-            "longitude": 111,
-            "latitude": -20,
-            "label": "20°S"
-          },
-          {
-            "longitude": 111,
-            "latitude": -30,
-            "label": "30°S"
-          },
-          {
-            "longitude": 111,
-            "latitude": -40,
-            "label": "40°S"
-          }
+          {"longitude": 120, "latitude": -12, "label": "120°E"},
+          {"longitude": 130, "latitude": -12, "label": "130°E"},
+          {"longitude": 140, "latitude": -12, "label": "140°E"},
+          {"longitude": 150, "latitude": -12, "label": "150°E"},
+          {"longitude": 111, "latitude": -20, "label": "20°S"},
+          {"longitude": 111, "latitude": -30, "label": "30°S"},
+          {"longitude": 111, "latitude": -40, "label": "40°S"}
         ]
       },
       "mark": {
@@ -313,159 +274,351 @@
     },
     {
       "data": {
-        "values": [
-          {
-            "label": "Queensland",
-            "longitude": 144.5,
-            "latitude": -22.5,
-            "label_longitude": 155.5,
-            "label_latitude": -22.5
-          },
-          {
-            "label": "New South\nWales",
-            "longitude": 146.5,
-            "latitude": -32,
-            "label_longitude": 156,
-            "label_latitude": -31.5
-          },
-          {
-            "label": "Australian\nCapital\nTerritory",
-            "longitude": 149.1,
-            "latitude": -35.5,
-            "label_longitude": 156,
-            "label_latitude": -39
+        "url": "data/international_states.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "value": "number",
+            "change_from_2025": "number",
+            "percent_change_from_2025": "number"
           }
-        ]
+        }
       },
+      "transform": [
+        {
+          "filter": "datum.period === 'Year ending June 2026' && datum.metric === 'nights_thousand'"
+        },
+        {
+          "calculate": "datum.value - datum.change_from_2025",
+          "as": "nights_2025"
+        },
+        {
+          "calculate": "datum.nights_2025 / 1000",
+          "as": "nights_2025_million"
+        },
+        {
+          "calculate": "datum.value / 1000",
+          "as": "nights_2026_million"
+        },
+        {
+          "calculate": "datum.percent_change_from_2025 / 100",
+          "as": "change_fraction"
+        },
+        {
+          "lookup": "state_code",
+          "from": {
+            "data": {
+              "values": [
+                {
+                  "state_code": "WA",
+                  "longitude": 122.3,
+                  "latitude": -25.3
+                },
+                {
+                  "state_code": "NT",
+                  "longitude": 133.3,
+                  "latitude": -20.3
+                },
+                {
+                  "state_code": "SA",
+                  "longitude": 134.7,
+                  "latitude": -30.4
+                },
+                {
+                  "state_code": "QLD",
+                  "longitude": 144.3,
+                  "latitude": -23.1
+                },
+                {
+                  "state_code": "NSW",
+                  "longitude": 146.4,
+                  "latitude": -32.2
+                },
+                {
+                  "state_code": "VIC",
+                  "longitude": 144.3,
+                  "latitude": -37.1
+                },
+                {
+                  "state_code": "ACT",
+                  "longitude": 149.1,
+                  "latitude": -35.5,
+                  "label_longitude": 155,
+                  "label_latitude": -36.9
+                },
+                {
+                  "state_code": "TAS",
+                  "longitude": 146.7,
+                  "latitude": -42,
+                  "label_longitude": 154,
+                  "label_latitude": -43.3
+                }
+              ]
+            },
+            "key": "state_code",
+            "fields": [
+              "longitude",
+              "latitude",
+              "label_longitude",
+              "label_latitude"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.state_code + '\\n' + format(datum.change_fraction, '+.1%')",
+          "as": "inside_label"
+        },
+        {
+          "calculate": "datum.state_code + ' ' + format(datum.change_fraction, '+.1%')",
+          "as": "outside_label"
+        }
+      ],
       "layer": [
         {
-          "mark": {
-            "type": "rule",
-            "color": "white",
-            "strokeWidth": 2.6,
-            "clip": true,
-            "tooltip": null
-          },
-          "encoding": {
-            "longitude": {
-              "field": "longitude",
-              "type": "quantitative"
-            },
-            "latitude": {
-              "field": "latitude",
-              "type": "quantitative"
-            },
-            "longitude2": {
-              "field": "label_longitude"
-            },
-            "latitude2": {
-              "field": "label_latitude"
-            },
-            "opacity": {
-              "condition": {
-                "test": "map_zoom <= 1.01 && abs(map_pan_x) < 1 && abs(map_pan_y) < 1",
-                "value": 1
-              },
-              "value": 0
+          "transform": [
+            {
+              "filter": "datum.state_code !== 'ACT' && datum.state_code !== 'TAS'"
             }
-          }
-        },
-        {
-          "mark": {
-            "type": "rule",
-            "color": "#53606C",
-            "strokeWidth": 0.9,
-            "clip": true,
-            "tooltip": null
-          },
-          "encoding": {
-            "longitude": {
-              "field": "longitude",
-              "type": "quantitative"
-            },
-            "latitude": {
-              "field": "latitude",
-              "type": "quantitative"
-            },
-            "longitude2": {
-              "field": "label_longitude"
-            },
-            "latitude2": {
-              "field": "label_latitude"
-            },
-            "opacity": {
-              "condition": {
-                "test": "map_zoom <= 1.01 && abs(map_pan_x) < 1 && abs(map_pan_y) < 1",
-                "value": 1
-              },
-              "value": 0
-            }
-          }
-        },
-        {
-          "mark": {
-            "type": "point",
-            "shape": "triangle-left",
-            "filled": true,
-            "size": 32,
-            "color": "#53606C",
-            "stroke": "white",
-            "strokeWidth": 0.7,
-            "clip": true,
-            "tooltip": null
-          },
-          "encoding": {
-            "longitude": {
-              "field": "longitude",
-              "type": "quantitative"
-            },
-            "latitude": {
-              "field": "latitude",
-              "type": "quantitative"
-            },
-            "opacity": {
-              "condition": {
-                "test": "map_zoom <= 1.01 && abs(map_pan_x) < 1 && abs(map_pan_y) < 1",
-                "value": 1
-              },
-              "value": 0
-            }
-          }
-        },
-        {
+          ],
           "mark": {
             "type": "text",
-            "align": "left",
-            "baseline": "middle",
-            "dx": 5,
+            "font": "Arial",
             "fontSize": 11,
             "fontWeight": "bold",
-            "color": "#35414C",
             "lineBreak": "\n",
             "lineHeight": 13,
-            "clip": true,
-            "tooltip": null
+            "align": "center",
+            "baseline": "middle",
+            "clip": true
           },
           "encoding": {
             "longitude": {
-              "field": "label_longitude",
+              "field": "longitude",
               "type": "quantitative"
             },
             "latitude": {
-              "field": "label_latitude",
+              "field": "latitude",
               "type": "quantitative"
             },
             "text": {
-              "field": "label"
+              "field": "inside_label"
             },
-            "opacity": {
+            "color": {
               "condition": {
-                "test": "map_zoom <= 1.01 && abs(map_pan_x) < 1 && abs(map_pan_y) < 1",
-                "value": 1
+                "test": "datum.percent_change_from_2025 >= 12",
+                "value": "white"
               },
-              "value": 0
-            }
+              "value": "#202124"
+            },
+            "tooltip": [
+              {
+                "field": "state_or_territory",
+                "type": "nominal",
+                "title": "State or territory"
+              },
+              {
+                "field": "nights_2025_million",
+                "type": "quantitative",
+                "title": "2025 visitor nights",
+                "format": ",.1f"
+              },
+              {
+                "field": "nights_2026_million",
+                "type": "quantitative",
+                "title": "2026 visitor nights",
+                "format": ",.1f"
+              },
+              {
+                "field": "change_fraction",
+                "type": "quantitative",
+                "title": "Change from 2025",
+                "format": "+.1%"
+              }
+            ]
           }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.state_code === 'ACT' || datum.state_code === 'TAS'"
+            }
+          ],
+          "layer": [
+            {
+              "mark": {
+                "type": "rule",
+                "color": "white",
+                "strokeWidth": 2.8,
+                "clip": true,
+                "tooltip": null
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "longitude",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "latitude",
+                  "type": "quantitative"
+                },
+                "longitude2": {
+                  "field": "label_longitude"
+                },
+                "latitude2": {
+                  "field": "label_latitude"
+                },
+                "opacity": {
+                  "condition": {
+                    "test": "map_zoom <= 1.01 && abs(map_pan_x) < 1 && abs(map_pan_y) < 1",
+                    "value": 1
+                  },
+                  "value": 0
+                }
+              }
+            },
+            {
+              "mark": {
+                "type": "rule",
+                "color": "#53606C",
+                "strokeWidth": 0.9,
+                "clip": true,
+                "tooltip": null
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "longitude",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "latitude",
+                  "type": "quantitative"
+                },
+                "longitude2": {
+                  "field": "label_longitude"
+                },
+                "latitude2": {
+                  "field": "label_latitude"
+                },
+                "opacity": {
+                  "condition": {
+                    "test": "map_zoom <= 1.01 && abs(map_pan_x) < 1 && abs(map_pan_y) < 1",
+                    "value": 1
+                  },
+                  "value": 0
+                }
+              }
+            },
+            {
+              "mark": {
+                "type": "circle",
+                "size": 28,
+                "color": "#35414C",
+                "stroke": "white",
+                "strokeWidth": 1,
+                "clip": true
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "longitude",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "latitude",
+                  "type": "quantitative"
+                },
+                "opacity": {
+                  "condition": {
+                    "test": "map_zoom <= 1.01 && abs(map_pan_x) < 1 && abs(map_pan_y) < 1",
+                    "value": 1
+                  },
+                  "value": 0
+                },
+                "tooltip": [
+                  {
+                    "field": "state_or_territory",
+                    "type": "nominal",
+                    "title": "State or territory"
+                  },
+                  {
+                    "field": "nights_2025_million",
+                    "type": "quantitative",
+                    "title": "2025 visitor nights",
+                    "format": ",.1f"
+                  },
+                  {
+                    "field": "nights_2026_million",
+                    "type": "quantitative",
+                    "title": "2026 visitor nights",
+                    "format": ",.1f"
+                  },
+                  {
+                    "field": "change_fraction",
+                    "type": "quantitative",
+                    "title": "Change from 2025",
+                    "format": "+.1%"
+                  }
+                ]
+              }
+            },
+            {
+              "mark": {
+                "type": "text",
+                "font": "Arial",
+                "fontSize": 11,
+                "fontWeight": "bold",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 5,
+                "color": "#202124",
+                "clip": true
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "label_longitude",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "label_latitude",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "outside_label"
+                },
+                "opacity": {
+                  "condition": {
+                    "test": "map_zoom <= 1.01 && abs(map_pan_x) < 1 && abs(map_pan_y) < 1",
+                    "value": 1
+                  },
+                  "value": 0
+                },
+                "tooltip": [
+                  {
+                    "field": "state_or_territory",
+                    "type": "nominal",
+                    "title": "State or territory"
+                  },
+                  {
+                    "field": "nights_2025_million",
+                    "type": "quantitative",
+                    "title": "2025 visitor nights",
+                    "format": ",.1f"
+                  },
+                  {
+                    "field": "nights_2026_million",
+                    "type": "quantitative",
+                    "title": "2026 visitor nights",
+                    "format": ",.1f"
+                  },
+                  {
+                    "field": "change_fraction",
+                    "type": "quantitative",
+                    "title": "Change from 2025",
+                    "format": "+.1%"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     }
@@ -473,9 +626,7 @@
   "config": {
     "background": "white",
     "font": "Arial",
-    "view": {
-      "stroke": null
-    },
+    "view": {"stroke": null},
     "legend": {
       "labelFontSize": 12,
       "titleFontSize": 12,

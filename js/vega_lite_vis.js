@@ -27,6 +27,7 @@ const embedOptions = {
 
 const roleColours = {
   flowGrowth: "#00736B",
+  flowDecline: "#3F007D",
   flowFill: "#EFF7F5",
   flowBorder: "#A8CBC5",
   year2025: "#80658F",
@@ -38,6 +39,11 @@ const roleColours = {
 document.documentElement.style.setProperty(
   "--flow-growth",
   roleColours.flowGrowth
+);
+
+document.documentElement.style.setProperty(
+  "--flow-decline",
+  roleColours.flowDecline
 );
 
 document.documentElement.style.setProperty(
@@ -63,7 +69,7 @@ const chartPalette = {
   melbourne: themeColour("--city-melbourne", "#8C6D00"),
   melbourneTint: themeColour("--city-melbourne-tint", "#FBF6DF"),
   flowGrowth: roleColours.flowGrowth,
-  flowDecline: themeColour("--flow-decline", "#9E007E"),
+  flowDecline: roleColours.flowDecline,
   flowFill: roleColours.flowFill,
   flowBorder: roleColours.flowBorder,
   year2025: roleColours.year2025,
@@ -307,6 +313,22 @@ function applyChartTheme(id, specification) {
 
       routes.encoding.color.legend.labelExpr =
         "datum.label === 'Decline' ? 'Decline (dashed)' : 'Growth (solid)'";
+    }
+
+    const annotations = themed.layer.find(layer =>
+      layer.transform?.some(transform => transform.as === "growth_heading")
+    );
+
+    if (annotations) {
+      for (const layer of annotations.layer) {
+        if (layer.mark?.type !== "rect") continue;
+
+        layer.encoding.x2.value.expr =
+          "width * 0.59 + min(224, width * 0.29)";
+
+        layer.encoding.y.value += 2;
+        layer.encoding.y2.value -= 2;
+      }
     }
   }
 
