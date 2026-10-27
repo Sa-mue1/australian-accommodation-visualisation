@@ -80,8 +80,13 @@
     .occupancy-guide {
       display: grid;
       flex: 0 0 auto;
-      grid-template-columns: 300px minmax(0, 1fr);
-      column-gap: 30px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: calc(
+        var(--chart-gap)
+        + 2 * var(--card-padding)
+        + 2 * var(--story-inset)
+        + 2px
+      );
       row-gap: 14px;
       align-items: start;
       margin: 8px 5px 0;
@@ -137,27 +142,33 @@
     .occupancy-ring-order {
       display: grid;
       grid-template-columns: repeat(4, max-content);
-      gap: 7px 12px;
+      gap: 5px 12px;
       margin: 0;
       padding: 0;
       list-style: none;
+      counter-reset: occupancy-ring;
     }
 
     .occupancy-ring-order li {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       white-space: nowrap;
+      counter-increment: occupancy-ring;
     }
 
-    .occupancy-ring-order li:not(:last-child)::after {
-      content: "→";
-      margin-left: 10px;
-      color: #5F6B73;
+    .occupancy-ring-order li::before {
+      content: counter(occupancy-ring);
+      flex: 0 0 8px;
+      margin-right: 4px;
+      color: #5F6368;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
     }
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1160px) {
       .occupancy-ring-order {
         grid-template-columns: repeat(2, max-content);
+        column-gap: 20px;
       }
     }
 
