@@ -5,6 +5,7 @@ An interactive data visualisation exploring Australia’s accommodation industry
 ## View the visualisation
 
 https://sa-mue1.github.io/australian-accommodation-visualisation/
+(When you open make sure its set to 100% zoom)
 
 ## About the project
 
