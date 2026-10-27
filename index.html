@@ -226,6 +226,7 @@
     }
 
     .hero {
+      max-width: none;
       margin-bottom: 20px;
     }
 
@@ -322,11 +323,36 @@
       }
     }
 
+    .hero-overview {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(340px, 1fr);
+      gap: 24px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .hero-copy .introduction {
+      max-width: none;
+      margin: 0;
+    }
+
+    .hero-copy .section-navigation {
+      margin-top: auto;
+      padding-top: 16px;
+    }
+
     .headline-statistics {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
       gap: 10px;
-      margin: 16px 0 0;
+      margin: 0;
       padding: 0;
       font-family: var(--font-body);
       text-align: left;
@@ -381,9 +407,21 @@
       line-height: 1.4;
     }
 
-    @media (max-width: 760px) {
-      .headline-statistics {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    @media (max-width: 980px) {
+      .hero-overview {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .hero-copy .section-navigation {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-overview {
+        gap: 14px;
+        margin-top: 14px;
       }
     }
 
@@ -416,54 +454,58 @@
 
       <h1>Australia’s uneven accommodation recovery</h1>
 
-      <p class="introduction">
-        <span class="story-line">
-          Australia’s accommodation industry has changed through disruption and recovery periods.
-        </span>
-        <span class="story-line">
-          This visualisation explores domestic and international visitor nights
-        </span>
-        <span class="story-line">
-          across accommodation types and destinations, alongside rental supply,
-        </span>
-        <span class="story-line">
-          advertised prices on listings and seasonal hotel occupancy.
-        </span>
-      </p>
+      <div class="hero-overview">
+        <div class="hero-copy">
+          <p class="introduction">
+            <span class="story-line">
+              Australia’s accommodation industry has changed through disruption and recovery periods.
+            </span>
+            <span class="story-line">
+              This visualisation explores domestic and international visitor nights
+            </span>
+            <span class="story-line">
+              across accommodation types and destinations, alongside rental supply,
+            </span>
+            <span class="story-line">
+              advertised prices on listings and seasonal hotel occupancy.
+            </span>
+          </p>
 
-      <dl class="headline-statistics" aria-label="Selected accommodation figures">
-        <div class="headline-statistic">
-          <dt>Domestic hotel visitor nights</dt>
-          <dd class="headline-statistic-value">113.5<span class="headline-statistic-unit">million</span></dd>
-          <dd class="headline-statistic-period">Calendar year 2024</dd>
+          <nav class="section-navigation" aria-label="Visualisation sections">
+            <a href="#section-recovery">Recovery</a>
+            <a href="#section-domestic-geography">Domestic demand</a>
+            <a href="#section-international">International demand</a>
+            <a href="#section-industry">Rentals and occupancy</a>
+            <a href="#section-conclusion">Conclusion</a>
+          </nav>
         </div>
 
-        <div class="headline-statistic">
-          <dt>Trips from eight international markets</dt>
-          <dd class="headline-statistic-value">5.36<span class="headline-statistic-unit">million</span></dd>
-          <dd class="headline-statistic-period">Year ending June 2026</dd>
-        </div>
+        <dl class="headline-statistics" aria-label="Selected accommodation figures">
+          <div class="headline-statistic">
+            <dt>Domestic hotel visitor nights</dt>
+            <dd class="headline-statistic-value">113.5<span class="headline-statistic-unit">million</span></dd>
+            <dd class="headline-statistic-period">Calendar year 2024</dd>
+          </div>
 
-        <div class="headline-statistic">
-          <dt>Recorded rental listings</dt>
-          <dd class="headline-statistic-value">46,301</dd>
-          <dd class="headline-statistic-period">Sydney and Melbourne, 2026</dd>
-        </div>
+          <div class="headline-statistic">
+            <dt>Trips from eight international markets</dt>
+            <dd class="headline-statistic-value">5.36<span class="headline-statistic-unit">million</span></dd>
+            <dd class="headline-statistic-period">Year ending June 2026</dd>
+          </div>
 
-        <div class="headline-statistic">
-          <dt>National hotel occupancy</dt>
-          <dd class="headline-statistic-value">72.0%</dd>
-          <dd class="headline-statistic-period">Financial year 2024-2025</dd>
-        </div>
-      </dl>
+          <div class="headline-statistic">
+            <dt>Recorded rental listings</dt>
+            <dd class="headline-statistic-value">46,301</dd>
+            <dd class="headline-statistic-period">Sydney and Melbourne, 2026</dd>
+          </div>
 
-      <nav class="section-navigation" aria-label="Visualisation sections">
-        <a href="#section-recovery">Recovery</a>
-        <a href="#section-domestic-geography">Domestic demand</a>
-        <a href="#section-international">International demand</a>
-        <a href="#section-industry">Rentals and occupancy</a>
-        <a href="#section-conclusion">Conclusion</a>
-      </nav>
+          <div class="headline-statistic">
+            <dt>National hotel occupancy</dt>
+            <dd class="headline-statistic-value">72.0%</dd>
+            <dd class="headline-statistic-period">Financial year 2024-2025</dd>
+          </div>
+        </dl>
+      </div>
     </header>
 
     <section
