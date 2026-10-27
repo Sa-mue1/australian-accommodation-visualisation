@@ -34,7 +34,7 @@
     }
 
     .sources-card .conclusion-copy > h3 {
-      text-align: center;
+      text-align: left;
     }
 
     .reference-list {
@@ -42,6 +42,7 @@
       margin: 0;
       padding: 0;
       list-style: none;
+      text-align: left;
       color: #000000;
       font-family: var(--font-body);
       font-size: var(--story-font-size);
@@ -184,6 +185,29 @@
       .occupancy-ring-order {
         grid-template-columns: 1fr;
       }
+    }
+
+    .map-reference-block {
+      margin-top: 20px;
+      padding: 14px calc(var(--card-padding) + var(--story-inset) + 1px) 0;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .map-reference-block h3 {
+      margin: 0 0 8px;
+      color: var(--story-text);
+      font-family: var(--font-title);
+      font-size: var(--story-heading-size);
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .project-footer {
+      grid-template-columns: 1fr;
+      row-gap: 4px;
+      margin-top: 16px;
+      padding-top: 12px;
+      text-align: left;
     }
   </style>
 
@@ -563,6 +587,9 @@
                 Melbourne’s largest area held <strong class="city-melbourne">32.6%</strong>, versus Sydney’s <strong class="city-sydney">24.4%</strong>.
               </span>
               <span class="story-line">
+                Circle areas use the same proportional scale.
+              </span>
+              <span class="story-line">
                 Listings show supply, rather than bookings or occupancy.
               </span>
             </p>
@@ -778,15 +805,15 @@
                 <a href="https://www.costar.com/products/str-benchmark/australian-accommodation-monitor" target="_blank" rel="noopener noreferrer">https://www.costar.com/products/str-benchmark/australian-accommodation-monitor</a>
               </li>
               <li>
-                Tourism Research Australia. (n.d.). <em>Domestic tourism statistics results</em>.
+                Tourism Research Australia. (n.d.-a). <em>Domestic tourism statistics results</em>.
                 <a href="https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results" target="_blank" rel="noopener noreferrer">https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results</a>
               </li>
               <li>
-                Tourism Research Australia. (n.d.). <em>International tourism results</em>.
+                Tourism Research Australia. (n.d.-b). <em>International tourism results</em>.
                 <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results" target="_blank" rel="noopener noreferrer">https://www.tra.gov.au/en/tourism-statistics/international-tourism-results</a>
               </li>
               <li>
-                Tourism Research Australia. (n.d.). <em>National Visitor Survey trends</em>.
+                Tourism Research Australia. (n.d.-c). <em>National Visitor Survey trends</em>.
                 <a href="https://www.tra.gov.au/en/tourism-statistics/national-visitor-survey-trends" target="_blank" rel="noopener noreferrer">https://www.tra.gov.au/en/tourism-statistics/national-visitor-survey-trends</a>
               </li>
             </ul>
@@ -795,13 +822,28 @@
 
       </div>
 
+      <section class="map-reference-block" aria-labelledby="map-reference-title">
+        <h3 id="map-reference-title">Map data sources</h3>
+
+        <ul class="reference-list" aria-label="Map boundary data references">
+          <li>
+            Australian Bureau of Statistics. (2021, July 20). <em>Digital boundary files</em>.
+            <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files" target="_blank" rel="noopener noreferrer">https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files</a>
+          </li>
+          <li>
+            Vega. (n.d.). <em>world-110m.json</em> [Data set]. GitHub.
+            <a href="https://github.com/vega/vega-datasets/blob/main/data/world-110m.json" target="_blank" rel="noopener noreferrer">https://github.com/vega/vega-datasets/blob/main/data/world-110m.json</a>
+          </li>
+        </ul>
+      </section>
+
       <footer class="project-footer">
         <p>
           <strong>Visualisation author:</strong> Samuel Jaden Zuzartee
         </p>
 
         <p>
-          <strong>Date:</strong>
+          <strong>Date published:</strong>
           <time datetime="2026-10-25">25/10/2026</time>
         </p>
       </footer>

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Short-term rental listings grouped by neighbourhood area. Circle sizes use a shared scale with a minimum display size for visibility, so areas are not exactly proportional to listing counts.",
+  "description": "Short-term rental listings grouped by neighbourhood area. Circle area is proportional to listing counts using the same zero-based scale for both cities. Colour shows median advertised nightly prices.",
   "title": {
     "text": "Short-term rentals by neighbourhood",
     "subtitle": "Circles mark average listing locations, shade shows median advertised prices.",
@@ -21,30 +21,12 @@
   "spacing": 16,
   "bounds": "flush",
   "params": [
-    {
-      "name": "sydney_zoom",
-      "value": 1
-    },
-    {
-      "name": "sydney_pan_x",
-      "value": 0
-    },
-    {
-      "name": "sydney_pan_y",
-      "value": 0
-    },
-    {
-      "name": "melbourne_zoom",
-      "value": 1
-    },
-    {
-      "name": "melbourne_pan_x",
-      "value": 0
-    },
-    {
-      "name": "melbourne_pan_y",
-      "value": 0
-    }
+    {"name": "sydney_zoom", "value": 1},
+    {"name": "sydney_pan_x", "value": 0},
+    {"name": "sydney_pan_y", "value": 0},
+    {"name": "melbourne_zoom", "value": 1},
+    {"name": "melbourne_pan_x", "value": 0},
+    {"name": "melbourne_pan_y", "value": 0}
   ],
   "data": {
     "url": "data/short_term_rental_listings.csv",
@@ -60,10 +42,7 @@
   "transform": [
     {
       "aggregate": [
-        {
-          "op": "count",
-          "as": "listing_count"
-        },
+        {"op": "count", "as": "listing_count"},
         {
           "op": "mean",
           "field": "latitude",
@@ -119,9 +98,7 @@
       },
       "layer": [
         {
-          "data": {
-            "sphere": true
-          },
+          "data": {"sphere": true},
           "mark": {
             "type": "geoshape",
             "fill": "#EAF3F8",
@@ -171,9 +148,7 @@
         },
         {
           "transform": [
-            {
-              "filter": "datum.city === 'Sydney'"
-            }
+            {"filter": "datum.city === 'Sydney'"}
           ],
           "mark": {
             "type": "circle",
@@ -199,22 +174,18 @@
             "size": {
               "field": "listing_count",
               "type": "quantitative",
-              "title": "Listings (minimum size)",
+              "title": "Listings",
               "scale": {
                 "type": "linear",
                 "domain": [0, 8500],
-                "range": [12, 850],
+                "range": [0, 850],
                 "nice": false,
                 "zero": true
               },
               "legend": {
                 "orient": "none",
-                "legendX": {
-                  "expr": "childWidth + 16"
-                },
-                "legendY": {
-                  "expr": "height + 8"
-                },
+                "legendX": {"expr": "childWidth + 16"},
+                "legendY": {"expr": "height + 8"},
                 "direction": "horizontal",
                 "values": [500, 2000, 8000],
                 "format": ",.0f",
@@ -311,9 +282,7 @@
       },
       "layer": [
         {
-          "data": {
-            "sphere": true
-          },
+          "data": {"sphere": true},
           "mark": {
             "type": "geoshape",
             "fill": "#EAF3F8",
@@ -363,9 +332,7 @@
         },
         {
           "transform": [
-            {
-              "filter": "datum.city === 'Melbourne'"
-            }
+            {"filter": "datum.city === 'Melbourne'"}
           ],
           "mark": {
             "type": "circle",
@@ -391,22 +358,18 @@
             "size": {
               "field": "listing_count",
               "type": "quantitative",
-              "title": "Listings (minimum size)",
+              "title": "Listings",
               "scale": {
                 "type": "linear",
                 "domain": [0, 8500],
-                "range": [12, 850],
+                "range": [0, 850],
                 "nice": false,
                 "zero": true
               },
               "legend": {
                 "orient": "none",
-                "legendX": {
-                  "expr": "childWidth + 16"
-                },
-                "legendY": {
-                  "expr": "height + 8"
-                },
+                "legendX": {"expr": "childWidth + 16"},
+                "legendY": {"expr": "height + 8"},
                 "direction": "horizontal",
                 "values": [500, 2000, 8000],
                 "format": ",.0f",
