@@ -151,7 +151,13 @@
               "type": "quantitative",
               "scale": {
                 "type": "linear",
-                "domain": [0, 25, 50, 75, 100],
+                "domain": [
+                  0,
+                  25,
+                  50,
+                  75,
+                  100
+                ],
                 "range": [
                   "#F0FCFF",
                   "#C7EFFA",
@@ -163,22 +169,7 @@
                 "nice": false,
                 "clamp": true
               },
-              "legend": {
-                "title": "Occupancy rate (%)",
-                "orient": "bottom",
-                "direction": "horizontal",
-                "gradientLength": {
-                  "expr": "min(300, occupancy_columns * child_width + (occupancy_columns - 1) * 20 - 14)"
-                },
-                "gradientThickness": 12,
-                "values": [0, 20, 40, 60, 80, 100],
-                "format": ".0f",
-                "titleFontSize": 12,
-                "titleFontWeight": "bold",
-                "labelFontSize": 12,
-                "offset": 8,
-                "padding": 0
-              }
+              "legend": null
             },
             "value": "#E5E7EB"
           },
@@ -271,7 +262,9 @@
                 "as": "available"
               }
             ],
-            "groupby": ["financial_year_full"]
+            "groupby": [
+              "financial_year_full"
+            ]
           },
           {
             "calculate": "datum.occupied / datum.available",

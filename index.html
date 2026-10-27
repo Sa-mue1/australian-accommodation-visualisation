@@ -76,6 +76,104 @@
       outline: 2px solid var(--accent-primary);
       outline-offset: 3px;
     }
+
+    .occupancy-guide {
+      display: grid;
+      flex: 0 0 auto;
+      grid-template-columns: 300px minmax(0, 1fr);
+      column-gap: 30px;
+      row-gap: 14px;
+      align-items: start;
+      margin: 8px 5px 0;
+      color: #202124;
+      font-family: var(--font-body);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .occupancy-guide p {
+      margin: 0 0 6px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .occupancy-scale {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .occupancy-scale-bar {
+      height: 12px;
+      background: linear-gradient(
+        90deg,
+        var(--occupancy-0) 0%,
+        var(--occupancy-25) 25%,
+        var(--occupancy-50) 50%,
+        var(--occupancy-75) 75%,
+        var(--occupancy-100) 100%
+      );
+      background: linear-gradient(
+        90deg in lab,
+        var(--occupancy-0) 0%,
+        var(--occupancy-25) 25%,
+        var(--occupancy-50) 50%,
+        var(--occupancy-75) 75%,
+        var(--occupancy-100) 100%
+      );
+    }
+
+    .occupancy-scale-ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .occupancy-ring-key {
+      min-width: 0;
+    }
+
+    .occupancy-ring-order {
+      display: grid;
+      grid-template-columns: repeat(4, max-content);
+      gap: 7px 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .occupancy-ring-order li {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .occupancy-ring-order li:not(:last-child)::after {
+      content: "→";
+      margin-left: 10px;
+      color: #5F6B73;
+    }
+
+    @media (max-width: 1100px) {
+      .occupancy-ring-order {
+        grid-template-columns: repeat(2, max-content);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .occupancy-guide {
+        grid-template-columns: 1fr;
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .occupancy-ring-order {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -468,6 +566,9 @@
 
             <p>
               <span class="story-line">
+                Medians and samples cover positive advertised prices up to <strong>$1,000</strong>.
+              </span>
+              <span class="story-line">
                 Entire home medians, <strong class="city-sydney">Sydney $326</strong> and <strong class="city-melbourne">Melbourne $276</strong>.
               </span>
               <span class="story-line">
@@ -488,6 +589,44 @@
           class="chart-card chart-card--full occupancy-card"
         >
           <div id="accommodation-occupancy-radial" class="chart"></div>
+
+          <div class="occupancy-guide">
+            <div class="occupancy-scale">
+              <p id="occupancy-scale-title">Occupancy rate (%)</p>
+              <div
+                class="occupancy-scale-bar"
+                role="img"
+                aria-label="Occupancy rate from 0 to 100 percent. Darker colours mean higher occupancy."
+              ></div>
+              <div class="occupancy-scale-ticks" aria-hidden="true">
+                <span>0</span>
+                <span>20</span>
+                <span>40</span>
+                <span>60</span>
+                <span>80</span>
+                <span>100</span>
+              </div>
+            </div>
+
+            <div class="occupancy-ring-key">
+              <p id="occupancy-ring-order-title">
+                Ring order from inner to outer
+              </p>
+              <ol
+                class="occupancy-ring-order"
+                aria-labelledby="occupancy-ring-order-title"
+              >
+                <li>Australian Capital Territory</li>
+                <li>Northern Territory</li>
+                <li>Tasmania</li>
+                <li>South Australia</li>
+                <li>Western Australia</li>
+                <li>Queensland</li>
+                <li>Victoria</li>
+                <li>New South Wales</li>
+              </ol>
+            </div>
+          </div>
 
           <div class="chart-note chart-story story-columns">
             <div class="story-column">
@@ -599,6 +738,9 @@
               <p>
                 <span class="story-line">
                   Melbourne recorded <strong class="city-melbourne">25,728 listings</strong>, compared with <strong class="city-sydney">Sydney’s 20,573</strong>.
+                </span>
+                <span class="story-line">
+                  For positive advertised prices up to <strong>$1,000</strong>,
                 </span>
                 <span class="story-line">
                   <strong class="city-sydney">Sydney’s median home price</strong> exceeded <strong class="city-melbourne">Melbourne’s</strong> in this dataset.
