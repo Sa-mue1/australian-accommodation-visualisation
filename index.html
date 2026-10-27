@@ -224,6 +224,103 @@
       padding-top: 12px;
       text-align: left;
     }
+
+    .hero {
+      margin-bottom: 20px;
+    }
+
+    .section-navigation {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .section-navigation a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 7px 12px;
+      border: 1px solid var(--border-medium);
+      border-radius: 4px;
+      background: var(--card-background);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-align: left;
+      text-decoration: none;
+      transition: background-color 150ms ease, border-color 150ms ease;
+    }
+
+    .section-navigation a:hover {
+      border-color: var(--accent-primary);
+      background: var(--accent-soft);
+      color: var(--accent-primary);
+    }
+
+    .section-navigation a:focus-visible,
+    .repository-link:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 4px;
+    }
+
+    .project-footer {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: center;
+    }
+
+    .project-footer-meta {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .repository-link {
+      justify-self: start;
+      color: var(--accent-primary);
+      font-family: var(--font-body);
+      font-size: var(--story-font-size);
+      font-weight: 600;
+      line-height: 1.55;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .repository-link:hover {
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 760px) {
+      .project-footer {
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section-navigation {
+        gap: 6px;
+        margin-top: 14px;
+      }
+
+      .section-navigation a {
+        padding: 7px 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .section-navigation a {
+        transition: none;
+      }
+    }
   </style>
 
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -254,6 +351,14 @@
           advertised prices on listings and seasonal hotel occupancy.
         </span>
       </p>
+
+      <nav class="section-navigation" aria-label="Visualisation sections">
+        <a href="#section-recovery">Recovery</a>
+        <a href="#section-domestic-geography">Domestic demand</a>
+        <a href="#section-international">International demand</a>
+        <a href="#section-industry">Rentals and occupancy</a>
+        <a href="#section-conclusion">Conclusion</a>
+      </nav>
     </header>
 
     <section
@@ -866,14 +971,22 @@
       </div>
 
       <footer class="project-footer">
-        <p>
-          <strong>Visualisation author:</strong> Samuel Jaden Zuzartee
-        </p>
+        <div class="project-footer-meta">
+          <p>
+            <strong>Visualisation author:</strong> Samuel Jaden Zuzartee
+          </p>
+          <p>
+            <strong>Date published:</strong>
+            <time datetime="2026-10-27">27/10/2026</time>
+          </p>
+        </div>
 
-        <p>
-          <strong>Date published:</strong>
-          <time datetime="2026-10-25">27/10/2026</time>
-        </p>
+        <a
+          class="repository-link"
+          href="https://github.com/Sa-mue1/australian-accommodation-visualisation"
+          target="_blank"
+          rel="noopener noreferrer"
+        >View the repository</a>
       </footer>
     </section>
 
