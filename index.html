@@ -1,20 +1,1142 @@
-<footer class="project-footer">
-  <div class="project-footer-meta">
-    <p>
-      <strong>Visualisation author:</strong> Samuel Jaden Zuzartee
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <p>
-      <strong>Date published:</strong>
-      <time datetime="2026-10-27">27/10/2026</time>
-    </p>
-  </div>
+  <meta
+    name="description"
+    content="Explore Australia's accommodation recovery through domestic visitor nights, regional demand, international travel, rental prices and seasonal occupancy."
+  >
 
-  <a
-    class="repository-link"
-    href="https://github.com/Sa-mue1/australian-accommodation-visualisation"
-    target="_blank"
-    rel="noopener noreferrer"
-    style="align-self: start; justify-self: start;"
-  >View the repository</a>
-</footer>
+  <title>Australian Accommodation and Tourism</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --category-hotel: #0055FF;
+      --hotel-annotation-fill: #EDF4FF;
+      --city-sydney: #173B69;
+      --city-sydney-tint: #EEF3F9;
+      --city-melbourne: #8C6D00;
+      --city-melbourne-tint: #FBF6DF;
+      --flow-growth: #394854;
+      --flow-decline: #9E007E;
+      --flow-annotation-fill: #F3F5F7;
+      --flow-annotation-border: #B9C4CE;
+      --occupancy-highlight: #00677F;
+      --occupancy-0: #F0FBFF;
+      --occupancy-25: #C6EDF7;
+      --occupancy-50: #76D2E9;
+      --occupancy-75: #078CB5;
+      --occupancy-100: #003A4D;
+    }
+
+    .sources-card .conclusion-copy > h3 {
+      text-align: left;
+    }
+
+    .reference-list {
+      display: block;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+      color: #000000;
+      font-family: var(--font-body);
+      font-size: var(--story-font-size);
+      font-weight: 400;
+      line-height: 2;
+    }
+
+    .reference-list li {
+      min-width: 0;
+      margin: 0;
+      padding: 0 0 0 1.27cm;
+      text-indent: -1.27cm;
+      overflow-wrap: anywhere;
+    }
+
+    .reference-list em {
+      font-style: italic;
+    }
+
+    .reference-list a {
+      color: #202124;
+      overflow-wrap: anywhere;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .reference-list a:hover {
+      color: var(--accent-primary);
+    }
+
+    .reference-list a:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+    }
+
+    .occupancy-guide {
+      display: grid;
+      flex: 0 0 auto;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: calc(
+        var(--chart-gap)
+        + 2 * var(--card-padding)
+        + 2 * var(--story-inset)
+        + 2px
+      );
+      row-gap: 14px;
+      align-items: start;
+      margin: 8px 5px 0;
+      color: #202124;
+      font-family: var(--font-body);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .occupancy-guide p {
+      margin: 0 0 6px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .occupancy-scale {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .occupancy-scale-bar {
+      height: 12px;
+      background: linear-gradient(
+        90deg,
+        var(--occupancy-0) 0%,
+        var(--occupancy-25) 25%,
+        var(--occupancy-50) 50%,
+        var(--occupancy-75) 75%,
+        var(--occupancy-100) 100%
+      );
+      background: linear-gradient(
+        90deg in lab,
+        var(--occupancy-0) 0%,
+        var(--occupancy-25) 25%,
+        var(--occupancy-50) 50%,
+        var(--occupancy-75) 75%,
+        var(--occupancy-100) 100%
+      );
+    }
+
+    .occupancy-scale-ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .occupancy-ring-key {
+      min-width: 0;
+    }
+
+    .occupancy-ring-order {
+      display: grid;
+      grid-template-columns: repeat(4, max-content);
+      gap: 5px 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: occupancy-ring;
+    }
+
+    .occupancy-ring-order li {
+      display: flex;
+      align-items: baseline;
+      white-space: nowrap;
+      counter-increment: occupancy-ring;
+    }
+
+    .occupancy-ring-order li::before {
+      content: counter(occupancy-ring);
+      flex: 0 0 8px;
+      margin-right: 4px;
+      color: #5F6368;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media (max-width: 1160px) {
+      .occupancy-ring-order {
+        grid-template-columns: repeat(2, max-content);
+        column-gap: 20px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .occupancy-guide {
+        grid-template-columns: 1fr;
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .occupancy-ring-order {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    #section-conclusion .conclusion-card {
+      padding-top: 16px;
+      padding-bottom: 12px;
+    }
+
+    #section-conclusion .conclusion-copy > h3 {
+      margin-bottom: 10px;
+    }
+
+    #section-conclusion .finding-block + .finding-block {
+      margin-top: 12px;
+    }
+
+    #section-conclusion .finding-block h4 {
+      margin-bottom: 4px;
+    }
+
+    #section-conclusion .reference-list {
+      line-height: 1.65;
+    }
+
+    #section-conclusion .project-footer {
+      margin-top: 12px;
+      padding-top: 10px;
+    }
+
+    main.page-container {
+      padding-bottom: 32px;
+    }
+
+    .project-footer {
+      grid-template-columns: 1fr;
+      row-gap: 4px;
+      margin-top: 16px;
+      padding-top: 12px;
+      text-align: left;
+    }
+
+    .hero {
+      max-width: none;
+      margin-bottom: 20px;
+    }
+
+    .section-navigation {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .section-navigation a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 7px 12px;
+      border: 1px solid var(--border-medium);
+      border-radius: 4px;
+      background: var(--card-background);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-align: left;
+      text-decoration: none;
+      transition: background-color 150ms ease, border-color 150ms ease;
+    }
+
+    .section-navigation a:hover {
+      border-color: var(--accent-primary);
+      background: var(--accent-soft);
+      color: var(--accent-primary);
+    }
+
+    .section-navigation a:focus-visible,
+    .repository-link:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 4px;
+    }
+
+    .project-footer {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: center;
+    }
+
+    .project-footer-meta {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .repository-link {
+      justify-self: start;
+      color: var(--accent-primary);
+      font-family: var(--font-body);
+      font-size: var(--story-font-size);
+      font-weight: 600;
+      line-height: 1.55;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .repository-link:hover {
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 760px) {
+      .project-footer {
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section-navigation {
+        gap: 6px;
+        margin-top: 14px;
+      }
+
+      .section-navigation a {
+        padding: 7px 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .section-navigation a {
+        transition: none;
+      }
+    }
+
+    .hero-overview {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(340px, 1fr);
+      gap: 24px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .hero-copy .introduction {
+      max-width: none;
+      margin: 0;
+    }
+
+    .hero-copy .section-navigation {
+      margin-top: auto;
+      padding-top: 16px;
+    }
+
+    .headline-statistics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-body);
+      text-align: left;
+    }
+
+    .headline-statistic {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      background: var(--card-background);
+    }
+
+    .headline-statistic dt {
+      order: 1;
+      flex: 1;
+      margin: 5px 0 0;
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .headline-statistic dd {
+      margin: 0;
+    }
+
+    .headline-statistic-value {
+      order: 0;
+      color: var(--text-primary);
+      font-size: 27px;
+      font-weight: 700;
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .headline-statistic-unit {
+      margin-left: 4px;
+      font-size: 13px;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .headline-statistic .headline-statistic-period {
+      order: 2;
+      margin-top: 4px;
+      color: #525960;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 980px) {
+      .hero-overview {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .hero-copy .section-navigation {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-overview {
+        gap: 14px;
+        margin-top: 14px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .headline-statistics {
+        gap: 8px;
+      }
+
+      .headline-statistic {
+        padding: 10px;
+      }
+
+      .headline-statistic-value {
+        font-size: 24px;
+      }
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script src="js/vega_lite_vis.js?v=20261027-text-polish" defer></script>
+</head>
+
+<body>
+  <main class="page-container">
+
+    <header class="hero">
+      <p class="eyebrow">Australian accommodation, 2018-2026</p>
+
+      <h1>Australia’s uneven accommodation recovery</h1>
+
+      <div class="hero-overview">
+        <div class="hero-copy">
+          <p class="introduction">
+            <span class="story-line">
+              Australia’s accommodation industry has changed through disruption and recovery periods.
+            </span>
+            <span class="story-line">
+              This visualisation explores domestic and international visitor nights
+            </span>
+            <span class="story-line">
+              across accommodation types and destinations, alongside rental supply,
+            </span>
+            <span class="story-line">
+              advertised prices on listings and seasonal hotel occupancy.
+            </span>
+          </p>
+
+          <nav class="section-navigation" aria-label="Visualisation sections">
+            <a href="#section-recovery">Recovery</a>
+            <a href="#section-domestic-geography">Domestic demand</a>
+            <a href="#section-international">International demand</a>
+            <a href="#section-industry">Rentals and occupancy</a>
+            <a href="#section-conclusion">Conclusion</a>
+          </nav>
+        </div>
+
+        <dl class="headline-statistics" aria-label="Selected accommodation figures">
+          <div class="headline-statistic">
+            <dt>Domestic hotel visitor nights</dt>
+            <dd class="headline-statistic-value">113.5<span class="headline-statistic-unit">million</span></dd>
+            <dd class="headline-statistic-period">Calendar year 2024</dd>
+          </div>
+
+          <div class="headline-statistic">
+            <dt>Trips from eight international markets</dt>
+            <dd class="headline-statistic-value">5.36<span class="headline-statistic-unit">million</span></dd>
+            <dd class="headline-statistic-period">Year ending June 2026</dd>
+          </div>
+
+          <div class="headline-statistic">
+            <dt>Recorded rental listings</dt>
+            <dd class="headline-statistic-value">46,301</dd>
+            <dd class="headline-statistic-period">Sydney and Melbourne, 2026</dd>
+          </div>
+
+          <div class="headline-statistic">
+            <dt>National hotel occupancy</dt>
+            <dd class="headline-statistic-value">72.0%</dd>
+            <dd class="headline-statistic-period">Financial year 2024-2025</dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <section
+      id="section-recovery"
+      class="story-section"
+      aria-labelledby="section-recovery-title"
+    >
+      <header class="section-header">
+        <p class="section-number">Section 1</p>
+
+        <h2 id="section-recovery-title">
+          Uneven recovery in domestic accommodation
+        </h2>
+
+        <p class="section-introduction">
+          <span class="story-line">
+            <strong>Recovery differed</strong> across domestic accommodation types.
+          </span>
+        </p>
+      </header>
+
+      <div class="chart-grid">
+
+        <article class="chart-card chart-card--full recovery-card">
+          <div id="domestic-recovery" class="chart"></div>
+
+          <div class="chart-note chart-story recovery-story">
+            <div class="story-column">
+              <h3>Hotels recovered after the sharpest fall</h3>
+
+              <p>
+                <span class="story-line">
+                  <strong class="category-hotel">Hotel nights</strong> nearly halved, reaching <strong class="category-hotel">51.6 million</strong> in 2020.
+                </span>
+                <span class="story-line">
+                  By 2024, nights reached <strong class="category-hotel">113.5 million</strong>, exceeding 2019 by <strong class="category-hotel">12.4%</strong>.
+                </span>
+                <span class="story-line">
+                  <strong class="category-hotel">Hotels</strong> passed their 2019 visitor-night level in 2022.
+                </span>
+              </p>
+            </div>
+
+            <div class="story-column">
+              <h3>Three categories still lagged behind 2019</h3>
+
+              <p>
+                <span class="story-line">
+                  <strong class="category-rented">Rented stays</strong> reached 34.7 million nights, <strong class="category-rented">2.7% below 2019</strong>.
+                </span>
+                <span class="story-line">
+                  <strong class="category-camping">Camping</strong> recorded 34.7 million nights, <strong class="category-camping">4.7% below 2019</strong>.
+                </span>
+                <span class="story-line">
+                  <strong class="category-friends">Friends or relatives</strong> recorded <strong class="category-friends">133.2 million</strong> nights, <strong class="category-friends">down 7.0%</strong>.
+                </span>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="chart-card chart-card--full">
+          <div id="domestic-accommodation-streamgraph" class="chart"></div>
+
+          <div class="chart-note chart-story story-columns">
+            <div class="story-column">
+              <h3>Friends’ stays remained the largest category</h3>
+
+              <p>
+                <span class="story-line">
+                  <strong class="category-friends">Friends or relatives</strong> recorded <strong class="category-friends">133.2 million</strong> nights in 2024.
+                </span>
+                <span class="story-line">
+                  That was <strong class="category-friends">33.5%</strong> of all domestic visitor nights.
+                </span>
+                <span class="story-line">
+                  Their total still exceeded hotels’ <strong class="category-hotel">113.5 million</strong> nights.
+                </span>
+              </p>
+            </div>
+
+            <div class="story-column">
+              <h3>Hotels gained share during an incomplete recovery</h3>
+
+              <p>
+                <span class="story-line">
+                  <strong class="category-hotel">Hotel share</strong> reached <strong class="category-hotel">28.6%</strong> in 2024, versus <strong class="category-hotel">24.2%</strong> in 2019.
+                </span>
+                <span class="story-line">
+                  All domestic nights remained <strong>4.9% below 2019</strong>.
+                </span>
+                <span class="story-line">
+                  The <strong>397.5 million</strong> nights fell short of 2019’s 417.9 million.
+                </span>
+              </p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section
+      id="section-domestic-geography"
+      class="story-section"
+      aria-labelledby="section-domestic-geography-title"
+    >
+      <header class="section-header">
+        <p class="section-number">Section 2</p>
+
+        <h2 id="section-domestic-geography-title">
+          Domestic demand varied by location and quarter
+        </h2>
+
+        <p class="section-introduction">
+          <span class="story-line">
+            <strong>Demand concentrated</strong> in New South Wales, Queensland and Victoria.
+          </span>
+          <span class="story-line">
+            <strong>Peak quarters differed</strong> across the states and territories.
+          </span>
+        </p>
+      </header>
+
+      <div class="chart-grid">
+
+        <article class="chart-card chart-card--full heatmap-card">
+          <div id="domestic-quarters" class="chart"></div>
+
+          <div
+            class="chart-note chart-story story-columns"
+            aria-label="Quarterly domestic demand findings"
+          >
+            <div class="story-column">
+              <h3>Three states dominated domestic visitor nights</h3>
+
+              <p>
+                <span class="story-line">
+                  <strong>New South Wales</strong> led in every quarter shown.
+                </span>
+                <span class="story-line">
+                  It recorded <strong class="demand-highlight">27.7 million</strong> nights in the June 2026 quarter.
+                </span>
+                <span class="story-line">
+                  With Queensland and Victoria, it contributed <strong class="demand-highlight">78.0%</strong> of national nights.
+                </span>
+              </p>
+            </div>
+
+            <div class="story-column">
+              <h3>Peak quarters differed between states</h3>
+
+              <p>
+                <span class="story-line">
+                  <strong class="demand-highlight">March 2026</strong> led in <strong>six of the eight jurisdictions</strong>.
+                </span>
+                <span class="story-line">
+                  Queensland and the Northern Territory peaked in <strong class="demand-highlight">September 2025</strong>.
+                </span>
+                <span class="story-line">
+                  The Northern Territory’s September demand was <strong class="demand-highlight">2.4 times</strong> March’s demand.
+                </span>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="chart-card chart-card--half">
+          <div id="hotel-destination-rankings" class="chart"></div>
+
+          <div class="chart-note chart-story story-single">
+            <h3>Rankings conceal changes in demand</h3>
+
+            <p>
+              <span class="story-line">
+                <strong class="city-sydney">Sydney</strong> regained first place with <strong class="city-sydney">13.43 million</strong> nights in 2024.
+              </span>
+              <span class="story-line">
+                <strong class="city-melbourne">Melbourne</strong> followed with <strong class="city-melbourne">13.11 million</strong>, just <strong>324,488 nights</strong> behind.
+              </span>
+              <span class="story-line">
+                <strong class="city-brisbane">Brisbane</strong> reached <strong class="city-brisbane">8.25 million</strong> nights, up <strong class="city-brisbane">30.8%</strong> since 2019.
+              </span>
+              <span class="story-line">
+                Its <strong class="city-brisbane">third-place finish</strong> matched 2019, despite higher demand.
+              </span>
+            </p>
+          </div>
+        </article>
+
+        <article class="chart-card chart-card--half">
+          <div id="state-accommodation-mosaic" class="chart"></div>
+
+          <div class="chart-note chart-story story-single">
+            <h3>Hotel share differed from hotel volume</h3>
+
+            <p>
+              <span class="story-line">
+                Queensland’s <strong class="category-hotel">31.9%</strong> hotel share exceeded New South Wales’ <strong class="category-hotel">28.9%</strong>.
+              </span>
+              <span class="story-line">
+                New South Wales still recorded <strong class="category-hotel">33.0 million</strong> hotel nights.
+              </span>
+              <span class="story-line">
+                Queensland followed with <strong class="category-hotel">31.5 million</strong>, despite its higher share.
+              </span>
+              <span class="story-line">
+                <strong class="category-friends">Friends’ stays</strong> led <strong class="category-friends">four states</strong>, showing demand beyond commercial hotels.
+              </span>
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section
+      id="section-international"
+      class="story-section"
+      aria-labelledby="section-international-title"
+    >
+      <header class="section-header">
+        <p class="section-number">Section 3</p>
+
+        <h2 id="section-international-title">
+          International recovery varied across markets and stays
+        </h2>
+
+        <p class="section-introduction">
+          <strong>International recovery varied</strong> across visitor markets, states and accommodation types.
+        </p>
+      </header>
+
+      <div class="chart-grid">
+
+        <article class="chart-card chart-card--full flow-card">
+          <div id="international-origin-flow" class="chart"></div>
+
+          <div
+            class="chart-note chart-story story-columns"
+            aria-label="International visitor market findings"
+          >
+            <div class="story-column">
+              <p>
+                <span class="story-line">
+                  Across these eight markets, trips rose <strong class="flow-growth">8.3%</strong> to
+                </span>
+                <span class="story-line">
+                  <strong>5.36 million</strong>, with <strong class="flow-growth">seven markets</strong> recording growth.
+                </span>
+              </p>
+            </div>
+
+            <div class="story-column">
+              <p>
+                <span class="story-line">
+                  <strong class="flow-growth">Singapore</strong> grew <strong class="flow-growth">7.9%</strong>, while <strong class="flow-decline">India</strong> declined <strong class="flow-decline">3.5%</strong>, suggesting
+                </span>
+                <span class="story-line">
+                  uneven potential accommodation demand across nearby visitor markets.
+                </span>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="chart-card chart-card--half">
+          <div id="international-state-map" class="chart"></div>
+
+          <div class="chart-note chart-story story-single">
+            <h3>Growth and volume told different stories</h3>
+
+            <p>
+              <span class="story-line">
+                <strong class="international-growth">Queensland</strong> grew <strong class="international-growth">19.4%</strong>, reaching 62.2 million visitor nights.
+              </span>
+              <span class="story-line">
+                <strong class="international-growth">New South Wales</strong> led with <strong>106.6 million</strong> nights, up <strong class="international-growth">4.7%</strong>.
+              </span>
+              <span class="story-line">
+                The <strong class="international-decline">Australian Capital Territory</strong> fell <strong class="international-decline">17.3%</strong>, the largest
+              </span>
+              <span class="story-line">
+                decline among the eight states and territories.
+              </span>
+            </p>
+          </div>
+        </article>
+
+        <article class="chart-card chart-card--half">
+          <div id="international-accommodation-change" class="chart"></div>
+
+          <div class="chart-note chart-story story-single">
+            <h3>Rented homes outpaced hotel growth</h3>
+
+            <p>
+              <span class="story-line">
+                Rented homes gained <strong>18.3 million</strong> nights, reaching <strong class="international-current">144.0 million</strong>,
+              </span>
+              <span class="story-line">
+                while hotels rose <strong>7.7%</strong> to <strong class="international-current">34.4 million</strong> nights.
+              </span>
+              <span class="story-line">
+                Stays with friends or relatives fell <strong>8.6 million</strong> nights,
+              </span>
+              <span class="story-line">
+                showing that recovery varied by the type of stay.
+              </span>
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section
+      id="section-industry"
+      class="story-section"
+      aria-labelledby="section-industry-title"
+    >
+      <header class="section-header">
+        <p class="section-number">Section 4</p>
+
+        <h2 id="section-industry-title">
+          Rental supply, prices and seasonal hotel occupancy
+        </h2>
+
+        <p class="section-introduction">
+          Compare <strong>rental supply</strong>, <strong>advertised prices</strong> and <strong>seasonal hotel occupancy</strong>.
+        </p>
+      </header>
+
+      <div class="chart-grid">
+
+        <article class="chart-card chart-card--half rental-map-card">
+          <div id="short-term-rental-map" class="chart"></div>
+
+          <div class="chart-note chart-story story-single">
+            <h3>Melbourne had more recorded listings</h3>
+
+            <p>
+              <span class="story-line">
+                <strong class="city-melbourne">Melbourne</strong> recorded <strong class="city-melbourne">25,728</strong> listings and <strong class="city-sydney">Sydney</strong> recorded <strong class="city-sydney">20,573</strong>.
+              </span>
+              <span class="story-line">
+                Melbourne’s largest area held <strong class="city-melbourne">32.6%</strong>, versus Sydney’s <strong class="city-sydney">24.4%</strong>.
+              </span>
+              <span class="story-line">
+                More generilised listings are apparent in city centres.
+              </span>
+              <span class="story-line">
+                Listings show supply, rather than bookings or occupancy.
+              </span>
+            </p>
+          </div>
+        </article>
+
+        <article class="chart-card chart-card--half">
+          <div id="short-term-rental-price-density" class="chart"></div>
+
+          <div class="chart-note chart-story story-single">
+            <h3>Room type mattered more than city</h3>
+
+            <p>
+              <span class="story-line">
+                Medians and samples cover positive advertised prices up to <strong>$1,000</strong>.
+              </span>
+              <span class="story-line">
+                <strong class="city-sydney">Sydney’s</strong> entire home median was <strong class="city-sydney">$326</strong>, compared with <strong class="city-melbourne">Melbourne’s $276</strong>.
+              </span>
+              <span class="story-line">
+                <strong class="city-sydney">Sydney’s</strong> private room median was <strong class="city-sydney">$112</strong>, compared with <strong class="city-melbourne">Melbourne’s $108</strong>.
+              </span>
+              <span class="story-line">
+                Hotel room samples contained <strong class="city-sydney">51 Sydney</strong> and <strong class="city-melbourne">39 Melbourne</strong> listings.
+              </span>
+              <span class="story-line">
+                These small samples may not reflect wider hotel prices.
+              </span>
+            </p>
+          </div>
+        </article>
+
+        <article
+          id="occupancy-card"
+          class="chart-card chart-card--full occupancy-card"
+        >
+          <div id="accommodation-occupancy-radial" class="chart"></div>
+
+          <div class="occupancy-guide">
+            <div class="occupancy-scale">
+              <p id="occupancy-scale-title">Occupancy rate (%)</p>
+              <div
+                class="occupancy-scale-bar"
+                role="img"
+                aria-label="Occupancy rate from 0 to 100 percent. Darker colours mean higher occupancy."
+              ></div>
+              <div class="occupancy-scale-ticks" aria-hidden="true">
+                <span>0</span>
+                <span>20</span>
+                <span>40</span>
+                <span>60</span>
+                <span>80</span>
+                <span>100</span>
+              </div>
+            </div>
+
+            <div class="occupancy-ring-key">
+              <p id="occupancy-ring-order-title">
+                Ring order from inner to outer
+              </p>
+              <ol
+                class="occupancy-ring-order"
+                aria-labelledby="occupancy-ring-order-title"
+              >
+                <li>Australian Capital Territory</li>
+                <li>Northern Territory</li>
+                <li>Tasmania</li>
+                <li>South Australia</li>
+                <li>Western Australia</li>
+                <li>Queensland</li>
+                <li>Victoria</li>
+                <li>New South Wales</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="chart-note chart-story story-columns">
+            <div class="story-column">
+              <h3>Occupancy recovered, but remained below baseline</h3>
+
+              <p>
+                <span class="story-line">
+                  <strong class="occupancy-highlight">National occupancy</strong> rose from <strong class="occupancy-highlight">49.6%</strong> in 2020-2021
+                </span>
+                <span class="story-line">
+                  to <strong class="occupancy-highlight">72.0%</strong> in 2024-2025, recovering <strong>22.4 percentage points</strong>.
+                </span>
+                <span class="story-line">
+                  However, it remained below 2018-2019’s <strong class="occupancy-highlight">73.8%</strong>,
+                </span>
+                <span class="story-line">
+                  showing recovery in room occupancy was still incomplete.
+                </span>
+              </p>
+            </div>
+
+            <div class="story-column">
+              <h3>Seasonal peaks differed between states</h3>
+
+              <p>
+                <span class="story-line">
+                  In 2024-2025, <strong class="occupancy-highlight">Tasmania</strong> peaked in February at <strong class="occupancy-highlight">87.0%</strong>,
+                </span>
+                <span class="story-line">
+                  while the <strong class="occupancy-highlight">Northern Territory</strong> peaked in July at <strong class="occupancy-highlight">76.8%</strong>.
+                </span>
+                <span class="story-line">
+                  The contrasting peaks show that one national seasonal
+                </span>
+                <span class="story-line">
+                  pattern cannot describe every state and territory.
+                </span>
+              </p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section
+      id="section-conclusion"
+      class="story-section conclusion-section"
+      aria-labelledby="section-conclusion-title"
+    >
+      <header class="section-header">
+        <p class="section-number">Final findings</p>
+
+        <h2 id="section-conclusion-title">Conclusion</h2>
+
+        <p class="section-introduction">
+          Accommodation <strong>recovered unevenly</strong> across types, places and seasons.
+        </p>
+      </header>
+
+      <div class="chart-grid">
+
+        <article class="chart-card chart-card--half conclusion-card">
+          <div class="chart-story conclusion-copy">
+            <h3>Recovery progressed at different speeds</h3>
+
+            <div class="finding-block">
+              <h4>Hotels led the domestic rebound</h4>
+
+              <p>
+                <span class="story-line">
+                  In 2024, <strong class="category-hotel">hotel nights</strong> stood <strong class="category-hotel">12.4% above 2019</strong>.
+                </span>
+                <span class="story-line">
+                  All domestic visitor nights remained <strong>4.9% below 2019</strong>.
+                </span>
+              </p>
+            </div>
+
+            <div class="finding-block">
+              <h4>Demand varied by location and accommodation</h4>
+
+              <p>
+                <span class="story-line">
+                  Three states supplied <strong class="demand-highlight">78.0%</strong> of domestic nights
+                </span>
+                <span class="story-line">
+                  in the quarter ending June 2026.
+                </span>
+                <span class="story-line">
+                  International rented homes gained <strong>18.3 million</strong> nights between years
+                </span>
+                <span class="story-line">
+                  ending June 2025 and June 2026.
+                </span>
+              </p>
+            </div>
+
+            <div class="finding-block">
+              <h4>Occupancy remained below its earlier baseline</h4>
+
+              <p>
+                <span class="story-line">
+                  National occupancy reached <strong class="occupancy-highlight">72.0% in 2024-2025</strong>.
+                </span>
+                <span class="story-line">
+                  Its 2018-2019 baseline was <strong class="occupancy-highlight">73.8%</strong>. Seasonal peaks differed.
+                </span>
+              </p>
+            </div>
+
+            <div class="finding-block">
+              <h4>Rental supply and prices differed</h4>
+
+              <p>
+                <span class="story-line">
+                  Melbourne recorded <strong class="city-melbourne">25,728 listings</strong>, compared with <strong class="city-sydney">Sydney’s 20,573</strong>.
+                </span>
+                <span class="story-line">
+                  For positive advertised prices up to <strong>$1,000</strong>,
+                </span>
+                <span class="story-line">
+                  <strong class="city-sydney">Sydney’s median entire home price</strong> exceeded <strong class="city-melbourne">Melbourne’s</strong> in this dataset.
+                </span>
+                <span class="story-line">
+                  These advertised listings do not measure bookings or occupancy.
+                </span>
+              </p>
+            </div>
+
+            <div class="finding-block">
+              <h4>Overall</h4>
+
+              <p>
+                <span class="story-line">
+                  <strong class="category-hotel">Domestic hotels rebounded</strong>, while wider accommodation recovery
+                </span>
+                <span class="story-line">
+                  <strong>remained uneven</strong> across types, destinations and seasons.
+                </span>
+              </p>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="chart-card chart-card--half conclusion-card sources-card">
+          <div class="chart-story conclusion-copy">
+            <h3>References</h3>
+
+            <ul class="reference-list" aria-label="Dataset source references">
+              <li>
+                Australian Bureau of Statistics. (2021). <em>Digital boundary files</em>.
+                <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files" target="_blank" rel="noopener noreferrer">https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files</a>
+              </li>
+              <li>
+                Inside Airbnb. (2026). <em>Get the data</em>.
+                <a href="https://insideairbnb.com/get-the-data/" target="_blank" rel="noopener noreferrer">https://insideairbnb.com/get-the-data/</a>
+              </li>
+              <li>
+                STR. (n.d.). <em>Austrade + STR Benchmark</em>. CoStar.
+                <a href="https://www.costar.com/products/str-benchmark/australian-accommodation-monitor" target="_blank" rel="noopener noreferrer">https://www.costar.com/products/str-benchmark/australian-accommodation-monitor</a>
+              </li>
+              <li>
+                Tourism Research Australia. (n.d.-a). <em>Domestic tourism statistics results</em>.
+                <a href="https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results" target="_blank" rel="noopener noreferrer">https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results</a>
+              </li>
+              <li>
+                Tourism Research Australia. (n.d.-b). <em>International tourism results</em>.
+                <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results" target="_blank" rel="noopener noreferrer">https://www.tra.gov.au/en/tourism-statistics/international-tourism-results</a>
+              </li>
+              <li>
+                Tourism Research Australia. (n.d.-c). <em>National Visitor Survey trends</em>.
+                <a href="https://www.tra.gov.au/en/tourism-statistics/national-visitor-survey-trends" target="_blank" rel="noopener noreferrer">https://www.tra.gov.au/en/tourism-statistics/national-visitor-survey-trends</a>
+              </li>
+              <li>
+                Vega. (n.d.). <em>world-110m.json</em> [Data set]. GitHub.
+                <a href="https://github.com/vega/vega-datasets/blob/main/data/world-110m.json" target="_blank" rel="noopener noreferrer">https://github.com/vega/vega-datasets/blob/main/data/world-110m.json</a>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+      <footer class="project-footer">
+        <div class="project-footer-meta">
+          <p>
+            <strong>Visualisation author:</strong> Samuel Jaden Zuzartee
+          </p>
+          <p>
+            <strong>Date published:</strong>
+            <time datetime="2026-10-27">27/10/2026</time>
+          </p>
+        </div>
+
+        <a
+          class="repository-link"
+          href="https://github.com/Sa-mue1/australian-accommodation-visualisation"
+          target="_blank"
+          rel="noopener noreferrer"
+        >View the repository</a>
+      </footer>
+    </section>
+
+  </main>
+</body>
+</html>
