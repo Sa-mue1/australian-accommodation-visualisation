@@ -170,7 +170,7 @@ function applyChartTheme(id, specification) {
 
   if (id === "short-term-rental-map") {
     themed.title.subtitle =
-      "Circle size shows listings, copper color shows median advertised prices.";
+      "Circle size shows listings, copper colour shows median advertised prices.";
 
     for (const panel of themed.hconcat) {
       const circles = panel.layer.find(layer =>
@@ -269,7 +269,7 @@ function applyChartTheme(id, specification) {
 
   if (id === "short-term-rental-price-density") {
     themed.title.subtitle =
-      "Up to $1,000 in listings, vertical dashes mark medians, dots mark peaks.";
+      "Prices up to $1,000, dashes mark medians, dots mark peaks.";
 
     const lines = themed.spec.layer.find(
       layer => layer.mark?.type === "line"
@@ -723,7 +723,7 @@ function enableRentalMaps(view, container) {
 
   help.className = "rental-map-help";
   help.textContent =
-    "Drag either map to move. Scroll or use buttons to zoom.";
+    "Drag either map. Scroll or use buttons to zoom.";
 
   container.appendChild(help);
 
